@@ -54,9 +54,9 @@
         Enter a prospect's details and our AI scores them 0-100 in seconds - so your sales team only calls the best fits.
       </p>
       <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">checkmark</span> Saves 15+ hours/week for SDR teams</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">checkmark</span> Plugs into HubSpot or Salesforce</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">checkmark</span> Live scoring in under 3 seconds</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Saves 15+ hours/week for SDR teams</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Plugs into HubSpot or Salesforce</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Live scoring in under 3 seconds</span>
       </div>
     </div>
   </section>
@@ -269,12 +269,12 @@
 
       var strEl = document.getElementById('demo-strengths');
       strEl.innerHTML = strengths.length
-        ? strengths.map(function(s) { return '<li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">checkmark</span>' + s + '</li>'; }).join('')
+        ? strengths.map(function(s) { return '<li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">&#10003;</span>' + s + '</li>'; }).join('')
         : '<li class="text-gray-400">None identified</li>';
 
       var wkEl = document.getElementById('demo-weaknesses');
       wkEl.innerHTML = weaknesses.length
-        ? weaknesses.map(function(w) { return '<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">x</span>' + w + '</li>'; }).join('')
+        ? weaknesses.map(function(w) { return '<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#10007;</span>' + w + '</li>'; }).join('')
         : '<li class="text-gray-400">None identified</li>';
 
       var result = document.getElementById('demo-result');
