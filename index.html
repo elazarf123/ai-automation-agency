@@ -37,12 +37,34 @@
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
         <a href="#services" class="hover:text-brand-600 transition">Services</a>
         <a href="#demos"    class="hover:text-brand-600 transition">Demos</a>
+        <a href="#pricing"  class="hover:text-brand-600 transition">Pricing</a>
         <a href="#roi"      class="hover:text-brand-600 transition">ROI</a>
         <a href="#contact"  class="hover:text-brand-600 transition">Contact</a>
       </nav>
       <a href="#contact"
          class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold
                 px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
+      <a href="#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
+      <a href="#demos"    class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Demos</a>
+      <a href="#pricing"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="#roi"      class="hover:text-brand-600 transition" onclick="closeMobileMenu()">ROI</a>
+      <a href="#contact"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="#contact"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold
+                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
         Book a Free Audit →
       </a>
     </div>
@@ -176,7 +198,7 @@
           </code>
           <a href="demos/lead-qualifier/index.html"
              class="mt-4 inline-block bg-brand-600 text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-brand-700 transition">
-            Live Demo
+            View Docs
           </a>
         </div>
 
@@ -194,7 +216,7 @@
           </code>
           <a href="demos/invoice-processor/index.html"
              class="mt-4 inline-block bg-brand-600 text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-brand-700 transition">
-            Live Demo
+            View Docs
           </a>
         </div>
 
@@ -212,7 +234,7 @@
           </code>
           <a href="demos/support-bot/index.html"
              class="mt-4 inline-block bg-brand-600 text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-brand-700 transition">
-            Live Demo
+            View Docs
           </a>
         </div>
 
@@ -260,6 +282,78 @@
     </div>
   </section>
 
+  <!-- ── PRICING ───────────────────────────────────────────────────── -->
+  <section id="pricing" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold text-gray-900">Simple, Transparent Pricing</h2>
+        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
+          No hidden fees. Cancel any time. All plans include white-glove onboarding.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Starter -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900 mb-1">Starter</h3>
+          <p class="text-4xl font-extrabold text-gray-900 mt-3">$1,200<span class="text-lg font-medium text-gray-400">/mo</span></p>
+          <p class="text-gray-500 text-sm mt-2 mb-6">Best for small teams getting started with automation.</p>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 AI agent (choose any service)</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Up to 500 leads / invoices / tickets per month</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> HubSpot or QuickBooks integration</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Email support</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Monthly performance report</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-brand-50 text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-100 transition">
+            Get Started →
+          </a>
+        </div>
+
+        <!-- Growth (highlighted) -->
+        <div class="bg-brand-600 border border-brand-700 rounded-2xl p-8 shadow-xl flex flex-col relative">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-yellow-900 text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
+          <h3 class="text-lg font-bold text-white mb-1">Growth</h3>
+          <p class="text-4xl font-extrabold text-white mt-3">$2,500<span class="text-lg font-medium text-brand-200">/mo</span></p>
+          <p class="text-brand-100 text-sm mt-2 mb-6">For growing teams that need multiple automations.</p>
+          <ul class="space-y-3 text-sm text-brand-50 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> All 3 AI agents included</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Unlimited volume</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Full CRM + accounting integrations</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Priority Slack support</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Weekly performance calls</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Custom agent fine-tuning</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-white text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-50 transition shadow">
+            Get Started →
+          </a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900 mb-1">Enterprise</h3>
+          <p class="text-4xl font-extrabold text-gray-900 mt-3">Custom</p>
+          <p class="text-gray-500 text-sm mt-2 mb-6">Tailored for large orgs with complex requirements.</p>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Unlimited custom AI agents</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Dedicated engineering team</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> On-premise or private cloud deployment</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> SOC 2 Type II &amp; GDPR compliance docs</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 24/7 dedicated support</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> SLA guarantees</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-brand-50 text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-100 transition">
+            Contact Sales →
+          </a>
+        </div>
+
+      </div>
+
+      <p class="text-center text-gray-400 text-sm mt-10">All plans start with a free 30-minute audit. No credit card required.</p>
+    </div>
+  </section>
+
   <!-- ── HOW IT WORKS ────────────────────────────────────────────── -->
   <section class="py-24 px-6 bg-gray-50">
     <div class="max-w-4xl mx-auto text-center">
@@ -297,15 +391,17 @@
         Book a free 30-minute operations audit. We'll show you exactly which workflows can be automated 
         and what your projected ROI looks like — no obligation.
       </p>
-      <form class="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto" onsubmit="handleSubmit(event)">
+      <form class="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto" id="contact-form">
         <input
           type="email"
+          name="email"
           placeholder="your@company.com"
           required
           class="flex-1 px-5 py-3.5 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white text-sm"
         />
         <button
           type="submit"
+          id="submit-btn"
           class="bg-white text-brand-700 font-bold px-7 py-3.5 rounded-full hover:bg-brand-50 transition shadow-lg whitespace-nowrap"
         >
           Book a Free Audit →
@@ -313,6 +409,9 @@
       </form>
       <p id="form-msg" class="mt-4 text-brand-100 text-sm hidden">
         ✅ Thanks! We'll reach out within 24 hours.
+      </p>
+      <p id="form-error" class="mt-4 text-red-200 text-sm hidden">
+        ⚠️ Something went wrong. Please email us directly at <a href="mailto:hello@automateiq.io" class="underline">hello@automateiq.io</a>.
       </p>
       <p class="mt-6 text-brand-200 text-xs">No spam. No commitment. 100% free.</p>
     </div>
@@ -322,22 +421,87 @@
   <footer class="bg-gray-900 text-gray-400 py-10 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
       <p class="font-bold text-white text-lg">AutomateIQ</p>
-      <p>© 2025 AutomateIQ. All rights reserved.</p>
-      <div class="flex gap-6">
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-6">
         <a href="#services" class="hover:text-white transition">Services</a>
         <a href="#demos"    class="hover:text-white transition">Demos</a>
+        <a href="#pricing"  class="hover:text-white transition">Pricing</a>
         <a href="#roi"      class="hover:text-white transition">ROI</a>
         <a href="#contact"  class="hover:text-white transition">Contact</a>
+        <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
       </div>
     </div>
   </footer>
 
   <script>
-    function handleSubmit(e) {
+    // ── Contact form → Formspree ──────────────────────────────────────
+    // Replace YOUR_FORM_ID below with your Formspree form ID after
+    // creating a free account at https://formspree.io
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      document.getElementById('form-msg').classList.remove('hidden');
-      e.target.reset();
+      const btn = document.getElementById('submit-btn');
+      const msgEl = document.getElementById('form-msg');
+      const errEl = document.getElementById('form-error');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      msgEl.classList.add('hidden');
+      errEl.classList.add('hidden');
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: e.target.email.value }),
+        });
+        if (res.ok) {
+          msgEl.classList.remove('hidden');
+          e.target.reset();
+        } else {
+          errEl.classList.remove('hidden');
+        }
+      } catch (_) {
+        errEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Book a Free Audit →';
+      }
+    });
+
+    // ── Mobile navigation ─────────────────────────────────────────────
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    // Each bar is h-0.5 (2px) with gap-1.5 (6px); centre-to-centre distance = 8px
+    const BAR_OFFSET = '8px';
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', function() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      // Animate bars into X
+      bar1.style.transform = menuOpen ? `translateY(${BAR_OFFSET}) rotate(45deg)` : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? `translateY(-${BAR_OFFSET}) rotate(-45deg)` : '';
+      menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+      menuBtn.setAttribute('aria-label', 'Open menu');
     }
+
+    // ── Auto-update footer year ───────────────────────────────────────
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
   </script>
 
 </body>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — AutomateIQ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <a href="index.html"
+         class="inline-flex items-center gap-2 border border-brand-600 text-brand-600 text-sm font-semibold
+                px-5 py-2 rounded-full hover:bg-brand-600 hover:text-white transition">
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- ── CONTENT ────────────────────────────────────────────────── -->
+  <main class="pt-28 pb-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Terms of Service</h1>
+      <p class="text-gray-400 text-sm mb-10">Last updated: <span id="last-updated"></span></p>
+
+      <div class="prose prose-gray max-w-none space-y-8 text-gray-700 leading-relaxed">
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">1. Acceptance of Terms</h2>
+          <p>By accessing or using any AutomateIQ services, you agree to be bound by these Terms of Service. If you do not agree to these terms, you may not use our services.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">2. Services</h2>
+          <p>AutomateIQ provides AI automation solutions including, but not limited to, lead qualification agents, invoice processing automation, and AI-powered customer support chatbots. The specific scope, deliverables, and timelines for each engagement are defined in a separate Statement of Work (SOW) agreed upon before work commences.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">3. Payment Terms</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Monthly subscription fees are billed in advance on the first of each month.</li>
+            <li>One-time build fees (where applicable) are invoiced 50% upfront and 50% on delivery.</li>
+            <li>Invoices are due within 14 days of issue. Late payments may incur a 1.5% monthly interest charge.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">4. Intellectual Property</h2>
+          <p>Upon full payment, clients receive full ownership of all custom-built automations and integrations developed for their account. AutomateIQ retains ownership of its underlying frameworks, libraries, and proprietary tooling.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">5. Confidentiality</h2>
+          <p>Both parties agree to keep confidential any proprietary business information disclosed during the engagement. This obligation survives termination of the agreement for a period of 3 years.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">6. Limitation of Liability</h2>
+          <p>AutomateIQ's total liability for any claim arising out of or relating to these terms shall not exceed the fees paid in the 3 months preceding the claim. We are not liable for indirect, incidental, or consequential damages.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">7. Cancellation</h2>
+          <p>Either party may terminate a monthly subscription with 30 days written notice. Project engagements may be cancelled subject to the terms in the applicable SOW.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">8. Governing Law</h2>
+          <p>These terms are governed by the laws of the State of Delaware, USA. Any disputes shall be resolved by binding arbitration in accordance with the rules of the American Arbitration Association.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">9. Contact</h2>
+          <p>For questions about these terms, contact us at <a href="mailto:legal@automateiq.io" class="text-brand-600 hover:underline">legal@automateiq.io</a>.</p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html" class="text-brand-300 hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    document.getElementById('last-updated').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  </script>
+</body>
+</html>
