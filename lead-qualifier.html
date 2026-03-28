@@ -24,7 +24,13 @@
       }
     }
   </script>
-  <style>html { scroll-behavior: smooth; }</style>
+  <style>
+    html { scroll-behavior: smooth; }
+    @keyframes bounce-dot { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
+    .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:#9ca3af; animation:bounce-dot 1.2s infinite; }
+    .dot:nth-child(2){animation-delay:.2s}
+    .dot:nth-child(3){animation-delay:.4s}
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
 
@@ -65,7 +71,8 @@
   <section class="py-12 px-6">
     <div class="max-w-2xl mx-auto">
       <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8">
-        <h2 class="text-xl font-bold text-gray-900 mb-6">Score a Lead</h2>
+        <h2 class="text-xl font-bold text-gray-900 mb-2">Score a Lead</h2>
+        <p class="text-xs text-gray-400 mb-5">Fill in any prospect's details, or <button type="button" onclick="prefillSample()" class="text-brand-600 font-semibold underline hover:text-brand-700 transition">try a sample lead →</button></p>
         <div class="space-y-5">
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
@@ -157,8 +164,9 @@
           </div>
           <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
              class="mt-5 w-full inline-block text-center bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full hover:bg-brand-700 transition shadow text-sm">
-            Book a Free Audit Now
+            📅 Book a Free Audit — We Build This in 2 Weeks
           </a>
+          <p class="mt-2 text-xs text-gray-400 text-center">No credit card. No commitment. 30-day satisfaction guarantee.</p>
         </div>
       </div>
       <p class="mt-4 text-xs text-gray-400 text-center">Simulated demo. Production system uses Claude AI for nuanced, context-aware scoring.</p>
@@ -205,6 +213,15 @@
   </section>
 
   <script>
+    function prefillSample() {
+      document.getElementById('d-company').value = 'Cloudify Inc.';
+      document.getElementById('d-industry').value = 'saas';
+      document.getElementById('d-size').value = '51-200';
+      document.getElementById('d-budget').value = 'high';
+      document.getElementById('d-pain').value = 'We spend hours manually reviewing hundreds of inbound leads every week. The backlog is tedious and our SDR team keeps missing follow-ups because the process is so slow and repetitive.';
+      runLeadScorer();
+    }
+
     function runLeadScorer() {
       var industry = document.getElementById('d-industry').value;
       var size     = document.getElementById('d-size').value;
