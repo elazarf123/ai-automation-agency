@@ -102,6 +102,10 @@
             class="mt-5 w-full bg-blue-600 text-white font-bold px-6 py-3 rounded-full hover:bg-blue-700 transition shadow text-sm">
             &#9889; Process Invoice
           </button>
+          <button id="inv-reset-btn" onclick="resetInvoiceDemo()"
+            class="hidden mt-3 w-full border border-gray-300 text-gray-600 font-semibold px-6 py-3 rounded-full hover:border-brand-500 hover:text-brand-600 transition text-sm">
+            ↺ Process Another Invoice
+          </button>
         </div>
 
         <!-- Right: Extracted output -->
@@ -216,6 +220,29 @@
   </section>
 
   <script>
+    function resetInvoiceDemo() {
+      var btn = document.getElementById('inv-btn');
+      var resetBtn = document.getElementById('inv-reset-btn');
+      var progressWrap = document.getElementById('progress-wrap');
+      var progressBar = document.getElementById('progress-bar');
+      var progressLabel = document.getElementById('progress-label');
+      var progressPct = document.getElementById('progress-pct');
+      var badge = document.getElementById('inv-status-badge');
+      btn.disabled = false;
+      btn.textContent = '⚡ Process Invoice';
+      btn.style.background = '';
+      btn.classList.remove('opacity-60');
+      progressWrap.classList.add('hidden');
+      progressBar.style.width = '0%';
+      progressLabel.textContent = 'Uploading PDF...';
+      progressPct.textContent = '0%';
+      badge.textContent = 'Unprocessed';
+      badge.className = 'text-xs bg-red-100 text-red-600 font-semibold px-2 py-0.5 rounded-full';
+      document.getElementById('inv-result').classList.add('hidden');
+      document.getElementById('inv-placeholder').classList.remove('hidden');
+      resetBtn.classList.add('hidden');
+    }
+
     function runInvoiceDemo() {
       var btn = document.getElementById('inv-btn');
       var progressWrap = document.getElementById('progress-wrap');
@@ -244,11 +271,12 @@
             var res = document.getElementById('inv-result');
             res.classList.remove('hidden');
             res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            btn.textContent = 'Invoice Processed';
+            btn.textContent = 'Invoice Processed ✓';
             btn.classList.remove('opacity-60');
             btn.style.background = '#16a34a';
             badge.textContent = 'Processed';
             badge.className = 'text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full';
+            document.getElementById('inv-reset-btn').classList.remove('hidden');
           }, 300);
           return;
         }

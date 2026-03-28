@@ -24,7 +24,13 @@
       }
     }
   </script>
-  <style>html { scroll-behavior: smooth; }</style>
+  <style>
+    html { scroll-behavior: smooth; }
+    @keyframes bounce-dot { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
+    .dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#9ca3af; animation:bounce-dot 1.2s infinite; }
+    .dot:nth-child(2){animation-delay:.2s}
+    .dot:nth-child(3){animation-delay:.4s}
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
 
@@ -113,6 +119,18 @@
               class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
               How does the invoice bot work?
             </button>
+            <button onclick="sendChatMessage('Is my data secure?')"
+              class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
+              Is my data secure?
+            </button>
+            <button onclick="sendChatMessage('Can I cancel anytime?')"
+              class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
+              Can I cancel anytime?
+            </button>
+            <button onclick="sendChatMessage('What is the ROI?')"
+              class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
+              What is the ROI?
+            </button>
           </div>
         </div>
 
@@ -175,21 +193,41 @@
 
   <script>
     var chatResponses = {
-      'cost':     'Our plans start at $1,200/month (Starter) and $2,500/month (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here</a>',
-      'price':    'Our plans start at $1,200/month (Starter) and $2,500/month (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here</a>',
-      'setup':    'Most clients go live within 1-2 weeks. We handle the full setup - you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
-      'long':     'Most clients go live within 1-2 weeks. We handle the full setup - you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
-      'integrat': 'We connect with HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion, and more. If your team uses it, we can likely plug in.',
-      'tool':     'We connect with HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion, and more. If your team uses it, we can likely plug in.',
-      'guarante': 'Yes - we offer a 30-day satisfaction guarantee. If the automation is not delivering measurable value, we will rebuild it at no charge or provide a full refund.',
-      'refund':   'Yes - we offer a 30-day satisfaction guarantee. If the automation is not delivering measurable value, we will rebuild it at no charge or provide a full refund.',
-      'invoice':  'Our Invoice Processing Bot extracts every field from any PDF invoice - vendor, line items, totals, due dates - then routes the data straight to QuickBooks or Xero. It processes invoices in under 3 seconds with 95%+ accuracy. <a href="invoice-processor.html" class="text-brand-600 underline font-medium">See the live demo</a>',
-      'lead':     'Our AI Lead Qualifier scores every inbound lead 0-100 based on company size, industry, budget, and pain-point urgency. A-grade leads go straight to your sales team. <a href="lead-qualifier.html" class="text-brand-600 underline font-medium">Try it live</a>',
+      'cost':     'Our plans start at $1,200/month (Starter) and $2,500/month (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here →</a>',
+      'price':    'Our plans start at $1,200/month (Starter) and $2,500/month (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here →</a>',
+      'cheap':    'We offer a Starter plan at $1,200/month, which includes one AI agent and up to 500 runs/month. Most clients see ROI within 30–60 days. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free audit to get a custom quote →</a>',
+      'afford':   'We offer a Starter plan at $1,200/month, which includes one AI agent and up to 500 runs/month. Most clients see ROI within 30–60 days. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free audit to get a custom quote →</a>',
+      'setup':    'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
+      'long':     'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
+      'time':     'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
+      'week':     'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
+      'integrat': 'We connect with HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion, QuickBooks, Xero, and more. If your team uses it, we can likely plug in.',
+      'tool':     'We connect with HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion, QuickBooks, Xero, and more. If your team uses it, we can likely plug in.',
+      'hubspot':  'Yes — we have a native HubSpot integration. Leads, contacts, and deal stages sync automatically. Ask about our lead qualifier demo to see it in action.',
+      'salesforc':'Yes — we integrate with Salesforce via API. Scored leads, activity logs, and contact data all sync in real time.',
+      'guarante': 'Yes — we offer a 30-day satisfaction guarantee. If the automation is not delivering measurable value, we will rebuild it at no charge or provide a full refund.',
+      'refund':   'Yes — we offer a 30-day satisfaction guarantee. If the automation is not delivering measurable value, we will rebuild it at no charge or provide a full refund.',
+      'cancel':   'All plans are month-to-month — no long-term contracts. You can cancel any time. We also offer a 30-day money-back guarantee.',
+      'contract': 'All plans are month-to-month — no long-term contracts. You can cancel any time. We also offer a 30-day money-back guarantee.',
+      'invoice':  'Our Invoice Processing Bot extracts every field from any PDF invoice — vendor, line items, totals, due dates — then routes data straight to QuickBooks or Xero. It processes invoices in under 3 seconds with 95%+ accuracy. <a href="invoice-processor.html" class="text-brand-600 underline font-medium">See the live demo →</a>',
+      'lead':     'Our AI Lead Qualifier scores every inbound lead 0–100 based on company size, industry, budget, and pain-point urgency. A-grade leads go straight to your sales team. <a href="lead-qualifier.html" class="text-brand-600 underline font-medium">Try it live →</a>',
+      'support':  'Our AI Support Agent answers customer questions 24/7 using your own docs and FAQs. It cuts Tier-1 tickets by up to 70% and escalates complex issues to a human agent automatically.',
+      'chat':     'Our AI Support Agent answers customer questions 24/7 using your own docs and FAQs. It cuts Tier-1 tickets by up to 70% and escalates complex issues to a human agent automatically.',
+      'bot':      'Our AI Support Agent answers customer questions 24/7 using your own docs and FAQs. It cuts Tier-1 tickets by up to 70% and escalates complex issues to a human agent automatically.',
+      'secure':   'Yes — all data is encrypted in transit and at rest. We follow SOC 2 practices and never retain your documents beyond processing. Enterprise clients receive GDPR compliance documentation.',
+      'gdpr':     'Yes — all data is encrypted in transit and at rest. We follow SOC 2 practices and never retain your documents beyond processing. Enterprise clients receive GDPR compliance documentation.',
+      'data':     'Yes — all data is encrypted in transit and at rest. We follow SOC 2 practices and never retain your documents beyond processing. Enterprise clients receive GDPR compliance documentation.',
+      'roi':      'Clients typically see 3–6× ROI within 6 months. The lead qualifier alone saves SDR teams 15+ hours/week. The invoice bot eliminates the cost of manual AP processing. Book a free audit and we will calculate your specific ROI estimate.',
       'work':     'We start with a free 30-minute audit to map your workflows. Then we build the automation on Make.com and Claude AI, integrate it with your existing tools, and hand it over with full documentation and a training session.',
       'how':      'We start with a free 30-minute audit to map your workflows. Then we build the automation on Make.com and Claude AI, integrate it with your existing tools, and hand it over with full documentation and a training session.',
-      'elazar':   'You will work directly with Elazar Ferrer - the founder and builder. No account managers, no offshore teams. Elazar maps your workflows, builds the solution, and stays on as your dedicated AI automation partner.',
-      'default':  'Great question! For anything specific to your business, the fastest way to get a real answer is a quick call with Elazar. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free 30-min audit</a>'
+      'elazar':   'You will work directly with Elazar Ferrer — the founder and builder. No account managers, no offshore teams. Elazar maps your workflows, builds the solution, and stays on as your dedicated AI automation partner.',
+      'demo':     'You are already chatting with our live support agent demo! Also check out the <a href="lead-qualifier.html" class="text-brand-600 underline font-medium">Lead Qualifier</a> and <a href="invoice-processor.html" class="text-brand-600 underline font-medium">Invoice Processor</a> demos.',
+      'default':  'Great question! For anything specific to your business, the fastest way to get a real answer is a quick call with Elazar. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free 30-min audit →</a>'
     };
+
+    function escapeHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
 
     function sendChatMessage(text) {
       if (!text || !text.trim()) return;
@@ -197,11 +235,11 @@
       var input = document.getElementById('chat-input');
       input.value = '';
 
-      messages.innerHTML += '<div class="flex gap-3 justify-end"><div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm shadow-sm max-w-sm">' + text + '</div></div>';
+      messages.innerHTML += '<div class="flex gap-3 justify-end"><div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm shadow-sm max-w-sm">' + escapeHtml(text) + '</div></div>';
       messages.scrollTop = messages.scrollHeight;
 
       var typingId = 'typing-' + Date.now();
-      messages.innerHTML += '<div id="' + typingId + '" class="flex gap-3"><div class="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div><div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-400 shadow-sm">Typing...</div></div>';
+      messages.innerHTML += '<div id="' + typingId + '" class="flex gap-3"><div class="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div><div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm flex items-center gap-1"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>';
       messages.scrollTop = messages.scrollHeight;
 
       var lower = text.toLowerCase();
@@ -213,7 +251,7 @@
         }
       }
 
-      var delay = 700 + Math.floor(Math.random() * 400);
+      var delay = 800 + Math.floor(Math.random() * 500);
       setTimeout(function() {
         var el = document.getElementById(typingId);
         if (el) el.remove();
