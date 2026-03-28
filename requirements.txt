@@ -1,0 +1,11 @@
+# AutomateIQ — Python demo dependencies
+# Install all at once: pip install -r requirements.txt
+
+# Anthropic Claude API client (used by all three demo scripts)
+anthropic>=0.25.0
+
+# PDF text extraction (used by invoice_processor.py)
+pdfplumber>=0.10.0
+
+# Optional: PDF generation for sample invoices
+reportlab>=4.0.0
