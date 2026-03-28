@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Bot Demo — AutomateIQ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <a href="/"
+         class="inline-flex items-center gap-2 border border-brand-600 text-brand-600 text-sm font-semibold
+                px-5 py-2 rounded-full hover:bg-brand-600 hover:text-white transition">
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
+  <section class="pt-32 pb-16 px-6 bg-gradient-to-br from-brand-50 via-white to-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">💬</div>
+      <span class="inline-block mb-4 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
+        Demo — Python Script
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        AI Support Bot
+      </h1>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+        A terminal-based customer support chatbot that answers questions from your own Markdown knowledge base — no vector database or external services required.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── WHAT IT DOES ────────────────────────────────────────────── -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">What the Script Does</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">support_bot.py</code>
+        loads a folder of Markdown or text files as its knowledge base, then enters an interactive
+        chat loop. Each time a user asks a question, the bot finds the most relevant documents using
+        a built-in TF-IDF retrieval engine and either generates an AI response via Claude
+        (when an API key is set) or returns a canned offline answer — no external vector database needed.
+      </p>
+
+      <h3 class="text-lg font-semibold text-gray-800 mb-3">How It Works — Step by Step</h3>
+      <ol class="space-y-4 mb-8">
+        <li class="flex gap-3 text-gray-600">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+          <div><strong class="text-gray-800">Load knowledge base</strong> — reads all <code class="bg-gray-100 px-1 rounded text-xs font-mono">.md</code> and <code class="bg-gray-100 px-1 rounded text-xs font-mono">.txt</code> files from the <code class="bg-gray-100 px-1 rounded text-xs font-mono">knowledge_base/</code> directory (or a custom path).</div>
+        </li>
+        <li class="flex gap-3 text-gray-600">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+          <div><strong class="text-gray-800">Build TF-IDF index</strong> — calculates term frequency–inverse document frequency scores across all documents so it can rank relevance quickly without any external libraries.</div>
+        </li>
+        <li class="flex gap-3 text-gray-600">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+          <div><strong class="text-gray-800">Retrieve context</strong> — for each user question, retrieves the top-3 most relevant document sections.</div>
+        </li>
+        <li class="flex gap-3 text-gray-600">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+          <div><strong class="text-gray-800">Generate answer</strong> — passes the retrieved context and full conversation history to Claude, which produces a concise, grounded response. Falls back to keyword-matched canned responses in offline demo mode.</div>
+        </li>
+        <li class="flex gap-3 text-gray-600">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+          <div><strong class="text-gray-800">Loop</strong> — keeps the conversation going, maintaining history across turns (up to the last 10 exchanges).</div>
+        </li>
+      </ol>
+
+      <h3 class="text-lg font-semibold text-gray-800 mb-3">Key Features</h3>
+      <ul class="space-y-2 mb-8 text-gray-600">
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> <span>Zero external dependencies for retrieval — pure Python TF-IDF</span></li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> <span>Works offline in demo mode with no API key required</span></li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> <span>Bring your own knowledge base — just drop Markdown files in a folder</span></li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> <span>Maintains multi-turn conversation history</span></li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> <span>Supports non-interactive mode for piping questions from stdin</span></li>
+        <li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span> <span>Ships with a default AutomateIQ knowledge base (services, pricing, FAQ, contact)</span></li>
+      </ul>
+
+      <!-- Usage -->
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Run It</h2>
+      <ol class="space-y-4 mb-6 text-gray-600">
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+          <div>
+            <p class="font-medium text-gray-800">Demo mode — no API key needed</p>
+            <code class="block mt-1 bg-gray-900 text-green-400 text-xs rounded-lg px-4 py-3 font-mono">python support_bot.py</code>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+          <div>
+            <p class="font-medium text-gray-800">Live AI mode with Claude</p>
+            <code class="block mt-1 bg-gray-900 text-green-400 text-xs rounded-lg px-4 py-3 font-mono whitespace-pre">export ANTHROPIC_API_KEY="sk-ant-..."
+python support_bot.py</code>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+          <div>
+            <p class="font-medium text-gray-800">Use a custom knowledge base directory</p>
+            <code class="block mt-1 bg-gray-900 text-green-400 text-xs rounded-lg px-4 py-3 font-mono">python support_bot.py --kb ./my_knowledge_base</code>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-7 h-7 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+          <div>
+            <p class="font-medium text-gray-800">Non-interactive mode — pipe a question in</p>
+            <code class="block mt-1 bg-gray-900 text-green-400 text-xs rounded-lg px-4 py-3 font-mono">echo "What is your refund policy?" | python support_bot.py --once</code>
+          </div>
+        </li>
+      </ol>
+      <p class="text-gray-500 text-sm">
+        The <code class="bg-gray-100 px-1 rounded text-xs font-mono">anthropic</code> package is optional — install it only if you want live Claude responses.
+        Run <code class="bg-gray-100 px-1 rounded text-xs font-mono">pip install anthropic</code> to enable AI mode.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── BACK TO HOME CTA ────────────────────────────────────────── -->
+  <section class="py-14 px-6 bg-brand-50 border-t border-brand-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gray-600 mb-5">Want to see the other demos or learn how we can build this for your business?</p>
+      <a href="/"
+         class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg">
+        ← Back to Home
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© 2025 AutomateIQ. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
