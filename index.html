@@ -361,7 +361,7 @@
             <textarea id="d-pain" rows="3" placeholder="e.g. We spend hours manually reviewing inbound leads and processing invoices every week…"
               class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 resize-none"></textarea>
           </div>
-          <button type="submit" id="demo-btn"
+          <button type="button" id="demo-btn" onclick="runLeadScorer()"
             class="w-full bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full hover:bg-brand-700 transition shadow">
             Score This Lead →
           </button>
@@ -740,8 +740,7 @@
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
     // ── Interactive lead qualifier demo ───────────────────────────────
-    document.getElementById('demo-form').addEventListener('submit', function(e) {
-      e.preventDefault();
+    function runLeadScorer() {
       const industry = document.getElementById('d-industry').value;
       const size     = document.getElementById('d-size').value;
       const budget   = document.getElementById('d-budget').value;
@@ -825,7 +824,7 @@
       const result = document.getElementById('demo-result');
       result.classList.remove('hidden');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+    }
   </script>
 
 </body>
