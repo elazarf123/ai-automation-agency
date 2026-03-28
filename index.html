@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutomateIQ — AI Automation Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* smooth scroll */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#services" class="hover:text-brand-600 transition">Services</a>
+        <a href="#demos"    class="hover:text-brand-600 transition">Demos</a>
+        <a href="#roi"      class="hover:text-brand-600 transition">ROI</a>
+        <a href="#contact"  class="hover:text-brand-600 transition">Contact</a>
+      </nav>
+      <a href="#contact"
+         class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold
+                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+    </div>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
+  <section class="pt-32 pb-24 px-6 bg-gradient-to-br from-brand-50 via-white to-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block mb-4 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
+        AI Automation Agency
+      </span>
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+        We automate your business<br class="hidden md:block" />
+        operations with <span class="text-brand-600">AI.</span>
+      </h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10">
+        From qualifying leads to processing invoices and answering customer questions — 
+        we build custom AI agents that save you dozens of hours every week.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact"
+           class="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg">
+          Book a Free Audit
+        </a>
+        <a href="#demos"
+           class="border border-gray-300 text-gray-700 font-semibold px-8 py-4 rounded-full hover:border-brand-500 hover:text-brand-600 transition">
+          See Live Demos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ───────────────────────────────────────────────── -->
+  <div class="bg-gray-50 border-y border-gray-100 py-6 px-6">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-gray-400 text-sm font-medium">
+      <span>🔒 SOC 2 Ready</span>
+      <span>⚡ 10× Faster Workflows</span>
+      <span>💰 3–6 Month ROI</span>
+      <span>🤝 White-Glove Onboarding</span>
+      <span>🌐 Works With Your Stack</span>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ────────────────────────────────────────────────── -->
+  <section id="services" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold text-gray-900">Our Core Services</h2>
+        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
+          Three high-impact AI solutions that deliver measurable results from day one.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Lead Gen -->
+        <div class="group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-brand-300 transition">
+          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">🎯</div>
+          <h3 class="text-xl font-bold mb-3">AI Lead Generation &amp; Qualification</h3>
+          <p class="text-gray-500 mb-4 leading-relaxed">
+            Our AI qualifier scores every inbound lead in seconds — analysing company size, industry, budget signals, 
+            and urgency — so your sales team only calls the hottest prospects.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 80 % reduction in time-to-contact</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Integrates with HubSpot &amp; Salesforce</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Powered by Claude / GPT-4</li>
+          </ul>
+          <a href="#contact" class="text-brand-600 font-semibold text-sm hover:underline">Learn more →</a>
+        </div>
+
+        <!-- Invoice Processing -->
+        <div class="group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-brand-300 transition">
+          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📄</div>
+          <h3 class="text-xl font-bold mb-3">Automated Invoice Processing</h3>
+          <p class="text-gray-500 mb-4 leading-relaxed">
+            Extract, validate, and route invoice data from PDFs automatically. 
+            Eliminate manual data entry and cut accounts-payable processing time from days to minutes.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 95 %+ extraction accuracy</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Exports to QuickBooks &amp; Xero</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Handles multi-page, multi-vendor PDFs</li>
+          </ul>
+          <a href="#contact" class="text-brand-600 font-semibold text-sm hover:underline">Learn more →</a>
+        </div>
+
+        <!-- Support Chatbot -->
+        <div class="group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-brand-300 transition">
+          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">💬</div>
+          <h3 class="text-xl font-bold mb-3">24/7 AI Support Chatbot</h3>
+          <p class="text-gray-500 mb-4 leading-relaxed">
+            Deploy a knowledge-base-powered chatbot that answers customer questions instantly — 
+            reducing support tickets by up to 70 % while improving satisfaction scores.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Trained on your own docs &amp; FAQs</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Embeds in any website in minutes</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Escalates complex issues to humans</li>
+          </ul>
+          <a href="#contact" class="text-brand-600 font-semibold text-sm hover:underline">Learn more →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DEMOS ───────────────────────────────────────────────────── -->
+  <section id="demos" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold text-gray-900">Live Demo Scripts</h2>
+        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
+          Open-source proof-of-concept scripts you can run today.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded">Python</span>
+            <span class="text-gray-400 text-xs">demos/lead-qualifier</span>
+          </div>
+          <h4 class="font-bold text-lg mb-2">Lead Qualifier</h4>
+          <p class="text-gray-500 text-sm mb-4">
+            Feeds lead data to Claude and returns a score (0–100) with a summary of fit and next-step recommendation.
+          </p>
+          <code class="block bg-gray-900 text-green-400 text-xs rounded-lg p-3 font-mono">
+            python lead_qualifier.py
+          </code>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded">Python</span>
+            <span class="text-gray-400 text-xs">demos/invoice-processor</span>
+          </div>
+          <h4 class="font-bold text-lg mb-2">Invoice Processor</h4>
+          <p class="text-gray-500 text-sm mb-4">
+            Extracts vendor, line-items, totals, and due dates from a PDF invoice and outputs structured JSON.
+          </p>
+          <code class="block bg-gray-900 text-green-400 text-xs rounded-lg p-3 font-mono">
+            python invoice_processor.py invoice.pdf
+          </code>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded">Python</span>
+            <span class="text-gray-400 text-xs">demos/support-bot</span>
+          </div>
+          <h4 class="font-bold text-lg mb-2">Support Bot</h4>
+          <p class="text-gray-500 text-sm mb-4">
+            A terminal chatbot that answers questions using a local Markdown knowledge base with semantic search.
+          </p>
+          <code class="block bg-gray-900 text-green-400 text-xs rounded-lg p-3 font-mono">
+            python support_bot.py
+          </code>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROI ────────────────────────────────────────────────────── -->
+  <section id="roi" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold text-gray-900">The ROI Numbers</h2>
+        <p class="mt-3 text-gray-500 text-lg">
+          Real results our clients see within the first 90 days.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center bg-brand-50 rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-600">80%</p>
+          <p class="mt-2 text-sm font-medium text-gray-600">Reduction in lead<br/>qualification time</p>
+        </div>
+        <div class="text-center bg-brand-50 rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-600">95%</p>
+          <p class="mt-2 text-sm font-medium text-gray-600">Invoice data extraction<br/>accuracy</p>
+        </div>
+        <div class="text-center bg-brand-50 rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-600">70%</p>
+          <p class="mt-2 text-sm font-medium text-gray-600">Drop in Tier-1<br/>support tickets</p>
+        </div>
+        <div class="text-center bg-brand-50 rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-600">3–6×</p>
+          <p class="mt-2 text-sm font-medium text-gray-600">ROI within the<br/>first 6 months</p>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <blockquote class="mt-14 max-w-3xl mx-auto text-center">
+        <p class="text-xl italic text-gray-600 leading-relaxed">
+          "AutomateIQ cut our invoice processing time from 3 days to under 2 hours. 
+          The lead qualifier alone saved our SDR team 15 hours a week."
+        </p>
+        <footer class="mt-4 text-sm font-semibold text-gray-800">— Sarah K., COO at NexaLogistics</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ────────────────────────────────────────────── -->
+  <section class="py-24 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-900 mb-14">How We Work</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">1</div>
+          <h4 class="font-semibold mb-1">Free Audit</h4>
+          <p class="text-gray-500 text-sm">We map your workflows and identify automation opportunities.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
+          <h4 class="font-semibold mb-1">Custom Build</h4>
+          <p class="text-gray-500 text-sm">We design and develop your AI agents in 2–4 weeks.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">3</div>
+          <h4 class="font-semibold mb-1">Integrate &amp; Test</h4>
+          <p class="text-gray-500 text-sm">We plug it into your existing tools and run QA together.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">4</div>
+          <h4 class="font-semibold mb-1">Ongoing Support</h4>
+          <p class="text-gray-500 text-sm">We monitor, retrain, and improve as your business grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT / CTA ───────────────────────────────────────────── -->
+  <section id="contact" class="py-24 px-6 bg-brand-600">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-4">Ready to Automate?</h2>
+      <p class="text-brand-100 text-lg mb-10">
+        Book a free 30-minute operations audit. We'll show you exactly which workflows can be automated 
+        and what your projected ROI looks like — no obligation.
+      </p>
+      <form class="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto" onsubmit="handleSubmit(event)">
+        <input
+          type="email"
+          placeholder="your@company.com"
+          required
+          class="flex-1 px-5 py-3.5 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white text-sm"
+        />
+        <button
+          type="submit"
+          class="bg-white text-brand-700 font-bold px-7 py-3.5 rounded-full hover:bg-brand-50 transition shadow-lg whitespace-nowrap"
+        >
+          Book a Free Audit →
+        </button>
+      </form>
+      <p id="form-msg" class="mt-4 text-brand-100 text-sm hidden">
+        ✅ Thanks! We'll reach out within 24 hours.
+      </p>
+      <p class="mt-6 text-brand-200 text-xs">No spam. No commitment. 100% free.</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© 2025 AutomateIQ. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#services" class="hover:text-white transition">Services</a>
+        <a href="#demos"    class="hover:text-white transition">Demos</a>
+        <a href="#roi"      class="hover:text-white transition">ROI</a>
+        <a href="#contact"  class="hover:text-white transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-msg').classList.remove('hidden');
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>

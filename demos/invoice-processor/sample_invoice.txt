@@ -1,0 +1,25 @@
+Vendor: AutomateIQ Solutions LLC
+Address: 123 Innovation Drive, San Francisco, CA 94105
+Email: billing@automateiq.io
+Phone: +1 (415) 555-0192
+
+Invoice Number: INV-2025-0042
+Invoice Date: 2025-03-15
+Due Date: 2025-04-14
+Payment Terms: Net 30
+
+Bill To:
+TechScale Inc.
+456 Market Street, Suite 800
+San Francisco, CA 94105
+
+Line Items:
+1. AI Lead Qualifier Setup | Qty: 1 | Unit Price: $2,500.00 | Total: $2,500.00
+2. Monthly Automation Retainer | Qty: 1 | Unit Price: $1,200.00 | Total: $1,200.00
+3. Custom CRM Integration | Qty: 1 | Unit Price: $800.00 | Total: $800.00
+
+Subtotal: $4,500.00
+Tax (8.5%): $382.50
+Total Amount Due: $4,882.50
+
+Notes: Thank you for your business! Please remit payment via ACH or wire transfer.
