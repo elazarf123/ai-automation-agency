@@ -87,8 +87,6 @@
       <a href="#" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
         <a href="#services"  class="hover:text-brand-600 transition">Services</a>
-        <a href="#demos"     class="hover:text-brand-600 transition">Demos</a>
-        <a href="#try-demo"  class="hover:text-brand-600 transition">Try It</a>
         <a href="#pricing"   class="hover:text-brand-600 transition">Pricing</a>
         <a href="#roi"       class="hover:text-brand-600 transition">ROI</a>
         <a href="#contact"   class="hover:text-brand-600 transition">Contact</a>
@@ -109,8 +107,6 @@
     <!-- Mobile dropdown menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
       <a href="#services"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
-      <a href="#demos"     class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Demos</a>
-      <a href="#try-demo"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Try It</a>
       <a href="#pricing"   class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
       <a href="#roi"       class="hover:text-brand-600 transition" onclick="closeMobileMenu()">ROI</a>
       <a href="#contact"   class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
@@ -142,7 +138,7 @@
            class="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg">
           Book a Free Audit
         </a>
-        <a href="#demos"
+        <a href="#services"
            class="border border-gray-300 text-gray-700 font-semibold px-8 py-4 rounded-full hover:border-brand-500 hover:text-brand-600 transition">
           See Live Demos
         </a>
@@ -161,13 +157,13 @@
     </div>
   </div>
 
-  <!-- ── SERVICES ────────────────────────────────────────────────── -->
+  <!-- ── SERVICES & DEMOS ───────────────────────────────────────── -->
   <section id="services" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <h2 class="text-4xl font-bold text-gray-900">Our Core Services</h2>
+        <h2 class="text-4xl font-bold text-gray-900">Our Services — Try Them Live</h2>
         <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
-          Three high-impact AI solutions that deliver measurable results from day one.
+          Three high-impact AI solutions you can explore right now with interactive demos.
         </p>
       </div>
 
@@ -186,7 +182,7 @@
             <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Integrates with HubSpot &amp; Salesforce</li>
             <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Powered by Claude / GPT-4</li>
           </ul>
-          <a href="#contact" class="text-brand-600 font-semibold text-sm hover:underline">Learn more →</a>
+          <a href="lead-qualifier.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
         </div>
 
         <!-- Invoice Processing -->
@@ -202,7 +198,7 @@
             <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Exports to QuickBooks &amp; Xero</li>
             <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Handles multi-page, multi-vendor PDFs</li>
           </ul>
-          <a href="#contact" class="text-brand-600 font-semibold text-sm hover:underline">Learn more →</a>
+          <a href="invoice-processor.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
         </div>
 
         <!-- Support Chatbot -->
@@ -218,290 +214,44 @@
             <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Embeds in any website in minutes</li>
             <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Escalates complex issues to humans</li>
           </ul>
-          <a href="#contact" class="text-brand-600 font-semibold text-sm hover:underline">Learn more →</a>
+          <a href="support-agent.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ── DEMOS ───────────────────────────────────────────────────── -->
-  <section id="demos" class="py-24 px-6 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="text-4xl font-bold text-gray-900">What We've Built</h2>
-        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
-          Real automations delivering measurable results for businesses like yours.
-        </p>
-      </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-
-        <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm flex flex-col">
-          <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-5">🎯</div>
-          <h4 class="font-bold text-lg mb-2">AI Lead Qualifier</h4>
-          <p class="text-gray-500 text-sm mb-3 leading-relaxed">
-            Automatically scores every inbound lead 0–100 based on company size, industry, budget, and urgency.
-            Your sales team only calls the best prospects.
-          </p>
-          <ul class="text-sm text-gray-600 space-y-1.5 mb-5 flex-1">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Saves 15+ hours/week for SDR teams</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Plugs into HubSpot or Salesforce</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Live scoring in under 3 seconds</li>
-          </ul>
-          <a href="lead-qualifier.html"
-             class="mt-auto inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">
-            Try It Live →
-          </a>
+  <!-- ── HOW IT WORKS ────────────────────────────────────────────── -->
+  <section class="py-24 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-900 mb-14">How We Work</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">1</div>
+          <h4 class="font-semibold mb-1">Free Audit</h4>
+          <p class="text-gray-500 text-sm">We map your workflows and identify automation opportunities.</p>
         </div>
-
-        <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm flex flex-col">
-          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-5">📄</div>
-          <h4 class="font-bold text-lg mb-2">Invoice Processing Bot</h4>
-          <p class="text-gray-500 text-sm mb-3 leading-relaxed">
-            Extracts vendor details, line items, totals, and due dates from any PDF invoice automatically —
-            then routes data straight to QuickBooks or Xero.
-          </p>
-          <ul class="text-sm text-gray-600 space-y-1.5 mb-5 flex-1">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Cuts AP processing from days to minutes</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 95%+ extraction accuracy</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Handles multi-vendor, multi-page PDFs</li>
-          </ul>
-          <a href="invoice-processor.html"
-             class="mt-auto inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">
-            See It In Action →
-          </a>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
+          <h4 class="font-semibold mb-1">Custom Build</h4>
+          <p class="text-gray-500 text-sm">We design and develop your AI agents in 2–4 weeks.</p>
         </div>
-
-        <div class="bg-white rounded-2xl border border-gray-200 p-7 shadow-sm flex flex-col">
-          <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-5">💬</div>
-          <h4 class="font-bold text-lg mb-2">24/7 AI Support Agent</h4>
-          <p class="text-gray-500 text-sm mb-3 leading-relaxed">
-            A knowledge-base chatbot trained on your docs, FAQs, and product info —
-            answering customer questions instantly around the clock without adding headcount.
-          </p>
-          <ul class="text-sm text-gray-600 space-y-1.5 mb-5 flex-1">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Reduces Tier-1 tickets by up to 70%</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Embeds on any website in minutes</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Escalates edge cases to your team</li>
-          </ul>
-          <a href="support-agent.html"
-             class="mt-auto inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">
-            See It In Action →
-          </a>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">3</div>
+          <h4 class="font-semibold mb-1">Integrate &amp; Test</h4>
+          <p class="text-gray-500 text-sm">We plug it into your existing tools and run QA together.</p>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── INTERACTIVE DEMO ───────────────────────────────────────────── -->
-  <section id="try-demo" class="py-24 px-6">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-10">
-        <span class="inline-block mb-3 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
-          Try It Now
-        </span>
-        <h2 class="text-4xl font-bold text-gray-900">Interactive Lead Qualifier</h2>
-        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
-          Enter a prospect's details below and see how our AI scorer evaluates fit in real time.
-        </p>
-      </div>
-
-      <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8">
-        <form id="demo-form" class="space-y-5">
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-company">Company Name</label>
-              <input id="d-company" type="text" placeholder="Acme Corp"
-                class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
-            </div>
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-industry">Industry</label>
-              <select id="d-industry"
-                class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
-                <option value="">Select industry…</option>
-                <option value="saas">SaaS / Software</option>
-                <option value="finance">Finance / Accounting</option>
-                <option value="logistics">Logistics / Supply Chain</option>
-                <option value="ecommerce">E-commerce / Retail</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-size">Company Size</label>
-              <select id="d-size"
-                class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
-                <option value="">Select size…</option>
-                <option value="1-10">1–10 employees</option>
-                <option value="11-50">11–50 employees</option>
-                <option value="51-200">51–200 employees</option>
-                <option value="201-1000">201–1,000 employees</option>
-                <option value="1000+">1,000+ employees</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-budget">Monthly Budget</label>
-              <select id="d-budget"
-                class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
-                <option value="">Select budget…</option>
-                <option value="low">Under $1,000</option>
-                <option value="mid">$1,000 – $3,000</option>
-                <option value="high">$3,000 – $10,000</option>
-                <option value="enterprise">$10,000+</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-pain">Main Pain Point</label>
-            <textarea id="d-pain" rows="3" placeholder="e.g. We spend hours manually reviewing inbound leads and processing invoices every week…"
-              class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 resize-none"></textarea>
-          </div>
-          <button type="button" id="demo-btn" onclick="runLeadScorer()"
-            class="w-full bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full hover:bg-brand-700 transition shadow">
-            Score This Lead →
-          </button>
-        </form>
-
-        <!-- Result card (hidden until scored) -->
-        <div id="demo-result" class="hidden mt-8 border-t border-gray-100 pt-8">
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="text-xl font-bold text-gray-900">Qualification Result</h3>
-            <div id="demo-grade-badge" class="w-12 h-12 rounded-full flex items-center justify-center text-xl font-extrabold"></div>
-          </div>
-          <div class="mb-6">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-sm font-semibold text-gray-600">Fit Score</span>
-              <span id="demo-score-label" class="text-2xl font-extrabold text-brand-600"></span>
-              <span class="text-sm text-gray-400">/ 100</span>
-            </div>
-            <div class="w-full bg-gray-100 rounded-full h-3">
-              <div id="demo-score-bar" class="h-3 rounded-full transition-all duration-700" style="width:0%"></div>
-            </div>
-          </div>
-          <p id="demo-summary" class="text-gray-600 text-sm leading-relaxed mb-5"></p>
-          <div class="grid sm:grid-cols-2 gap-4 mb-5">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-green-600 mb-2">Strengths</p>
-              <ul id="demo-strengths" class="space-y-1 text-sm text-gray-600"></ul>
-            </div>
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-red-500 mb-2">Weaknesses</p>
-              <ul id="demo-weaknesses" class="space-y-1 text-sm text-gray-600"></ul>
-            </div>
-          </div>
-          <div class="bg-brand-50 rounded-xl p-4 text-sm text-brand-800">
-            <span class="font-semibold">Recommended next step: </span>
-            <span id="demo-next-step"></span>
-          </div>
-          <p class="mt-4 text-xs text-gray-400 text-center">
-            This is a simulated demo. The production system uses Claude AI for nuanced, context-aware scoring.
-          </p>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">4</div>
+          <h4 class="font-semibold mb-1">Ongoing Support</h4>
+          <p class="text-gray-500 text-sm">We monitor, retrain, and improve as your business grows.</p>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ── INVOICE PROCESSING DEMO ─────────────────────────────── -->
-  <section id="invoice-demo" class="py-24 px-6 bg-gray-50">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-10">
-        <span class="inline-block mb-3 px-4 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full tracking-widest uppercase">Invoice Bot Demo</span>
-        <h2 class="text-4xl font-bold text-gray-900">Invoice Processing Bot</h2>
-        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">Click "Process Invoice" to see the AI extract structured data from a PDF invoice in seconds.</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8 items-start">
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Sample PDF Invoice</span>
-            <span class="text-xs bg-red-100 text-red-600 font-semibold px-2 py-0.5 rounded-full">Unprocessed</span>
-          </div>
-          <div class="border border-dashed border-gray-300 rounded-xl p-5 text-sm text-gray-700 space-y-3 font-mono">
-            <div class="font-bold text-base text-gray-900">INVOICE #INV-2024-0847</div>
-            <div class="text-gray-500 text-xs">Acme Supplies Co. &middot; 142 Commerce Blvd, Austin TX</div>
-            <hr class="border-gray-100"/>
-            <div class="space-y-1">
-              <div class="flex justify-between"><span>Cloud Storage (3 mo)</span><span>$1,200.00</span></div>
-              <div class="flex justify-between"><span>Setup &amp; Onboarding</span><span>$450.00</span></div>
-              <div class="flex justify-between"><span>Priority Support</span><span>$300.00</span></div>
-              <div class="flex justify-between"><span>Overage (42 GB)</span><span>$84.00</span></div>
-            </div>
-            <hr class="border-gray-100"/>
-            <div class="flex justify-between font-bold text-gray-900"><span>TOTAL DUE</span><span>$2,034.00</span></div>
-            <div class="text-xs text-gray-400">Due: March 15, 2025 &middot; Net-30</div>
-          </div>
-          <button id="inv-btn" onclick="runInvoiceDemo()" class="mt-5 w-full bg-blue-600 text-white font-bold px-6 py-3 rounded-full hover:bg-blue-700 transition shadow text-sm">
-            &#x26A1; Process Invoice &rarr;
-          </button>
-        </div>
-        <div id="inv-result" class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 hidden">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Extracted Data</span>
-            <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">&#x2713; Processed</span>
-          </div>
-          <div class="space-y-3 text-sm">
-            <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-500 font-medium">Vendor</span><span class="font-semibold text-gray-900">Acme Supplies Co.</span></div>
-            <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-500 font-medium">Invoice #</span><span class="font-semibold text-gray-900">INV-2024-0847</span></div>
-            <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-500 font-medium">Total Due</span><span class="font-semibold text-green-700">$2,034.00</span></div>
-            <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-500 font-medium">Due Date</span><span class="font-semibold text-gray-900">March 15, 2025</span></div>
-            <div class="flex justify-between border-b border-gray-100 pb-2"><span class="text-gray-500 font-medium">Terms</span><span class="font-semibold text-gray-900">Net-30</span></div>
-            <div class="flex justify-between pb-2"><span class="text-gray-500 font-medium">Line Items</span><span class="font-semibold text-gray-900">4 items</span></div>
-          </div>
-          <div class="mt-4 bg-green-50 border border-green-200 rounded-xl p-3 text-xs text-green-800 font-medium">
-            &#x2713; Routed to QuickBooks &middot; AP queue updated &middot; Team notified via Slack
-          </div>
-        </div>
-        <div id="inv-placeholder" class="bg-white rounded-2xl border border-dashed border-gray-300 shadow-sm p-6 flex flex-col items-center justify-center text-center min-h-[260px]">
-          <div class="text-4xl mb-3">&#x1F4CA;</div>
-          <p class="text-gray-400 text-sm">Extracted data will appear here after processing.</p>
-        </div>
-      </div>
-      <p class="mt-6 text-xs text-gray-400 text-center">Simulated demo. Production system uses Claude AI to extract from any PDF format with 95%+ accuracy.</p>
-    </div>
-  </section>
-
-  <!-- ── SUPPORT AGENT DEMO ─────────────────────────────────────── -->
-  <section id="support-demo" class="py-24 px-6">
-    <div class="max-w-2xl mx-auto">
-      <div class="text-center mb-10">
-        <span class="inline-block mb-3 px-4 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full tracking-widest uppercase">Support Agent Demo</span>
-        <h2 class="text-4xl font-bold text-gray-900">24/7 AI Support Agent</h2>
-        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">Ask the bot a question &mdash; just like your customers would.</p>
-      </div>
-      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-        <div class="bg-brand-600 px-5 py-3 flex items-center gap-3">
-          <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white text-sm font-bold">AI</div>
-          <div>
-            <div class="text-white font-semibold text-sm">AutomateIQ Support</div>
-            <div class="text-white/70 text-xs flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-400 rounded-full inline-block"></span> Online &middot; Replies instantly</div>
-          </div>
-        </div>
-        <div id="chat-messages" class="h-72 overflow-y-auto p-5 space-y-3 bg-gray-50">
-          <div class="flex gap-2">
-            <div class="w-7 h-7 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div>
-            <div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm text-gray-700 shadow-sm max-w-xs">
-              Hi! I'm AutomateIQ's support agent. Ask me about pricing, how we work, integrations, or anything else. &#x1F44B;
-            </div>
-          </div>
-        </div>
-        <div class="px-5 pt-3 pb-2 flex gap-2 flex-wrap border-t border-gray-100 bg-white">
-          <button onclick="sendChatMessage('What does it cost?')" class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition">What does it cost?</button>
-          <button onclick="sendChatMessage('How long does setup take?')" class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition">How long does setup take?</button>
-          <button onclick="sendChatMessage('What tools do you integrate with?')" class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition">What tools do you integrate with?</button>
-        </div>
-        <div class="px-5 py-3 border-t border-gray-100 bg-white flex gap-3">
-          <input id="chat-input" type="text" placeholder="Ask a question&hellip;" class="flex-1 border border-gray-200 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" onkeydown="if(event.key==='Enter'){sendChatMessage(document.getElementById('chat-input').value)}" />
-          <button onclick="sendChatMessage(document.getElementById('chat-input').value)" class="bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-brand-700 transition">Send</button>
-        </div>
-      </div>
-      <p class="mt-4 text-xs text-gray-400 text-center">Simulated demo with scripted responses. Production agents are trained on your actual docs &amp; FAQs.</p>
-    </div>
-  </section>
   <!-- ── ROI ────────────────────────────────────────────────────── -->
   <section id="roi" class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
@@ -647,34 +397,6 @@
     </div>
   </section>
 
-  <!-- ── HOW IT WORKS ────────────────────────────────────────────── -->
-  <section class="py-24 px-6 bg-gray-50">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-900 mb-14">How We Work</h2>
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">1</div>
-          <h4 class="font-semibold mb-1">Free Audit</h4>
-          <p class="text-gray-500 text-sm">We map your workflows and identify automation opportunities.</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
-          <h4 class="font-semibold mb-1">Custom Build</h4>
-          <p class="text-gray-500 text-sm">We design and develop your AI agents in 2–4 weeks.</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">3</div>
-          <h4 class="font-semibold mb-1">Integrate &amp; Test</h4>
-          <p class="text-gray-500 text-sm">We plug it into your existing tools and run QA together.</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">4</div>
-          <h4 class="font-semibold mb-1">Ongoing Support</h4>
-          <p class="text-gray-500 text-sm">We monitor, retrain, and improve as your business grows.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ── ABOUT ─────────────────────────────────────────────────── -->
   <section id="about" class="py-24 px-6 bg-white">
@@ -740,7 +462,6 @@
       <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
       <div class="flex flex-wrap justify-center gap-6">
         <a href="#services" class="hover:text-white transition">Services</a>
-        <a href="#demos"    class="hover:text-white transition">Demos</a>
         <a href="#pricing"  class="hover:text-white transition">Pricing</a>
         <a href="#roi"      class="hover:text-white transition">ROI</a>
         <a href="#contact"  class="hover:text-white transition">Contact</a>
@@ -751,72 +472,18 @@
   </footer>
 
   <script>
-    // ── Contact form ──────────────────────────────────────────────────
-    // To use Formspree: create a free account at https://formspree.io,
-    // get your form ID, and replace null below with your ID string, e.g. 'xabc1234'.
-    // While FORMSPREE_ID is null the form falls back to opening a pre-filled email.
-    const FORMSPREE_ID = null; // e.g. 'xabc1234'
-
-    document.getElementById('contact-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      const msgEl = document.getElementById('form-msg');
-      const errEl = document.getElementById('form-error');
-      const email = e.target.email.value.trim();
-
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      msgEl.classList.add('hidden');
-      errEl.classList.add('hidden');
-
-      if (FORMSPREE_ID) {
-        // Formspree path — used when a real form ID is configured
-        try {
-          const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email }),
-          });
-          if (res.ok) {
-            msgEl.classList.remove('hidden');
-            e.target.reset();
-          } else {
-            errEl.classList.remove('hidden');
-          }
-        } catch (_) {
-          errEl.classList.remove('hidden');
-        } finally {
-          btn.disabled = false;
-          btn.textContent = 'Book a Free Audit →';
-        }
-      } else {
-        // Mailto fallback — opens the visitor's email client pre-filled
-        const subject = encodeURIComponent('Free Audit Request');
-        const body = encodeURIComponent(
-          'Hi AutomateIQ,\n\nI\'d like to book a free 30-minute operations audit.\n\nReply to: ' + email + '\n\nThanks!'
-        );
-        window.location.href = 'mailto:hello@automateiq.io?subject=' + subject + '&body=' + body;
-        msgEl.classList.remove('hidden');
-        e.target.reset();
-        btn.disabled = false;
-        btn.textContent = 'Book a Free Audit →';
-      }
-    });
-
     // ── Mobile navigation ─────────────────────────────────────────────
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const bar1 = document.getElementById('bar1');
     const bar2 = document.getElementById('bar2');
     const bar3 = document.getElementById('bar3');
-    // Each bar is h-0.5 (2px) with gap-1.5 (6px); centre-to-centre distance = 8px
     const BAR_OFFSET = '8px';
     let menuOpen = false;
 
     menuBtn.addEventListener('click', function() {
       menuOpen = !menuOpen;
       mobileMenu.classList.toggle('hidden', !menuOpen);
-      // Animate bars into X
       bar1.style.transform = menuOpen ? `translateY(${BAR_OFFSET}) rotate(45deg)` : '';
       bar2.style.opacity   = menuOpen ? '0' : '1';
       bar3.style.transform = menuOpen ? `translateY(-${BAR_OFFSET}) rotate(-45deg)` : '';
@@ -834,142 +501,6 @@
 
     // ── Auto-update footer year ───────────────────────────────────────
     document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-    // ── Interactive lead qualifier demo ───────────────────────────────
-    function runLeadScorer() {
-      const industry = document.getElementById('d-industry').value;
-      const size     = document.getElementById('d-size').value;
-      const budget   = document.getElementById('d-budget').value;
-      const pain     = document.getElementById('d-pain').value.toLowerCase();
-
-      // Simple rules-based scoring that mirrors the Python script's mock mode
-      let score = 40;
-      const strengths = [];
-      const weaknesses = [];
-
-      // Industry fit
-      const highFitIndustries = ['saas', 'finance', 'logistics', 'ecommerce'];
-      if (highFitIndustries.includes(industry)) { score += 12; strengths.push('High-fit industry for AI automation'); }
-      else if (industry === 'manufacturing')     { score += 8;  strengths.push('Manufacturing is a solid automation target'); }
-      else if (!industry)                        { weaknesses.push('Industry not specified'); }
-      else                                       { score += 4; }
-
-      // Company size
-      if      (size === '51-200')    { score += 10; strengths.push('Ideal company size (51–200 employees)'); }
-      else if (size === '201-1000')  { score += 12; strengths.push('Mid-market size — strong automation ROI'); }
-      else if (size === '1000+')     { score += 10; strengths.push('Enterprise scale'); }
-      else if (size === '11-50')     { score += 6; }
-      else if (size === '1-10')      { score -= 4; weaknesses.push('Very small team — may lack budget'); }
-      else                           { weaknesses.push('Company size not specified'); }
-
-      // Budget fit
-      if      (budget === 'enterprise') { score += 18; strengths.push('Budget aligns with Enterprise plan'); }
-      else if (budget === 'high')       { score += 14; strengths.push('Budget fits Growth or Enterprise plan'); }
-      else if (budget === 'mid')        { score += 8;  strengths.push('Budget fits Starter plan'); }
-      else if (budget === 'low')        { score -= 8;  weaknesses.push('Budget may be below minimum engagement'); }
-      else                              { weaknesses.push('Budget not specified'); }
-
-      // Pain-point keyword urgency
-      const urgentWords = ['manual', 'hours', 'slow', 'bottleneck', 'backlog', 'error', 'tedious', 'repetitive', 'time-consuming'];
-      const urgencyMatches = urgentWords.filter(w => pain.includes(w));
-      if      (urgencyMatches.length >= 3) { score += 10; strengths.push('Clear, urgent automation pain point'); }
-      else if (urgencyMatches.length >= 1) { score += 5;  strengths.push('Automation need identified'); }
-      else if (pain.length < 20)           { weaknesses.push('Pain point not clearly described'); }
-
-      score = Math.max(0, Math.min(100, score));
-
-      // Grade
-      const grade = score >= 80 ? 'A' : score >= 60 ? 'B' : score >= 40 ? 'C' : 'D';
-      const gradeColors = { A: 'bg-green-100 text-green-700', B: 'bg-brand-100 text-brand-700', C: 'bg-yellow-100 text-yellow-700', D: 'bg-red-100 text-red-600' };
-      const barColors   = { A: 'bg-green-500', B: 'bg-brand-500', C: 'bg-yellow-400', D: 'bg-red-400' };
-
-      // Summaries
-      const summaries = {
-        A: 'This is a high-priority lead. Strong industry fit, appropriate company size, and adequate budget make this an excellent automation prospect. Recommend immediate outreach.',
-        B: 'Good prospect with solid automation potential. A few gaps may need addressing during discovery, but overall this lead is worth pursuing promptly.',
-        C: 'Moderate fit. There are some alignment issues around budget or scope that should be explored before committing sales resources. Schedule a discovery call.',
-        D: 'This lead does not currently meet the core criteria for a strong engagement. Consider nurturing with content before investing sales time.',
-      };
-      const nextSteps = {
-        A: 'Book a 30-minute operations audit this week and prepare a custom ROI estimate.',
-        B: 'Send a personalized case study and schedule a discovery call within 48 hours.',
-        C: 'Add to nurture sequence. Follow up in 2 weeks with educational content on automation ROI.',
-        D: 'Move to long-term nurture. Re-evaluate if company size or budget changes.',
-      };
-
-      // Render
-      document.getElementById('demo-score-label').textContent = score;
-      document.getElementById('demo-score-bar').style.width = score + '%';
-      document.getElementById('demo-score-bar').className = 'h-3 rounded-full transition-all duration-700 ' + barColors[grade];
-      const badge = document.getElementById('demo-grade-badge');
-      badge.textContent = grade;
-      badge.className = 'w-12 h-12 rounded-full flex items-center justify-center text-xl font-extrabold ' + gradeColors[grade];
-      document.getElementById('demo-summary').textContent = summaries[grade];
-      document.getElementById('demo-next-step').textContent = nextSteps[grade];
-
-      const strEl = document.getElementById('demo-strengths');
-      strEl.innerHTML = strengths.length
-        ? strengths.map(s => `<li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span>${s}</li>`).join('')
-        : '<li class="text-gray-400">None identified</li>';
-
-      const wkEl = document.getElementById('demo-weaknesses');
-      wkEl.innerHTML = weaknesses.length
-        ? weaknesses.map(w => `<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>${w}</li>`).join('')
-        : '<li class="text-gray-400">None identified</li>';
-
-      const result = document.getElementById('demo-result');
-      result.classList.remove('hidden');
-      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    // ── Invoice Processing Demo ───────────────────────────────────
-    function runInvoiceDemo() {
-      var btn = document.getElementById('inv-btn');
-      btn.textContent = 'Extracting data...';
-      btn.disabled = true;
-      btn.style.opacity = '0.6';
-      setTimeout(function() {
-        document.getElementById('inv-placeholder').classList.add('hidden');
-        var res = document.getElementById('inv-result');
-        res.classList.remove('hidden');
-        res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        btn.textContent = 'Invoice Processed';
-        btn.style.opacity = '1';
-        btn.style.background = '#16a34a';
-      }, 2200);
-    }
-
-    // ── Support Agent Demo ────────────────────────────────────────
-    var chatResponses = {
-      'cost':     'Our plans start at <strong>$1,200/month</strong> (Starter) and <strong>$2,500/month</strong> (Growth). Both include a free 30-minute audit. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline">Book yours here &rarr;</a>',
-      'price':    'Our plans start at <strong>$1,200/month</strong> (Starter) and <strong>$2,500/month</strong> (Growth). Both include a free 30-minute audit. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline">Book yours here &rarr;</a>',
-      'setup':    'Most clients are live within <strong>1&ndash;2 weeks</strong>. We handle the full build &mdash; you connect your tools and approve before we go live.',
-      'long':     'Most clients are live within <strong>1&ndash;2 weeks</strong>. We handle the full build &mdash; you connect your tools and approve before we go live.',
-      'integrat': 'We connect with <strong>HubSpot, Salesforce, Slack, QuickBooks, Xero, Airtable, Notion, Gmail</strong>, and more. If your team uses it, we can likely plug in.',
-      'tool':     'We connect with <strong>HubSpot, Salesforce, Slack, QuickBooks, Xero, Airtable, Notion, Gmail</strong>, and more. If your team uses it, we can likely plug in.',
-      'work':     'We audit your workflows, build automation on Make.com + Claude AI, integrate with your tools, and hand over full documentation.',
-      'how':      'We audit your workflows, build automation on Make.com + Claude AI, integrate with your tools, and hand over full documentation.',
-      'default':  'Great question! The fastest way to get a specific answer is a quick call with Elazar. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline">Book a free 30-min audit &rarr;</a>'
-    };
-    function sendChatMessage(text) {
-      if (!text || !text.trim()) return;
-      var messages = document.getElementById('chat-messages');
-      document.getElementById('chat-input').value = '';
-      messages.innerHTML += '<div class="flex gap-2 justify-end"><div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm shadow-sm max-w-xs">' + text + '</div></div>';
-      messages.scrollTop = messages.scrollHeight;
-      var typingId = 'typing-' + Date.now();
-      messages.innerHTML += '<div id="' + typingId + '" class="flex gap-2"><div class="w-7 h-7 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div><div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm text-gray-400 shadow-sm">Typing...</div></div>';
-      messages.scrollTop = messages.scrollHeight;
-      var lower = text.toLowerCase();
-      var reply = chatResponses['default'];
-      for (var key in chatResponses) { if (key !== 'default' && lower.indexOf(key) !== -1) { reply = chatResponses[key]; break; } }
-      setTimeout(function() {
-        var el = document.getElementById(typingId);
-        if (el) el.remove();
-        messages.innerHTML += '<div class="flex gap-2"><div class="w-7 h-7 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div><div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm text-gray-700 shadow-sm max-w-xs">' + reply + '</div></div>';
-        messages.scrollTop = messages.scrollHeight;
-      }, 900);
-    }
 
   </script>
 
