@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AutomateIQ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <a href="index.html"
+         class="inline-flex items-center gap-2 border border-brand-600 text-brand-600 text-sm font-semibold
+                px-5 py-2 rounded-full hover:bg-brand-600 hover:text-white transition">
+        ← Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- ── CONTENT ────────────────────────────────────────────────── -->
+  <main class="pt-28 pb-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Privacy Policy</h1>
+      <p class="text-gray-400 text-sm mb-10">Last updated: <span id="last-updated"></span></p>
+
+      <div class="prose prose-gray max-w-none space-y-8 text-gray-700 leading-relaxed">
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">1. Information We Collect</h2>
+          <p>When you submit our contact form, we collect your business email address for the sole purpose of responding to your enquiry and scheduling a free audit. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">2. How We Use Your Information</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>To respond to your enquiries and schedule consultations.</li>
+            <li>To send relevant service information you have requested.</li>
+            <li>To improve our website and services based on aggregate, anonymised analytics.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">3. Data Storage &amp; Security</h2>
+          <p>All data is stored with industry-standard encryption (AES-256 at rest, TLS 1.3 in transit). We are SOC 2 Type II compliant and maintain appropriate technical and organisational measures to protect your data.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">4. GDPR &amp; CCPA Rights</h2>
+          <p>If you are located in the European Economic Area or California, you have the right to access, correct, or delete the personal data we hold about you. To exercise these rights, contact us at <a href="mailto:privacy@automateiq.io" class="text-brand-600 hover:underline">privacy@automateiq.io</a>.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">5. Cookies</h2>
+          <p>This website does not use tracking cookies or third-party advertising cookies. We may use essential session cookies required for form submission functionality.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">6. Third-Party Services</h2>
+          <p>We use Formspree to process contact form submissions. Formspree's privacy policy is available at <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">formspree.io/legal/privacy-policy</a>.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">7. Contact Us</h2>
+          <p>For any privacy-related questions, please contact our Data Protection Officer at <a href="mailto:privacy@automateiq.io" class="text-brand-600 hover:underline">privacy@automateiq.io</a>.</p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="privacy-policy.html" class="text-brand-300 hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    document.getElementById('last-updated').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  </script>
+</body>
+</html>

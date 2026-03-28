@@ -29,8 +29,8 @@
   <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
   <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
-      <a href="/"
+      <a href="../../index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <a href="../../index.html"
          class="inline-flex items-center gap-2 border border-brand-600 text-brand-600 text-sm font-semibold
                 px-5 py-2 rounded-full hover:bg-brand-600 hover:text-white transition">
         ← Back to Home
@@ -144,7 +144,7 @@ python support_bot.py</code>
   <section class="py-14 px-6 bg-brand-50 border-t border-brand-100">
     <div class="max-w-3xl mx-auto text-center">
       <p class="text-gray-600 mb-5">Want to see the other demos or learn how we can build this for your business?</p>
-      <a href="/"
+      <a href="../../index.html"
          class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg">
         ← Back to Home
       </a>
@@ -155,9 +155,11 @@ python support_bot.py</code>
   <footer class="bg-gray-900 text-gray-400 py-8 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
       <p class="font-bold text-white text-lg">AutomateIQ</p>
-      <p>© 2025 AutomateIQ. All rights reserved.</p>
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
     </div>
   </footer>
 
-</body>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
 </html>
