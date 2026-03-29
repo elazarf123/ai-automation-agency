@@ -42,6 +42,26 @@
          class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
         Book a Free Audit
       </a>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
+      <a href="index.html#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
+      <a href="index.html#demos"    class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Demos</a>
+      <a href="index.html#pricing"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="index.html#contact"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold
+                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
+        Book a Free Audit →
+      </a>
     </div>
   </header>
 
@@ -208,7 +228,7 @@
   <section class="py-16 px-6 bg-brand-600 text-white text-center">
     <div class="max-w-2xl mx-auto">
       <h2 class="text-3xl font-bold mb-3">Stop Processing Invoices Manually</h2>
-      <p class="text-white/80 mb-7">We will build this for your business in under 2 weeks. Book a free audit to see exactly how it fits your stack.</p>
+      <p class="text-white/80 mb-7">We will build this for your business in 2 weeks. Book a free audit to see exactly how it fits your stack.</p>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="inline-block bg-white text-brand-600 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-sm">
         &#128197; Book a Free Audit
@@ -287,6 +307,33 @@
         setTimeout(nextStep, 420);
       }
       nextStep();
+    }
+
+    // ── Mobile navigation ─────────────────────────────────────────────
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var bar1 = document.getElementById('bar1');
+    var bar2 = document.getElementById('bar2');
+    var bar3 = document.getElementById('bar3');
+    var BAR_OFFSET = '8px';
+    var menuOpen = false;
+
+    menuBtn.addEventListener('click', function() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      bar1.style.transform = menuOpen ? 'translateY(' + BAR_OFFSET + ') rotate(45deg)' : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? 'translateY(-' + BAR_OFFSET + ') rotate(-45deg)' : '';
+      menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+      menuBtn.setAttribute('aria-label', 'Open menu');
     }
   </script>
 
