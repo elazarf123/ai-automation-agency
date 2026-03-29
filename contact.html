@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — AutomateIQ</title>
+  <meta name="description" content="Get in touch with AutomateIQ. Tell us about your workflows and we'll show you how AI automation can save your team dozens of hours every week." />
+  <link rel="canonical" href="https://elazarf123.github.io/ai-automation-agency/contact.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a55f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elazarf123.github.io/ai-automation-agency/contact.html" />
+  <meta property="og:title" content="Contact Us — AutomateIQ" />
+  <meta property="og:description" content="Book a free 30-min audit or send a message. We reply within 24 hours." />
+  <meta property="og:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <meta property="og:site_name" content="AutomateIQ" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Us — AutomateIQ" />
+  <meta name="twitter:description" content="Book a free 30-min audit or send a message. We reply within 24 hours." />
+  <meta name="twitter:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VQRY0FLNXZ');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .field-error { border-color: #ef4444 !important; }
+    .error-msg { display: none; color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; }
+    .error-msg.visible { display: block; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="index.html#services" class="hover:text-brand-600 transition">Services</a>
+        <a href="pricing.html"        class="hover:text-brand-600 transition">Pricing</a>
+        <a href="index.html#roi"      class="hover:text-brand-600 transition">Results</a>
+        <a href="contact.html"        class="text-brand-600 font-semibold transition">Contact</a>
+      </nav>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
+      <a href="index.html#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"        class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="index.html#roi"      class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Results</a>
+      <a href="contact.html"        class="text-brand-600 font-semibold transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold
+                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
+        Book a Free Audit →
+      </a>
+    </div>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
+  <section class="pt-32 pb-16 px-6 bg-gradient-to-br from-brand-50 via-white to-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="inline-block mb-4 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
+        Get In Touch
+      </span>
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+        Let's automate your business
+      </h1>
+      <p class="text-xl text-gray-500 max-w-xl mx-auto">
+        Book a free 30-minute workflow audit or send us a message.
+        We typically reply within <strong class="text-gray-700">24 hours</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── MAIN CONTENT ────────────────────────────────────────────── -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+
+      <!-- Left: Booking CTA + info -->
+      <div class="space-y-8 fade-in">
+
+        <!-- Book a call card -->
+        <div class="bg-brand-600 rounded-2xl p-8 text-center shadow-lg">
+          <div class="text-4xl mb-4">📅</div>
+          <h2 class="text-xl font-bold text-white mb-3">Book a Free 30-Min Audit</h2>
+          <p class="text-brand-100 text-sm mb-6">
+            I'll map exactly which workflows can be automated, show you your projected ROI,
+            and recommend the right plan — no commitment, no credit card.
+          </p>
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-3.5 rounded-full hover:bg-brand-50 transition shadow-lg text-sm">
+            Pick a Time That Works →
+          </a>
+          <p class="mt-4 text-brand-200 text-xs">No spam. No commitment. 100% free.</p>
+        </div>
+
+        <!-- What to expect -->
+        <div class="bg-gray-50 rounded-2xl p-6">
+          <h3 class="font-bold text-gray-900 mb-4">What happens after you reach out?</h3>
+          <ol class="space-y-4 text-sm text-gray-600">
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+              <div><strong class="text-gray-800">Free Workflow Audit (30 min)</strong><br/>We map your current processes and identify the highest-ROI automation opportunities.</div>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+              <div><strong class="text-gray-800">Custom Proposal (within 48 hrs)</strong><br/>You get a detailed plan with projected time savings, cost reduction, and ROI timeline.</div>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+              <div><strong class="text-gray-800">Build &amp; Launch (2–4 weeks)</strong><br/>We build your AI agents, integrate with your existing tools, and go live together.</div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Contact details -->
+        <div class="space-y-3 text-sm text-gray-600">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">✉️</span>
+            <a href="mailto:elazar@automateiq.io" class="text-brand-600 hover:underline font-medium">elazar@automateiq.io</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xl">⏱️</span>
+            <span>Replies within 24 hours on weekdays</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🌐</span>
+            <span>Serving clients worldwide (remote-first)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Contact form -->
+      <div class="fade-in">
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-gray-900 mb-1">Send a Message</h2>
+          <p class="text-gray-400 text-sm mb-6">Not ready to book a call? Drop a note and I'll reply within 24 hours.</p>
+
+          <!-- Formspree form — replace mjgpyyvn with your own Formspree form ID from formspree.io -->
+          <form id="contact-form" action="https://formspree.io/f/mjgpyyvn" method="POST" novalidate class="space-y-5">
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-name">Full Name <span class="text-red-400">*</span></label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith"
+                  class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+                <p class="error-msg" id="err-name">Please enter your name.</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-email">Email Address <span class="text-red-400">*</span></label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com"
+                  class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+                <p class="error-msg" id="err-email">Please enter a valid email.</p>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-company">Company</label>
+              <input id="cf-company" name="company" type="text" autocomplete="organization" placeholder="Acme Corp"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-service">Service Interest</label>
+              <select id="cf-service" name="service"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white">
+                <option value="">Select a service…</option>
+                <option value="Lead Qualification">🎯 Lead Qualification ($1,200/mo)</option>
+                <option value="Invoice Processing + Lead Qualification">📄 Invoice Processing + Lead Qualification ($2,500/mo)</option>
+                <option value="Enterprise — All Services">🚀 Enterprise — All Services ($4,500/mo)</option>
+                <option value="Not sure yet">🤔 Not sure yet — I'd like a recommendation</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-message">Your Question or Goal <span class="text-red-400">*</span></label>
+              <textarea id="cf-message" name="message" rows="4"
+                placeholder="Tell me what you're looking to automate and I'll show you how we can help…"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 resize-none"></textarea>
+              <p class="error-msg" id="err-message">Please describe what you'd like to automate.</p>
+            </div>
+
+            <!-- Hidden plan field pre-filled from URL query string -->
+            <input type="hidden" name="_subject" id="hidden-subject" value="New enquiry from AutomateIQ website" />
+
+            <button type="submit" id="submit-btn"
+              class="w-full bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full hover:bg-brand-700 transition shadow text-sm">
+              Send Message →
+            </button>
+
+            <!-- Status messages -->
+            <div id="cf-success" class="hidden rounded-xl bg-green-50 border border-green-200 p-4 text-center">
+              <p class="text-green-700 font-semibold text-sm">✓ Message sent! I'll get back to you within 24 hours.</p>
+            </div>
+            <div id="cf-error" class="hidden rounded-xl bg-red-50 border border-red-200 p-4 text-center">
+              <p class="text-red-600 font-semibold text-sm">Something went wrong. Please email <a href="mailto:elazar@automateiq.io" class="underline">elazar@automateiq.io</a> directly.</p>
+            </div>
+
+          </form>
+
+          <p class="mt-5 text-xs text-gray-400 text-center">
+            Or email directly:
+            <a href="mailto:elazar@automateiq.io" class="text-brand-600 hover:underline">elazar@automateiq.io</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="index.html#services" class="hover:text-white transition">Services</a>
+        <a href="pricing.html"        class="hover:text-white transition">Pricing</a>
+        <a href="index.html#roi"      class="hover:text-white transition">Results</a>
+        <a href="contact.html"        class="hover:text-white transition">Contact</a>
+        <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html"          class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    const BAR_OFFSET = '8px';
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', function() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      bar1.style.transform = menuOpen ? `translateY(${BAR_OFFSET}) rotate(45deg)` : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? `translateY(-${BAR_OFFSET}) rotate(-45deg)` : '';
+      menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+      menuBtn.setAttribute('aria-label', 'Open menu');
+    }
+
+    // Scroll fade-in
+    var fadeEls = document.querySelectorAll('.fade-in');
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(function(el) { fadeObserver.observe(el); });
+
+    // Pre-fill plan from URL query ?plan=starter|professional|enterprise
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var plan = params.get('plan');
+      var serviceSelect = document.getElementById('cf-service');
+      var planMap = {
+        'starter': 'Lead Qualification',
+        'professional': 'Invoice Processing + Lead Qualification',
+        'enterprise': 'Enterprise — All Services'
+      };
+      if (plan && planMap[plan]) {
+        serviceSelect.value = planMap[plan];
+        document.getElementById('hidden-subject').value = 'New enquiry — ' + planMap[plan] + ' plan';
+      }
+    })();
+
+    // Client-side validation + Formspree submission
+    var form = document.getElementById('contact-form');
+    var submitBtn = document.getElementById('submit-btn');
+
+    function validateField(inputId, errorId, condition) {
+      var input = document.getElementById(inputId);
+      var error = document.getElementById(errorId);
+      if (condition(input.value)) {
+        input.classList.remove('field-error');
+        error.classList.remove('visible');
+        return true;
+      } else {
+        input.classList.add('field-error');
+        error.classList.add('visible');
+        return false;
+      }
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var ok = true;
+      ok = validateField('cf-name',    'err-name',    function(v) { return v.trim().length >= 2; })    && ok;
+      ok = validateField('cf-email',   'err-email',   function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }) && ok;
+      ok = validateField('cf-message', 'err-message', function(v) { return v.trim().length >= 10; })   && ok;
+
+      if (!ok) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      var data = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('cf-success').classList.remove('hidden');
+          // GA4 form submission event
+          if (typeof gtag === 'function') {
+            gtag('event', 'form_submit', { event_category: 'contact', event_label: 'contact_page' });
+          }
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message →';
+          document.getElementById('cf-error').classList.remove('hidden');
+        }
+      })
+      .catch(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+        document.getElementById('cf-error').classList.remove('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

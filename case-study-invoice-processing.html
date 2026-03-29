@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: Invoice Processing Automation — AutomateIQ</title>
+  <meta name="description" content="How an accounting firm used AutomateIQ to process 1,200 invoices per month with 96% error reduction and saved 3 days of manual processing time per week." />
+  <link rel="canonical" href="https://elazarf123.github.io/ai-automation-agency/case-study-invoice-processing.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a55f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://elazarf123.github.io/ai-automation-agency/case-study-invoice-processing.html" />
+  <meta property="og:title" content="Case Study: Invoice Processing Automation — AutomateIQ" />
+  <meta property="og:description" content="1,200 invoices/mo · 96% error reduction · 3 days of processing time saved. Accounting/Financial Services." />
+  <meta property="og:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <meta property="og:site_name" content="AutomateIQ" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Case Study: Invoice Processing Automation — AutomateIQ" />
+  <meta name="twitter:description" content="1,200 invoices/mo · 96% error reduction · 3 days saved." />
+  <meta name="twitter:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VQRY0FLNXZ');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="index.html#services" class="hover:text-brand-600 transition">Services</a>
+        <a href="pricing.html"        class="hover:text-brand-600 transition">Pricing</a>
+        <a href="index.html#roi"      class="hover:text-brand-600 transition">Results</a>
+        <a href="contact.html"        class="hover:text-brand-600 transition">Contact</a>
+      </nav>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
+      <a href="index.html#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"        class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="index.html#roi"      class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Results</a>
+      <a href="contact.html"        class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold
+                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
+        Book a Free Audit →
+      </a>
+    </div>
+  </header>
+
+  <!-- ── BREADCRUMB ─────────────────────────────────────────────── -->
+  <div class="pt-24 pb-4 px-6 bg-gray-50 border-b border-gray-100">
+    <div class="max-w-4xl mx-auto text-sm text-gray-400">
+      <a href="index.html" class="hover:text-brand-600 transition">Home</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-600 font-medium">Case Study: Invoice Processing</span>
+    </div>
+  </div>
+
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-wrap gap-3 mb-6">
+        <span class="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">📄 Invoice Processing</span>
+        <span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-full">Accounting / Financial Services</span>
+        <span class="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">✓ Live in 2 Weeks</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+        From a 3-day accounts-payable backlog to <span class="text-brand-600">zero manual data entry</span>
+      </h1>
+      <p class="text-xl text-gray-500 max-w-3xl leading-relaxed">
+        A boutique accounting firm handling invoices for 40+ SMB clients was buried in manual data entry.
+        Staff were copy-pasting line items from PDFs into QuickBooks for hours every day.
+        One automation changed everything.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── KEY METRICS ─────────────────────────────────────────────── -->
+  <section class="py-14 px-6 bg-brand-600">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div class="fade-in">
+          <p class="text-4xl font-extrabold text-white">1,200</p>
+          <p class="text-brand-100 text-sm font-medium mt-1">Invoices processed<br/>automatically per month</p>
+        </div>
+        <div class="fade-in">
+          <p class="text-4xl font-extrabold text-white">96%</p>
+          <p class="text-brand-100 text-sm font-medium mt-1">Reduction in<br/>data entry errors</p>
+        </div>
+        <div class="fade-in">
+          <p class="text-4xl font-extrabold text-white">3 days</p>
+          <p class="text-brand-100 text-sm font-medium mt-1">Processing time<br/>eliminated per week</p>
+        </div>
+        <div class="fade-in">
+          <p class="text-4xl font-extrabold text-white">2 wks</p>
+          <p class="text-brand-100 text-sm font-medium mt-1">From kickoff<br/>to fully live</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BODY ───────────────────────────────────────────────────── -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto space-y-14">
+
+      <!-- The Problem -->
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 bg-red-100 text-red-600 rounded-lg flex items-center justify-center text-lg">⚠️</div>
+          <h2 class="text-2xl font-bold text-gray-900">The Problem</h2>
+        </div>
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-6 space-y-3 text-gray-700">
+          <p>
+            <strong>Clearwater Advisors</strong> (name anonymised) manages bookkeeping and accounts-payable for 40+ SMB
+            clients across retail, logistics, and professional services.
+          </p>
+          <p>
+            Each client sends anywhere from 20 to 80 invoices per month — arriving via email as PDFs, Word docs,
+            photos, and scanned faxes. Staff were manually opening each one, extracting vendor name, date, line items,
+            totals, and GL codes, then entering them into QuickBooks.
+          </p>
+          <p>
+            The process was consuming <strong>3 full working days per week</strong> across two bookkeepers.
+            Despite their care, manual transcription errors crept in at a rate of around 4% — enough to cause
+            reconciliation headaches at month-end. And when invoice volume spiked, the backlog grew to 3–4 days,
+            delaying client reports.
+          </p>
+        </div>
+      </div>
+
+      <!-- The Solution -->
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-lg">⚙️</div>
+          <h2 class="text-2xl font-bold text-gray-900">The Solution</h2>
+        </div>
+        <div class="bg-brand-50 border border-brand-100 rounded-2xl p-6 space-y-4 text-gray-700">
+          <p>
+            We built an end-to-end invoice processing pipeline using the <strong>Claude AI API</strong> for document
+            understanding, integrated with their existing email inbox, <strong>Make.com</strong> for orchestration,
+            and <strong>QuickBooks Online</strong> for entry.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div class="bg-white border border-brand-100 rounded-xl p-4">
+              <p class="text-xs font-bold text-brand-700 uppercase tracking-wide mb-2">How It Works</p>
+              <ol class="text-sm space-y-2 text-gray-600">
+                <li class="flex gap-2"><span class="text-brand-600 font-bold">1.</span> Invoice arrives via email or file upload</li>
+                <li class="flex gap-2"><span class="text-brand-600 font-bold">2.</span> AI extracts all fields (vendor, date, line items, totals, tax)</li>
+                <li class="flex gap-2"><span class="text-brand-600 font-bold">3.</span> GL codes auto-assigned based on vendor history</li>
+                <li class="flex gap-2"><span class="text-brand-600 font-bold">4.</span> Confidence check: 95%+ auto-posted to QuickBooks</li>
+                <li class="flex gap-2"><span class="text-brand-600 font-bold">5.</span> Low-confidence invoices flagged for 30-second human review</li>
+              </ol>
+            </div>
+            <div class="bg-white border border-brand-100 rounded-xl p-4">
+              <p class="text-xs font-bold text-brand-700 uppercase tracking-wide mb-2">What It Handles</p>
+              <ul class="text-sm space-y-1.5 text-gray-600">
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Multi-page PDF invoices</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Scanned / photographed documents</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Multi-vendor, multi-currency</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Duplicate invoice detection</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> PO matching &amp; three-way match</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Automatic GL code assignment</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Direct export to QuickBooks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-lg">📅</div>
+          <h2 class="text-2xl font-bold text-gray-900">Implementation Timeline</h2>
+        </div>
+        <div class="relative border-l-2 border-brand-200 pl-8 space-y-8">
+          <div>
+            <div class="absolute -left-2.5 w-5 h-5 bg-brand-600 rounded-full border-2 border-white shadow"></div>
+            <p class="text-xs font-bold text-brand-600 uppercase tracking-wide mb-1">Days 1–3</p>
+            <h4 class="font-semibold text-gray-900 mb-1">Audit &amp; Design</h4>
+            <p class="text-sm text-gray-600">Reviewed 100 sample invoices, mapped GL code logic, obtained QuickBooks OAuth credentials, designed confidence threshold model.</p>
+          </div>
+          <div>
+            <div class="absolute -left-2.5 w-5 h-5 bg-brand-600 rounded-full border-2 border-white shadow mt-1"></div>
+            <p class="text-xs font-bold text-brand-600 uppercase tracking-wide mb-1">Days 4–10</p>
+            <h4 class="font-semibold text-gray-900 mb-1">Build &amp; Integration</h4>
+            <p class="text-sm text-gray-600">Built Make.com pipeline, configured Claude extraction prompts for all invoice formats, connected to QuickBooks API, set up human review queue for edge cases.</p>
+          </div>
+          <div>
+            <div class="absolute -left-2.5 w-5 h-5 bg-brand-600 rounded-full border-2 border-white shadow mt-1"></div>
+            <p class="text-xs font-bold text-brand-600 uppercase tracking-wide mb-1">Days 11–14</p>
+            <h4 class="font-semibold text-gray-900 mb-1">Testing &amp; Launch</h4>
+            <p class="text-sm text-gray-600">Processed 200 real invoices in parallel with manual process to validate accuracy. Achieved 96.2% match rate. Went fully live on Day 14.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 bg-green-100 text-green-600 rounded-lg flex items-center justify-center text-lg">📈</div>
+          <h2 class="text-2xl font-bold text-gray-900">Results — First 90 Days</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-green-50 border border-green-100 rounded-2xl p-6">
+            <p class="text-4xl font-extrabold text-green-600 mb-1">96%</p>
+            <p class="text-sm font-semibold text-gray-800 mb-2">Error reduction in data entry</p>
+            <p class="text-xs text-gray-500">Previously 4% error rate on 1,200 invoices/mo = ~48 errors. Now fewer than 2 per month.</p>
+          </div>
+          <div class="bg-green-50 border border-green-100 rounded-2xl p-6">
+            <p class="text-4xl font-extrabold text-green-600 mb-1">3 days</p>
+            <p class="text-sm font-semibold text-gray-800 mb-2">Saved per week in processing time</p>
+            <p class="text-xs text-gray-500">Two bookkeepers freed up 12+ hours each per week to focus on higher-value client advisory work.</p>
+          </div>
+          <div class="bg-green-50 border border-green-100 rounded-2xl p-6">
+            <p class="text-4xl font-extrabold text-green-600 mb-1">2 hrs</p>
+            <p class="text-sm font-semibold text-gray-800 mb-2">Average turnaround per invoice batch</p>
+            <p class="text-xs text-gray-500">Down from 3-day backlog. Client financial reports now delivered same-day.</p>
+          </div>
+          <div class="bg-green-50 border border-green-100 rounded-2xl p-6">
+            <p class="text-4xl font-extrabold text-green-600 mb-1">$3,800</p>
+            <p class="text-sm font-semibold text-gray-800 mb-2">Monthly labour cost saved</p>
+            <p class="text-xs text-gray-500">Calculated at fully-loaded bookkeeper cost. ROI achieved within 2 months of going live.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="fade-in">
+        <div class="bg-gray-900 rounded-2xl p-8 text-white relative">
+          <div class="text-5xl text-brand-400 font-serif leading-none mb-4">"</div>
+          <p class="text-lg leading-relaxed italic mb-6">
+            I was sceptical at first — we handle sensitive financial documents and I needed to know this was bulletproof.
+            Elazar walked me through every step of the build, ran parallel tests until we were both satisfied, and the
+            system has been running flawlessly. Our bookkeepers now handle 3× more clients without extra headcount.
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+            <div>
+              <p class="font-bold text-white">Sarah C.</p>
+              <p class="text-gray-400 text-sm">Managing Director, Boutique Accounting Firm (name withheld)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────────── -->
+  <section class="py-20 px-6 bg-brand-600">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Ready to eliminate manual invoice processing?</h2>
+      <p class="text-brand-100 text-lg mb-8">
+        Book a free audit and we'll map exactly how the invoice automation would work for your team.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg">
+          📅 Book a Free Audit →
+        </a>
+        <a href="pricing.html"
+           class="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition">
+          See Pricing →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OTHER CASE STUDIES ─────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">More Case Studies</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <a href="case-study-lead-qualification.html"
+           class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition group">
+          <div class="text-3xl mb-3">🎯</div>
+          <h3 class="font-bold text-gray-900 mb-1 group-hover:text-brand-600 transition">Lead Qualification</h3>
+          <p class="text-sm text-gray-500 mb-3">B2B SaaS company — 312 qualified leads/mo, 40% conversion lift, 18 hrs/week saved.</p>
+          <p class="text-sm text-brand-600 font-semibold">Read Case Study →</p>
+        </a>
+        <a href="case-study-support-chatbot.html"
+           class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition group">
+          <div class="text-3xl mb-3">💬</div>
+          <h3 class="font-bold text-gray-900 mb-1 group-hover:text-brand-600 transition">Support Chatbot Implementation</h3>
+          <p class="text-sm text-gray-500 mb-3">E-commerce brand — 68% tickets automated, 4× faster response, $4,200/mo cost saved.</p>
+          <p class="text-sm text-brand-600 font-semibold">Read Case Study →</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="index.html#services" class="hover:text-white transition">Services</a>
+        <a href="pricing.html"        class="hover:text-white transition">Pricing</a>
+        <a href="index.html#roi"      class="hover:text-white transition">Results</a>
+        <a href="contact.html"        class="hover:text-white transition">Contact</a>
+        <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html"          class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    const BAR_OFFSET = '8px';
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', function() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      bar1.style.transform = menuOpen ? `translateY(${BAR_OFFSET}) rotate(45deg)` : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? `translateY(-${BAR_OFFSET}) rotate(-45deg)` : '';
+      menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+      menuBtn.setAttribute('aria-label', 'Open menu');
+    }
+
+    var fadeEls = document.querySelectorAll('.fade-in');
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(function(el) { fadeObserver.observe(el); });
+  </script>
+
+</body>
+</html>
