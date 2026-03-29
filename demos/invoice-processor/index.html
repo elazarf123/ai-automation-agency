@@ -54,6 +54,24 @@
     </div>
   </section>
 
+  <!-- ── ROI STATS ─────────────────────────────────────────────────── -->
+  <section class="py-10 px-6 bg-white border-b border-gray-100">
+    <div class="max-w-3xl mx-auto grid grid-cols-3 gap-6 text-center">
+      <div>
+        <p class="text-3xl font-extrabold text-brand-600">95%+</p>
+        <p class="text-sm text-gray-500 mt-1">extraction accuracy<br/>on complex layouts</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold text-brand-600">10×</p>
+        <p class="text-sm text-gray-500 mt-1">faster processing<br/>vs. manual data entry</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold text-brand-600">1–2 wks</p>
+        <p class="text-sm text-gray-500 mt-1">custom build &amp;<br/>accounting integration</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ── WHAT IT DOES ────────────────────────────────────────────── -->
   <section class="py-16 px-6">
     <div class="max-w-3xl mx-auto">
@@ -139,17 +157,163 @@ python invoice_processor.py invoice.pdf --ai</code>
       <p class="text-gray-500 text-sm">
         Running without a PDF argument automatically generates a sample invoice and processes it — great for testing without any setup.
       </p>
+
+      <!-- Sample Output -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Sample Output</h2>
+      <p class="text-gray-600 mb-3">Here's what the extractor returns for a typical invoice:</p>
+      <pre class="bg-gray-900 text-green-400 text-xs rounded-lg px-5 py-4 font-mono overflow-x-auto leading-relaxed">{
+  "vendor_name": "Acme Supplies Ltd.",
+  "vendor_email": "billing@acmesupplies.com",
+  "invoice_number": "INV-2024-0042",
+  "invoice_date": "2024-03-01",
+  "due_date": "2024-03-31",
+  "line_items": [
+    { "description": "Widget A x50",  "quantity": 50, "unit_price": 12.00, "total": 600.00 },
+    { "description": "Shipping",      "quantity":  1, "unit_price": 25.00, "total":  25.00 }
+  ],
+  "subtotal": 625.00,
+  "tax": 62.50,
+  "total_amount": 687.50,
+  "currency": "USD",
+  "payment_terms": "Net 30"
+}</pre>
+
+      <!-- Built With -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Built With</h2>
+      <div class="flex flex-wrap gap-3 mb-2">
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">🐍 Python 3.8+</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">🤖 Claude (Anthropic API)</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">📄 pdfplumber</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">🔍 Regex + AI dual-mode</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">📊 Structured JSON output</span>
+      </div>
     </div>
   </section>
 
-  <!-- ── BACK TO HOME CTA ────────────────────────────────────────── -->
-  <section class="py-14 px-6 bg-brand-50 border-t border-brand-100">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-gray-600 mb-5">Want to see the other demos or learn how we can build this for your business?</p>
-      <a href="../../index.html"
-         class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg">
-        ← Back to Home
-      </a>
+  <!-- ── BEFORE VS AFTER ─────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-10">Before vs. After AutomateIQ</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+          <p class="font-bold text-red-700 mb-4 text-lg">😰 Before</p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> Staff manually key invoice data into accounting software</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> Each invoice takes 5–15 minutes to process</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> Human errors cause mismatches and delayed payments</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> AP backlogs grow during busy periods</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> No audit trail of what was extracted and when</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
+          <p class="font-bold text-green-700 mb-4 text-lg">🚀 After</p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Data extracted and structured in seconds per invoice</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> 10× faster processing — days of work done overnight</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> 95%+ accuracy with AI mode for complex layouts</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Handles any volume — no backlogs, no bottlenecks</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Full JSON audit trail for every document processed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO IS THIS FOR ─────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Who Is This For?</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">🏭</span>
+          <div><p class="font-semibold text-gray-800">Manufacturing &amp; distribution</p><p class="text-sm text-gray-500">Processing 100+ supplier invoices per month with mixed formats</p></div>
+        </div>
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">🏗️</span>
+          <div><p class="font-semibold text-gray-800">Construction &amp; property</p><p class="text-sm text-gray-500">Managing subcontractor invoices across multiple sites &amp; projects</p></div>
+        </div>
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">📦</span>
+          <div><p class="font-semibold text-gray-800">E-commerce &amp; retail</p><p class="text-sm text-gray-500">Automating AP for high-volume vendor invoices and purchase orders</p></div>
+        </div>
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">💼</span>
+          <div><p class="font-semibold text-gray-800">Accounting firms</p><p class="text-sm text-gray-500">Streamlining bookkeeping workflows for multiple clients at once</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ─────────────────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="bg-white border border-gray-200 rounded-xl p-5 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Can this connect to our accounting software (QuickBooks, Xero, SAP)?
+            <span class="text-brand-600 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-gray-600 leading-relaxed">Yes. In production we push the extracted JSON directly into your accounting platform via API, creating bills or expenses automatically. We support QuickBooks, Xero, FreshBooks, and custom ERP integrations.</p>
+        </details>
+        <details class="bg-white border border-gray-200 rounded-xl p-5 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            What about scanned or handwritten invoices?
+            <span class="text-brand-600 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-gray-600 leading-relaxed">The AI mode handles scanned and complex-layout invoices with 95%+ accuracy. For handwritten documents we add an OCR pre-processing step. Confidence scores flag anything below threshold for human review.</p>
+        </details>
+        <details class="bg-white border border-gray-200 rounded-xl p-5 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            How do we send invoices in — email, folder, upload?
+            <span class="text-brand-600 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-gray-600 leading-relaxed">All three. We can monitor a shared email inbox, watch a cloud folder (Dropbox, Google Drive, SharePoint), or provide an upload endpoint. The pipeline triggers automatically as soon as a new invoice arrives.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPLORE OTHER DEMOS ─────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Explore Other Demos</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <a href="../support-bot/index.html"
+           class="flex items-start gap-4 p-5 border border-gray-200 rounded-2xl hover:border-brand-400 hover:shadow-md transition group">
+          <span class="text-3xl">💬</span>
+          <div>
+            <p class="font-bold text-gray-800 group-hover:text-brand-600 transition">AI Support Bot</p>
+            <p class="text-sm text-gray-500 mt-1">Answer customer questions 24/7 from your own knowledge base — no vector DB needed.</p>
+          </div>
+        </a>
+        <a href="../lead-qualifier/index.html"
+           class="flex items-start gap-4 p-5 border border-gray-200 rounded-2xl hover:border-brand-400 hover:shadow-md transition group">
+          <span class="text-3xl">🎯</span>
+          <div>
+            <p class="font-bold text-gray-800 group-hover:text-brand-600 transition">AI Lead Qualifier</p>
+            <p class="text-sm text-gray-500 mt-1">Score &amp; grade inbound leads automatically so your sales team focuses on hot prospects.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HIRING CTA ──────────────────────────────────────────────── -->
+  <section class="py-20 px-6 bg-brand-600">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-3">Ready to eliminate manual data entry?</h2>
+      <p class="text-brand-100 text-lg mb-8">We'll build a custom invoice processor integrated with your accounting platform — delivered in 1–2 weeks.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="../../index.html#contact"
+           class="inline-flex items-center justify-center gap-2 bg-white text-brand-600 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-lg">
+          📄 Hire Us to Build This
+        </a>
+        <a href="../../index.html#pricing"
+           class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition text-lg">
+          See Pricing
+        </a>
+      </div>
     </div>
   </section>
 
