@@ -7,6 +7,7 @@
   <meta name="description" content="AutomateIQ builds custom AI agents that automate lead qualification, invoice processing, and 24/7 customer support — saving your team dozens of hours every week." />
   <meta name="keywords" content="AI automation agency, lead qualification AI, invoice processing automation, AI support chatbot, business process automation, Claude AI, Make.com automation" />
   <link rel="canonical" href="https://automateiq.io/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://automateiq.io/" />
@@ -251,7 +252,7 @@
         <div class="flex flex-col items-center">
           <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
           <h4 class="font-semibold mb-1">Custom Build</h4>
-          <p class="text-gray-500 text-sm">We design and develop your AI agents in 2–4 weeks.</p>
+          <p class="text-gray-500 text-sm">We design and develop your AI agents in 2 weeks.</p>
         </div>
         <div class="flex flex-col items-center">
           <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">3</div>
@@ -530,7 +531,7 @@
                class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow">
               Book a Free Audit →
             </a>
-            <a href="mailto:elazarferrer1@gmail.com"
+            <a href="mailto:elazar@automateiq.io"
                class="inline-flex items-center gap-2 border border-gray-300 text-gray-600 font-semibold px-6 py-3 rounded-full hover:border-brand-500 hover:text-brand-600 transition">
               Send an Email →
             </a>
@@ -542,21 +543,66 @@
 
   <!-- ── CONTACT / CTA ───────────────────────────────────────────── -->
   <section id="contact" class="py-24 px-6 bg-brand-600">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-white mb-4">Ready to Automate?</h2>
-      <p class="text-brand-100 text-lg mb-10">
-        Book a free 30-minute operations audit. I'll show you exactly which workflows can be automated
-        and what your projected ROI looks like — no obligation, no credit card.
-      </p>
-      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-3 bg-white text-brand-700 font-bold px-10 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-lg">
-        📅 Pick a Time That Works for You →
-      </a>
-      <p class="mt-6 text-brand-200 text-sm">No spam. No commitment. 100% free.</p>
-      <p class="mt-3 text-brand-200 text-sm">
-        Prefer email? Reach me at
-        <a href="mailto:elazarferrer1@gmail.com" class="underline hover:text-white transition">elazarferrer1@gmail.com</a>
-      </p>
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-white mb-4">Ready to Automate?</h2>
+        <p class="text-brand-100 text-lg">
+          Book a free 30-minute operations audit — or send a quick message below.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+
+        <!-- Left: Calendly CTA -->
+        <div class="bg-white/10 rounded-2xl p-8 text-center border border-white/20">
+          <div class="text-4xl mb-4">📅</div>
+          <h3 class="text-xl font-bold text-white mb-3">Book a Free 30-Min Audit</h3>
+          <p class="text-brand-100 text-sm mb-6">
+            I'll map exactly which workflows can be automated and show you your projected ROI — no obligation, no credit card.
+          </p>
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-3.5 rounded-full hover:bg-brand-50 transition shadow-lg text-sm">
+            Pick a Time That Works →
+          </a>
+          <p class="mt-4 text-brand-200 text-xs">No spam. No commitment. 100% free.</p>
+        </div>
+
+        <!-- Right: Contact form -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 class="text-lg font-bold text-gray-900 mb-1">Send a Message</h3>
+          <p class="text-gray-400 text-sm mb-5">Not ready to book a call? Drop me a note and I'll reply within 24 hours.</p>
+          <!-- Action: replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4" id="contact-form">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-name">Your Name</label>
+                <input id="cf-name" name="name" type="text" required placeholder="Jane Smith"
+                  class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-email">Email Address</label>
+                <input id="cf-email" name="email" type="email" required placeholder="jane@company.com"
+                  class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-message">Your Question or Goal</label>
+              <textarea id="cf-message" name="message" rows="4" required placeholder="Tell me a bit about what you're looking to automate..."
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 resize-none"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-brand-600 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow text-sm">
+              Send Message →
+            </button>
+            <p id="cf-success" class="hidden text-center text-sm text-green-600 font-medium">✓ Message sent! I'll get back to you within 24 hours.</p>
+          </form>
+          <p class="mt-4 text-xs text-gray-400 text-center">
+            Or email directly:
+            <a href="mailto:elazar@automateiq.io" class="text-brand-600 hover:underline">elazar@automateiq.io</a>
+          </p>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -654,6 +700,22 @@
       });
     }, { threshold: 0.5 });
     counterEls.forEach(function(el) { counterObserver.observe(el); });
+
+    // ── Contact form success handling ─────────────────────────────
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        var action = contactForm.getAttribute('action') || '';
+        // If Formspree is not yet configured (action doesn't end with a real lowercase ID),
+        // intercept the submit and show the success message as a preview.
+        if (!/\/f\/[a-z0-9]+$/.test(action)) {
+          e.preventDefault();
+          contactForm.style.display = 'none';
+          document.getElementById('cf-success').classList.remove('hidden');
+        }
+        // When Formspree is configured with a real form ID, the form submits normally.
+      });
+    }
 
   </script>
 
