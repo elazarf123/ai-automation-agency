@@ -220,13 +220,17 @@
       'default':  'Great question! For anything specific to your business, the fastest way to get a real answer is a quick call with Elazar. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free 30-min audit →</a>'
     };
 
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
     function sendChatMessage(text) {
       if (!text || !text.trim()) return;
       var messages = document.getElementById('chat-messages');
       var input = document.getElementById('chat-input');
       input.value = '';
 
-      messages.innerHTML += '<div class="flex gap-3 justify-end"><div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm shadow-sm max-w-sm">' + text + '</div></div>';
+      messages.innerHTML += '<div class="flex gap-3 justify-end"><div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm shadow-sm max-w-sm">' + escapeHtml(text) + '</div></div>';
       messages.scrollTop = messages.scrollHeight;
 
       var typingId = 'typing-' + Date.now();
