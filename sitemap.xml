@@ -20,19 +20,19 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Demo documentation pages -->
+  <!-- Demo pages -->
   <url>
-    <loc>https://automateiq.io/demos/lead-qualifier/</loc>
+    <loc>https://automateiq.io/lead-qualifier.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://automateiq.io/demos/invoice-processor/</loc>
+    <loc>https://automateiq.io/invoice-processor.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://automateiq.io/demos/support-bot/</loc>
+    <loc>https://automateiq.io/support-agent.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
