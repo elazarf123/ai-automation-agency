@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>24/7 AI Support Agent Demo - AutomateIQ</title>
+  <title>24/7 AI Support Agent Demo — AutomateIQ</title>
   <meta name="description" content="Chat with our AI support agent live. See how it answers customer questions instantly, 24/7, without adding headcount." />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- Google Analytics (GA4) — replace G-VQRY0FLNXZ with your Measurement ID -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VQRY0FLNXZ');
+    gtag("js", new Date());
+    gtag("config", "G-VQRY0FLNXZ");
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -33,13 +32,7 @@
       }
     }
   </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    @keyframes bounce-dot { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
-    .dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#9ca3af; animation:bounce-dot 1.2s infinite; }
-    .dot:nth-child(2){animation-delay:.2s}
-    .dot:nth-child(3){animation-delay:.4s}
-  </style>
+  <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
 
@@ -55,7 +48,7 @@
       </nav>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
-        Book a Free Audit
+        Book a Free Audit →
       </a>
       <!-- Mobile menu button -->
       <button id="mobile-menu-btn" aria-label="Open menu"
@@ -86,12 +79,12 @@
       <span class="inline-block mb-3 px-4 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full tracking-widest uppercase">Live Demo</span>
       <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">24/7 AI Support Agent</h1>
       <p class="text-lg text-gray-500 max-w-xl mx-auto">
-        Ask the bot anything - just like your customers would. See how it responds instantly, escalates edge cases, and never goes offline.
+        Ask the bot anything — just like your customers would. See how it responds instantly, escalates edge cases, and never goes offline.
       </p>
       <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Reduces Tier-1 tickets by up to 70%</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Embeds on any website in minutes</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Escalates edge cases to your team</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">✓</span> Reduces Tier-1 tickets by up to 70%</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">✓</span> Embeds on any website in minutes</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">✓</span> Escalates edge cases to your team</span>
       </div>
     </div>
   </section>
@@ -108,7 +101,7 @@
             <div class="text-white font-semibold">AutomateIQ Support</div>
             <div class="text-white/70 text-xs flex items-center gap-1.5">
               <span class="w-2 h-2 bg-green-400 rounded-full inline-block"></span>
-              Online - Average response time: less than 1 second
+              Online · Average response time: &lt;1 second
             </div>
           </div>
           <div class="text-white/50 text-xs">Powered by Claude AI</div>
@@ -119,7 +112,7 @@
           <div class="flex gap-3">
             <div class="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div>
             <div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-700 shadow-sm max-w-sm">
-              Hi there! I am AutomateIQ's support agent. I can answer questions about our services, pricing, how we work, integrations, and timelines. What would you like to know?
+              Hi there! 👋 I'm AutomateIQ's support agent. I can answer questions about our services, pricing, how we work, integrations, and timelines. What would you like to know?
             </div>
           </div>
         </div>
@@ -148,24 +141,12 @@
               class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
               How does the invoice bot work?
             </button>
-            <button onclick="sendChatMessage('Is my data secure?')"
-              class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
-              Is my data secure?
-            </button>
-            <button onclick="sendChatMessage('Can I cancel anytime?')"
-              class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
-              Can I cancel anytime?
-            </button>
-            <button onclick="sendChatMessage('What is the ROI?')"
-              class="text-xs bg-gray-100 hover:bg-brand-100 hover:text-brand-700 text-gray-600 px-3 py-1.5 rounded-full transition font-medium">
-              What is the ROI?
-            </button>
           </div>
         </div>
 
         <!-- Input -->
         <div class="px-5 py-4 border-t border-gray-100 bg-white flex gap-3">
-          <input id="chat-input" type="text" placeholder="Type your question..."
+          <input id="chat-input" type="text" placeholder="Type your question…"
             class="flex-1 border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
             onkeydown="if(event.key==='Enter' && this.value.trim()){sendChatMessage(this.value)}" />
           <button onclick="var v=document.getElementById('chat-input').value; if(v.trim()) sendChatMessage(v);"
@@ -187,17 +168,17 @@
       <h2 class="text-2xl font-bold text-gray-900 text-center mb-10">How the Support Agent Works</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm text-center">
-          <div class="text-3xl mb-3">&#128218;</div>
+          <div class="text-3xl mb-3">📚</div>
           <h3 class="font-bold text-gray-900 mb-2">1. Trained on Your Docs</h3>
           <p class="text-sm text-gray-500">We upload your FAQs, product docs, pricing pages, and policies. The agent learns your business in days.</p>
         </div>
         <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm text-center">
-          <div class="text-3xl mb-3">&#128172;</div>
+          <div class="text-3xl mb-3">💬</div>
           <h3 class="font-bold text-gray-900 mb-2">2. Answers Instantly</h3>
-          <p class="text-sm text-gray-500">Customers get accurate, on-brand answers in under a second - 24 hours a day, 7 days a week.</p>
+          <p class="text-sm text-gray-500">Customers get accurate, on-brand answers in under a second — 24 hours a day, 7 days a week.</p>
         </div>
         <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm text-center">
-          <div class="text-3xl mb-3">&#128256;</div>
+          <div class="text-3xl mb-3">🔀</div>
           <h3 class="font-bold text-gray-900 mb-2">3. Smart Escalation</h3>
           <p class="text-sm text-gray-500">Complex issues or frustrated customers get routed to a human agent via Slack, email, or your helpdesk.</p>
         </div>
@@ -209,54 +190,34 @@
   <section class="py-16 px-6 bg-brand-600 text-white text-center">
     <div class="max-w-2xl mx-auto">
       <h2 class="text-3xl font-bold mb-3">Ready to Cut Support Tickets by 70%?</h2>
-      <p class="text-white/80 mb-7">We will build and deploy your custom support agent in 2 weeks. No extra headcount required.</p>
+      <p class="text-white/80 mb-7">We'll build and deploy your custom support agent in 2–4 weeks. No extra headcount required.</p>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="inline-block bg-white text-brand-600 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-sm">
-        &#128197; Book a Free Audit
+        📅 Book a Free Audit →
       </a>
       <div class="mt-4">
-        <a href="index.html" class="text-white/60 text-sm hover:text-white transition">Back to AutomateIQ</a>
+        <a href="index.html" class="text-white/60 text-sm hover:text-white transition">← Back to AutomateIQ</a>
       </div>
     </div>
   </section>
 
   <script>
     var chatResponses = {
-      'cost':     'Our plans start at $1,200/month (Starter) and $2,500/month (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here →</a>',
-      'price':    'Our plans start at $1,200/month (Starter) and $2,500/month (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here →</a>',
-      'cheap':    'We offer a Starter plan at $1,200/month, which includes one AI agent and up to 500 runs/month. Most clients see ROI within 30–60 days. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free audit to get a custom quote →</a>',
-      'afford':   'We offer a Starter plan at $1,200/month, which includes one AI agent and up to 500 runs/month. Most clients see ROI within 30–60 days. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free audit to get a custom quote →</a>',
-      'setup':    'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
-      'long':     'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
-      'time':     'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
-      'week':     'Most clients go live within 1–2 weeks. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
-      'integrat': 'We connect with HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion, QuickBooks, Xero, and more. If your team uses it, we can likely plug in.',
-      'tool':     'We connect with HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion, QuickBooks, Xero, and more. If your team uses it, we can likely plug in.',
-      'hubspot':  'Yes — we have a native HubSpot integration. Leads, contacts, and deal stages sync automatically. Ask about our lead qualifier demo to see it in action.',
-      'salesforc':'Yes — we integrate with Salesforce via API. Scored leads, activity logs, and contact data all sync in real time.',
-      'guarante': 'Yes — we offer a 30-day satisfaction guarantee. If the automation is not delivering measurable value, we will rebuild it at no charge or provide a full refund.',
-      'refund':   'Yes — we offer a 30-day satisfaction guarantee. If the automation is not delivering measurable value, we will rebuild it at no charge or provide a full refund.',
-      'cancel':   'All plans are month-to-month — no long-term contracts. You can cancel any time. We also offer a 30-day money-back guarantee.',
-      'contract': 'All plans are month-to-month — no long-term contracts. You can cancel any time. We also offer a 30-day money-back guarantee.',
-      'invoice':  'Our Invoice Processing Bot extracts every field from any PDF invoice — vendor, line items, totals, due dates — then routes data straight to QuickBooks or Xero. It processes invoices in under 3 seconds with 95%+ accuracy. <a href="invoice-processor.html" class="text-brand-600 underline font-medium">See the live demo →</a>',
+      'cost':     'Our plans start at <strong>$1,200/month</strong> (Starter) and <strong>$2,500/month</strong> (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here →</a>',
+      'price':    'Our plans start at <strong>$1,200/month</strong> (Starter) and <strong>$2,500/month</strong> (Growth). Both include a free 30-minute audit so we can scope exactly what you need. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book yours here →</a>',
+      'setup':    'Most clients go live within <strong>1–2 weeks</strong>. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
+      'long':     'Most clients go live within <strong>1–2 weeks</strong>. We handle the full setup — you just provide your docs and FAQs, and we build, test, and deploy the agent for you.',
+      'integrat': 'We connect with <strong>HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion</strong>, and more. If your team uses it, we can likely plug in.',
+      'tool':     'We connect with <strong>HubSpot, Salesforce, Slack, Intercom, Zendesk, Gmail, Notion</strong>, and more. If your team uses it, we can likely plug in.',
+      'guarante': 'Yes — we offer a <strong>30-day satisfaction guarantee</strong>. If the automation isn\'t delivering measurable value, we\'ll rebuild it at no charge or provide a full refund.',
+      'refund':   'Yes — we offer a <strong>30-day satisfaction guarantee</strong>. If the automation isn\'t delivering measurable value, we\'ll rebuild it at no charge or provide a full refund.',
+      'invoice':  'Our Invoice Processing Bot extracts every field from any PDF invoice — vendor, line items, totals, due dates — then routes the data straight to QuickBooks or Xero. It processes invoices in under 3 seconds with 95%+ accuracy. <a href="invoice-processor.html" class="text-brand-600 underline font-medium">See the live demo →</a>',
       'lead':     'Our AI Lead Qualifier scores every inbound lead 0–100 based on company size, industry, budget, and pain-point urgency. A-grade leads go straight to your sales team. <a href="lead-qualifier.html" class="text-brand-600 underline font-medium">Try it live →</a>',
-      'support':  'Our AI Support Agent answers customer questions 24/7 using your own docs and FAQs. It cuts Tier-1 tickets by up to 70% and escalates complex issues to a human agent automatically.',
-      'chat':     'Our AI Support Agent answers customer questions 24/7 using your own docs and FAQs. It cuts Tier-1 tickets by up to 70% and escalates complex issues to a human agent automatically.',
-      'bot':      'Our AI Support Agent answers customer questions 24/7 using your own docs and FAQs. It cuts Tier-1 tickets by up to 70% and escalates complex issues to a human agent automatically.',
-      'secure':   'Yes — all data is encrypted in transit and at rest. We follow SOC 2 practices and never retain your documents beyond processing. Enterprise clients receive GDPR compliance documentation.',
-      'gdpr':     'Yes — all data is encrypted in transit and at rest. We follow SOC 2 practices and never retain your documents beyond processing. Enterprise clients receive GDPR compliance documentation.',
-      'data':     'Yes — all data is encrypted in transit and at rest. We follow SOC 2 practices and never retain your documents beyond processing. Enterprise clients receive GDPR compliance documentation.',
-      'roi':      'Clients typically see 3–6× ROI within 6 months. The lead qualifier alone saves SDR teams 15+ hours/week. The invoice bot eliminates the cost of manual AP processing. Book a free audit and we will calculate your specific ROI estimate.',
-      'work':     'We start with a free 30-minute audit to map your workflows. Then we build the automation on Make.com and Claude AI, integrate it with your existing tools, and hand it over with full documentation and a training session.',
-      'how':      'We start with a free 30-minute audit to map your workflows. Then we build the automation on Make.com and Claude AI, integrate it with your existing tools, and hand it over with full documentation and a training session.',
-      'elazar':   'You will work directly with Elazar Ferrer — the founder and builder. No account managers, no offshore teams. Elazar maps your workflows, builds the solution, and stays on as your dedicated AI automation partner.',
-      'demo':     'You are already chatting with our live support agent demo! Also check out the <a href="lead-qualifier.html" class="text-brand-600 underline font-medium">Lead Qualifier</a> and <a href="invoice-processor.html" class="text-brand-600 underline font-medium">Invoice Processor</a> demos.',
+      'work':     'We start with a free 30-minute audit to map your workflows. Then we build the automation on Make.com + Claude AI, integrate it with your existing tools, and hand it over with full documentation and a training session.',
+      'how':      'We start with a free 30-minute audit to map your workflows. Then we build the automation on Make.com + Claude AI, integrate it with your existing tools, and hand it over with full documentation and a training session.',
+      'elazar':   'You\'ll work directly with Elazar Ferrer — the founder and builder. No account managers, no offshore teams. Elazar maps your workflows, builds the solution, and stays on as your dedicated AI automation partner.',
       'default':  'Great question! For anything specific to your business, the fastest way to get a real answer is a quick call with Elazar. <a href="https://calendly.com/elazarferrer" target="_blank" class="text-brand-600 underline font-medium">Book a free 30-min audit →</a>'
     };
-
-    function escapeHtml(str) {
-      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
 
     function sendChatMessage(text) {
       if (!text || !text.trim()) return;
@@ -264,11 +225,11 @@
       var input = document.getElementById('chat-input');
       input.value = '';
 
-      messages.innerHTML += '<div class="flex gap-3 justify-end"><div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm shadow-sm max-w-sm">' + escapeHtml(text) + '</div></div>';
+      messages.innerHTML += '<div class="flex gap-3 justify-end"><div class="bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 text-sm shadow-sm max-w-sm">' + text + '</div></div>';
       messages.scrollTop = messages.scrollHeight;
 
       var typingId = 'typing-' + Date.now();
-      messages.innerHTML += '<div id="' + typingId + '" class="flex gap-3"><div class="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div><div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm flex items-center gap-1"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>';
+      messages.innerHTML += '<div id="' + typingId + '" class="flex gap-3"><div class="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">AI</div><div class="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-400 shadow-sm">Typing…</div></div>';
       messages.scrollTop = messages.scrollHeight;
 
       var lower = text.toLowerCase();
@@ -280,7 +241,7 @@
         }
       }
 
-      var delay = 800 + Math.floor(Math.random() * 500);
+      var delay = 700 + Math.floor(Math.random() * 400);
       setTimeout(function() {
         var el = document.getElementById(typingId);
         if (el) el.remove();
@@ -289,21 +250,21 @@
       }, delay);
     }
 
-    // ── Mobile navigation ─────────────────────────────────────────────
-    var menuBtn = document.getElementById('mobile-menu-btn');
-    var mobileMenu = document.getElementById('mobile-menu');
-    var bar1 = document.getElementById('bar1');
-    var bar2 = document.getElementById('bar2');
-    var bar3 = document.getElementById('bar3');
-    var BAR_OFFSET = '8px';
-    var menuOpen = false;
+    // ── Mobile navigation ──────────────────────────────────────────
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    const BAR_OFFSET = '8px';
+    let menuOpen = false;
 
     menuBtn.addEventListener('click', function() {
       menuOpen = !menuOpen;
       mobileMenu.classList.toggle('hidden', !menuOpen);
-      bar1.style.transform = menuOpen ? 'translateY(' + BAR_OFFSET + ') rotate(45deg)' : '';
+      bar1.style.transform = menuOpen ? `translateY(${BAR_OFFSET}) rotate(45deg)` : '';
       bar2.style.opacity   = menuOpen ? '0' : '1';
-      bar3.style.transform = menuOpen ? 'translateY(-' + BAR_OFFSET + ') rotate(-45deg)' : '';
+      bar3.style.transform = menuOpen ? `translateY(-${BAR_OFFSET}) rotate(-45deg)` : '';
       menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
     });
 
