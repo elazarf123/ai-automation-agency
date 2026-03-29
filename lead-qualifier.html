@@ -4,17 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Lead Qualifier Demo — AutomateIQ</title>
-  <meta name="description" content="Try our AI lead qualifier live. Score any prospect 0-100 based on industry, company size, budget, and urgency in seconds." />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- Google Analytics (GA4) — replace G-VQRY0FLNXZ with your Measurement ID -->
+  <meta name="description" content="Try our AI lead qualifier live. Score any prospect 0–100 based on industry, company size, budget, and urgency in seconds." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VQRY0FLNXZ');
+    gtag("js", new Date());
+    gtag("config", "G-VQRY0FLNXZ");
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -33,13 +32,7 @@
       }
     }
   </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    @keyframes bounce-dot { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
-    .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:#9ca3af; animation:bounce-dot 1.2s infinite; }
-    .dot:nth-child(2){animation-delay:.2s}
-    .dot:nth-child(3){animation-delay:.4s}
-  </style>
+  <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
 
@@ -55,7 +48,7 @@
       </nav>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
-        Book a Free Audit
+        Book a Free Audit →
       </a>
       <!-- Mobile menu button -->
       <button id="mobile-menu-btn" aria-label="Open menu"
@@ -86,12 +79,12 @@
       <span class="inline-block mb-3 px-4 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full tracking-widest uppercase">Live Demo</span>
       <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">AI Lead Qualifier</h1>
       <p class="text-lg text-gray-500 max-w-xl mx-auto">
-        Enter a prospect's details and our AI scores them 0-100 in seconds - so your sales team only calls the best fits.
+        Enter a prospect's details and our AI scores them 0–100 in seconds — so your sales team only calls the best fits.
       </p>
       <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Saves 15+ hours/week for SDR teams</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Plugs into HubSpot or Salesforce</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">&#10003;</span> Live scoring in under 3 seconds</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">✓</span> Saves 15+ hours/week for SDR teams</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">✓</span> Plugs into HubSpot or Salesforce</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-500 font-bold">✓</span> Live scoring in under 3 seconds</span>
       </div>
     </div>
   </section>
@@ -100,8 +93,7 @@
   <section class="py-12 px-6">
     <div class="max-w-2xl mx-auto">
       <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8">
-        <h2 class="text-xl font-bold text-gray-900 mb-2">Score a Lead</h2>
-        <p class="text-xs text-gray-400 mb-5">Fill in any prospect's details, or <button type="button" onclick="prefillSample()" class="text-brand-600 font-semibold underline hover:text-brand-700 transition">try a sample lead →</button></p>
+        <h2 class="text-xl font-bold text-gray-900 mb-6">Score a Lead</h2>
         <div class="space-y-5">
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
@@ -113,11 +105,11 @@
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-industry">Industry</label>
               <select id="d-industry"
                 class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
-                <option value="">Select industry</option>
+                <option value="">Select industry…</option>
                 <option value="saas">SaaS / Software</option>
-                <option value="finance">Finance and Accounting</option>
-                <option value="logistics">Logistics and Supply Chain</option>
-                <option value="ecommerce">E-commerce and Retail</option>
+                <option value="finance">Finance &amp; Accounting</option>
+                <option value="logistics">Logistics &amp; Supply Chain</option>
+                <option value="ecommerce">E-commerce &amp; Retail</option>
                 <option value="manufacturing">Manufacturing</option>
                 <option value="healthcare">Healthcare</option>
                 <option value="professional">Professional Services</option>
@@ -130,34 +122,34 @@
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-size">Company Size</label>
               <select id="d-size"
                 class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
-                <option value="">Select size</option>
-                <option value="1-10">1-10 employees</option>
-                <option value="11-50">11-50 employees</option>
-                <option value="51-200">51-200 employees</option>
-                <option value="201-1000">201-1000 employees</option>
-                <option value="1000+">1000+ employees</option>
+                <option value="">Select size…</option>
+                <option value="1-10">1–10 employees</option>
+                <option value="11-50">11–50 employees</option>
+                <option value="51-200">51–200 employees</option>
+                <option value="201-1000">201–1,000 employees</option>
+                <option value="1000+">1,000+ employees</option>
               </select>
             </div>
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-budget">Monthly Budget</label>
               <select id="d-budget"
                 class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
-                <option value="">Select budget</option>
+                <option value="">Select budget…</option>
                 <option value="low">Under $1,000/mo</option>
-                <option value="mid">$1,000 - $3,000/mo</option>
-                <option value="high">$3,000 - $10,000/mo</option>
+                <option value="mid">$1,000 – $3,000/mo</option>
+                <option value="high">$3,000 – $10,000/mo</option>
                 <option value="enterprise">$10,000+/mo</option>
               </select>
             </div>
           </div>
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1" for="d-pain">Main Pain Point</label>
-            <textarea id="d-pain" rows="3" placeholder="e.g. We spend hours manually reviewing inbound leads and processing invoices every week"
+            <textarea id="d-pain" rows="3" placeholder="e.g. We spend hours manually reviewing inbound leads and processing invoices every week…"
               class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 resize-none"></textarea>
           </div>
           <button type="button" onclick="runLeadScorer()"
             class="w-full bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full hover:bg-brand-700 transition shadow text-sm">
-            Score This Lead
+            Score This Lead →
           </button>
         </div>
 
@@ -193,9 +185,8 @@
           </div>
           <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
              class="mt-5 w-full inline-block text-center bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full hover:bg-brand-700 transition shadow text-sm">
-            📅 Book a Free Audit — We Build This in 2 Weeks
+            📅 Book a Free Audit Now →
           </a>
-          <p class="mt-2 text-xs text-gray-400 text-center">No credit card. No commitment. 30-day satisfaction guarantee.</p>
         </div>
       </div>
       <p class="mt-4 text-xs text-gray-400 text-center">Simulated demo. Production system uses Claude AI for nuanced, context-aware scoring.</p>
@@ -208,17 +199,17 @@
       <h2 class="text-2xl font-bold text-gray-900 text-center mb-10">How the Lead Qualifier Works</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm text-center">
-          <div class="text-3xl mb-3">&#128229;</div>
+          <div class="text-3xl mb-3">📥</div>
           <h3 class="font-bold text-gray-900 mb-2">1. Lead Comes In</h3>
           <p class="text-sm text-gray-500">A new lead fills out your form, sends an email, or enters your CRM from any source.</p>
         </div>
         <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm text-center">
-          <div class="text-3xl mb-3">&#129302;</div>
+          <div class="text-3xl mb-3">🤖</div>
           <h3 class="font-bold text-gray-900 mb-2">2. Claude AI Scores It</h3>
-          <p class="text-sm text-gray-500">Our AI analyses company size, industry, budget signals, and pain point urgency to generate a 0-100 fit score.</p>
+          <p class="text-sm text-gray-500">Our AI analyses company size, industry, budget signals, and pain point urgency to generate a 0–100 fit score.</p>
         </div>
         <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm text-center">
-          <div class="text-3xl mb-3">&#127919;</div>
+          <div class="text-3xl mb-3">🎯</div>
           <h3 class="font-bold text-gray-900 mb-2">3. Your Team Acts</h3>
           <p class="text-sm text-gray-500">A-grade leads get routed to your sales team immediately. Lower grades enter a nurture sequence automatically.</p>
         </div>
@@ -230,119 +221,110 @@
   <section class="py-16 px-6 bg-brand-600 text-white text-center">
     <div class="max-w-2xl mx-auto">
       <h2 class="text-3xl font-bold mb-3">Want This Running in Your Business?</h2>
-      <p class="text-white/80 mb-7">Book a free 30-minute audit and we will map exactly how this integrates with your current stack.</p>
+      <p class="text-white/80 mb-7">Book a free 30-minute audit and we'll map exactly how this integrates with your current stack.</p>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="inline-block bg-white text-brand-600 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-sm">
-        Book a Free Audit
+        📅 Book a Free Audit →
       </a>
       <div class="mt-4">
-        <a href="index.html" class="text-white/60 text-sm hover:text-white transition">Back to AutomateIQ</a>
+        <a href="index.html" class="text-white/60 text-sm hover:text-white transition">← Back to AutomateIQ</a>
       </div>
     </div>
   </section>
 
   <script>
-    function prefillSample() {
-      document.getElementById('d-company').value = 'Cloudify Inc.';
-      document.getElementById('d-industry').value = 'saas';
-      document.getElementById('d-size').value = '51-200';
-      document.getElementById('d-budget').value = 'high';
-      document.getElementById('d-pain').value = 'We spend hours manually reviewing hundreds of inbound leads every week. The backlog is tedious and our SDR team keeps missing follow-ups because the process is so slow and repetitive.';
-      runLeadScorer();
-    }
-
     function runLeadScorer() {
-      var industry = document.getElementById('d-industry').value;
-      var size     = document.getElementById('d-size').value;
-      var budget   = document.getElementById('d-budget').value;
-      var pain     = document.getElementById('d-pain').value.toLowerCase();
+      const industry = document.getElementById('d-industry').value;
+      const size     = document.getElementById('d-size').value;
+      const budget   = document.getElementById('d-budget').value;
+      const pain     = document.getElementById('d-pain').value.toLowerCase();
 
-      var score = 40;
-      var strengths = [], weaknesses = [];
+      let score = 40;
+      const strengths = [], weaknesses = [];
 
-      var highFitIndustries = ['saas', 'finance', 'logistics', 'ecommerce'];
-      if (highFitIndustries.indexOf(industry) !== -1) { score += 12; strengths.push('High-fit industry for AI automation'); }
-      else if (industry === 'manufacturing') { score += 8; strengths.push('Manufacturing is a solid automation target'); }
-      else if (!industry) { weaknesses.push('Industry not specified'); }
-      else { score += 4; }
+      const highFitIndustries = ['saas', 'finance', 'logistics', 'ecommerce'];
+      if (highFitIndustries.includes(industry)) { score += 12; strengths.push('High-fit industry for AI automation'); }
+      else if (industry === 'manufacturing')     { score += 8;  strengths.push('Manufacturing is a solid automation target'); }
+      else if (!industry)                        { weaknesses.push('Industry not specified'); }
+      else                                       { score += 4; }
 
-      if      (size === '51-200')   { score += 10; strengths.push('Ideal company size (51-200 employees)'); }
-      else if (size === '201-1000') { score += 12; strengths.push('Mid-market size - strong automation ROI'); }
+      if      (size === '51-200')   { score += 10; strengths.push('Ideal company size (51–200 employees)'); }
+      else if (size === '201-1000') { score += 12; strengths.push('Mid-market size — strong automation ROI'); }
       else if (size === '1000+')    { score += 10; strengths.push('Enterprise scale'); }
       else if (size === '11-50')    { score += 6; }
-      else if (size === '1-10')     { score -= 4; weaknesses.push('Very small team - may lack budget'); }
-      else { weaknesses.push('Company size not specified'); }
+      else if (size === '1-10')     { score -= 4;  weaknesses.push('Very small team — may lack budget'); }
+      else                          { weaknesses.push('Company size not specified'); }
 
       if      (budget === 'enterprise') { score += 18; strengths.push('Budget aligns with Enterprise plan'); }
       else if (budget === 'high')       { score += 14; strengths.push('Budget fits Growth or Enterprise plan'); }
       else if (budget === 'mid')        { score += 8;  strengths.push('Budget fits Starter plan'); }
       else if (budget === 'low')        { score -= 8;  weaknesses.push('Budget may be below minimum engagement'); }
-      else { weaknesses.push('Budget not specified'); }
+      else                              { weaknesses.push('Budget not specified'); }
 
-      var urgentWords = ['manual', 'hours', 'slow', 'bottleneck', 'backlog', 'error', 'tedious', 'repetitive', 'time-consuming'];
-      var urgencyMatches = urgentWords.filter(function(w) { return pain.indexOf(w) !== -1; });
+      const urgentWords = ['manual', 'hours', 'slow', 'bottleneck', 'backlog', 'error', 'tedious', 'repetitive', 'time-consuming'];
+      const urgencyMatches = urgentWords.filter(w => pain.includes(w));
       if      (urgencyMatches.length >= 3) { score += 10; strengths.push('Clear, urgent automation pain point'); }
       else if (urgencyMatches.length >= 1) { score += 5;  strengths.push('Automation need identified'); }
       else if (pain.length < 20)           { weaknesses.push('Pain point not clearly described'); }
 
       score = Math.max(0, Math.min(100, score));
 
-      var grade = score >= 80 ? 'A' : score >= 60 ? 'B' : score >= 40 ? 'C' : 'D';
-      var gradeColors = { A: 'bg-green-100 text-green-700', B: 'bg-blue-100 text-blue-700', C: 'bg-yellow-100 text-yellow-700', D: 'bg-red-100 text-red-600' };
-      var barColors   = { A: 'bg-green-500', B: 'bg-blue-500', C: 'bg-yellow-400', D: 'bg-red-400' };
+      const grade = score >= 80 ? 'A' : score >= 60 ? 'B' : score >= 40 ? 'C' : 'D';
+      const gradeColors = { A: 'bg-green-100 text-green-700', B: 'bg-brand-100 text-brand-700', C: 'bg-yellow-100 text-yellow-700', D: 'bg-red-100 text-red-600' };
+      const barColors   = { A: 'bg-green-500', B: 'bg-brand-500', C: 'bg-yellow-400', D: 'bg-red-400' };
 
-      var summaries = {
+      const summaries = {
         A: 'This is a high-priority lead. Strong industry fit, appropriate company size, and adequate budget make this an excellent automation prospect. Recommend immediate outreach.',
         B: 'Good prospect with solid automation potential. A few gaps may need addressing during discovery, but overall this lead is worth pursuing promptly.',
         C: 'Moderate fit. There are some alignment issues around budget or scope that should be explored before committing sales resources. Schedule a discovery call.',
-        D: 'This lead does not currently meet the core criteria for a strong engagement. Consider nurturing with content before investing sales time.'
+        D: 'This lead does not currently meet the core criteria for a strong engagement. Consider nurturing with content before investing sales time.',
       };
-      var nextSteps = {
+      const nextSteps = {
         A: 'Book a 30-minute operations audit this week and prepare a custom ROI estimate.',
         B: 'Send a personalized case study and schedule a discovery call within 48 hours.',
-        C: 'Add to nurture sequence. Follow up in 2 weeks with educational content on automation ROI.',
-        D: 'Move to long-term nurture. Re-evaluate if company size or budget changes.'
+        C: 'Add to nurture sequence. Follow up in 2–4 weeks with educational content on automation ROI.',
+        D: 'Move to long-term nurture. Re-evaluate if company size or budget changes.',
       };
 
       document.getElementById('demo-score-label').textContent = score;
       document.getElementById('demo-score-bar').style.width = score + '%';
       document.getElementById('demo-score-bar').className = 'h-3 rounded-full transition-all duration-700 ' + barColors[grade];
-      var badge = document.getElementById('demo-grade-badge');
+      const badge = document.getElementById('demo-grade-badge');
       badge.textContent = grade;
       badge.className = 'w-12 h-12 rounded-full flex items-center justify-center text-xl font-extrabold ' + gradeColors[grade];
       document.getElementById('demo-summary').textContent = summaries[grade];
       document.getElementById('demo-next-step').textContent = nextSteps[grade];
 
-      var strEl = document.getElementById('demo-strengths');
+      const strEl = document.getElementById('demo-strengths');
       strEl.innerHTML = strengths.length
-        ? strengths.map(function(s) { return '<li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">&#10003;</span>' + s + '</li>'; }).join('')
+        ? strengths.map(s => `<li class="flex items-start gap-2"><span class="text-green-500 mt-0.5">✓</span>${s}</li>`).join('')
         : '<li class="text-gray-400">None identified</li>';
 
-      var wkEl = document.getElementById('demo-weaknesses');
+      const wkEl = document.getElementById('demo-weaknesses');
       wkEl.innerHTML = weaknesses.length
-        ? weaknesses.map(function(w) { return '<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">&#10007;</span>' + w + '</li>'; }).join('')
+        ? weaknesses.map(w => `<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>${w}</li>`).join('')
         : '<li class="text-gray-400">None identified</li>';
 
-      var result = document.getElementById('demo-result');
+      const result = document.getElementById('demo-result');
       result.classList.remove('hidden');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // ── Mobile navigation ─────────────────────────────────────────────
-    var menuBtn = document.getElementById('mobile-menu-btn');
-    var mobileMenu = document.getElementById('mobile-menu');
-    var bar1 = document.getElementById('bar1');
-    var bar2 = document.getElementById('bar2');
-    var bar3 = document.getElementById('bar3');
-    var BAR_OFFSET = '8px';
-    var menuOpen = false;
+    // ── Mobile navigation ──────────────────────────────────────────
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    const BAR_OFFSET = '8px';
+    let menuOpen = false;
 
     menuBtn.addEventListener('click', function() {
       menuOpen = !menuOpen;
       mobileMenu.classList.toggle('hidden', !menuOpen);
-      bar1.style.transform = menuOpen ? 'translateY(' + BAR_OFFSET + ') rotate(45deg)' : '';
+      bar1.style.transform = menuOpen ? `translateY(${BAR_OFFSET}) rotate(45deg)` : '';
       bar2.style.opacity   = menuOpen ? '0' : '1';
-      bar3.style.transform = menuOpen ? 'translateY(-' + BAR_OFFSET + ') rotate(-45deg)' : '';
+      bar3.style.transform = menuOpen ? `translateY(-${BAR_OFFSET}) rotate(-45deg)` : '';
       menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
     });
 
