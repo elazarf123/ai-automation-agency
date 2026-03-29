@@ -54,6 +54,24 @@
     </div>
   </section>
 
+  <!-- ── ROI STATS ─────────────────────────────────────────────────── -->
+  <section class="py-10 px-6 bg-white border-b border-gray-100">
+    <div class="max-w-3xl mx-auto grid grid-cols-3 gap-6 text-center">
+      <div>
+        <p class="text-3xl font-extrabold text-brand-600">3×</p>
+        <p class="text-sm text-gray-500 mt-1">higher close rate<br/>on AI-qualified leads</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold text-brand-600">&lt;2 sec</p>
+        <p class="text-sm text-gray-500 mt-1">to score &amp; grade<br/>each inbound lead</p>
+      </div>
+      <div>
+        <p class="text-3xl font-extrabold text-brand-600">1–2 wks</p>
+        <p class="text-sm text-gray-500 mt-1">custom build &amp;<br/>CRM integration</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ── WHAT IT DOES ────────────────────────────────────────────── -->
   <section class="py-16 px-6">
     <div class="max-w-3xl mx-auto">
@@ -144,17 +162,158 @@
       <p class="text-gray-500 text-sm">
         The script ships with three sample leads. You can also import <code class="bg-gray-100 px-1 rounded font-mono text-xs">qualify_lead()</code> directly to score leads programmatically in your own application.
       </p>
+
+      <!-- Sample Output -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Sample Output</h2>
+      <p class="text-gray-600 mb-3">Here's what the script returns for a single lead:</p>
+      <pre class="bg-gray-900 text-green-400 text-xs rounded-lg px-5 py-4 font-mono overflow-x-auto leading-relaxed">{
+  "score": 87,
+  "grade": "B",
+  "summary": "Strong fit. TechCorp is a mid-size SaaS with clear manual workflows
+              and a 30-day timeline. Budget not explicitly stated but company size
+              implies a medium-to-large deal.",
+  "strengths": ["Decision-maker contact", "Urgent timeline", "Clear automation need"],
+  "weaknesses": ["No explicit budget mention"],
+  "next_step": "Send a personalised proposal within 24 hours",
+  "estimated_deal_size": "medium"
+}</pre>
+
+      <!-- Built With -->
+      <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Built With</h2>
+      <div class="flex flex-wrap gap-3 mb-2">
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">🐍 Python 3.8+</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">🤖 Claude (Anthropic API)</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">📊 Structured JSON output</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">🔌 CRM-ready output format</span>
+        <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">⚡ Mock mode (no API key)</span>
+      </div>
     </div>
   </section>
 
-  <!-- ── BACK TO HOME CTA ────────────────────────────────────────── -->
-  <section class="py-14 px-6 bg-brand-50 border-t border-brand-100">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-gray-600 mb-5">Want to see the other demos or learn how we can build this for your business?</p>
-      <a href="../../index.html"
-         class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg">
-        ← Back to Home
-      </a>
+  <!-- ── BEFORE VS AFTER ─────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-10">Before vs. After AutomateIQ</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+          <p class="font-bold text-red-700 mb-4 text-lg">😰 Before</p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> Sales reps manually review every inbound inquiry</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> Hours wasted chasing low-quality or unqualified leads</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> Hot leads go cold while reps are buried in admin</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> Subjective, inconsistent grading across the team</li>
+            <li class="flex gap-2"><span class="text-red-400 mt-0.5">✗</span> No data on why leads were qualified or rejected</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 border border-green-200 rounded-2xl p-6">
+          <p class="font-bold text-green-700 mb-4 text-lg">🚀 After</p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Every lead scored &amp; graded in under 2 seconds</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Reps only touch A &amp; B leads — focus where it counts</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Instant alerts for hot leads so nothing falls through</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Consistent, AI-driven scoring across every enquiry</li>
+            <li class="flex gap-2"><span class="text-green-500 mt-0.5">✓</span> Full audit trail with reasoning for every decision</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO IS THIS FOR ─────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Who Is This For?</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">📈</span>
+          <div><p class="font-semibold text-gray-800">B2B sales teams</p><p class="text-sm text-gray-500">Getting 50+ inbound leads per week and struggling to prioritise</p></div>
+        </div>
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">🚀</span>
+          <div><p class="font-semibold text-gray-800">Growth-stage startups</p><p class="text-sm text-gray-500">Running lean sales ops and needing to move fast on the right deals</p></div>
+        </div>
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">🏢</span>
+          <div><p class="font-semibold text-gray-800">Agencies &amp; consultancies</p><p class="text-sm text-gray-500">Filtering project enquiries before investing time in proposals</p></div>
+        </div>
+        <div class="flex gap-3 items-start p-4 border border-gray-100 rounded-xl bg-gray-50">
+          <span class="text-2xl">💼</span>
+          <div><p class="font-semibold text-gray-800">Enterprise SDR teams</p><p class="text-sm text-gray-500">Routing qualified leads to the right rep based on fit &amp; deal size</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ─────────────────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="bg-white border border-gray-200 rounded-xl p-5 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Can this integrate with our CRM (HubSpot, Salesforce, Pipedrive)?
+            <span class="text-brand-600 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-gray-600 leading-relaxed">Yes. The demo outputs JSON, and in production we push results directly into your CRM via API, including the score, grade, and recommended next action as custom fields on the contact or deal record.</p>
+        </details>
+        <details class="bg-white border border-gray-200 rounded-xl p-5 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            Can we customise the scoring criteria for our business?
+            <span class="text-brand-600 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-gray-600 leading-relaxed">Absolutely. The five scoring dimensions are fully configurable. We work with you to define exactly what makes a great lead for your business — industry, company size, budget range, buying intent signals, etc.</p>
+        </details>
+        <details class="bg-white border border-gray-200 rounded-xl p-5 group">
+          <summary class="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+            What does it cost to run in production?
+            <span class="text-brand-600 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-gray-600 leading-relaxed">API costs are typically under $0.01 per lead scored. For 500 leads/month that's less than $5 in API fees — a tiny fraction of the value of one closed deal. See our <a href="../../index.html#pricing" class="text-brand-600 underline hover:text-brand-700">pricing page</a> for setup and retainer options.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPLORE OTHER DEMOS ─────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Explore Other Demos</h2>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <a href="../support-bot/index.html"
+           class="flex items-start gap-4 p-5 border border-gray-200 rounded-2xl hover:border-brand-400 hover:shadow-md transition group">
+          <span class="text-3xl">💬</span>
+          <div>
+            <p class="font-bold text-gray-800 group-hover:text-brand-600 transition">AI Support Bot</p>
+            <p class="text-sm text-gray-500 mt-1">Answer customer questions 24/7 from your own knowledge base — no vector DB needed.</p>
+          </div>
+        </a>
+        <a href="../invoice-processor/index.html"
+           class="flex items-start gap-4 p-5 border border-gray-200 rounded-2xl hover:border-brand-400 hover:shadow-md transition group">
+          <span class="text-3xl">📄</span>
+          <div>
+            <p class="font-bold text-gray-800 group-hover:text-brand-600 transition">Invoice Processor</p>
+            <p class="text-sm text-gray-500 mt-1">Extract structured data from PDFs automatically — cut AP processing time from days to minutes.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HIRING CTA ──────────────────────────────────────────────── -->
+  <section class="py-20 px-6 bg-brand-600">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-3">Ready to stop chasing bad leads?</h2>
+      <p class="text-brand-100 text-lg mb-8">We'll build a custom lead qualifier integrated directly into your website and CRM — delivered in 1–2 weeks.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="../../index.html#contact"
+           class="inline-flex items-center justify-center gap-2 bg-white text-brand-600 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-lg">
+          🎯 Hire Us to Build This
+        </a>
+        <a href="../../index.html#pricing"
+           class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition text-lg">
+          See Pricing
+        </a>
+      </div>
     </div>
   </section>
 
