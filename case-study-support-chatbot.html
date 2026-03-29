@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: Support Chatbot — StyleHub Fashion | AutomateIQ</title>
+  <meta name="description" content="How StyleHub Fashion resolved 70% of support tickets instantly with AI, improved customer satisfaction from 3.2 to 4.6 stars, and saved $84,000/year." />
+  <link rel="canonical" href="https://elazarf123.github.io/ai-automation-agency/case-study-support-chatbot.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a55f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elazarf123.github.io/ai-automation-agency/case-study-support-chatbot.html" />
+  <meta property="og:title" content="Case Study: AI Support Chatbot — 70% Fewer Tickets, $84k Annual Savings" />
+  <meta property="og:description" content="StyleHub Fashion went from 48-hour response times to instant AI resolution for 70% of tickets — satisfaction up, costs down." />
+  <meta property="og:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <meta property="og:site_name" content="AutomateIQ" />
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VQRY0FLNXZ');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="index.html#services" class="hover:text-brand-600 transition">Services</a>
+        <a href="pricing.html"        class="hover:text-brand-600 transition">Pricing</a>
+        <a href="testimonials.html"   class="hover:text-brand-600 transition">Case Studies</a>
+        <a href="index.html#contact"  class="hover:text-brand-600 transition">Contact</a>
+      </nav>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
+      <a href="index.html#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"        class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="testimonials.html"   class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Case Studies</a>
+      <a href="index.html#contact"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
+        Book a Free Audit →
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pt-32 pb-16 px-6 bg-gradient-to-br from-pink-50 via-white to-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-wrap items-center gap-3 mb-6 text-sm font-medium text-gray-500">
+        <a href="testimonials.html" class="hover:text-brand-600 transition">Case Studies</a>
+        <span>›</span>
+        <span class="text-gray-800">Support Chatbot</span>
+      </div>
+      <span class="inline-block mb-4 px-4 py-1 bg-pink-100 text-pink-700 text-xs font-semibold rounded-full tracking-widest uppercase">E-commerce</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+        48-Hour Response Times → Instant. Support Costs Down $84k/Year.
+      </h1>
+      <p class="text-xl text-gray-500 max-w-3xl mb-8">
+        How StyleHub Fashion deployed a 24/7 AI support chatbot that resolved 70% of tickets instantly, improved customer satisfaction by 44%, and freed their human team for complex, high-value issues.
+      </p>
+      <!-- Key stats row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">70%</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Tickets Resolved by AI</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">4.6★</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Support Satisfaction (was 3.2)</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">$84k</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Annual Cost Savings</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">Instant</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Response Time (was 48 hrs)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT OVERVIEW -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">About StyleHub Fashion</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          StyleHub Fashion is a direct-to-consumer e-commerce brand selling women's apparel and accessories online. With a growing SKU catalogue and a customer base that expects immediate answers, their support inbox had become a full-time problem requiring four dedicated staff members.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Most support tickets were repeating the same questions: "Where's my order?", "How do I return this?", "Do you have this in size M?" But with 2,000+ tickets per month and a 48-hour SLA that was slipping, customer reviews were trending negative.
+        </p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 space-y-3 text-sm">
+        <div>
+          <span class="font-semibold text-gray-700">Client</span>
+          <p class="text-gray-500 mt-0.5">StyleHub Fashion <span class="text-xs text-gray-400">(sample)</span></p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Industry</span>
+          <p class="text-gray-500 mt-0.5">E-commerce / Fashion Retail</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Company Size</span>
+          <p class="text-gray-500 mt-0.5">18 employees · 4 support staff</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Service</span>
+          <p class="text-gray-500 mt-0.5">24/7 AI Support Chatbot</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Timeline</span>
+          <p class="text-gray-500 mt-0.5">2 weeks build · Live end of week 2</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Integrations</span>
+          <p class="text-gray-500 mt-0.5">Shopify · Zendesk · Klaviyo · Slack</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="py-12 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">The Problem</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            StyleHub's four-person support team handled over 2,000 tickets every month. Analysis showed that <strong>70% of those tickets fell into just six categories</strong>:
+          </p>
+          <ul class="space-y-2 text-gray-600 text-sm mb-4">
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Order status and tracking updates</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Return and exchange policy questions</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Size guide and fit recommendations</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Discount code issues and promotional FAQs</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Product availability and restock inquiries</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Shipping options and delivery time estimates</li>
+          </ul>
+          <p class="text-gray-600 text-sm leading-relaxed">Yet every one of these required a human to open the ticket, look up the answer, and compose a reply — a workflow that added up to $15,000/month in labour costs.</p>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-5 border border-red-100">
+            <p class="text-3xl font-extrabold text-red-500">48 hrs</p>
+            <p class="text-sm text-gray-500 mt-1">average first-response time</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-red-100">
+            <p class="text-3xl font-extrabold text-red-500">3.2 ★</p>
+            <p class="text-sm text-gray-500 mt-1">customer support satisfaction rating</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-red-100">
+            <p class="text-3xl font-extrabold text-red-500">$15k/mo</p>
+            <p class="text-sm text-gray-500 mt-1">monthly support staff cost</p>
+          </div>
+        </div>
+      </div>
+      <blockquote class="mt-8 bg-white border-l-4 border-red-300 rounded-r-2xl p-6 italic text-gray-600">
+        "Our team was answering the same questions dozens of times every day. They were stressed, customers were frustrated by wait times, and our reviews started to reflect it. We knew something had to change."
+        <footer class="mt-3 text-sm font-semibold text-gray-700 not-italic">— Jessica Rodriguez, Customer Success Manager, StyleHub Fashion</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- THE SOLUTION -->
+  <section class="py-12 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">The Solution</h2>
+      <p class="text-gray-600 leading-relaxed mb-8">
+        AutomateIQ built a 24/7 AI support chatbot embedded on StyleHub's website and integrated with their Zendesk ticketing system. The bot handles Tier-1 (routine) queries immediately — only escalating to a human agent when the issue genuinely needs one.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-brand-50 rounded-2xl p-6 fade-in">
+          <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center text-lg mb-3">1</div>
+          <h4 class="font-bold text-gray-900 mb-2">Instant Answers</h4>
+          <p class="text-sm text-gray-600">The chatbot is trained on StyleHub's full product catalogue, shipping policies, return procedures, and FAQs. It answers in seconds, 24/7 — no hold time, no queue. Order status is pulled live from Shopify.</p>
+        </div>
+        <div class="bg-brand-50 rounded-2xl p-6 fade-in">
+          <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center text-lg mb-3">2</div>
+          <h4 class="font-bold text-gray-900 mb-2">Smart Escalation</h4>
+          <p class="text-sm text-gray-600">When the AI detects frustration, a complex return dispute, or a question it can't confidently answer, it creates a Zendesk ticket pre-populated with the conversation history — so human agents have full context immediately.</p>
+        </div>
+        <div class="bg-brand-50 rounded-2xl p-6 fade-in">
+          <div class="w-10 h-10 bg-brand-600 text-white rounded-xl flex items-center justify-center text-lg mb-3">3</div>
+          <h4 class="font-bold text-gray-900 mb-2">Continuous Learning</h4>
+          <p class="text-sm text-gray-600">Monthly review sessions analyse which questions the bot escalated — new patterns are used to update the knowledge base, so the bot gets smarter over time without constant manual maintenance.</p>
+        </div>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 text-sm text-gray-600">
+        <p class="font-semibold text-gray-800 mb-3">Tech stack used in this build:</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Claude AI (Anthropic)</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Make.com</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Shopify API</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Zendesk</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Klaviyo</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Slack</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="py-12 px-6 bg-green-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Results After 30 Days</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Tickets Handled by AI</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">0%</p>
+              <p class="text-xs text-gray-400">Before</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">70%</p>
+              <p class="text-xs text-gray-500">After</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">1,400 tickets/month automated</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">First Response Time</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">48 hrs</p>
+              <p class="text-xs text-gray-400">Before</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">&lt;5 sec</p>
+              <p class="text-xs text-gray-500">After (AI chat)</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">24/7 availability</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Support Cost/Month</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">$15k</p>
+              <p class="text-xs text-gray-400">Before</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">$8k</p>
+              <p class="text-xs text-gray-500">After</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">$7,000/month saved</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Customer Satisfaction</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">3.2 ★</p>
+              <p class="text-xs text-gray-400">Before</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">4.6 ★</p>
+              <p class="text-xs text-gray-500">After</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">+44% satisfaction improvement</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Human Agent Time Freed</span>
+          <p class="text-3xl font-extrabold text-green-600 mt-2">120 hrs/mo</p>
+          <p class="text-xs text-gray-500">redirected to complex issues &amp; proactive outreach</p>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">Team morale improved significantly</p>
+        </div>
+        <div class="bg-brand-600 rounded-2xl p-6 shadow-sm fade-in text-white">
+          <span class="text-xs font-semibold uppercase tracking-wide text-brand-200">Annual Savings</span>
+          <p class="text-4xl font-extrabold mt-2">$84,000</p>
+          <p class="text-brand-200 text-sm mt-1">$7,000/month in support cost reduction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <svg class="w-10 h-10 text-brand-200 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+      <blockquote class="text-2xl font-medium text-gray-800 leading-relaxed italic mb-8">
+        "Our support team went from drowning in tickets to actually helping customers with complex issues. The AI handles 70% of common questions instantly — 24/7. Support satisfaction went from 3.2 to 4.6 stars and we cut costs by nearly half. Best ROI we've ever seen on a software investment."
+      </blockquote>
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center text-pink-700 font-bold text-lg">JR</div>
+        <div class="text-left">
+          <p class="font-bold text-gray-900">Jessica Rodriguez</p>
+          <p class="text-sm text-gray-500">Customer Success Manager, StyleHub Fashion</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER CASE STUDIES -->
+  <section class="py-12 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">More Case Studies</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="case-study-lead-qualification.html"
+           class="bg-white rounded-2xl border border-gray-200 p-6 hover:border-brand-300 hover:shadow-md transition group">
+          <span class="inline-block mb-3 px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">B2B SaaS</span>
+          <h3 class="font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition">AI Lead Qualification</h3>
+          <p class="text-sm text-gray-500">TechFlow Solutions 3×'d their qualified leads, cut cost-per-lead by 86%, and hit 340% ROI in 3 months.</p>
+          <p class="mt-4 text-sm font-semibold text-brand-600">Read case study →</p>
+        </a>
+        <a href="case-study-invoice-processing.html"
+           class="bg-white rounded-2xl border border-gray-200 p-6 hover:border-brand-300 hover:shadow-md transition group">
+          <span class="inline-block mb-3 px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Accounting</span>
+          <h3 class="font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition">Invoice Processing Automation</h3>
+          <p class="text-sm text-gray-500">Precision Accounting Group cut processing time from 3-5 days to 24 hours — 0.2% error rate and $45k annual savings.</p>
+          <p class="mt-4 text-sm font-semibold text-brand-600">Read case study →</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 bg-brand-600">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Ready to Cut Support Costs in Half?</h2>
+      <p class="text-brand-100 text-lg mb-8">Book a free 30-minute audit. We'll analyse your support ticket patterns and show you how an AI chatbot would perform for your customer base.</p>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-lg">
+        Book Your Free Audit →
+      </a>
+      <p class="mt-4 text-brand-200 text-sm">No credit card · No commitment · Results in 2–4 weeks</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6 text-sm">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex flex-wrap gap-6">
+        <a href="index.html#services"     class="hover:text-white transition">Services</a>
+        <a href="pricing.html"            class="hover:text-white transition">Pricing</a>
+        <a href="testimonials.html"       class="hover:text-white transition">Case Studies</a>
+        <a href="index.html#contact"      class="hover:text-white transition">Contact</a>
+        <a href="privacy-policy.html"     class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html"              class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    function closeMobileMenu() { document.getElementById('mobile-menu').classList.add('hidden'); }
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(function(el) { fadeObserver.observe(el); });
+  </script>
+</body>
+</html>

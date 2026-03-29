@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study: Invoice Processing — Precision Accounting Group | AutomateIQ</title>
+  <meta name="description" content="How Precision Accounting Group went from 3-5 day invoice processing to 24 hours, cut errors from 8% to 0.2%, and saved $45,000 annually." />
+  <link rel="canonical" href="https://elazarf123.github.io/ai-automation-agency/case-study-invoice-processing.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a55f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elazarf123.github.io/ai-automation-agency/case-study-invoice-processing.html" />
+  <meta property="og:title" content="Case Study: Invoice Automation — 3-5 Days → 24 Hours, $45k Saved Annually" />
+  <meta property="og:description" content="Precision Accounting Group automated invoice processing, cut errors by 97.5%, and freed 120 staff hours per month." />
+  <meta property="og:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <meta property="og:site_name" content="AutomateIQ" />
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VQRY0FLNXZ');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="index.html#services" class="hover:text-brand-600 transition">Services</a>
+        <a href="pricing.html"        class="hover:text-brand-600 transition">Pricing</a>
+        <a href="testimonials.html"   class="hover:text-brand-600 transition">Case Studies</a>
+        <a href="index.html#contact"  class="hover:text-brand-600 transition">Contact</a>
+      </nav>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
+      <a href="index.html#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"        class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="testimonials.html"   class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Case Studies</a>
+      <a href="index.html#contact"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
+        Book a Free Audit →
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pt-32 pb-16 px-6 bg-gradient-to-br from-purple-50 via-white to-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-wrap items-center gap-3 mb-6 text-sm font-medium text-gray-500">
+        <a href="testimonials.html" class="hover:text-brand-600 transition">Case Studies</a>
+        <span>›</span>
+        <span class="text-gray-800">Invoice Processing</span>
+      </div>
+      <span class="inline-block mb-4 px-4 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full tracking-widest uppercase">Accounting &amp; Finance</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+        Invoice Processing: 3–5 Days → Overnight. 8% Errors → 0.2%.
+      </h1>
+      <p class="text-xl text-gray-500 max-w-3xl mb-8">
+        How Precision Accounting Group automated their entire AP workflow, freed 120 staff hours per month, and saved $45,000 annually — without hiring a single extra person.
+      </p>
+      <!-- Key stats row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">97.5%</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Fewer Processing Errors</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">4×</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Invoice Capacity Increase</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">$45k</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Annual Savings</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-5 text-center shadow-sm">
+          <p class="text-3xl font-extrabold text-brand-600">120 hrs</p>
+          <p class="text-xs text-gray-500 mt-1 font-medium">Freed Every Month</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT OVERVIEW -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">About Precision Accounting Group</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Precision Accounting Group is a mid-size regional accounting and bookkeeping firm serving 85 small business clients across the construction, retail, and hospitality sectors. With a lean team of 14 staff, they process approximately 500 vendor invoices per month across all client accounts.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          As the client base grew, invoice processing became the firm's biggest bottleneck. Two full-time accounts-payable staff were spending nearly all their time on data entry — leaving little bandwidth for higher-value advisory work that clients were increasingly requesting.
+        </p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 space-y-3 text-sm">
+        <div>
+          <span class="font-semibold text-gray-700">Client</span>
+          <p class="text-gray-500 mt-0.5">Precision Accounting Group <span class="text-xs text-gray-400">(sample)</span></p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Industry</span>
+          <p class="text-gray-500 mt-0.5">Accounting &amp; Financial Services</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Company Size</span>
+          <p class="text-gray-500 mt-0.5">14 staff · 85 SMB clients</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Service</span>
+          <p class="text-gray-500 mt-0.5">Automated Invoice Processor</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Timeline</span>
+          <p class="text-gray-500 mt-0.5">3 weeks build · Live in week 4</p>
+        </div>
+        <div>
+          <span class="font-semibold text-gray-700">Integrations</span>
+          <p class="text-gray-500 mt-0.5">QuickBooks Online · Gmail · Google Drive · Slack</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="py-12 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">The Problem</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Every month, 500+ invoices arrived via email and physical mail in a dozen different formats — PDFs, scanned images, Word docs, and even handwritten fax copies. AP staff had to:
+          </p>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Manually read and extract vendor name, invoice number, line items, totals, and due dates</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Cross-reference against purchase orders in QuickBooks</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Re-key all data into the correct client's QuickBooks account</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> Flag discrepancies for manager review by email</li>
+            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span> File the original document and send payment confirmations</li>
+          </ul>
+          <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+            The 3–5 day cycle was causing late-payment penalties for clients and making month-end closings consistently stressful. An 8% error rate meant re-work that compounded the backlog.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-5 border border-red-100">
+            <p class="text-3xl font-extrabold text-red-500">3–5 days</p>
+            <p class="text-sm text-gray-500 mt-1">average invoice processing time</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-red-100">
+            <p class="text-3xl font-extrabold text-red-500">8%</p>
+            <p class="text-sm text-gray-500 mt-1">data-entry error rate</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-red-100">
+            <p class="text-3xl font-extrabold text-red-500">500/mo</p>
+            <p class="text-sm text-gray-500 mt-1">maximum capacity with existing staff</p>
+          </div>
+        </div>
+      </div>
+      <blockquote class="mt-8 bg-white border-l-4 border-red-300 rounded-r-2xl p-6 italic text-gray-600">
+        "Our AP team was drowning. We were turning down new clients because we literally couldn't process more invoices without hiring. And even at capacity, we were making errors that clients noticed."
+        <footer class="mt-3 text-sm font-semibold text-gray-700 not-italic">— Marcus Johnson, Operations Director, Precision Accounting Group</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- THE SOLUTION -->
+  <section class="py-12 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">The Solution</h2>
+      <p class="text-gray-600 leading-relaxed mb-8">
+        AutomateIQ built a fully automated invoice-processing pipeline. Invoices arriving in a dedicated Gmail inbox are intercepted instantly — regardless of format — processed by an AI extraction engine, validated against existing data, and posted to QuickBooks without any human involvement for routine items.
+      </p>
+      <div class="grid md:grid-cols-4 gap-5 mb-8">
+        <div class="bg-brand-50 rounded-2xl p-5 fade-in">
+          <div class="w-9 h-9 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold text-sm mb-3">1</div>
+          <h4 class="font-bold text-gray-900 text-sm mb-2">Capture</h4>
+          <p class="text-xs text-gray-600">Invoice arrives by email or is uploaded to Drive. The pipeline triggers within 60 seconds regardless of file format (PDF, image, DOCX).</p>
+        </div>
+        <div class="bg-brand-50 rounded-2xl p-5 fade-in">
+          <div class="w-9 h-9 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold text-sm mb-3">2</div>
+          <h4 class="font-bold text-gray-900 text-sm mb-2">Extract</h4>
+          <p class="text-xs text-gray-600">Claude AI reads the document and extracts vendor, invoice number, line items, totals, tax, and due date — even from handwritten or low-quality scans.</p>
+        </div>
+        <div class="bg-brand-50 rounded-2xl p-5 fade-in">
+          <div class="w-9 h-9 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold text-sm mb-3">3</div>
+          <h4 class="font-bold text-gray-900 text-sm mb-2">Validate</h4>
+          <p class="text-xs text-gray-600">Extracted data is matched against the PO in QuickBooks. Discrepancies above a configurable threshold are automatically flagged for human review via Slack — nothing gets silently miscoded.</p>
+        </div>
+        <div class="bg-brand-50 rounded-2xl p-5 fade-in">
+          <div class="w-9 h-9 bg-brand-600 text-white rounded-xl flex items-center justify-center font-bold text-sm mb-3">4</div>
+          <h4 class="font-bold text-gray-900 text-sm mb-2">Post &amp; File</h4>
+          <p class="text-xs text-gray-600">Validated invoices are posted directly into QuickBooks Online under the correct client account and chart of accounts. The original document is archived to Google Drive automatically.</p>
+        </div>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 text-sm text-gray-600">
+        <p class="font-semibold text-gray-800 mb-3">Tech stack used in this build:</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Claude AI (Anthropic)</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Make.com</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">QuickBooks Online API</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Gmail API</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Google Drive</span>
+          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Slack</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="py-12 px-6 bg-green-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Results After 60 Days</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Processing Time</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">3–5 days</p>
+              <p class="text-xs text-gray-400">Before</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">24 hrs</p>
+              <p class="text-xs text-gray-500">After</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">Overnight processing</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Error Rate</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">8%</p>
+              <p class="text-xs text-gray-400">Before</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">0.2%</p>
+              <p class="text-xs text-gray-500">After</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">97.5% error reduction</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Monthly Invoice Capacity</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">500</p>
+              <p class="text-xs text-gray-400">Before</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">2,000</p>
+              <p class="text-xs text-gray-500">After</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">Same staff headcount</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Staff Hours Freed/Month</span>
+          <div class="flex items-end gap-3 mt-2">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-300 line-through">~140 hrs</p>
+              <p class="text-xs text-gray-400">Before (data entry)</p>
+            </div>
+            <span class="text-gray-300 text-xl mb-1">→</span>
+            <div>
+              <p class="text-3xl font-extrabold text-green-600">120 hrs</p>
+              <p class="text-xs text-gray-500">freed for advisory</p>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">AP team now does advisory work</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+          <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">Implementation Timeline</span>
+          <p class="text-3xl font-extrabold text-green-600 mt-2">3 weeks</p>
+          <p class="text-xs text-gray-500">build · live in week 4</p>
+          <p class="mt-2 text-xs text-green-700 font-semibold bg-green-100 rounded-full px-3 py-1 inline-block">Zero training required for staff</p>
+        </div>
+        <div class="bg-brand-600 rounded-2xl p-6 shadow-sm fade-in text-white">
+          <span class="text-xs font-semibold uppercase tracking-wide text-brand-200">Annual Savings</span>
+          <p class="text-4xl font-extrabold mt-2">$45,000</p>
+          <p class="text-brand-200 text-sm mt-1">In labor cost reduction + error correction costs eliminated</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <svg class="w-10 h-10 text-brand-200 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+      <blockquote class="text-2xl font-medium text-gray-800 leading-relaxed italic mb-8">
+        "What used to take our team 3–5 days now happens overnight. We went from handling 500 invoices/month to 2,000 with the same staff. Zero training needed — the system just works. Our AP team now spends their time on analysis and client advisory instead of data entry."
+      </blockquote>
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold text-lg">MJ</div>
+        <div class="text-left">
+          <p class="font-bold text-gray-900">Marcus Johnson</p>
+          <p class="text-sm text-gray-500">Operations Director, Precision Accounting Group</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER CASE STUDIES -->
+  <section class="py-12 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">More Case Studies</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="case-study-lead-qualification.html"
+           class="bg-white rounded-2xl border border-gray-200 p-6 hover:border-brand-300 hover:shadow-md transition group">
+          <span class="inline-block mb-3 px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">B2B SaaS</span>
+          <h3 class="font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition">AI Lead Qualification</h3>
+          <p class="text-sm text-gray-500">TechFlow Solutions 3×'d their qualified leads, cut cost-per-lead by 86%, and hit 340% ROI in 3 months.</p>
+          <p class="mt-4 text-sm font-semibold text-brand-600">Read case study →</p>
+        </a>
+        <a href="case-study-support-chatbot.html"
+           class="bg-white rounded-2xl border border-gray-200 p-6 hover:border-brand-300 hover:shadow-md transition group">
+          <span class="inline-block mb-3 px-3 py-1 bg-pink-100 text-pink-700 text-xs font-semibold rounded-full">E-commerce</span>
+          <h3 class="font-bold text-gray-900 mb-2 group-hover:text-brand-600 transition">24/7 AI Support Chatbot</h3>
+          <p class="text-sm text-gray-500">StyleHub Fashion resolved 70% of support tickets instantly — customer satisfaction up from 3.2 to 4.6 stars while cutting costs $84k/year.</p>
+          <p class="mt-4 text-sm font-semibold text-brand-600">Read case study →</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 bg-brand-600">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Ready to Eliminate Invoice Backlog?</h2>
+      <p class="text-brand-100 text-lg mb-8">Book a free 30-minute audit. We'll show you exactly how the automation would work with your current tools and volume.</p>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-lg">
+        Book Your Free Audit →
+      </a>
+      <p class="mt-4 text-brand-200 text-sm">No credit card · No commitment · Results in 2–4 weeks</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6 text-sm">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex flex-wrap gap-6">
+        <a href="index.html#services"     class="hover:text-white transition">Services</a>
+        <a href="pricing.html"            class="hover:text-white transition">Pricing</a>
+        <a href="testimonials.html"       class="hover:text-white transition">Case Studies</a>
+        <a href="index.html#contact"      class="hover:text-white transition">Contact</a>
+        <a href="privacy-policy.html"     class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html"              class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    function closeMobileMenu() { document.getElementById('mobile-menu').classList.add('hidden'); }
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(function(el) { fadeObserver.observe(el); });
+  </script>
+</body>
+</html>
