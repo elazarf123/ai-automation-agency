@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing &amp; Packages — AutomateIQ</title>
+  <meta name="description" content="Simple, transparent monthly pricing for AI automation services. Starter at $1,200/mo, Professional at $2,500/mo, Enterprise at $4,500/mo. 30-day satisfaction guarantee." />
+  <link rel="canonical" href="https://elazarf123.github.io/ai-automation-agency/pricing.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a55f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elazarf123.github.io/ai-automation-agency/pricing.html" />
+  <meta property="og:title" content="Pricing &amp; Packages — AutomateIQ" />
+  <meta property="og:description" content="Simple, transparent monthly pricing for AI automation. Three tiers from $1,200/mo with a 30-day satisfaction guarantee." />
+  <meta property="og:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <meta property="og:site_name" content="AutomateIQ" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pricing &amp; Packages — AutomateIQ" />
+  <meta name="twitter:description" content="Simple, transparent monthly pricing for AI automation. Three tiers from $1,200/mo." />
+  <meta name="twitter:image" content="https://elazarf123.github.io/ai-automation-agency/og-image.png" />
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VQRY0FLNXZ');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dce8ff',
+              500: '#3b6bff',
+              600: '#2a55f0',
+              700: '#1a40d9',
+              900: '#0f2a9c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .check { color: #22c55e; }
+    .cross { color: #d1d5db; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="index.html#services" class="hover:text-brand-600 transition">Services</a>
+        <a href="pricing.html"        class="text-brand-600 font-semibold transition">Pricing</a>
+        <a href="index.html#results"      class="hover:text-brand-600 transition">Results</a>
+        <a href="contact.html"        class="hover:text-brand-600 transition">Contact</a>
+      </nav>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
+      <a href="index.html#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"        class="text-brand-600 font-semibold transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="index.html#results"      class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Results</a>
+      <a href="contact.html"        class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold
+                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
+        Book a Free Audit →
+      </a>
+    </div>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────────── -->
+  <section class="pt-32 pb-20 px-6 bg-gradient-to-br from-brand-50 via-white to-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="inline-block mb-4 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
+        Pricing &amp; Packages
+      </span>
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+        Simple, transparent pricing
+      </h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-8">
+        No hidden fees. No long-term contracts. Every plan includes white-glove onboarding
+        and a <strong class="text-gray-700">30-day satisfaction guarantee</strong>.
+      </p>
+      <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-sm font-semibold px-6 py-3 rounded-full">
+        🛡️ 30-Day Money-Back Guarantee — If you're not happy, we rebuild it free or refund in full.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ───────────────────────────────────────────────── -->
+  <div class="bg-gray-50 border-y border-gray-100 py-5 px-6">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-gray-400 text-sm font-medium">
+      <span>🏆 30-Day Satisfaction Guarantee</span>
+      <span>⚡ Live in 2–4 Weeks</span>
+      <span>💰 3–6× ROI within 6 months</span>
+      <span>🤝 White-Glove Onboarding</span>
+      <span>🔒 Enterprise-Grade Security</span>
+    </div>
+  </div>
+
+  <!-- ── PRICING TIERS ───────────────────────────────────────────── -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Starter -->
+        <div class="fade-in bg-white border border-gray-200 rounded-2xl p-8 shadow-sm flex flex-col">
+          <div class="mb-6">
+            <h2 class="text-lg font-bold text-gray-900 mb-1">Starter</h2>
+            <p class="text-gray-500 text-sm">Best for small teams getting started with one AI automation.</p>
+          </div>
+          <div class="mb-6">
+            <p class="text-5xl font-extrabold text-gray-900">$1,200<span class="text-lg font-medium text-gray-400">/mo</span></p>
+            <p class="text-xs text-gray-400 mt-1">Billed monthly · Cancel anytime</p>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="check">✓</span> <strong>1 AI Agent</strong> — Lead Qualification</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> Up to 500 leads/mo processed</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> HubSpot or Salesforce integration</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> Monthly performance report</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> Email support (48-hr response)</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> 30-day satisfaction guarantee</li>
+            <li class="flex items-start gap-2 text-gray-400"><span class="cross mt-0.5">✗</span> Invoice Processing agent</li>
+            <li class="flex items-start gap-2 text-gray-400"><span class="cross mt-0.5">✗</span> Support Chatbot agent</li>
+            <li class="flex items-start gap-2 text-gray-400"><span class="cross mt-0.5">✗</span> Priority Slack support</li>
+          </ul>
+          <a href="contact.html?plan=starter"
+             class="block text-center bg-brand-50 text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-100 transition">
+            Get Started →
+          </a>
+        </div>
+
+        <!-- Professional (highlighted) -->
+        <div class="fade-in bg-brand-600 border border-brand-700 rounded-2xl p-8 shadow-xl flex flex-col relative">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-yellow-900 text-xs font-bold px-4 py-1 rounded-full shadow">Most Popular</span>
+          <div class="mb-6">
+            <h2 class="text-lg font-bold text-white mb-1">Professional</h2>
+            <p class="text-brand-100 text-sm">For growing teams ready to automate multiple workflows.</p>
+          </div>
+          <div class="mb-6">
+            <p class="text-5xl font-extrabold text-white">$2,500<span class="text-lg font-medium text-brand-200">/mo</span></p>
+            <p class="text-xs text-brand-200 mt-1">Billed monthly · Cancel anytime</p>
+          </div>
+          <ul class="space-y-3 text-sm text-brand-50 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> <strong>2 AI Agents</strong> — Invoice Processing <em>+</em> Lead Qualification</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Up to 2,000 leads &amp; invoices/mo</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Full CRM + accounting integrations</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Weekly performance calls</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Priority Slack support (24-hr)</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Custom agent fine-tuning</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> 30-day satisfaction guarantee</li>
+            <li class="flex items-start gap-2 text-brand-300"><span class="text-brand-300 mt-0.5">✗</span> Support Chatbot agent</li>
+            <li class="flex items-start gap-2 text-brand-300"><span class="text-brand-300 mt-0.5">✗</span> Dedicated account manager</li>
+          </ul>
+          <a href="contact.html?plan=professional"
+             class="block text-center bg-white text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-50 transition shadow">
+            Get Started →
+          </a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="fade-in bg-white border border-gray-200 rounded-2xl p-8 shadow-sm flex flex-col">
+          <div class="mb-6">
+            <h2 class="text-lg font-bold text-gray-900 mb-1">Enterprise</h2>
+            <p class="text-gray-500 text-sm">All services + dedicated support for scaling businesses.</p>
+          </div>
+          <div class="mb-6">
+            <p class="text-5xl font-extrabold text-gray-900">$4,500<span class="text-lg font-medium text-gray-400">/mo</span></p>
+            <p class="text-xs text-gray-400 mt-1">Billed monthly · Cancel anytime</p>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="check">✓</span> <strong>All 3 AI Agents</strong> — Lead Qual · Invoice · Support</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> Unlimited volume</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> All integrations included</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> Dedicated account manager</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> 24/7 Slack &amp; phone support</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> Custom workflows &amp; agents</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> SLA guarantees</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> GDPR docs &amp; NDA included</li>
+            <li class="flex items-center gap-2"><span class="check">✓</span> 30-day satisfaction guarantee</li>
+          </ul>
+          <a href="contact.html?plan=enterprise"
+             class="block text-center bg-brand-50 text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-100 transition">
+            Contact Sales →
+          </a>
+        </div>
+
+      </div>
+
+      <p class="text-center text-gray-400 text-sm mt-10">All plans start with a free 30-minute workflow audit. No credit card required to start.</p>
+
+    </div>
+  </section>
+
+  <!-- ── FEATURE COMPARISON TABLE ──────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Full Feature Comparison</h2>
+
+      <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-100">
+              <th class="text-left px-6 py-5 font-semibold text-gray-700 w-1/2">Feature</th>
+              <th class="px-6 py-5 font-semibold text-gray-700 text-center">Starter<br/><span class="font-normal text-gray-400">$1,200/mo</span></th>
+              <th class="px-6 py-5 font-bold text-brand-700 text-center bg-brand-50">Professional<br/><span class="font-normal text-brand-400">$2,500/mo</span></th>
+              <th class="px-6 py-5 font-semibold text-gray-700 text-center">Enterprise<br/><span class="font-normal text-gray-400">$4,500/mo</span></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-50">
+            <tr class="bg-gray-50/50">
+              <td colspan="4" class="px-6 py-3 text-xs font-bold text-gray-400 uppercase tracking-widest">AI Agents</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Lead Qualification Agent</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Invoice Processing Agent</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">24/7 Support Chatbot</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg bg-brand-50/40">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td colspan="4" class="px-6 py-3 text-xs font-bold text-gray-400 uppercase tracking-widest">Volume &amp; Capacity</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Monthly lead/invoice/ticket volume</td>
+              <td class="px-6 py-4 text-center text-gray-700">500</td>
+              <td class="px-6 py-4 text-center text-gray-700 bg-brand-50/40">2,000</td>
+              <td class="px-6 py-4 text-center text-gray-700">Unlimited</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td colspan="4" class="px-6 py-3 text-xs font-bold text-gray-400 uppercase tracking-widest">Integrations</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">HubSpot / Salesforce</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">QuickBooks / Xero</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Slack notifications</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Custom API integrations</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg bg-brand-50/40">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td colspan="4" class="px-6 py-3 text-xs font-bold text-gray-400 uppercase tracking-widest">Support &amp; Reporting</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Email support</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Priority Slack support</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Dedicated account manager</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg bg-brand-50/40">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Performance reporting</td>
+              <td class="px-6 py-4 text-center text-gray-700">Monthly</td>
+              <td class="px-6 py-4 text-center text-gray-700 bg-brand-50/40">Weekly</td>
+              <td class="px-6 py-4 text-center text-gray-700">Real-time dashboard</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td colspan="4" class="px-6 py-3 text-xs font-bold text-gray-400 uppercase tracking-widest">Security &amp; Compliance</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">Data encryption in transit &amp; at rest</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">GDPR compliance docs &amp; NDA</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg bg-brand-50/40">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">SLA guarantees</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg">✗</td>
+              <td class="px-6 py-4 text-center text-gray-300 text-lg bg-brand-50/40">✗</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td colspan="4" class="px-6 py-3 text-xs font-bold text-gray-400 uppercase tracking-widest">Guarantee</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-gray-700">30-day satisfaction guarantee</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg bg-brand-50/40">✓</td>
+              <td class="px-6 py-4 text-center text-green-500 text-lg">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 30-DAY GUARANTEE CALLOUT ───────────────────────────────── -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-green-50 border border-green-200 rounded-2xl p-10 text-center fade-in">
+        <div class="text-5xl mb-4">🛡️</div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">30-Day Satisfaction Guarantee</h2>
+        <p class="text-gray-600 leading-relaxed max-w-xl mx-auto">
+          Every plan includes our iron-clad 30-day guarantee. If the automation isn't delivering measurable value
+          within your first month, we'll rebuild it at no charge — or issue a <strong>full refund</strong>.
+          No questions asked. No hoops to jump through.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-4">
+          <div class="flex items-center gap-2 text-sm text-green-700 font-medium"><span>✓</span> No questions asked</div>
+          <div class="flex items-center gap-2 text-sm text-green-700 font-medium"><span>✓</span> Full refund or free rebuild</div>
+          <div class="flex items-center gap-2 text-sm text-green-700 font-medium"><span>✓</span> Cancel anytime</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CASE STUDIES CTA ───────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">See real results first</h2>
+      <p class="text-gray-500 text-lg mb-8">
+        Read how businesses like yours achieved measurable ROI with our AI automations.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-6 mb-8">
+        <a href="case-study-lead-qualification.html"
+           class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition text-left group">
+          <div class="text-3xl mb-3">🎯</div>
+          <h3 class="font-bold text-gray-900 mb-1 group-hover:text-brand-600 transition">Lead Qualification</h3>
+          <p class="text-sm text-gray-500">SaaS company — 312 qualified leads/mo, 40% conversion lift</p>
+          <p class="mt-3 text-sm text-brand-600 font-semibold">Read Case Study →</p>
+        </a>
+        <a href="case-study-invoice-processing.html"
+           class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition text-left group">
+          <div class="text-3xl mb-3">📄</div>
+          <h3 class="font-bold text-gray-900 mb-1 group-hover:text-brand-600 transition">Invoice Processing</h3>
+          <p class="text-sm text-gray-500">Accounting firm — 1,200 invoices/mo, 96% error reduction</p>
+          <p class="mt-3 text-sm text-brand-600 font-semibold">Read Case Study →</p>
+        </a>
+        <a href="case-study-support-chatbot.html"
+           class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition text-left group">
+          <div class="text-3xl mb-3">💬</div>
+          <h3 class="font-bold text-gray-900 mb-1 group-hover:text-brand-600 transition">Support Chatbot</h3>
+          <p class="text-sm text-gray-500">E-commerce brand — 68% of tickets automated, $4,200/mo saved</p>
+          <p class="mt-3 text-sm text-brand-600 font-semibold">Read Case Study →</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────────── -->
+  <section class="py-24 px-6 bg-brand-600">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-4">Ready to get started?</h2>
+      <p class="text-brand-100 text-lg mb-8">
+        Book a free 30-minute workflow audit and we'll recommend the right plan for your business.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg">
+          📅 Book a Free Audit →
+        </a>
+        <a href="contact.html"
+           class="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition">
+          Send a Message
+        </a>
+      </div>
+      <p class="mt-6 text-brand-200 text-sm">No credit card required. No commitment. 100% free audit.</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="index.html#services" class="hover:text-white transition">Services</a>
+        <a href="pricing.html"        class="hover:text-white transition">Pricing</a>
+        <a href="index.html#results"      class="hover:text-white transition">Results</a>
+        <a href="contact.html"        class="hover:text-white transition">Contact</a>
+        <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html"          class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    const BAR_OFFSET = '8px';
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', function() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      bar1.style.transform = menuOpen ? `translateY(${BAR_OFFSET}) rotate(45deg)` : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? `translateY(-${BAR_OFFSET}) rotate(-45deg)` : '';
+      menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+      menuBtn.setAttribute('aria-label', 'Open menu');
+    }
+
+    // Scroll fade-in
+    var fadeEls = document.querySelectorAll('.fade-in');
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(function(el) { fadeObserver.observe(el); });
+  </script>
+
+</body>
+</html>
