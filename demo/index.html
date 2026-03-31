@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutomateIQ — Enterprise Automation Dashboard</title>
+  <meta name="description" content="Interactive demo dashboard for PowerShell + Make.com enterprise automation workflows." />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <span class="brand-name">AutomateIQ</span>
+        <span class="brand-sub">Enterprise Automation Dashboard</span>
+      </div>
+      <nav class="nav-tabs" role="tablist">
+        <button class="nav-tab active" data-tab="provisioning" role="tab" aria-selected="true">User Provisioning</button>
+        <button class="nav-tab" data-tab="stale"        role="tab" aria-selected="false">Stale Accounts</button>
+        <button class="nav-tab" data-tab="licenses"     role="tab" aria-selected="false">License Audit</button>
+        <button class="nav-tab" data-tab="activity"     role="tab" aria-selected="false">Activity Log</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- ── Metric Cards ── -->
+    <section class="metrics" aria-label="Summary metrics">
+      <div class="metric-card">
+        <div class="metric-icon" aria-hidden="true">👤</div>
+        <div class="metric-body">
+          <div class="metric-value" id="metric-provisioned">0</div>
+          <div class="metric-label">Users Provisioned</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon" aria-hidden="true">⚠️</div>
+        <div class="metric-body">
+          <div class="metric-value" id="metric-stale">0</div>
+          <div class="metric-label">Stale Accounts</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon" aria-hidden="true">💰</div>
+        <div class="metric-body">
+          <div class="metric-value" id="metric-savings">$0</div>
+          <div class="metric-label">License Savings</div>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon" aria-hidden="true">⏱️</div>
+        <div class="metric-body">
+          <div class="metric-value" id="metric-hours">0h</div>
+          <div class="metric-label">Hours Saved</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Tab Panels ── -->
+
+    <!-- User Provisioning -->
+    <section id="tab-provisioning" class="tab-panel active" role="tabpanel" aria-label="User Provisioning">
+      <div class="panel-grid">
+
+        <!-- Form -->
+        <div class="card">
+          <h2 class="card-title">
+            <span aria-hidden="true">➕</span> New User Provisioning
+          </h2>
+          <p class="card-subtitle">Fill in the form to trigger the Make.com → PowerShell provisioning workflow.</p>
+          <form id="provisioning-form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="firstName">First Name <span class="required">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+              </div>
+              <div class="field">
+                <label for="lastName">Last Name <span class="required">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="department">Department <span class="required">*</span></label>
+              <select id="department" name="department" required>
+                <option value="">Select a department…</option>
+                <option>Engineering</option>
+                <option>Sales</option>
+                <option>Finance</option>
+                <option>HR</option>
+                <option>IT</option>
+                <option>Marketing</option>
+                <option>Operations</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="managerEmail">Manager Email <span class="required">*</span></label>
+              <input type="email" id="managerEmail" name="managerEmail" placeholder="manager@company.com" required />
+            </div>
+            <div class="field">
+              <label for="startDate">Start Date <span class="required">*</span></label>
+              <input type="date" id="startDate" name="startDate" required />
+            </div>
+            <div class="field">
+              <label for="license">M365 License</label>
+              <select id="license" name="license">
+                <option value="ENTERPRISEPREMIUM">Microsoft 365 E3</option>
+                <option value="SPE_E5">Microsoft 365 E5</option>
+                <option value="O365_BUSINESS_ESSENTIALS">Microsoft 365 Business Basic</option>
+                <option value="DESKLESSPACK">Microsoft 365 F3</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="webhookUrl">Make.com Webhook URL</label>
+              <input type="url" id="webhookUrl" name="webhookUrl" placeholder="https://hook.us1.make.com/…" />
+              <small>Optional — leave blank to run in demo mode</small>
+            </div>
+            <button type="submit" class="btn btn-primary" id="provision-btn">
+              <span class="btn-icon" aria-hidden="true">🚀</span> Provision User
+            </button>
+          </form>
+        </div>
+
+        <!-- Workflow visualiser -->
+        <div class="card">
+          <h2 class="card-title">
+            <span aria-hidden="true">🔄</span> Workflow Status
+          </h2>
+          <div class="workflow-steps" id="workflow-steps">
+            <div class="workflow-step" data-step="form">
+              <div class="step-icon">📋</div>
+              <div class="step-body">
+                <div class="step-name">Web Form</div>
+                <div class="step-status">Waiting for input</div>
+              </div>
+              <div class="step-connector" aria-hidden="true"></div>
+            </div>
+            <div class="workflow-step" data-step="makecom">
+              <div class="step-icon">⚙️</div>
+              <div class="step-body">
+                <div class="step-name">Make.com Webhook</div>
+                <div class="step-status">Idle</div>
+              </div>
+              <div class="step-connector" aria-hidden="true"></div>
+            </div>
+            <div class="workflow-step" data-step="powershell">
+              <div class="step-icon">💻</div>
+              <div class="step-body">
+                <div class="step-name">PowerShell Script</div>
+                <div class="step-status">Idle</div>
+              </div>
+              <div class="step-connector" aria-hidden="true"></div>
+            </div>
+            <div class="workflow-step" data-step="ad">
+              <div class="step-icon">🗂️</div>
+              <div class="step-body">
+                <div class="step-name">AD / M365 Provisioning</div>
+                <div class="step-status">Idle</div>
+              </div>
+              <div class="step-connector" aria-hidden="true"></div>
+            </div>
+            <div class="workflow-step" data-step="notify">
+              <div class="step-icon">📧</div>
+              <div class="step-body">
+                <div class="step-name">Email Notification</div>
+                <div class="step-status">Idle</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-box hidden" id="provision-result" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stale Accounts -->
+    <section id="tab-stale" class="tab-panel" role="tabpanel" aria-label="Stale Accounts" hidden>
+      <div class="card">
+        <div class="card-header-row">
+          <h2 class="card-title">
+            <span aria-hidden="true">⚠️</span> Stale Account Detection
+          </h2>
+          <button class="btn btn-secondary" id="run-stale-scan">
+            <span aria-hidden="true">🔍</span> Run Scan (Demo)
+          </button>
+        </div>
+        <p class="card-subtitle">Accounts inactive for more than 90 days. In production this list is populated by <code>Get-StaleAccounts.ps1</code> via Make.com scheduler.</p>
+        <div class="table-wrapper">
+          <table class="data-table" id="stale-table">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Display Name</th>
+                <th>Department</th>
+                <th>Last Logon</th>
+                <th>Days Inactive</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="stale-tbody">
+              <tr class="empty-row">
+                <td colspan="7" class="empty-cell">Click "Run Scan" to load demo data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- License Audit -->
+    <section id="tab-licenses" class="tab-panel" role="tabpanel" aria-label="License Audit" hidden>
+      <div class="card">
+        <div class="card-header-row">
+          <h2 class="card-title">
+            <span aria-hidden="true">📊</span> License Audit Report
+          </h2>
+          <button class="btn btn-secondary" id="run-license-audit">
+            <span aria-hidden="true">🔄</span> Refresh (Demo)
+          </button>
+        </div>
+        <p class="card-subtitle">Microsoft 365 license utilisation snapshot. Populated monthly by <code>Generate-LicenseReport.ps1</code>.</p>
+        <div class="license-summary" id="license-summary" aria-live="polite">
+          <p class="placeholder-text">Click "Refresh" to load demo data</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activity Log -->
+    <section id="tab-activity" class="tab-panel" role="tabpanel" aria-label="Activity Log" hidden>
+      <div class="card">
+        <h2 class="card-title">
+          <span aria-hidden="true">📝</span> Automation Activity Log
+        </h2>
+        <p class="card-subtitle">Real-time log of all automation actions triggered through this dashboard.</p>
+        <div class="log-container" id="activity-log" role="log" aria-live="polite">
+          <p class="placeholder-text">No activity yet. Trigger a workflow to see entries here.</p>
+        </div>
+        <button class="btn btn-ghost" id="clear-log">Clear Log</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>AutomateIQ Enterprise Automation Dashboard — Demo Mode
+       &nbsp;|&nbsp; <a href="../docs/workflow-templates.md">Workflow Docs</a>
+       &nbsp;|&nbsp; <a href="../docs/make-com-setup.md">Make.com Setup</a>
+       &nbsp;|&nbsp; <a href="../docs/powershell-integration.md">PowerShell Guide</a>
+    </p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
