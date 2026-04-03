@@ -1,6 +1,6 @@
-# Workflow Templates — PowerShell + Make.com Enterprise Automation
+# Workflow Templates — Make.com Automation
 
-Reusable workflow patterns combining PowerShell scripting with Make.com orchestration for common enterprise IT scenarios.
+Reusable workflow patterns using Make.com orchestration for SMB and enterprise automation scenarios.
 
 ---
 
@@ -172,6 +172,54 @@ Email Report → Finance & IT Leadership
   "potential_savings": 2340.00
 }
 ```
+
+---
+
+### Template 4: AI Lead Qualifier & CRM Router
+
+**Trigger**: Typeform new response → OpenAI GPT-4o scoring → Slack + Pipedrive (high priority) or Mailchimp (low priority)
+
+### Overview
+Score every inbound lead in seconds using GPT-4o, route hot leads directly to Slack and Pipedrive for immediate follow-up, and add low-scoring leads to a Mailchimp nurture sequence — all without manual review.
+
+### Make.com Scenario Steps
+1. **Typeform → TriggerNewEntry** — Receives new form responses via webhook
+2. **OpenAI → CreateChatCompletion** — Scores the lead 0–100 with grade A–D and priority using GPT-4o
+3. **Router** — Branches on `parseJSON(2.choices[].message.content).score`
+4. *High Priority (≥ 70):* **Slack → CreateMessage** — Posts alert to `#sales-alerts`
+5. *High Priority (≥ 70):* **Pipedrive → CreateDeal** — Creates deal, person, and organisation
+6. *Low Priority (< 70):* **Mailchimp → AddUpdateSubscriber** — Adds contact to nurture audience with grade tags
+
+### Importable Blueprint
+The full Make.com scenario blueprint is at `demos/lead-qualifier/make_blueprint.json`. See the complete setup guide at `docs/lead-qualifier-crm-router.md`.
+
+### Data Flow
+```
+Typeform (new response)
+    ↓  Webhook
+Make.com: OpenAI GPT-4o
+    ↓  JSON score object
+Router (score ≥ 70 / < 70)
+    ├── Slack alert + Pipedrive deal
+    └── Mailchimp nurture subscriber
+```
+
+### Required Make.com Modules
+| Module | Purpose |
+|--------|---------|
+| Typeform → TriggerNewEntry | Instant webhook trigger on new response |
+| OpenAI → CreateChatCompletion | GPT-4o lead scoring (model: `gpt-4o`) |
+| builtin → BasicRouter | Conditional routing by AI score |
+| Slack → CreateMessage | Sales-team alert for hot leads |
+| Pipedrive → CreateDeal | Auto-create CRM deal with AI note |
+| Mailchimp → AddUpdateSubscriber | Add low-priority leads to nurture audience |
+
+### Impact
+| Metric | Result |
+|--------|--------|
+| Manual lead-sorting time | Reduced by ~90% |
+| Time-to-Slack for hot leads | < 15 seconds |
+| Cost per scored lead | ~$0.01 (GPT-4o) |
 
 ---
 

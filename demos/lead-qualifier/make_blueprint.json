@@ -1,0 +1,186 @@
+{
+  "name": "AI Lead Qualifier & CRM Router",
+  "flow": [
+    {
+      "id": 1,
+      "module": "typeform:TriggerNewEntry",
+      "version": 1,
+      "parameters": {
+        "hookId": "YOUR_TYPEFORM_WEBHOOK_ID",
+        "formId": "YOUR_TYPEFORM_FORM_ID"
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": { "x": -648, "y": 0 },
+        "restore": {
+          "parameters": {
+            "hookId": { "data": { "editable": "1", "label": "Lead Intake Webhook" } },
+            "formId": { "label": "Lead Intake Form" }
+          }
+        },
+        "parameters": [
+          { "name": "hookId", "type": "hook:typeform", "label": "Webhook", "required": true },
+          { "name": "formId", "type": "text",          "label": "Form ID", "required": false }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "openai:CreateChatCompletion",
+      "version": 1,
+      "parameters": {
+        "connectionId": "YOUR_OPENAI_CONNECTION_ID"
+      },
+      "mapper": {
+        "model": "gpt-4o",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an expert lead qualification analyst for an AI automation agency. Evaluate the inbound lead and return ONLY a valid JSON object (no markdown, no extra text) with exactly these fields:\n{\n  \"score\": <integer 0-100>,\n  \"grade\": <\"A\"|\"B\"|\"C\"|\"D\">,\n  \"priority\": <\"high\"|\"low\">,\n  \"summary\": \"<2-3 sentence plain-English summary>\",\n  \"strengths\": [\"<strength 1>\", \"<strength 2>\"],\n  \"weaknesses\": [\"<weakness 1>\"],\n  \"next_step\": \"<specific recommended action for the sales rep>\",\n  \"estimated_deal_value\": <integer, annual USD contract value>\n}\n\nScoring rubric:\n  90-100  Grade A — Hot lead, contact within 1 hour   → priority: high\n  70-89   Grade B — Warm lead, contact within 24 hours → priority: high\n  50-69   Grade C — Nurture with email sequence        → priority: low\n  0-49    Grade D — Disqualify or park for 90 days     → priority: low\n\nKey scoring factors (weighted):\n  1. Budget clarity & size          (30 pts)\n  2. Decision-maker seniority       (25 pts)\n  3. Pain-point urgency & timeline  (25 pts)\n  4. Company size & industry fit    (20 pts)\n\nReturn ONLY the JSON — no markdown fences, no preamble."
+          },
+          {
+            "role": "user",
+            "content": "Please qualify this lead:\n\nFull Name:     {{1.answers.YOUR_NAME_FIELD_ID.text}}\nWork Email:    {{1.answers.YOUR_EMAIL_FIELD_ID.email}}\nCompany:       {{1.answers.YOUR_COMPANY_FIELD_ID.text}}\nJob Title:     {{1.answers.YOUR_TITLE_FIELD_ID.text}}\nCompany Size:  {{1.answers.YOUR_SIZE_FIELD_ID.choice.label}}\nMonthly Budget:{{1.answers.YOUR_BUDGET_FIELD_ID.choice.label}}\nTimeline:      {{1.answers.YOUR_TIMELINE_FIELD_ID.choice.label}}\nUse Case:      {{1.answers.YOUR_USECASE_FIELD_ID.text}}\nReferral Source: {{1.hidden.source}}"
+          }
+        ],
+        "max_tokens": 1024,
+        "temperature": 0.2
+      },
+      "metadata": {
+        "designer": { "x": -348, "y": 0 }
+      }
+    },
+    {
+      "id": 3,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "parameters": {},
+      "mapper": [],
+      "metadata": {
+        "designer": { "x": -48, "y": 0 }
+      },
+      "routes": [
+        {
+          "label": "High Priority (Score ≥ 70)",
+          "filter": {
+            "name": "High Priority",
+            "conditions": [
+              [
+                {
+                  "a": "{{parseJSON(2.choices[].message.content).score}}",
+                  "b": "70",
+                  "o": "number:greaterThanOrEqual"
+                }
+              ]
+            ]
+          },
+          "flow": [
+            {
+              "id": 4,
+              "module": "slack:CreateMessage",
+              "version": 4,
+              "parameters": {
+                "connectionId": "YOUR_SLACK_CONNECTION_ID"
+              },
+              "mapper": {
+                "channelId": "YOUR_SLACK_CHANNEL_ID",
+                "text": "*🔥 HIGH-PRIORITY LEAD — {{parseJSON(2.choices[].message.content).grade}} ({{parseJSON(2.choices[].message.content).score}}/100)*\n\n*Name:*    {{1.answers.YOUR_NAME_FIELD_ID.text}}\n*Email:*   {{1.answers.YOUR_EMAIL_FIELD_ID.email}}\n*Company:* {{1.answers.YOUR_COMPANY_FIELD_ID.text}} · {{1.answers.YOUR_SIZE_FIELD_ID.choice.label}}\n*Title:*   {{1.answers.YOUR_TITLE_FIELD_ID.text}}\n*Budget:*  {{1.answers.YOUR_BUDGET_FIELD_ID.choice.label}}\n*Timeline:*{{1.answers.YOUR_TIMELINE_FIELD_ID.choice.label}}\n\n*AI Summary:*\n{{parseJSON(2.choices[].message.content).summary}}\n\n*✅ Strengths:* {{join(parseJSON(2.choices[].message.content).strengths, \" · \")}}\n*⚠️ Weaknesses:* {{join(parseJSON(2.choices[].message.content).weaknesses, \" · \")}}\n\n*👉 Next Step:* {{parseJSON(2.choices[].message.content).next_step}}\n*💰 Est. Deal Value:* ${{formatNumber(parseJSON(2.choices[].message.content).estimated_deal_value, 0, \".\", \",\")}}/yr"
+              },
+              "metadata": {
+                "designer": { "x": 252, "y": -150 }
+              }
+            },
+            {
+              "id": 5,
+              "module": "pipedrive:CreateDeal",
+              "version": 1,
+              "parameters": {
+                "connectionId": "YOUR_PIPEDRIVE_CONNECTION_ID"
+              },
+              "mapper": {
+                "title": "{{1.answers.YOUR_COMPANY_FIELD_ID.text}} — AI Automation ({{parseJSON(2.choices[].message.content).grade}} Lead)",
+                "value": "{{parseJSON(2.choices[].message.content).estimated_deal_value}}",
+                "currency": "USD",
+                "status": "open",
+                "expected_close_date": "{{formatDate(addDays(now, 30), \"YYYY-MM-DD\")}}",
+                "note": "AI Score: {{parseJSON(2.choices[].message.content).score}}/100 (Grade {{parseJSON(2.choices[].message.content).grade}})\n\n{{parseJSON(2.choices[].message.content).summary}}\n\nNext Step: {{parseJSON(2.choices[].message.content).next_step}}",
+                "person_name": "{{1.answers.YOUR_NAME_FIELD_ID.text}}",
+                "person_email": "{{1.answers.YOUR_EMAIL_FIELD_ID.email}}",
+                "org_name": "{{1.answers.YOUR_COMPANY_FIELD_ID.text}}"
+              },
+              "metadata": {
+                "designer": { "x": 552, "y": -150 }
+              }
+            }
+          ]
+        },
+        {
+          "label": "Low Priority (Score < 70)",
+          "filter": {
+            "name": "Low Priority",
+            "conditions": [
+              [
+                {
+                  "a": "{{parseJSON(2.choices[].message.content).score}}",
+                  "b": "70",
+                  "o": "number:lessThan"
+                }
+              ]
+            ]
+          },
+          "flow": [
+            {
+              "id": 6,
+              "module": "mailchimp:AddUpdateSubscriber",
+              "version": 5,
+              "parameters": {
+                "connectionId": "YOUR_MAILCHIMP_CONNECTION_ID"
+              },
+              "mapper": {
+                "listId": "YOUR_MAILCHIMP_AUDIENCE_ID",
+                "email": "{{1.answers.YOUR_EMAIL_FIELD_ID.email}}",
+                "status": "subscribed",
+                "mergeFields": {
+                  "FNAME": "{{split(1.answers.YOUR_NAME_FIELD_ID.text, \" \")[0]}}",
+                  "LNAME": "{{split(1.answers.YOUR_NAME_FIELD_ID.text, \" \")[1]}}",
+                  "COMPANY": "{{1.answers.YOUR_COMPANY_FIELD_ID.text}}",
+                  "JOBTITLE": "{{1.answers.YOUR_TITLE_FIELD_ID.text}}",
+                  "SCORE": "{{parseJSON(2.choices[].message.content).score}}",
+                  "GRADE": "{{parseJSON(2.choices[].message.content).grade}}",
+                  "SOURCE": "typeform-lead-intake"
+                },
+                "tags": [
+                  "nurture",
+                  "grade-{{lower(parseJSON(2.choices[].message.content).grade)}}",
+                  "ai-qualified"
+                ]
+              },
+              "metadata": {
+                "designer": { "x": 252, "y": 150 }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "us1.make.com"
+  }
+}
