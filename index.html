@@ -233,6 +233,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: text-shimmer 4s linear infinite;
+      will-change: background-position;
     }
   </style>
   <script>
@@ -1265,7 +1266,13 @@
 
       function calcROI() {
         var emps = parseInt(empSlider.value, 10) || 1;
-        var rate = parseFloat(hourlyRate.value) || 0;
+        var rate = parseFloat(hourlyRate.value);
+        if (!rate || rate < 1) {
+          monthlySavings.textContent = '—';
+          annualHours.textContent    = Math.round((emps * 5 * 52)).toLocaleString();
+          empDisplay.textContent = emps;
+          return;
+        }
         var hoursPerWeek = 5;
         var weeksPerMonth = 4.33;
         var monthly = emps * hoursPerWeek * weeksPerMonth * rate;
@@ -1346,9 +1353,10 @@
   <!-- ── VIDEO WALKTHROUGH MODAL ──────────────────────────────────── -->
   <div id="demo-modal" class="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
     <div class="demo-modal-box">
-      <button onclick="closeDemoModal()" aria-label="Close"
-              class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold leading-none">✕</button>
-      <h3 id="demo-modal-title" class="text-xl font-bold text-white mb-6 pr-6"></h3>
+      <button onclick="closeDemoModal()" aria-label="Close modal (or press Escape)"
+              class="absolute top-4 right-4 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 rounded text-xl font-bold leading-none">✕</button>
+      <h3 id="demo-modal-title" class="text-xl font-bold text-white mb-2 pr-6"></h3>
+      <p class="text-xs mb-6" style="color:#6b7280">Press <kbd class="px-1.5 py-0.5 rounded text-xs font-mono" style="background:rgba(255,255,255,0.1);color:#9ca3af">Esc</kbd> or click outside to close.</p>
       <div id="demo-modal-steps" class="space-y-3 mb-8"></div>
       <div class="border-t border-white/10 pt-6 text-center">
         <p class="text-sm mb-4" style="color:#a3a3a3">Ready to get this built for your business?</p>
