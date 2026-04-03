@@ -285,7 +285,7 @@
             Contact Sales →
           </a>
           <p class="text-center text-xs text-gray-400 mt-3">Typically $4,500+/mo depending on scope.</p>
-          <button onclick="showCapabilityToast()" class="btn-ghost mt-3">View Capability Deck</button>
+          <button id="capability-deck-btn" class="btn-ghost mt-3">View Capability Deck</button>
         </div>
 
       </div>
@@ -406,8 +406,21 @@
             <strong>Why it costs what it does:</strong> Custom ICP training, CRM integration, email personalisation engine, and ongoing monthly tuning as your market evolves. This replaces 1–2 SDR hours per working day.
           </p>
           <!-- Make.com workflow map thumbnail -->
-          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='70'%3E%3Crect width='320' height='70' fill='none'/%3E%3Crect x='10' y='20' width='60' height='30' rx='8' fill='%236c3cff' opacity='.25'/%3E%3Ctext x='40' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23a78bfa'%3ELead In%3C/text%3E%3Cline x1='70' y1='35' x2='100' y2='35' stroke='%236c3cff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='100,31 108,35 100,39' fill='%236c3cff' opacity='.5'/%3E%3Crect x='108' y='20' width='60' height='30' rx='8' fill='%236c3cff' opacity='.25'/%3E%3Ctext x='138' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23a78bfa'%3EAI Score%3C/text%3E%3Cline x1='168' y1='35' x2='198' y2='35' stroke='%236c3cff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='198,31 206,35 198,39' fill='%236c3cff' opacity='.5'/%3E%3Crect x='206' y='20' width='60' height='30' rx='8' fill='%236c3cff' opacity='.25'/%3E%3Ctext x='236' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23a78bfa'%3ECRM Route%3C/text%3E%3Cline x1='266' y1='35' x2='296' y2='35' stroke='%236c3cff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='296,31 304,35 296,39' fill='%236c3cff' opacity='.5'/%3E%3C/svg%3E" alt="Make.com workflow map — Lead Qualification" class="w-full max-w-xs opacity-70" loading="lazy" />
+          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px" aria-hidden="true">
+            <svg viewBox="0 0 320 70" width="100%" class="opacity-70" style="max-width:320px" aria-hidden="true">
+              <rect x="10" y="20" width="60" height="30" rx="8" fill="#6c3cff" opacity=".25"/>
+              <text x="40" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#a78bfa">Lead In</text>
+              <line x1="70" y1="35" x2="100" y2="35" stroke="#6c3cff" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="100,31 108,35 100,39" fill="#6c3cff" opacity=".5"/>
+              <rect x="108" y="20" width="60" height="30" rx="8" fill="#6c3cff" opacity=".25"/>
+              <text x="138" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#a78bfa">AI Score</text>
+              <line x1="168" y1="35" x2="198" y2="35" stroke="#6c3cff" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="198,31 206,35 198,39" fill="#6c3cff" opacity=".5"/>
+              <rect x="206" y="20" width="60" height="30" rx="8" fill="#6c3cff" opacity=".25"/>
+              <text x="236" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#a78bfa">CRM Route</text>
+              <line x1="266" y1="35" x2="296" y2="35" stroke="#6c3cff" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="296,31 304,35 296,39" fill="#6c3cff" opacity=".5"/>
+            </svg>
           </div>
         </div>
 
@@ -423,8 +436,21 @@
             <strong>Why it costs what it does:</strong> Multi-format document processing, PO matching logic, exception-handling workflows, and direct accounting system integration (QuickBooks, Xero, NetSuite). Replaces 60–120 hours/month of AP data entry.
           </p>
           <!-- Make.com workflow map thumbnail -->
-          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='70'%3E%3Crect width='320' height='70' fill='none'/%3E%3Crect x='10' y='20' width='60' height='30' rx='8' fill='%237c4fff' opacity='.25'/%3E%3Ctext x='40' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23c084fc'%3EInvoice In%3C/text%3E%3Cline x1='70' y1='35' x2='100' y2='35' stroke='%237c4fff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='100,31 108,35 100,39' fill='%237c4fff' opacity='.5'/%3E%3Crect x='108' y='20' width='60' height='30' rx='8' fill='%237c4fff' opacity='.25'/%3E%3Ctext x='138' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23c084fc'%3EOCR Parse%3C/text%3E%3Cline x1='168' y1='35' x2='198' y2='35' stroke='%237c4fff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='198,31 206,35 198,39' fill='%237c4fff' opacity='.5'/%3E%3Crect x='206' y='20' width='60' height='30' rx='8' fill='%237c4fff' opacity='.25'/%3E%3Ctext x='236' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23c084fc'%3EQB Post%3C/text%3E%3Cline x1='266' y1='35' x2='296' y2='35' stroke='%237c4fff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='296,31 304,35 296,39' fill='%237c4fff' opacity='.5'/%3E%3C/svg%3E" alt="Make.com workflow map — Invoice Processing" class="w-full max-w-xs opacity-70" loading="lazy" />
+          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px" aria-hidden="true">
+            <svg viewBox="0 0 320 70" width="100%" class="opacity-70" style="max-width:320px" aria-hidden="true">
+              <rect x="10" y="20" width="60" height="30" rx="8" fill="#7c4fff" opacity=".25"/>
+              <text x="40" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#c084fc">Invoice In</text>
+              <line x1="70" y1="35" x2="100" y2="35" stroke="#7c4fff" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="100,31 108,35 100,39" fill="#7c4fff" opacity=".5"/>
+              <rect x="108" y="20" width="60" height="30" rx="8" fill="#7c4fff" opacity=".25"/>
+              <text x="138" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#c084fc">OCR Parse</text>
+              <line x1="168" y1="35" x2="198" y2="35" stroke="#7c4fff" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="198,31 206,35 198,39" fill="#7c4fff" opacity=".5"/>
+              <rect x="206" y="20" width="60" height="30" rx="8" fill="#7c4fff" opacity=".25"/>
+              <text x="236" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#c084fc">QB Post</text>
+              <line x1="266" y1="35" x2="296" y2="35" stroke="#7c4fff" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="296,31 304,35 296,39" fill="#7c4fff" opacity=".5"/>
+            </svg>
           </div>
         </div>
 
@@ -440,8 +466,21 @@
             <strong>Why it costs what it does:</strong> Knowledge base training, helpdesk integration, smart escalation logic, live product data feeds (e.g., order status from Shopify), and monthly knowledge base updates as your product evolves.
           </p>
           <!-- Make.com workflow map thumbnail -->
-          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='70'%3E%3Crect width='320' height='70' fill='none'/%3E%3Crect x='10' y='20' width='60' height='30' rx='8' fill='%23db2777' opacity='.2'/%3E%3Ctext x='40' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23f9a8d4'%3ETicket In%3C/text%3E%3Cline x1='70' y1='35' x2='100' y2='35' stroke='%23db2777' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='100,31 108,35 100,39' fill='%23db2777' opacity='.5'/%3E%3Crect x='108' y='20' width='60' height='30' rx='8' fill='%23db2777' opacity='.2'/%3E%3Ctext x='138' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23f9a8d4'%3EAI Resolve%3C/text%3E%3Cline x1='168' y1='35' x2='198' y2='35' stroke='%23db2777' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='198,31 206,35 198,39' fill='%23db2777' opacity='.5'/%3E%3Crect x='206' y='20' width='60' height='30' rx='8' fill='%23db2777' opacity='.2'/%3E%3Ctext x='236' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23f9a8d4'%3EEscalate%3C/text%3E%3Cline x1='266' y1='35' x2='296' y2='35' stroke='%23db2777' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='296,31 304,35 296,39' fill='%23db2777' opacity='.5'/%3E%3C/svg%3E" alt="Make.com workflow map — Support Chatbot" class="w-full max-w-xs opacity-70" loading="lazy" />
+          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px" aria-hidden="true">
+            <svg viewBox="0 0 320 70" width="100%" class="opacity-70" style="max-width:320px" aria-hidden="true">
+              <rect x="10" y="20" width="60" height="30" rx="8" fill="#db2777" opacity=".2"/>
+              <text x="40" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#f9a8d4">Ticket In</text>
+              <line x1="70" y1="35" x2="100" y2="35" stroke="#db2777" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="100,31 108,35 100,39" fill="#db2777" opacity=".5"/>
+              <rect x="108" y="20" width="60" height="30" rx="8" fill="#db2777" opacity=".2"/>
+              <text x="138" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#f9a8d4">AI Resolve</text>
+              <line x1="168" y1="35" x2="198" y2="35" stroke="#db2777" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="198,31 206,35 198,39" fill="#db2777" opacity=".5"/>
+              <rect x="206" y="20" width="60" height="30" rx="8" fill="#db2777" opacity=".2"/>
+              <text x="236" y="35" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="#f9a8d4">Escalate</text>
+              <line x1="266" y1="35" x2="296" y2="35" stroke="#db2777" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="296,31 304,35 296,39" fill="#db2777" opacity=".5"/>
+            </svg>
           </div>
         </div>
 
@@ -729,11 +768,11 @@
       if (!empSlider || !hrsSlider) return;
       var RATE = 35;
       var EFFICIENCY = 0.20;
-      var WEEKS_PER_MONTH = 4.33;
+      var AVG_WEEKS_PER_MONTH = 4.33;
       function calcROI() {
         var emps = parseInt(empSlider.value, 10) || 1;
         var hrs  = parseInt(hrsSlider.value, 10) || 1;
-        var monthly = Math.round(emps * hrs * EFFICIENCY * RATE * WEEKS_PER_MONTH);
+        var monthly = Math.round(emps * hrs * EFFICIENCY * RATE * AVG_WEEKS_PER_MONTH);
         var yearly  = Math.round(emps * hrs * EFFICIENCY * 52);
         empDisplay.textContent = emps;
         hrsDisplay.textContent = hrs;
@@ -746,16 +785,25 @@
     })();
 
     // ── Capability Deck Toast ─────────────────────────────────────
-    function showCapabilityToast() {
+    (function() {
+      var btn   = document.getElementById('capability-deck-btn');
       var toast = document.getElementById('capability-toast');
-      if (!toast) return;
-      toast.classList.add('show');
-      setTimeout(function() { toast.classList.remove('show'); }, 4000);
-    }
+      if (!btn || !toast) return;
+      var timer;
+      btn.addEventListener('click', function() {
+        clearTimeout(timer);
+        toast.setAttribute('aria-hidden', 'false');
+        toast.classList.add('show');
+        timer = setTimeout(function() {
+          toast.classList.remove('show');
+          toast.setAttribute('aria-hidden', 'true');
+        }, 4000);
+      });
+    })();
   </script>
 
   <!-- Toast notification -->
-  <div id="capability-toast" role="status" aria-live="polite">
+  <div id="capability-toast" role="status" aria-live="polite" aria-hidden="true">
     🚀 <strong>Coming Soon</strong> — Our Capability Deck is almost ready. Book a free audit and we'll send it directly to your inbox!
   </div>
 
