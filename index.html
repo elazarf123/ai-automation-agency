@@ -91,12 +91,32 @@
     .dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#9ca3af; animation:bounce-dot 1.2s infinite; }
     .dot:nth-child(2){animation-delay:.2s}
     .dot:nth-child(3){animation-delay:.4s}
+    /* Announcement bar */
+    #announcement-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 60; min-height: 40px; }
+    #main-header { top: 40px; }
+    .page-hero { padding-top: 10.5rem !important; }
+    html.bar-off #announcement-bar { display: none !important; }
+    html.bar-off #main-header { top: 0 !important; }
+    html.bar-off .page-hero { padding-top: 8rem !important; }
+    /* Sticky mobile CTA bar */
+    #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
   </style>
+  <script>
+    /* Run before render to avoid layout shift */
+    if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
+  </script>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
 
+  <!-- ── ANNOUNCEMENT BAR ──────────────────────────────────────── -->
+  <div id="announcement-bar" class="bg-amber-400 text-amber-900 text-xs sm:text-sm font-bold text-center py-2.5 px-10 leading-tight">
+    📅 <strong>Limited availability</strong> — Only 3 new client spots open in May 2026.
+    <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener" class="underline ml-1 hover:text-amber-800">Claim your free audit before it fills →</a>
+    <button id="dismiss-bar" aria-label="Dismiss announcement" class="absolute right-4 top-1/2 -translate-y-1/2 text-amber-800 hover:text-amber-900 text-base font-bold leading-none" style="transform:translateY(-50%)">✕</button>
+  </div>
+
   <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+  <header id="main-header" class="fixed inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
@@ -134,7 +154,7 @@
   </header>
 
   <!-- ── HERO ───────────────────────────────────────────────────── -->
-  <section class="pt-32 pb-24 px-6 bg-gradient-to-br from-brand-50 via-white to-white">
+  <section class="pt-32 pb-24 px-6 bg-gradient-to-br from-brand-50 via-white to-white page-hero">
     <div class="max-w-4xl mx-auto text-center">
       <span class="inline-block mb-4 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
         AI Automation Agency
@@ -143,20 +163,22 @@
         We automate your business<br class="hidden md:block" />
         operations with <span class="text-brand-600">AI.</span>
       </h1>
-      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10">
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-4">
         From qualifying leads to processing invoices and answering customer questions — 
         we build custom AI agents that save you dozens of hours every week.
       </p>
+      <p class="text-sm text-gray-400 mb-8">⭐⭐⭐⭐⭐ Trusted by 10+ businesses · 2,000+ hours saved · 280% average ROI</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-           class="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg">
-          Book a Free Audit
+           class="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-lg">
+          Book a Free Audit →
         </a>
         <a href="#results"
            class="border border-gray-300 text-gray-700 font-semibold px-8 py-4 rounded-full hover:border-brand-500 hover:text-brand-600 transition">
-          See Results →
+          See Client Results →
         </a>
       </div>
+      <p class="mt-5 text-xs text-gray-400">No credit card · No commitment · 30-day money-back guarantee</p>
     </div>
   </section>
 
@@ -302,6 +324,14 @@
           <h4 class="font-semibold mb-1">Ongoing Support</h4>
           <p class="text-gray-500 text-sm">We monitor, retrain, and improve as your business grows.</p>
         </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-gray-500 mb-5 text-lg">Ready to start Step 1? It's free, and takes just 30 minutes.</p>
+        <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-base">
+          Book Your Free Workflow Audit →
+        </a>
+        <p class="mt-3 text-xs text-gray-400">No credit card · No commitment · Results in 2–4 weeks</p>
       </div>
     </div>
   </section>
@@ -554,6 +584,22 @@
     </div>
   </section>
 
+  <!-- ── POST-FAQ CONVERSION CTA ─────────────────────────────────── -->
+  <section class="py-16 px-6 bg-brand-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-600 mb-3">Still on the fence?</p>
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">The audit is free. The ROI is real.</h2>
+      <p class="text-gray-500 text-lg mb-8 max-w-xl mx-auto">
+        In 30 minutes, I'll map exactly which of your workflows can be automated and show you a projected ROI — no sales pitch, no obligation.
+      </p>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-9 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-base">
+        Book My Free 30-Min Audit →
+      </a>
+      <p class="mt-4 text-xs text-gray-400">📅 Spots are limited — only 3 new client spots open in May 2026</p>
+    </div>
+  </section>
+
   <!-- ── ABOUT ─────────────────────────────────────────────────── -->
   <section id="about" class="py-24 px-6 bg-white">
     <div class="max-w-4xl mx-auto">
@@ -659,10 +705,17 @@
 
       </div>
       <div class="text-center">
-        <a href="testimonials.html"
-           class="inline-flex items-center gap-2 border border-brand-300 text-brand-600 font-semibold px-6 py-3 rounded-full hover:bg-brand-50 transition">
-          View All Case Studies →
-        </a>
+        <p class="text-gray-500 text-base mb-5">Join businesses saving thousands of hours every year.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-bold px-7 py-3.5 rounded-full hover:bg-brand-700 transition shadow">
+            Book a Free Audit →
+          </a>
+          <a href="testimonials.html"
+             class="inline-flex items-center justify-center gap-2 border border-brand-300 text-brand-600 font-semibold px-7 py-3.5 rounded-full hover:bg-brand-50 transition">
+            View All Case Studies →
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -671,9 +724,10 @@
   <section id="contact" class="py-24 px-6 bg-brand-600">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-white mb-4">Ready to Automate?</h2>
+        <p class="text-brand-200 text-sm font-semibold uppercase tracking-widest mb-3">📅 3 spots left for May 2026</p>
+        <h2 class="text-4xl font-bold text-white mb-4">Book Your Free Audit Before It Fills</h2>
         <p class="text-brand-100 text-lg">
-          Book a free 30-minute operations audit — or send a quick message below.
+          30 minutes. Zero obligation. Walk away with a custom automation roadmap and projected ROI.
         </p>
       </div>
 
@@ -733,7 +787,7 @@
   </section>
 
   <!-- ── FOOTER ─────────────────────────────────────────────────── -->
-  <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6 pb-24 md:pb-10">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
       <p class="font-bold text-white text-lg">AutomateIQ</p>
       <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
@@ -750,6 +804,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- ── STICKY MOBILE CTA BAR ──────────────────────────────────── -->
+  <div id="mobile-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden shadow-2xl">
+    <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 bg-brand-600 text-white font-bold text-sm py-4 px-6 hover:bg-brand-700 transition">
+      📅 Book Your Free Audit — No Commitment →
+    </a>
+  </div>
 
   <script>
     // ── Mobile navigation ─────────────────────────────────────────────
@@ -844,6 +906,16 @@
         // When Formspree is configured with a real form ID, the form submits normally.
       });
     }
+
+    // ── Announcement bar dismiss ─────────────────────────────────────
+    (function() {
+      var btn = document.getElementById('dismiss-bar');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        sessionStorage.setItem('annbar_v1', '1');
+        document.documentElement.classList.add('bar-off');
+      });
+    })();
 
   </script>
 

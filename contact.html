@@ -51,12 +51,30 @@
     .field-error { border-color: #ef4444 !important; }
     .error-msg { display: none; color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; }
     .error-msg.visible { display: block; }
+    /* Announcement bar */
+    #announcement-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 60; min-height: 40px; }
+    #main-header { top: 40px; }
+    .page-hero { padding-top: 10.5rem !important; }
+    html.bar-off #announcement-bar { display: none !important; }
+    html.bar-off #main-header { top: 0 !important; }
+    html.bar-off .page-hero { padding-top: 8rem !important; }
+    #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
   </style>
+  <script>
+    if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
+  </script>
 </head>
 <body class="bg-white text-gray-800 font-sans antialiased">
 
+  <!-- ── ANNOUNCEMENT BAR ──────────────────────────────────────── -->
+  <div id="announcement-bar" class="bg-amber-400 text-amber-900 text-xs sm:text-sm font-bold text-center py-2.5 px-10 leading-tight">
+    📅 <strong>Limited availability</strong> — Only 3 new client spots open in May 2026.
+    <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener" class="underline ml-1 hover:text-amber-800">Claim your free audit before it fills →</a>
+    <button id="dismiss-bar" aria-label="Dismiss announcement" class="absolute right-4 top-1/2 -translate-y-1/2 text-amber-800 hover:text-amber-900 text-base font-bold leading-none" style="transform:translateY(-50%)">✕</button>
+  </div>
+
   <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+  <header id="main-header" class="fixed inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
@@ -93,7 +111,7 @@
   </header>
 
   <!-- ── HERO ───────────────────────────────────────────────────── -->
-  <section class="pt-32 pb-16 px-6 bg-gradient-to-br from-brand-50 via-white to-white">
+  <section class="pt-32 pb-16 px-6 bg-gradient-to-br from-brand-50 via-white to-white page-hero">
     <div class="max-w-3xl mx-auto text-center">
       <span class="inline-block mb-4 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
         Get In Touch
@@ -246,7 +264,7 @@
   </section>
 
   <!-- ── FOOTER ─────────────────────────────────────────────────── -->
-  <footer class="bg-gray-900 text-gray-400 py-10 px-6 mt-8">
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6 pb-24 md:pb-10 mt-8">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
       <p class="font-bold text-white text-lg">AutomateIQ</p>
       <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
@@ -374,7 +392,25 @@
         document.getElementById('cf-error').classList.remove('hidden');
       });
     });
+
+    // Announcement bar dismiss
+    (function() {
+      var btn = document.getElementById('dismiss-bar');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        sessionStorage.setItem('annbar_v1', '1');
+        document.documentElement.classList.add('bar-off');
+      });
+    })();
   </script>
+
+  <!-- ── STICKY MOBILE CTA BAR ──────────────────────────────────── -->
+  <div id="mobile-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden shadow-2xl">
+    <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 bg-brand-600 text-white font-bold text-sm py-4 px-6 hover:bg-brand-700 transition">
+      📅 Book Your Free Audit — No Commitment →
+    </a>
+  </div>
 
 </body>
 </html>
