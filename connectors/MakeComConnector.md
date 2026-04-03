@@ -7,11 +7,88 @@ Complete reference for integrating Make.com (formerly Integromat) with PowerShel
 ## Overview
 
 Make.com acts as the central orchestration layer, connecting:
-- **Web forms** (triggers)
+- **Web forms & survey tools** (Typeform, custom webhooks)
+- **AI services** (OpenAI GPT-4o for scoring and extraction)
 - **PowerShell scripts** (via HTTP module)
+- **CRM systems** (Pipedrive deal creation)
+- **Marketing automation** (Mailchimp audience management)
 - **Data stores** (logging and persistence)
-- **Email / Slack** (notifications)
-- **Google Sheets / Excel Online** (reporting)
+- **Communication tools** (Slack alerts, Email / Slack notifications)
+- **Spreadsheets** (Google Sheets / Excel Online reporting)
+
+---
+
+### Typeform — TriggerNewEntry
+
+Instant webhook trigger for new Typeform responses. Used as the entry point for the AI Lead Qualifier workflow.
+
+| Setting | Value |
+|---------|-------|
+| Type | Typeform connection (OAuth) |
+| Trigger | New response (instant) |
+| Payload | All field answers keyed by field ID |
+
+**Accessing field values in downstream modules:**
+```
+{{1.answers.FIELD_ID.text}}          — short/long text answers
+{{1.answers.FIELD_ID.email}}         — email answers
+{{1.answers.FIELD_ID.choice.label}}  — multiple-choice label
+{{1.answers.FIELD_ID.number}}        — number answers
+{{1.hidden.HIDDEN_FIELD_NAME}}       — hidden fields (e.g. UTM source)
+```
+
+> Find field IDs by running a test submission and inspecting the module's **Output** tab in Make.com.
+
+---
+
+### OpenAI — CreateChatCompletion
+
+Calls the OpenAI Chat Completions API. Used for lead scoring (GPT-4o) and document extraction tasks.
+
+| Field | Recommended value |
+|-------|-------------------|
+| Model | `gpt-4o` |
+| Max tokens | `1024` |
+| Temperature | `0.2` (low variance for consistent scoring) |
+| System prompt | Business-logic scoring rubric — see `docs/lead-qualifier-crm-router.md` |
+
+**Accessing the AI response:**
+```
+{{2.choices[].message.content}}                         — raw JSON string
+{{parseJSON(2.choices[].message.content).score}}        — numeric score
+{{parseJSON(2.choices[].message.content).grade}}        — letter grade
+{{parseJSON(2.choices[].message.content).next_step}}    — recommended action
+```
+
+---
+
+### Pipedrive — CreateDeal
+
+Creates a new deal (and optionally a Person and Organisation) in Pipedrive.
+
+| Field | Value |
+|-------|-------|
+| Title | `{{company}} — AI Automation ({{grade}} Lead)` |
+| Value | `{{estimated_deal_value}}` (from AI response) |
+| Currency | `USD` |
+| Expected close | `{{formatDate(addDays(now, 30), "YYYY-MM-DD")}}` |
+| Note | AI summary + next step (paste from OpenAI response) |
+
+---
+
+### Mailchimp — AddUpdateSubscriber
+
+Adds or updates a subscriber in a Mailchimp audience. Used for the low-priority nurture route.
+
+| Field | Value |
+|-------|-------|
+| Audience | Your nurture list ID |
+| Email | `{{1.answers.EMAIL_FIELD_ID.email}}` |
+| Status | `subscribed` |
+| Merge fields | `FNAME`, `LNAME`, `COMPANY`, `SCORE`, `GRADE` |
+| Tags | `nurture`, `grade-b` (or `grade-c`/`grade-d`), `ai-qualified` |
+
+> Use Mailchimp's **Customer Journeys** to trigger an automated drip sequence when a contact receives the `nurture` tag.
 
 ---
 
@@ -173,4 +250,8 @@ For enterprise IT automation, the **Core** plan ($9/month) is typically sufficie
 | `toJSON(data)` | Serialise to JSON string | `{{toJSON(1)}}` |
 | `parseJSON(str)` | Parse JSON string | `{{parseJSON(1.result)}}` |
 | `ifempty(a, b)` | Fallback value | `{{ifempty(1.license, "ENTERPRISEPREMIUM")}}` |
-| `formatDate(date, format)` | Format date | `{{formatDate(now, "YYYY-MM-DD")}}` |
+| `formatNumber(n, dp, dec, thou)` | Format a number | `{{formatNumber(36000, 0, ".", ",")}}` |
+| `addDays(date, n)` | Add N days to a date | `{{addDays(now, 30)}}` |
+| `split(str, delim)` | Split string to array | `{{split("John Smith", " ")[0]}}` |
+| `lower(str)` | Lowercase a string | `{{lower("Grade-B")}}` |
+| `join(arr, sep)` | Join array to string | `{{join(array, " · ")}}` |
