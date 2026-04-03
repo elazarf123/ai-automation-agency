@@ -159,7 +159,7 @@
     .workflow-thumb-btn:focus-visible { outline: 2px solid #6c3cff; outline-offset: 3px; }
     .workflow-thumb-btn .workflow-thumb { cursor: pointer; }
     .workflow-thumb-btn .thumb-hint {
-      display: flex; align-items: center; justify-content: center; gap-4px;
+      display: flex; align-items: center; justify-content: center; gap: 4px;
       font-size: 0.7rem; color: #a78bfa; font-weight: 600; letter-spacing: 0.04em;
       padding-bottom: 0.5rem;
     }
@@ -971,8 +971,8 @@
           // node box
           var boxY = cy - nodeH / 2;
           parts.push('<rect x="' + x + '" y="' + boxY + '" width="' + nodeW + '" height="' + nodeH + '" rx="8" fill="' + c1 + '" opacity=".28"/>');
-          // diamond on alternating nodes to suggest logic
-          if (i % 2 === 2 || label.endsWith('?')) {
+          // diamond badge on decision nodes (those ending with '?') to suggest logic
+          if (label.endsWith('?')) {
             parts.push('<rect x="' + (x + nodeW/2 - 5) + '" y="' + (boxY - 7) + '" width="10" height="10" rx="2" fill="' + c2 + '" opacity=".7" transform="rotate(45,' + (x + nodeW/2) + ',' + (boxY - 2) + ')"/>');
           }
           parts.push('<text x="' + (x + nodeW/2) + '" y="' + cy + '" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="9" fill="' + c2 + '">' + label + '</text>');
