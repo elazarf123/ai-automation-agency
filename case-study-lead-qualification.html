@@ -47,8 +47,8 @@
     .fade-in.visible { opacity: 1; transform: none; }
     /* Announcement bar */
     #announcement-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 60; min-height: 40px; }
-    #main-header { top: 40px; }
-    .page-hero { padding-top: 10.5rem !important; }
+    #main-header { top: var(--ann-bar-h, 40px); }
+    .page-hero { padding-top: calc(var(--ann-bar-h, 40px) + 8rem) !important; }
     html.bar-off #announcement-bar { display: none !important; }
     html.bar-off #main-header { top: 0 !important; }
     html.bar-off .page-hero { padding-top: 8rem !important; }
@@ -436,8 +436,19 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(function(el) { fadeObserver.observe(el); });
 
-    // Announcement bar dismiss
+    // Announcement bar height sync & dismiss
     (function() {
+      var annBar = document.getElementById('announcement-bar');
+      function syncBarHeight() {
+        if (!annBar || document.documentElement.classList.contains('bar-off')) return;
+        document.documentElement.style.setProperty('--ann-bar-h', annBar.getBoundingClientRect().height + 'px');
+      }
+      syncBarHeight();
+      var resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(syncBarHeight, 100);
+      });
       var btn = document.getElementById('dismiss-bar');
       if (!btn) return;
       btn.addEventListener('click', function() {
