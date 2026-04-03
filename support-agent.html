@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a55f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236c3cff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>24/7 AI Support Agent Demo — AutomateIQ</title>
   <meta name="description" content="Chat with our AI support agent live. See how it answers customer questions instantly, 24/7, without adding headcount." />
@@ -32,12 +32,12 @@
         extend: {
           colors: {
             brand: {
-              50:  '#f0f4ff',
-              100: '#dce8ff',
-              500: '#3b6bff',
-              600: '#2a55f0',
-              700: '#1a40d9',
-              900: '#0f2a9c',
+              50:  '#f5f0ff',
+              100: '#ede0ff',
+              500: '#7c4fff',
+              600: '#6c3cff',
+              700: '#5a2de0',
+              900: '#2d1580',
             }
           }
         }
@@ -51,12 +51,12 @@
   <!-- NAVBAR -->
   <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="index.html#services" class="hover:text-brand-600 transition">Services</a>
-        <a href="pricing.html"        class="hover:text-brand-600 transition">Pricing</a>
-        <a href="testimonials.html"   class="hover:text-brand-600 transition">Case Studies</a>
-        <a href="index.html#contact"  class="hover:text-brand-600 transition">Contact</a>
+      <a href="index.html" class="text-xl font-bold tracking-tight gradient-text">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+        <a href="index.html#services" class="hover:text-white transition">Services</a>
+        <a href="pricing.html"        class="hover:text-white transition">Pricing</a>
+        <a href="testimonials.html"   class="hover:text-white transition">Case Studies</a>
+        <a href="index.html#contact"  class="hover:text-white transition">Contact</a>
       </nav>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
@@ -65,17 +65,17 @@
       <!-- Mobile menu button -->
       <button id="mobile-menu-btn" aria-label="Open menu"
               class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
-        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar3"></span>
       </button>
     </div>
     <!-- Mobile dropdown menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
-      <a href="index.html#services" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
-      <a href="pricing.html"        class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
-      <a href="testimonials.html"   class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Case Studies</a>
-      <a href="index.html#contact"  class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0b0b17] border-t border-white/5 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-300 shadow-md">
+      <a href="index.html#services" class="hover:text-white transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"        class="hover:text-white transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="testimonials.html"   class="hover:text-white transition" onclick="closeMobileMenu()">Case Studies</a>
+      <a href="index.html#contact"  class="hover:text-white transition" onclick="closeMobileMenu()">Contact</a>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold
                 px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
