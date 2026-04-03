@@ -141,13 +141,134 @@
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
       padding: 2px 10px; border-radius: 9999px; text-transform: uppercase;
     }
+
+    /* ── GLASSMORPHISM SERVICES ───────────────────────────────── */
+    #services { background: #1a1a1a; }
+    #services h2, #services h3 { color: #fff; }
+    #services p { color: #a3a3a3; }
+    #services ul li { color: #d4d4d4; }
+    .glass-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    .glass-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(108,60,255,0.55);
+      box-shadow: 0 8px 40px rgba(108,60,255,0.18);
+    }
+    .glass-icon {
+      background: rgba(108,60,255,0.18);
+      color: #c084fc;
+    }
+
+    /* ── ROI CALCULATOR ───────────────────────────────────────── */
+    #roi-calculator {
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+    }
+    .roi-output-card {
+      background: rgba(108,60,255,0.12);
+      border: 1px solid rgba(108,60,255,0.3);
+    }
+    input[type="range"] {
+      -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 9999px;
+      background: rgba(108,60,255,0.3);
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #6c3cff; cursor: pointer;
+      box-shadow: 0 0 10px rgba(108,60,255,0.6);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #6c3cff; cursor: pointer; border: none;
+      box-shadow: 0 0 10px rgba(108,60,255,0.6);
+    }
+
+    /* ── VIDEO WALKTHROUGH MODAL ─────────────────────────────── */
+    .demo-modal {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
+      padding: 1.5rem;
+    }
+    .demo-modal.open { display: flex; }
+    .demo-modal-box {
+      background: #1a1a2e;
+      border: 1px solid rgba(108,60,255,0.35);
+      border-radius: 1.25rem;
+      max-width: 640px; width: 100%;
+      padding: 2rem; position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      max-height: 90vh; overflow-y: auto;
+    }
+    .demo-step {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.875rem 1rem;
+      background: rgba(255,255,255,0.04);
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .demo-step-num {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: rgba(108,60,255,0.25); color: #c084fc;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-weight: 700; font-size: 0.8rem;
+    }
+
+    /* ── KINETIC HERO TYPOGRAPHY ─────────────────────────────── */
+    @keyframes text-shimmer {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .kinetic-text {
+      background: linear-gradient(90deg, #a78bfa, #6c3cff, #c084fc, #818cf8, #6c3cff);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: text-shimmer 4s linear infinite;
+      will-change: background-position;
+    }
+    /* ── DARK SITE HELPERS ──────────────────────────────────── */
+    .dark-section { background: #1a1a1a; }
+    .dark-section-alt { background: #111114; }
+    .dark-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .dark-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(108,60,255,0.35);
+    }
+    .dark-stat-card {
+      background: rgba(108,60,255,0.10);
+      border: 1px solid rgba(108,60,255,0.2);
+    }
+    .dark-faq-item {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+    .dark-faq-item:hover { background: rgba(255,255,255,0.05); }
+    .dark-input {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+    }
+    .dark-input::placeholder { color: rgba(255,255,255,0.3); }
+    .dark-input:focus { outline: none; box-shadow: 0 0 0 2px rgba(108,60,255,0.5); }
   </style>
   <script>
     /* Run before render to avoid layout shift */
     if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
   </script>
 </head>
-<body class="bg-white text-gray-800 font-sans antialiased">
+<body class="bg-[#1a1a1a] text-gray-200 font-sans antialiased">
 
   <!-- ── ANNOUNCEMENT BAR ──────────────────────────────────────── -->
   <div id="announcement-bar" class="bg-amber-400 text-amber-900 text-xs sm:text-sm font-bold text-center py-2.5 px-10 leading-tight">
@@ -204,7 +325,7 @@
       </span>
       <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
         We automate your business<br class="hidden md:block" />
-        operations with <span class="gradient-text">AI.</span>
+        operations with <span class="kinetic-text">AI.</span>
       </h1>
       <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
         From qualifying leads to processing invoices and answering customer questions — 
@@ -226,7 +347,7 @@
   </section>
 
   <!-- ── TRUST BAR ───────────────────────────────────────────────── -->
-  <div class="bg-gray-50 border-y border-gray-100 py-6 px-6">
+  <div class="bg-[#111114] border-y border-white/5 py-6 px-6">
     <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-gray-400 text-sm font-medium">
       <span>🏆 30-Day Satisfaction Guarantee</span>
       <span>⚡ 10× Faster Workflows</span>
@@ -238,33 +359,95 @@
   </div>
 
   <!-- ── SOCIAL PROOF STATS ────────────────────────────────────────── -->
-  <section class="py-16 px-6 bg-white">
+  <section class="py-16 px-6 bg-[#111114]">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-10">
         <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-2">Results Our Clients Have Achieved</p>
-        <h2 class="text-3xl font-bold text-gray-900">The Numbers Don't Lie</h2>
+        <h2 class="text-3xl font-bold text-white">The Numbers Don't Lie</h2>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-7">
-          <p class="text-4xl font-extrabold text-brand-600">10+</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">Clients Served</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-7">
+          <p class="text-4xl font-extrabold text-brand-500">10+</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">Clients Served</p>
         </div>
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-7">
-          <p class="text-4xl font-extrabold text-brand-600">500+</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">Workflows Automated</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-7">
+          <p class="text-4xl font-extrabold text-brand-500">500+</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">Workflows Automated</p>
         </div>
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-7">
-          <p class="text-4xl font-extrabold text-brand-600">280%</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">Average Client ROI</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-7">
+          <p class="text-4xl font-extrabold text-brand-500">280%</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">Average Client ROI</p>
         </div>
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-7">
-          <p class="text-4xl font-extrabold text-brand-600">2,000+</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">Hours Saved Annually</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-7">
+          <p class="text-4xl font-extrabold text-brand-500">2,000+</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">Hours Saved Annually</p>
         </div>
       </div>
       <p class="text-center mt-6">
-        <a href="testimonials.html" class="text-brand-600 text-sm font-semibold hover:text-brand-700 transition">See Case Studies &amp; Client Results →</a>
+        <a href="testimonials.html" class="text-brand-500 text-sm font-semibold hover:text-brand-400 transition">See Case Studies &amp; Client Results →</a>
       </p>
+    </div>
+  </section>
+
+  <!-- ── ROI CALCULATOR ────────────────────────────────────────────── -->
+  <section id="roi-calculator" class="py-20 px-6 bg-[#0f0f1a]">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">ROI Calculator</span>
+        <h2 class="text-4xl font-bold text-white">Calculate Your Savings</h2>
+        <p class="mt-3 text-lg text-gray-400">
+          Move the sliders to see your real-time ROI estimate.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-8 md:p-10">
+        <!-- Employees slider -->
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-3">
+            <label class="text-sm font-semibold text-white">Number of Employees</label>
+            <span id="emp-display" class="text-2xl font-extrabold text-purple-400">10</span>
+          </div>
+          <input id="emp-slider" type="range" min="1" max="50" value="10" class="w-full" />
+          <div class="flex justify-between text-xs mt-1 text-gray-500">
+            <span>1</span><span>50</span>
+          </div>
+        </div>
+
+        <!-- Manual hours slider -->
+        <div class="mb-10">
+          <div class="flex justify-between items-center mb-3">
+            <label class="text-sm font-semibold text-white">Manual Hours per Week</label>
+            <span id="hrs-display" class="text-2xl font-extrabold text-purple-400">20</span>
+          </div>
+          <input id="hrs-slider" type="range" min="1" max="40" value="20" class="w-full" />
+          <div class="flex justify-between text-xs mt-1 text-gray-500">
+            <span>1</span><span>40</span>
+          </div>
+          <p class="text-xs mt-2 text-gray-500">Based on a $35/hr average rate and a 20% AI efficiency gain.</p>
+        </div>
+
+        <!-- Results -->
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="roi-output-card rounded-2xl p-6 text-center">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-2 text-purple-400">Monthly Savings</p>
+            <p id="monthly-savings" class="text-4xl font-extrabold text-brand-500">$6,062</p>
+            <p class="text-xs mt-2 text-gray-500">Dollars saved per month</p>
+          </div>
+          <div class="roi-output-card rounded-2xl p-6 text-center">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-2 text-purple-400">Yearly Hours Reclaimed</p>
+            <p id="annual-hours" class="text-4xl font-extrabold text-brand-500">2,080</p>
+            <p class="text-xs mt-2 text-gray-500">Hours freed every year</p>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-brand-700 transition shadow-lg btn-glow">
+            Claim These Savings — Book a Free Audit →
+          </a>
+          <p class="mt-3 text-xs text-gray-500">No commitment. Results in 2–4 weeks.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -272,9 +455,9 @@
   <section id="services" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <span class="inline-block mb-3 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">What We Build</span>
-        <h2 class="text-4xl font-bold text-gray-900">Our Services — Try Them Live</h2>
-        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">What We Build</span>
+        <h2 class="text-4xl font-bold">Our Services — Try Them Live</h2>
+        <p class="mt-3 text-lg max-w-xl mx-auto" style="color:#a3a3a3">
           Six high-impact AI solutions you can explore right now — from core portfolio to cutting-edge business tools.
         </p>
       </div>
@@ -282,113 +465,116 @@
       <div class="grid md:grid-cols-3 gap-8">
 
         <!-- Lead Gen -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">🎯</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">🎯</div>
           <h3 class="text-xl font-bold mb-3">AI Lead Generation &amp; Qualification</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Our AI qualifier scores every inbound lead in seconds — analysing company size, industry, budget signals, 
             and urgency — so your sales team only calls the hottest prospects.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 80 % reduction in time-to-contact</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Integrates with HubSpot &amp; Salesforce</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Powered by Claude AI</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 80 % reduction in time-to-contact</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Integrates with HubSpot &amp; Salesforce</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Powered by Claude AI</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="lead-qualifier.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
-            <a href="case-study-lead-qualification.html" class="inline-block text-center border border-brand-200 text-brand-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-50 transition">See Results →</a>
+            <a href="lead-qualifier.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Try It Live →</a>
+            <a href="case-study-lead-qualification.html" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">See Results →</a>
           </div>
         </div>
 
         <!-- Invoice Processing -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📄</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">📄</div>
           <h3 class="text-xl font-bold mb-3">Automated Invoice Processing</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Extract, validate, and route invoice data from PDFs automatically. 
             Eliminate manual data entry and cut accounts-payable processing time from days to minutes.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 95 %+ extraction accuracy</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Exports to QuickBooks &amp; Xero</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Handles multi-page, multi-vendor PDFs</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 95 %+ extraction accuracy</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Exports to QuickBooks &amp; Xero</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Handles multi-page, multi-vendor PDFs</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="invoice-processor.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
-            <a href="case-study-invoice-processing.html" class="inline-block text-center border border-brand-200 text-brand-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-50 transition">See Results →</a>
+            <a href="invoice-processor.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Try It Live →</a>
+            <a href="case-study-invoice-processing.html" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">See Results →</a>
           </div>
         </div>
 
         <!-- Support Chatbot -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">💬</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">💬</div>
           <h3 class="text-xl font-bold mb-3">24/7 AI Support Chatbot</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Deploy a knowledge-base-powered chatbot that answers customer questions instantly — 
             reducing support tickets by up to 70 % while improving satisfaction scores.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Trained on your own docs &amp; FAQs</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Embeds in any website in minutes</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Escalates complex issues to humans</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Trained on your own docs &amp; FAQs</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Embeds in any website in minutes</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Escalates complex issues to humans</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="support-agent.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
-            <a href="case-study-support-chatbot.html" class="inline-block text-center border border-brand-200 text-brand-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-50 transition">See Results →</a>
+            <a href="support-agent.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Try It Live →</a>
+            <a href="case-study-support-chatbot.html" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">See Results →</a>
           </div>
         </div>
 
         <!-- Email Classifier -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📧</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">📧</div>
           <h3 class="text-xl font-bold mb-3">AI Email Classifier</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Automatically sorts high-volume inboxes into "Urgent," "Inquiry," and "Spam" — 
             saving business owners hours of manual triage every single day.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 90%+ classification accuracy</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Integrates with Gmail &amp; Outlook</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Auto-routes, labels &amp; notifies in real-time</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 90%+ classification accuracy</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Integrates with Gmail &amp; Outlook</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Auto-routes, labels &amp; notifies in real-time</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+            <button onclick="openDemoModal('email')" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">▶ Watch Video Demo →</button>
+            <a href="#contact" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">Get This Built →</a>
           </div>
         </div>
 
         <!-- KPI Dashboard -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📊</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">📊</div>
           <h3 class="text-xl font-bold mb-3">KPI Reporting Dashboard</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Real-time reporting that pulls business data from all your apps into a single clear view 
             in Airtable or Notion — updated automatically, zero manual work.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Connects 10+ data sources in one view</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Custom metrics &amp; daily automated digests</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> No more manual spreadsheet updates</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Connects 10+ data sources in one view</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Custom metrics &amp; daily automated digests</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> No more manual spreadsheet updates</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+            <button onclick="openDemoModal('kpi')" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">▶ Watch Video Demo →</button>
+            <a href="#contact" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">Get This Built →</a>
           </div>
         </div>
 
         <!-- Content Repurposing -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">🔄</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">🔄</div>
           <h3 class="text-xl font-bold mb-3">Content Repurposing Pipeline</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Automatically transforms one long-form piece of content — like a YouTube video or podcast — 
             into blog posts, LinkedIn updates, tweets, and email newsletters.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 video → 10+ pieces of content</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Auto-publishes to your chosen platforms</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> AI-tailored tone per channel</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 1 video → 10+ pieces of content</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Auto-publishes to your chosen platforms</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> AI-tailored tone per channel</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+            <button onclick="openDemoModal('content')" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">▶ Watch Video Demo →</button>
+            <a href="#contact" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">Get This Built →</a>
           </div>
         </div>
 
@@ -456,118 +642,121 @@
 
 
   <!-- ── HOW IT WORKS ────────────────────────────────────────────── -->
-  <section class="py-24 px-6 bg-gray-50">
+  <section class="py-24 px-6 bg-[#111114]">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-gray-900 mb-14">How We Work</h2>
+      <h2 class="text-4xl font-bold text-white mb-14">How We Work</h2>
       <div class="grid md:grid-cols-4 gap-6">
         <div class="flex flex-col items-center">
           <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">1</div>
-          <h4 class="font-semibold mb-1">Free Audit</h4>
-          <p class="text-gray-500 text-sm">We map your workflows and identify automation opportunities.</p>
+          <h4 class="font-semibold text-white mb-1">Free Audit</h4>
+          <p class="text-gray-400 text-sm">We map your workflows and identify automation opportunities.</p>
         </div>
         <div class="flex flex-col items-center">
           <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
-          <h4 class="font-semibold mb-1">Custom Build</h4>
-          <p class="text-gray-500 text-sm">We design and develop your AI agents in 2–4 weeks.</p>
+          <h4 class="font-semibold text-white mb-1">Custom Build</h4>
+          <p class="text-gray-400 text-sm">We design and develop your AI agents in 2–4 weeks.</p>
         </div>
         <div class="flex flex-col items-center">
           <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">3</div>
-          <h4 class="font-semibold mb-1">Integrate &amp; Test</h4>
-          <p class="text-gray-500 text-sm">We plug it into your existing tools and run QA together.</p>
+          <h4 class="font-semibold text-white mb-1">Integrate &amp; Test</h4>
+          <p class="text-gray-400 text-sm">We plug it into your existing tools and run QA together.</p>
         </div>
         <div class="flex flex-col items-center">
           <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">4</div>
-          <h4 class="font-semibold mb-1">Ongoing Support</h4>
-          <p class="text-gray-500 text-sm">We monitor, retrain, and improve as your business grows.</p>
+          <h4 class="font-semibold text-white mb-1">Ongoing Support</h4>
+          <p class="text-gray-400 text-sm">We monitor, retrain, and improve as your business grows.</p>
         </div>
       </div>
       <div class="mt-12 text-center">
-        <p class="text-gray-500 mb-5 text-lg">Ready to start Step 1? It's free, and takes just 30 minutes.</p>
+        <p class="text-gray-400 mb-5 text-lg">Ready to start Step 1? It's free, and takes just 30 minutes.</p>
         <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-base btn-glow">
           Book Your Free Workflow Audit →
         </a>
-        <p class="mt-3 text-xs text-gray-400">No credit card · No commitment · Results in 2–4 weeks</p>
+        <p class="mt-3 text-xs text-gray-500">No credit card · No commitment · Results in 2–4 weeks</p>
       </div>
     </div>
   </section>
 
 
   <!-- ── ROI ────────────────────────────────────────────────────── -->
-  <section id="results" class="py-24 px-6">
+  <section id="results" class="py-24 px-6 bg-[#1a1a1a]">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
-        <h2 class="text-4xl font-bold text-gray-900">What You Can Expect</h2>
-        <p class="mt-3 text-gray-500 text-lg">
+        <h2 class="text-4xl font-bold text-white">What You Can Expect</h2>
+        <p class="mt-3 text-gray-400 text-lg">
           Projected outcomes based on industry benchmarks and similar automation deployments.
         </p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-8">
-          <p class="text-5xl font-extrabold text-brand-600"><span class="counter" data-target="80">0</span>%</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">Reduction in lead<br/>qualification time</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-500"><span class="counter" data-target="80">0</span>%</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">Reduction in lead<br/>qualification time</p>
         </div>
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-8">
-          <p class="text-5xl font-extrabold text-brand-600"><span class="counter" data-target="95">0</span>%</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">Invoice data extraction<br/>accuracy</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-500"><span class="counter" data-target="95">0</span>%</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">Invoice data extraction<br/>accuracy</p>
         </div>
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-8">
-          <p class="text-5xl font-extrabold text-brand-600"><span class="counter" data-target="70">0</span>%</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">Drop in Tier-1<br/>support tickets</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-500"><span class="counter" data-target="70">0</span>%</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">Drop in Tier-1<br/>support tickets</p>
         </div>
-        <div class="fade-in text-center bg-brand-50 rounded-2xl p-8">
-          <p class="text-5xl font-extrabold text-brand-600">3–6×</p>
-          <p class="mt-2 text-sm font-medium text-gray-600">ROI within the<br/>first 6 months</p>
+        <div class="fade-in text-center dark-stat-card rounded-2xl p-8">
+          <p class="text-5xl font-extrabold text-brand-500">3–6×</p>
+          <p class="mt-2 text-sm font-medium text-gray-400">ROI within the<br/>first 6 months</p>
         </div>
       </div>
 
-            <!-- Outcome scenarios -->
+      <!-- Outcome scenarios -->
       <div class="mt-14 grid md:grid-cols-3 gap-6">
-        <div class="bg-white border border-gray-200 rounded-2xl p-7 shadow-sm text-left">
-          <div class="w-10 h-10 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl mb-4">📄</div>
-          <h4 class="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">Invoice Automation</h4>
-          <p class="text-gray-600 leading-relaxed text-sm">
-            A 3-day accounts-payable backlog that used to need a full-time employee gets processed in under 2 hours —
-            automatically routed to QuickBooks with 95%+ accuracy. Zero manual entry.
+        <div class="dark-card rounded-2xl p-7 text-left">
+          <div class="w-10 h-10 bg-green-900/40 border border-green-500/20 text-green-400 rounded-xl flex items-center justify-center text-xl mb-4">📄</div>
+          <h4 class="font-bold text-white mb-2 text-sm uppercase tracking-wide">Invoice Automation</h4>
+          <p class="text-gray-400 leading-relaxed text-sm">
+            <strong class="text-gray-200">The chaos:</strong> 500+ invoices per month drowning AP staff in spreadsheets — a 3-day backlog, 8% error rate, and late-payment penalties piling up.
+            <strong class="text-gray-200">The fix:</strong> AutomateIQ automated extraction, validation, and QuickBooks routing.
+            <strong class="text-gray-200">The calm:</strong> Invoices processed in under 2 hours, 95%+ accuracy, zero manual entry. Staff reclaimed 120 hours per month.
           </p>
-          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400 font-medium">Logistics &amp; Finance use case</div>
+          <div class="mt-4 pt-4 border-t border-white/8 text-xs text-gray-500 font-medium">Logistics &amp; Finance use case</div>
         </div>
-        <div class="bg-white border border-gray-200 rounded-2xl p-7 shadow-sm text-left">
-          <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4">🎯</div>
-          <h4 class="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">Lead Qualification</h4>
-          <p class="text-gray-600 leading-relaxed text-sm">
-            Instead of manually reviewing 400+ inbound leads per week, your SDR team wakes up to a prioritised list.
-            Only Grade-A and B leads make it to their calendar — saving 15+ hours per week per rep.
+        <div class="dark-card rounded-2xl p-7 text-left">
+          <div class="w-10 h-10 bg-blue-900/40 border border-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center text-xl mb-4">🎯</div>
+          <h4 class="font-bold text-white mb-2 text-sm uppercase tracking-wide">Lead Qualification</h4>
+          <p class="text-gray-400 leading-relaxed text-sm">
+            <strong class="text-gray-200">The chaos:</strong> Reps drowning in 400+ raw leads weekly — most of them noise. Hot prospects went cold while the team sorted junk.
+            <strong class="text-gray-200">The fix:</strong> An AI agent scoring, grading, and routing every lead in seconds.
+            <strong class="text-gray-200">The calm:</strong> SDRs wake up to a prioritised list. Only A and B leads reach their calendar — saving 15+ hours per rep, per week.
           </p>
-          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400 font-medium">SaaS &amp; B2B Sales use case</div>
+          <div class="mt-4 pt-4 border-t border-white/8 text-xs text-gray-500 font-medium">SaaS &amp; B2B Sales use case</div>
         </div>
-        <div class="bg-white border border-gray-200 rounded-2xl p-7 shadow-sm text-left">
-          <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-4">💬</div>
-          <h4 class="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">24/7 Support Agent</h4>
-          <p class="text-gray-600 leading-relaxed text-sm">
-            70% of support tickets get resolved by the AI before a human ever sees them.
-            Your team focuses on complex issues — not answering the same questions repeatedly.
+        <div class="dark-card rounded-2xl p-7 text-left">
+          <div class="w-10 h-10 bg-purple-900/40 border border-purple-500/20 text-purple-400 rounded-xl flex items-center justify-center text-xl mb-4">💬</div>
+          <h4 class="font-bold text-white mb-2 text-sm uppercase tracking-wide">24/7 Support Agent</h4>
+          <p class="text-gray-400 leading-relaxed text-sm">
+            <strong class="text-gray-200">The chaos:</strong> Support reps buried under a tidal wave of repeat questions — the same ticket, day after day, stealing hours that should go to real customer care.
+            <strong class="text-gray-200">The fix:</strong> An AI chatbot trained on your knowledge base, live around the clock.
+            <strong class="text-gray-200">The calm:</strong> 70% of tickets resolved instantly. Your team finally breathes — and your customers get answers in seconds, not hours.
           </p>
-          <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400 font-medium">E-commerce &amp; SaaS use case</div>
+          <div class="mt-4 pt-4 border-t border-white/8 text-xs text-gray-500 font-medium">E-commerce &amp; SaaS use case</div>
         </div>
       </div>
-      <p class="mt-6 text-xs text-gray-400 text-center">Outcomes based on industry benchmarks for AI automation deployments. Individual results vary.</p>
+      <p class="mt-6 text-xs text-gray-500 text-center">Outcomes based on industry benchmarks for AI automation deployments. Individual results vary.</p>
 
       <!-- Case studies CTA -->
       <div class="mt-10 text-center">
-        <p class="text-gray-500 text-base mb-4">Want to see these numbers in action?</p>
+        <p class="text-gray-400 text-base mb-4">Want to see these numbers in action?</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href="case-study-lead-qualification.html"
-             class="inline-flex items-center gap-2 border border-brand-200 text-brand-700 font-semibold text-sm px-6 py-3 rounded-full hover:bg-brand-50 transition">
+             class="inline-flex items-center gap-2 border border-brand-600/40 text-purple-300 font-semibold text-sm px-6 py-3 rounded-full hover:bg-brand-600/20 transition">
             🎯 Lead Qualification Case Study →
           </a>
           <a href="case-study-invoice-processing.html"
-             class="inline-flex items-center gap-2 border border-brand-200 text-brand-700 font-semibold text-sm px-6 py-3 rounded-full hover:bg-brand-50 transition">
+             class="inline-flex items-center gap-2 border border-brand-600/40 text-purple-300 font-semibold text-sm px-6 py-3 rounded-full hover:bg-brand-600/20 transition">
             📄 Invoice Processing Case Study →
           </a>
           <a href="case-study-support-chatbot.html"
-             class="inline-flex items-center gap-2 border border-brand-200 text-brand-700 font-semibold text-sm px-6 py-3 rounded-full hover:bg-brand-50 transition">
+             class="inline-flex items-center gap-2 border border-brand-600/40 text-purple-300 font-semibold text-sm px-6 py-3 rounded-full hover:bg-brand-600/20 transition">
             💬 Support Chatbot Case Study →
           </a>
         </div>
@@ -575,27 +764,27 @@
 
       <!-- Tool integrations bar -->
       <div class="mt-12 text-center">
-        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Integrates with the tools your team already uses</p>
+        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6">Integrates with the tools your team already uses</p>
         <div class="flex flex-wrap justify-center items-center gap-8">
-          <span class="text-base font-bold text-gray-400 tracking-tight">Make.com</span>
-          <span class="text-base font-bold text-gray-400 tracking-tight">HubSpot</span>
-          <span class="text-base font-bold text-gray-400 tracking-tight">Salesforce</span>
-          <span class="text-base font-bold text-gray-400 tracking-tight">Slack</span>
-          <span class="text-base font-bold text-gray-400 tracking-tight">QuickBooks</span>
-          <span class="text-base font-bold text-gray-400 tracking-tight">Claude AI</span>
-          <span class="text-base font-bold text-gray-400 tracking-tight">Zapier</span>
-          <span class="text-base font-bold text-gray-400 tracking-tight">Notion</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">Make.com</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">HubSpot</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">Salesforce</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">Slack</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">QuickBooks</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">Claude AI</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">Zapier</span>
+          <span class="text-base font-bold text-gray-500 tracking-tight">Notion</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── PRICING ───────────────────────────────────────────────────── -->
-  <section id="pricing" class="py-24 px-6 bg-gray-50">
+  <section id="pricing" class="py-24 px-6 bg-[#111114]">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
-        <h2 class="text-4xl font-bold text-gray-900">Simple, Transparent Pricing</h2>
-        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
+        <h2 class="text-4xl font-bold text-white">Simple, Transparent Pricing</h2>
+        <p class="mt-3 text-gray-400 text-lg max-w-xl mx-auto">
           No hidden fees. Cancel any time. All plans include white-glove onboarding.
         </p>
       </div>
@@ -603,18 +792,18 @@
       <div class="grid md:grid-cols-3 gap-8">
 
         <!-- Starter -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm flex flex-col">
-          <h3 class="text-lg font-bold text-gray-900 mb-1">Starter</h3>
-          <p class="text-4xl font-extrabold text-gray-900 mt-3">$1,200<span class="text-lg font-medium text-gray-400">/mo</span></p>
-          <p class="text-gray-500 text-sm mt-2 mb-6">Best for small teams getting started with automation.</p>
-          <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 AI agent (choose any service)</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Up to 500 leads / invoices / tickets per month</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> HubSpot or QuickBooks integration</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Email support</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Monthly performance report</li>
+        <div class="dark-card rounded-2xl p-8 flex flex-col">
+          <h3 class="text-lg font-bold text-white mb-1">Starter</h3>
+          <p class="text-4xl font-extrabold text-white mt-3">$1,200<span class="text-lg font-medium text-gray-400">/mo</span></p>
+          <p class="text-gray-400 text-sm mt-2 mb-6">Best for small teams getting started with automation.</p>
+          <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 1 AI agent (choose any service)</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Up to 500 leads / invoices / tickets per month</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> HubSpot or QuickBooks integration</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Email support</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Monthly performance report</li>
           </ul>
-          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener" class="block text-center bg-brand-50 text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-100 transition">
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener" class="block text-center bg-brand-600/20 text-brand-400 font-semibold px-6 py-3 rounded-full hover:bg-brand-600/30 border border-brand-600/30 transition">
             Get Started →
           </a>
         </div>
@@ -639,28 +828,28 @@
         </div>
 
         <!-- Enterprise -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm flex flex-col">
-          <h3 class="text-lg font-bold text-gray-900 mb-1">Enterprise</h3>
-          <p class="text-4xl font-extrabold text-gray-900 mt-3">Custom</p>
-          <p class="text-gray-500 text-sm mt-2 mb-6">Tailored for large orgs with complex requirements.</p>
-          <ul class="space-y-3 text-sm text-gray-600 mb-8 flex-1">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Unlimited custom AI agents</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Dedicated engineering team</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> On-premise or private cloud deployment</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> GDPR-compliant data handling &amp; NDA included</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 24/7 dedicated support</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> SLA guarantees</li>
+        <div class="dark-card rounded-2xl p-8 flex flex-col">
+          <h3 class="text-lg font-bold text-white mb-1">Enterprise</h3>
+          <p class="text-4xl font-extrabold text-white mt-3">Custom</p>
+          <p class="text-gray-400 text-sm mt-2 mb-6">Tailored for large orgs with complex requirements.</p>
+          <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-1">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Unlimited custom AI agents</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Dedicated engineering team</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> On-premise or private cloud deployment</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> GDPR-compliant data handling &amp; NDA included</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 24/7 dedicated support</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> SLA guarantees</li>
           </ul>
-          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener" class="block text-center bg-brand-50 text-brand-700 font-semibold px-6 py-3 rounded-full hover:bg-brand-100 transition">
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener" class="block text-center bg-brand-600/20 text-brand-400 font-semibold px-6 py-3 rounded-full hover:bg-brand-600/30 border border-brand-600/30 transition">
             Contact Sales →
           </a>
         </div>
 
       </div>
 
-      <p class="text-center text-gray-400 text-sm mt-10">All plans start with a free 30-minute audit. No credit card required.</p>
+      <p class="text-center text-gray-500 text-sm mt-10">All plans start with a free 30-minute audit. No credit card required.</p>
       <div class="text-center mt-4">
-        <a href="pricing.html" class="text-brand-600 text-sm font-semibold hover:underline">View full pricing page with feature comparison →</a>
+        <a href="pricing.html" class="text-brand-500 text-sm font-semibold hover:underline">View full pricing page with feature comparison →</a>
       </div>
     </div>
   </section>
@@ -668,70 +857,70 @@
 
 
   <!-- ── FAQ ─────────────────────────────────────────────────────── -->
-  <section id="faq" class="py-24 px-6 bg-white">
+  <section id="faq" class="py-24 px-6 bg-[#111114]">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-900">Common Questions</h2>
-        <p class="mt-3 text-gray-500 text-lg">Everything you need to know before booking your free audit.</p>
+        <h2 class="text-4xl font-bold text-white">Common Questions</h2>
+        <p class="mt-3 text-gray-400 text-lg">Everything you need to know before booking your free audit.</p>
       </div>
       <div class="space-y-3" id="faq-list">
 
-        <div class="border border-gray-200 rounded-2xl overflow-hidden fade-in">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-800 hover:bg-gray-50 transition" aria-expanded="false">
+        <div class="dark-faq-item rounded-2xl overflow-hidden fade-in">
+          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-100 hover:bg-white/5 transition" aria-expanded="false">
             How long does it take to go live?
             <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-body px-6 text-sm text-gray-600 leading-relaxed">
-            <p class="pb-5">Most clients are fully live within <strong>2–4 weeks</strong>. We handle all the setup — you just share your existing docs, CRM access, or workflows and we take it from there.</p>
+          <div class="faq-body px-6 text-sm text-gray-400 leading-relaxed">
+            <p class="pb-5">Most clients are fully live within <strong class="text-gray-200">2–4 weeks</strong>. We handle all the setup — you just share your existing docs, CRM access, or workflows and we take it from there.</p>
           </div>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl overflow-hidden fade-in">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-800 hover:bg-gray-50 transition" aria-expanded="false">
+        <div class="dark-faq-item rounded-2xl overflow-hidden fade-in">
+          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-100 hover:bg-white/5 transition" aria-expanded="false">
             Do I need a technical team to use this?
             <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-body px-6 text-sm text-gray-600 leading-relaxed">
+          <div class="faq-body px-6 text-sm text-gray-400 leading-relaxed">
             <p class="pb-5">No. We build, integrate, and maintain everything for you. You don't need engineers or IT staff. If your team can use Slack and email, they can use our automations.</p>
           </div>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl overflow-hidden fade-in">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-800 hover:bg-gray-50 transition" aria-expanded="false">
+        <div class="dark-faq-item rounded-2xl overflow-hidden fade-in">
+          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-100 hover:bg-white/5 transition" aria-expanded="false">
             What if the AI makes a mistake?
             <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-body px-6 text-sm text-gray-600 leading-relaxed">
+          <div class="faq-body px-6 text-sm text-gray-400 leading-relaxed">
             <p class="pb-5">All our agents include built-in validation and a confidence threshold. When the AI isn't sure, it flags the item for human review rather than acting on uncertain data. You stay in control.</p>
           </div>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl overflow-hidden fade-in">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-800 hover:bg-gray-50 transition" aria-expanded="false">
+        <div class="dark-faq-item rounded-2xl overflow-hidden fade-in">
+          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-100 hover:bg-white/5 transition" aria-expanded="false">
             What tools do you integrate with?
             <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-body px-6 text-sm text-gray-600 leading-relaxed">
+          <div class="faq-body px-6 text-sm text-gray-400 leading-relaxed">
             <p class="pb-5">We integrate natively with HubSpot, Salesforce, QuickBooks, Xero, Slack, Intercom, Zendesk, Gmail, Google Drive, Notion, and more — via Make.com and direct APIs. If you use it, we can almost certainly connect to it.</p>
           </div>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl overflow-hidden fade-in">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-800 hover:bg-gray-50 transition" aria-expanded="false">
+        <div class="dark-faq-item rounded-2xl overflow-hidden fade-in">
+          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-100 hover:bg-white/5 transition" aria-expanded="false">
             Can I cancel anytime?
             <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-body px-6 text-sm text-gray-600 leading-relaxed">
-            <p class="pb-5">Yes. All plans are month-to-month with no long-term lock-in. We also offer a <strong>30-day satisfaction guarantee</strong> — if the automation isn't delivering measurable value, we'll rebuild it at no charge or issue a full refund.</p>
+          <div class="faq-body px-6 text-sm text-gray-400 leading-relaxed">
+            <p class="pb-5">Yes. All plans are month-to-month with no long-term lock-in. We also offer a <strong class="text-gray-200">30-day satisfaction guarantee</strong> — if the automation isn't delivering measurable value, we'll rebuild it at no charge or issue a full refund.</p>
           </div>
         </div>
 
-        <div class="border border-gray-200 rounded-2xl overflow-hidden fade-in">
-          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-800 hover:bg-gray-50 transition" aria-expanded="false">
+        <div class="dark-faq-item rounded-2xl overflow-hidden fade-in">
+          <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-gray-100 hover:bg-white/5 transition" aria-expanded="false">
             Is my data secure?
             <svg class="faq-chevron w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="faq-body px-6 text-sm text-gray-600 leading-relaxed">
+          <div class="faq-body px-6 text-sm text-gray-400 leading-relaxed">
             <p class="pb-5">Yes. We follow SOC 2 practices, encrypt data in transit and at rest, and never store your documents beyond what's needed to process them. Enterprise clients can request on-premise or private cloud deployment and receive GDPR compliance documentation.</p>
           </div>
         </div>
@@ -758,45 +947,51 @@
   </section>
 
   <!-- ── ABOUT ─────────────────────────────────────────────────── -->
-  <section id="about" class="py-24 px-6 bg-white">
+  <section id="about" class="py-24 px-6 bg-[#0f0f1a]">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-col md:flex-row items-center gap-12">
         <div class="flex-shrink-0">
           <img id="elazar-photo" src="elazar-ferrer.jpg"
                onerror="this.onerror=null;this.style.display='none';document.getElementById('elazar-initials').style.display='flex';"
                alt="Elazar Ferrer"
-               class="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-white ring-2 ring-brand-200" />
+               class="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-white/10 ring-2 ring-brand-600/50" />
           <div id="elazar-initials" style="display:none"
-               class="w-32 h-32 bg-brand-600 rounded-full flex items-center justify-center text-white text-3xl font-extrabold shadow-lg border-4 border-white ring-2 ring-brand-200">
+               class="w-32 h-32 bg-brand-600 rounded-full flex items-center justify-center text-white text-3xl font-extrabold shadow-lg border-4 border-white/10 ring-2 ring-brand-600/50">
             EF
           </div>
         </div>
         <div>
-          <span class="inline-block mb-3 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
+          <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">
             Who You're Hiring
           </span>
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Built by Elazar Ferrer</h2>
-          <p class="text-gray-500 leading-relaxed text-lg mb-3">
-            I'm an AI automation specialist helping small and mid-size businesses reclaim dozens of hours every week.
-            I build custom automations using Make.com and Claude API — from lead qualification pipelines
-            to invoice processors and 24/7 support agents.
+          <h2 class="text-3xl font-bold text-white mb-4">Elazar Ferrer — AI Architect</h2>
+          <p class="text-gray-400 leading-relaxed text-lg mb-3">
+            When you work with AutomateIQ, you get direct access to me — an AI Architect with deep expertise 
+            in Make.com and Claude API. No junior account managers. No offshore handoffs. You talk to the person 
+            who builds and owns your system.
           </p>
-          <p class="text-gray-500 leading-relaxed mb-6">
-            When you work with AutomateIQ, you work directly with me — not an account manager or an offshore team.
-            I map your workflows, build the solution, integrate it into your existing tools, and stay on as your
-            dedicated AI automation partner.
+          <p class="text-gray-400 leading-relaxed mb-4">
+            My technical stack is a deliberate competitive advantage: <strong class="text-gray-200">Make.com</strong> 
+            gives your automations enterprise-grade reliability without bloated infrastructure costs. 
+            <strong class="text-gray-200">Claude API</strong> delivers state-of-the-art AI reasoning 
+            with the data privacy and security that regulated businesses demand. Together, they let me ship 
+            production-ready AI systems in weeks — not months.
           </p>
-          <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-5">
-            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-            Currently accepting new clients for April 2026
+          <p class="text-gray-400 leading-relaxed mb-5 text-sm font-medium">
+            I don't take on volume clients. I take on the right clients. That means every engagement 
+            gets my full attention — from workflow mapping and build to integration, QA, and ongoing optimisation.
+          </p>
+          <div class="inline-flex items-center gap-2 bg-amber-900/30 border border-amber-500/30 text-amber-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+            <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+            Only 3 spots available for May 2026 — spots fill fast
           </div>
           <div class="flex flex-wrap gap-4">
             <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow">
-              Book a Free Audit →
+               class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow btn-glow">
+              Claim Your Spot — Book a Free Audit →
             </a>
             <a href="mailto:elazar@automateiq.io"
-               class="inline-flex items-center gap-2 border border-gray-300 text-gray-600 font-semibold px-6 py-3 rounded-full hover:border-brand-500 hover:text-brand-600 transition">
+               class="inline-flex items-center gap-2 border border-white/20 text-gray-300 font-semibold px-6 py-3 rounded-full hover:border-brand-500 hover:text-brand-400 transition">
               Send an Email →
             </a>
           </div>
@@ -806,70 +1001,70 @@
   </section>
 
   <!-- ── TESTIMONIALS ──────────────────────────────────────────── -->
-  <section class="py-24 px-6 bg-white">
+  <section class="py-24 px-6 bg-[#1a1a1a]">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
-        <span class="inline-block mb-3 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">Client Results</span>
-        <h2 class="text-4xl font-bold text-gray-900">What Clients Say</h2>
-        <p class="mt-3 text-gray-500 text-lg">Specific results, in their own words.</p>
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">Client Results</span>
+        <h2 class="text-4xl font-bold text-white">What Clients Say</h2>
+        <p class="mt-3 text-gray-400 text-lg">Specific results, in their own words.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-6 mb-10">
 
-        <div class="fade-in bg-gray-50 rounded-2xl p-7 border border-gray-100 flex flex-col">
+        <div class="fade-in dark-card rounded-2xl p-7 flex flex-col">
           <div class="flex items-center gap-1 mb-4 text-yellow-400 text-sm">★★★★★</div>
-          <blockquote class="text-gray-700 text-sm leading-relaxed flex-1 mb-6">
+          <blockquote class="text-gray-300 text-sm leading-relaxed flex-1 mb-6">
             "We went from screening 40 leads/month manually to 150+ qualified leads. The AI catches nuances our team would miss. It's like hiring 3 full-time salespeople for 1/10th the cost."
           </blockquote>
-          <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
-            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm flex-shrink-0">SC</div>
+          <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+            <div class="w-10 h-10 rounded-full bg-blue-900/40 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">SC</div>
             <div>
-              <p class="font-semibold text-gray-900 text-sm">Sarah Chen</p>
+              <p class="font-semibold text-white text-sm">Sarah Chen</p>
               <p class="text-xs text-gray-500">VP Sales · TechFlow Solutions</p>
-              <a href="case-study-lead-qualification.html" class="text-xs text-brand-600 font-medium hover:underline">See full case study →</a>
+              <a href="case-study-lead-qualification.html" class="text-xs text-brand-400 font-medium hover:underline">See full case study →</a>
             </div>
           </div>
         </div>
 
-        <div class="fade-in bg-gray-50 rounded-2xl p-7 border border-gray-100 flex flex-col">
+        <div class="fade-in dark-card rounded-2xl p-7 flex flex-col">
           <div class="flex items-center gap-1 mb-4 text-yellow-400 text-sm">★★★★★</div>
-          <blockquote class="text-gray-700 text-sm leading-relaxed flex-1 mb-6">
+          <blockquote class="text-gray-300 text-sm leading-relaxed flex-1 mb-6">
             "What used to take our team 3–5 days now happens overnight. We went from handling 500 invoices/month to 2,000. Zero training needed — the system just works."
           </blockquote>
-          <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
-            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold text-sm flex-shrink-0">MJ</div>
+          <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+            <div class="w-10 h-10 rounded-full bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-sm flex-shrink-0">MJ</div>
             <div>
-              <p class="font-semibold text-gray-900 text-sm">Marcus Johnson</p>
+              <p class="font-semibold text-white text-sm">Marcus Johnson</p>
               <p class="text-xs text-gray-500">Operations Director · Precision Accounting Group</p>
-              <a href="case-study-invoice-processing.html" class="text-xs text-brand-600 font-medium hover:underline">See full case study →</a>
+              <a href="case-study-invoice-processing.html" class="text-xs text-brand-400 font-medium hover:underline">See full case study →</a>
             </div>
           </div>
         </div>
 
-        <div class="fade-in bg-gray-50 rounded-2xl p-7 border border-gray-100 flex flex-col">
+        <div class="fade-in dark-card rounded-2xl p-7 flex flex-col">
           <div class="flex items-center gap-1 mb-4 text-yellow-400 text-sm">★★★★★</div>
-          <blockquote class="text-gray-700 text-sm leading-relaxed flex-1 mb-6">
+          <blockquote class="text-gray-300 text-sm leading-relaxed flex-1 mb-6">
             "Our support team went from drowning in tickets to actually helping customers with complex issues. The AI handles 70% instantly. Support satisfaction went up, costs went down."
           </blockquote>
-          <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
-            <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-700 font-bold text-sm flex-shrink-0">JR</div>
+          <div class="flex items-center gap-3 border-t border-white/10 pt-4">
+            <div class="w-10 h-10 rounded-full bg-pink-900/40 border border-pink-500/30 flex items-center justify-center text-pink-400 font-bold text-sm flex-shrink-0">JR</div>
             <div>
-              <p class="font-semibold text-gray-900 text-sm">Jessica Rodriguez</p>
+              <p class="font-semibold text-white text-sm">Jessica Rodriguez</p>
               <p class="text-xs text-gray-500">Customer Success Manager · StyleHub Fashion</p>
-              <a href="case-study-support-chatbot.html" class="text-xs text-brand-600 font-medium hover:underline">See full case study →</a>
+              <a href="case-study-support-chatbot.html" class="text-xs text-brand-400 font-medium hover:underline">See full case study →</a>
             </div>
           </div>
         </div>
 
       </div>
       <div class="text-center">
-        <p class="text-gray-500 text-base mb-5">Join businesses saving thousands of hours every year.</p>
+        <p class="text-gray-400 text-base mb-5">Join businesses saving thousands of hours every year.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-             class="inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-bold px-7 py-3.5 rounded-full hover:bg-brand-700 transition shadow">
+             class="inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-bold px-7 py-3.5 rounded-full hover:bg-brand-700 transition shadow btn-glow">
             Book a Free Audit →
           </a>
           <a href="testimonials.html"
-             class="inline-flex items-center justify-center gap-2 border border-brand-300 text-brand-600 font-semibold px-7 py-3.5 rounded-full hover:bg-brand-50 transition">
+             class="inline-flex items-center justify-center gap-2 border border-brand-600/40 text-purple-300 font-semibold px-7 py-3.5 rounded-full hover:bg-brand-600/20 transition">
             View All Case Studies →
           </a>
         </div>
@@ -905,37 +1100,37 @@
         </div>
 
         <!-- Right: Contact form -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 class="text-lg font-bold text-gray-900 mb-1">Send a Message</h3>
+        <div class="bg-[#1a1a2e] border border-white/10 rounded-2xl p-8 shadow-lg">
+          <h3 class="text-lg font-bold text-white mb-1">Send a Message</h3>
           <p class="text-gray-400 text-sm mb-5">Not ready to book a call? Drop me a note and I'll reply within 24 hours.</p>
           <!-- Action: replace mjgpyyvn with your Formspree form ID from formspree.io -->
           <form action="https://formspree.io/f/mjgpyyvn" method="POST" class="space-y-4" id="contact-form">
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-name">Your Name</label>
+                <label class="block text-xs font-semibold text-gray-400 mb-1" for="cf-name">Your Name</label>
                 <input id="cf-name" name="name" type="text" required placeholder="Jane Smith"
-                  class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+                  class="dark-input w-full rounded-xl px-4 py-2.5 text-sm" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-email">Email Address</label>
+                <label class="block text-xs font-semibold text-gray-400 mb-1" for="cf-email">Email Address</label>
                 <input id="cf-email" name="email" type="email" required placeholder="jane@company.com"
-                  class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+                  class="dark-input w-full rounded-xl px-4 py-2.5 text-sm" />
               </div>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-gray-600 mb-1" for="cf-message">Your Question or Goal</label>
+              <label class="block text-xs font-semibold text-gray-400 mb-1" for="cf-message">Your Question or Goal</label>
               <textarea id="cf-message" name="message" rows="4" required placeholder="Tell me a bit about what you're looking to automate..."
-                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 resize-none"></textarea>
+                class="dark-input w-full rounded-xl px-4 py-2.5 text-sm resize-none"></textarea>
             </div>
             <button type="submit"
               class="w-full bg-brand-600 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow text-sm">
               Send Message →
             </button>
-            <p id="cf-success" class="hidden text-center text-sm text-green-600 font-medium">✓ Message sent! I'll get back to you within 24 hours.</p>
+            <p id="cf-success" class="hidden text-center text-sm text-green-400 font-medium">✓ Message sent! I'll get back to you within 24 hours.</p>
           </form>
-          <p class="mt-4 text-xs text-gray-400 text-center">
+          <p class="mt-4 text-xs text-gray-500 text-center">
             Or email directly:
-            <a href="mailto:elazar@automateiq.io" class="text-brand-600 hover:underline">elazar@automateiq.io</a>
+            <a href="mailto:elazar@automateiq.io" class="text-brand-400 hover:underline">elazar@automateiq.io</a>
           </p>
         </div>
 
@@ -954,7 +1149,7 @@
         <a href="#security"          class="hover:text-white transition">Security</a>
         <a href="pricing.html"       class="hover:text-white transition">Pricing</a>
         <a href="testimonials.html"  class="hover:text-white transition">Case Studies</a>
-        <a href="#roi"               class="hover:text-white transition">ROI</a>
+        <a href="#roi"               class="hover:text-white transition">ROI Calculator</a>
         <a href="#faq"               class="hover:text-white transition">FAQ</a>
         <a href="#contact"           class="hover:text-white transition">Contact</a>
         <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
@@ -1086,7 +1281,116 @@
       });
     })();
 
+    // ── ROI Calculator ────────────────────────────────────────────
+    (function() {
+      var empSlider  = document.getElementById('emp-slider');
+      var hrsSlider  = document.getElementById('hrs-slider');
+      var empDisplay = document.getElementById('emp-display');
+      var hrsDisplay = document.getElementById('hrs-display');
+      var monthlySavings = document.getElementById('monthly-savings');
+      var annualHours    = document.getElementById('annual-hours');
+      if (!empSlider || !hrsSlider) return;
+
+      var RATE = 35;        // fixed $35/hr
+      var EFFICIENCY = 0.20; // 20% efficiency gain
+      var WEEKS_PER_MONTH = 4.33;
+
+      function calcROI() {
+        var emps = parseInt(empSlider.value, 10) || 1;
+        var hrs  = parseInt(hrsSlider.value, 10) || 1;
+        var monthly = Math.round(emps * hrs * EFFICIENCY * RATE * WEEKS_PER_MONTH);
+        var yearly  = Math.round(emps * hrs * EFFICIENCY * 52);
+        empDisplay.textContent = emps;
+        hrsDisplay.textContent = hrs;
+        monthlySavings.textContent = '$' + monthly.toLocaleString();
+        annualHours.textContent    = yearly.toLocaleString();
+      }
+
+      empSlider.addEventListener('input', calcROI);
+      hrsSlider.addEventListener('input', calcROI);
+      calcROI();
+    })();
+
+    // ── Demo Walkthrough Modals ───────────────────────────────────
+    var demoData = {
+      email: {
+        title: '📧 AI Email Classifier — Walkthrough',
+        steps: [
+          { n: '1', title: 'Inbox detected', desc: 'A new email lands in your Gmail or Outlook inbox. Make.com watches the inbox in real time via webhook.' },
+          { n: '2', title: 'Claude AI classifies', desc: 'The email body, subject, and sender are passed to Claude API. It determines whether the message is Urgent, an Inquiry, or Spam — with 90%+ accuracy.' },
+          { n: '3', title: 'Auto-label & route', desc: 'Based on the classification, the email is labeled, moved to the correct folder, and (for Urgent) a Slack notification fires to the right team member instantly.' },
+          { n: '4', title: 'Daily digest sent', desc: 'At 8 AM each day, a summary of overnight emails — sorted by category — is sent to your inbox. Zero noise. Total clarity.' },
+        ]
+      },
+      kpi: {
+        title: '📊 KPI Reporting Dashboard — Walkthrough',
+        steps: [
+          { n: '1', title: 'Data sources connected', desc: 'Make.com connects to Stripe, HubSpot, Google Analytics, Notion, and up to 10 other tools your team already uses.' },
+          { n: '2', title: 'Automated data pull', desc: 'Every night (or on your schedule), the automation pulls updated metrics — MRR, leads, conversion rates, support tickets, and more.' },
+          { n: '3', title: 'Dashboard refreshed', desc: 'Your Airtable or Notion KPI dashboard is updated automatically. No spreadsheets, no manual copy-paste, no errors.' },
+          { n: '4', title: 'Daily digest delivered', desc: 'A clean, formatted daily digest lands in your Slack or email — so you start every morning knowing exactly where the business stands.' },
+        ]
+      },
+      content: {
+        title: '🔄 Content Repurposing Pipeline — Walkthrough',
+        steps: [
+          { n: '1', title: 'Source content uploaded', desc: 'Paste a YouTube link, upload a podcast transcript, or drop in a long-form blog post. The pipeline accepts any long-form content as its input.' },
+          { n: '2', title: 'Claude AI transforms it', desc: 'Claude API reads the full transcript and generates a LinkedIn post, 3 tweets, a newsletter intro, and a blog post summary — all in your brand voice.' },
+          { n: '3', title: 'Human review (optional)', desc: 'Outputs are queued in a Notion or Airtable review board. You approve with one click — or let it auto-publish on a schedule.' },
+          { n: '4', title: 'Auto-published to channels', desc: '1 piece of content becomes 10+, published automatically across LinkedIn, Twitter/X, your email platform, and your blog. All without lifting a finger.' },
+        ]
+      }
+    };
+
+    function openDemoModal(type) {
+      var data = demoData[type];
+      if (!data) return;
+      var modal = document.getElementById('demo-modal');
+      document.getElementById('demo-modal-title').textContent = data.title;
+      var stepsEl = document.getElementById('demo-modal-steps');
+      stepsEl.innerHTML = '';
+      data.steps.forEach(function(s) {
+        var div = document.createElement('div');
+        div.className = 'demo-step';
+        div.innerHTML = '<div class="demo-step-num">' + s.n + '</div>'
+          + '<div><p class="text-sm font-semibold text-white mb-1">' + s.title + '</p>'
+          + '<p class="text-sm" style="color:#a3a3a3">' + s.desc + '</p></div>';
+        stepsEl.appendChild(div);
+      });
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDemoModal() {
+      document.getElementById('demo-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('demo-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeDemoModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDemoModal();
+    });
+
   </script>
+  <!-- ── VIDEO WALKTHROUGH MODAL ──────────────────────────────────── -->
+  <div id="demo-modal" class="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+    <div class="demo-modal-box">
+      <button onclick="closeDemoModal()" aria-label="Close modal (or press Escape)"
+              class="absolute top-4 right-4 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 rounded text-xl font-bold leading-none">✕</button>
+      <h3 id="demo-modal-title" class="text-xl font-bold text-white mb-2 pr-6"></h3>
+      <p class="text-xs mb-6" style="color:#6b7280">Press <kbd class="px-1.5 py-0.5 rounded text-xs font-mono" style="background:rgba(255,255,255,0.1);color:#9ca3af">Esc</kbd> or click outside to close.</p>
+      <div id="demo-modal-steps" class="space-y-3 mb-8"></div>
+      <div class="border-t border-white/10 pt-6 text-center">
+        <p class="text-sm mb-4" style="color:#a3a3a3">Ready to get this built for your business?</p>
+        <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-7 py-3 rounded-full hover:bg-brand-700 transition shadow btn-glow text-sm">
+          Book a Free Audit — Claim Your May 2026 Spot →
+        </a>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
