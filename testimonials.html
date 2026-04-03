@@ -53,6 +53,20 @@
     html.bar-off #main-header { top: 0 !important; }
     html.bar-off .page-hero { padding-top: 8rem !important; }
     #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
+    /* Glassmorphism preview thumbnail (synced with PR #24 .glass-arch) */
+    .glass-preview {
+      background: rgba(108,60,255,0.04);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1.5px solid rgba(108,60,255,0.18);
+      box-shadow: 0 4px 24px rgba(108,60,255,0.08);
+    }
+    /* Absolute category badge anchored to top-right of each card */
+    .badge-corner {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+    }
   </style>
   <script>
     if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
@@ -140,15 +154,24 @@
       <div class="space-y-8">
 
         <!-- Case Study 1 -->
-        <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition fade-in">
+        <div class="relative bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition fade-in">
+          <span class="badge-corner px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full tracking-wide">Sales Automation</span>
           <div class="flex flex-col md:flex-row gap-8">
             <div class="flex-1">
               <div class="flex items-center gap-3 mb-4">
                 <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">B2B SaaS</span>
                 <span class="text-xs text-gray-400">Lead Qualification</span>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">TechFlow Solutions</h3>
-              <p class="text-gray-600 mb-4">A B2B SaaS startup was manually screening 40 leads/month, taking 20 hours/week of SDR time. After deploying an AI lead qualification agent integrated with HubSpot, they now qualify 150+ leads monthly with just 2 hours of oversight.</p>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Confidential B2B SaaS Client</h3>
+              <p class="text-gray-600 mb-3">A B2B SaaS startup was manually screening 40 leads/month, taking 20 hours/week of SDR time. After deploying an AI lead qualification agent integrated with HubSpot, they now qualify 150+ leads monthly with just 2 hours of oversight.</p>
+              <!-- Tech stack icons -->
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">⚙️ Make.com</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">🤖 Claude AI</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">📋 HubSpot</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">📝 Typeform</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">💬 Slack</span>
+              </div>
               <blockquote class="border-l-4 border-brand-300 pl-4 italic text-gray-600 text-sm mb-5">
                 "We went from screening 40 leads/month manually to 150+ qualified leads. The AI catches nuances our team would miss. It's like hiring 3 full-time salespeople for 1/10th the cost."
                 <footer class="mt-2 font-semibold text-gray-700 not-italic">— Sarah Chen, VP Sales</footer>
@@ -181,20 +204,34 @@
                   <p class="text-xs text-gray-500">saved/week</p>
                 </div>
               </div>
+              <!-- Architecture preview thumbnail -->
+              <div class="glass-preview rounded-xl p-3 text-center">
+                <p class="text-xs font-semibold text-brand-700 mb-1.5">⚙️ Make.com Architecture</p>
+                <p class="text-xs text-gray-500 font-mono leading-relaxed">Typeform → Claude AI<br>→ HubSpot CRM → Slack</p>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Case Study 2 -->
-        <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition fade-in">
+        <div class="relative bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition fade-in">
+          <span class="badge-corner px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full tracking-wide">FinOps</span>
           <div class="flex flex-col md:flex-row gap-8">
             <div class="flex-1">
               <div class="flex items-center gap-3 mb-4">
                 <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Accounting &amp; Finance</span>
                 <span class="text-xs text-gray-400">Invoice Processing</span>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">Precision Accounting Group</h3>
-              <p class="text-gray-600 mb-4">A regional accounting firm processing 500 invoices/month across 85 clients faced a 3–5 day processing backlog with an 8% error rate. An AI invoice processor now handles 2,000 invoices/month overnight, with a 0.2% error rate.</p>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Regional Multi-State Accounting Firm</h3>
+              <p class="text-gray-600 mb-3">A regional accounting firm processing 500 invoices/month across 85 clients faced a 3–5 day processing backlog with an 8% error rate. An AI invoice processor now handles 2,000 invoices/month overnight, with a 0.2% error rate.</p>
+              <!-- Tech stack icons -->
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">🤖 Claude AI</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">⚙️ Make.com</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">📊 QuickBooks</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">📧 Gmail</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">💬 Slack</span>
+              </div>
               <blockquote class="border-l-4 border-brand-300 pl-4 italic text-gray-600 text-sm mb-5">
                 "What used to take our team 3–5 days now happens overnight. We went from handling 500 invoices/month to 2,000. Zero training needed — the system just works."
                 <footer class="mt-2 font-semibold text-gray-700 not-italic">— Marcus Johnson, Operations Director</footer>
@@ -227,20 +264,34 @@
                   <p class="text-xs text-gray-500">freed/month</p>
                 </div>
               </div>
+              <!-- Architecture preview thumbnail -->
+              <div class="glass-preview rounded-xl p-3 text-center">
+                <p class="text-xs font-semibold text-brand-700 mb-1.5">⚙️ Make.com Architecture</p>
+                <p class="text-xs text-gray-500 font-mono leading-relaxed">Gmail → Claude AI<br>→ QuickBooks → Slack</p>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Case Study 3 -->
-        <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition fade-in">
+        <div class="relative bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition fade-in">
+          <span class="badge-corner px-3 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-full tracking-wide">CS Automation</span>
           <div class="flex flex-col md:flex-row gap-8">
             <div class="flex-1">
               <div class="flex items-center gap-3 mb-4">
                 <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs font-semibold rounded-full">E-commerce</span>
                 <span class="text-xs text-gray-400">Customer Support</span>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">StyleHub Fashion</h3>
-              <p class="text-gray-600 mb-4">An e-commerce brand with 2,000+ support tickets/month and a 48-hour response time. After deploying a 24/7 AI support chatbot integrated with Shopify and Zendesk, 70% of tickets are now resolved instantly — customer satisfaction jumped from 3.2 to 4.6 stars.</p>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Global D2C Fashion Label</h3>
+              <p class="text-gray-600 mb-3">An e-commerce brand with 2,000+ support tickets/month and a 48-hour response time. After deploying a 24/7 AI support chatbot integrated with Shopify and Zendesk, 70% of tickets are now resolved instantly — customer satisfaction jumped from 3.2 to 4.6 stars.</p>
+              <!-- Tech stack icons -->
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">⚙️ Make.com</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">🤖 Claude AI</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">🛒 Shopify</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">🎫 Zendesk</span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium grayscale">📧 Klaviyo</span>
+              </div>
               <blockquote class="border-l-4 border-brand-300 pl-4 italic text-gray-600 text-sm mb-5">
                 "Our support team went from drowning in tickets to actually helping customers with complex issues. The AI handles 70% of common questions instantly. Support satisfaction went up, costs went down."
                 <footer class="mt-2 font-semibold text-gray-700 not-italic">— Jessica Rodriguez, Customer Success Manager</footer>
@@ -273,6 +324,11 @@
                   <p class="text-xs text-gray-500">freed/month</p>
                 </div>
               </div>
+              <!-- Architecture preview thumbnail -->
+              <div class="glass-preview rounded-xl p-3 text-center">
+                <p class="text-xs font-semibold text-brand-700 mb-1.5">⚙️ Make.com Architecture</p>
+                <p class="text-xs text-gray-500 font-mono leading-relaxed">Chat → Claude AI<br>→ Shopify / Zendesk</p>
+              </div>
             </div>
           </div>
         </div>
@@ -289,7 +345,7 @@
       <p class="text-brand-100 mb-7 text-lg max-w-xl mx-auto">
         In 30 minutes I'll show you exactly which workflows to automate first and your projected ROI — no sales pitch.
       </p>
-      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+      <a href="https://calendly.com/elazarferrer?ref=testimonials_page" target="_blank" rel="noopener"
          class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-base">
         Book Your Free 30-Min Audit →
       </a>
@@ -319,7 +375,7 @@
             <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm flex-shrink-0">SC</div>
             <div>
               <p class="font-semibold text-gray-900 text-sm">Sarah Chen</p>
-              <p class="text-xs text-gray-500">VP Sales · TechFlow Solutions</p>
+              <p class="text-xs text-gray-500">VP Sales · Confidential B2B SaaS Client</p>
               <span class="text-xs text-blue-600 font-medium">B2B SaaS</span>
             </div>
           </div>
@@ -337,7 +393,7 @@
             <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold text-sm flex-shrink-0">MJ</div>
             <div>
               <p class="font-semibold text-gray-900 text-sm">Marcus Johnson</p>
-              <p class="text-xs text-gray-500">Operations Director · Precision Accounting Group</p>
+              <p class="text-xs text-gray-500">Operations Director · Regional Multi-State Accounting Firm</p>
               <span class="text-xs text-purple-600 font-medium">Accounting</span>
             </div>
           </div>
@@ -355,7 +411,7 @@
             <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-700 font-bold text-sm flex-shrink-0">JR</div>
             <div>
               <p class="font-semibold text-gray-900 text-sm">Jessica Rodriguez</p>
-              <p class="text-xs text-gray-500">Customer Success Manager · StyleHub Fashion</p>
+              <p class="text-xs text-gray-500">Customer Success Manager · Global D2C Fashion Label</p>
               <span class="text-xs text-pink-600 font-medium">E-commerce</span>
             </div>
           </div>
@@ -430,7 +486,7 @@
       <p class="text-brand-100 text-lg mb-8">
         Book a free 30-minute audit. We'll identify your biggest automation opportunity and show you exactly what's possible.
       </p>
-      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+      <a href="https://calendly.com/elazarferrer?ref=testimonials_page" target="_blank" rel="noopener"
          class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-lg">
         Book Your Free Audit →
       </a>
