@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AutomateIQ — AI Automation Agency</title>
   <meta name="description" content="AutomateIQ builds custom AI agents that automate lead qualification, invoice processing, and 24/7 customer support — saving your team dozens of hours every week." />
-  <meta name="keywords" content="AI automation agency, lead qualification AI, invoice processing automation, AI support chatbot, business process automation, Claude AI, Make.com automation" />
+  <meta name="keywords" content="AI automation agency, lead qualification AI, invoice processing automation, AI support chatbot, AI email classifier, KPI reporting dashboard, content repurposing automation, cybersecurity automation, business process automation, Claude AI, Make.com automation" />
   <link rel="canonical" href="https://automateiq.io/" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a55f0'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236c3cff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://automateiq.io/" />
@@ -63,12 +63,12 @@
         extend: {
           colors: {
             brand: {
-              50:  '#f0f4ff',
-              100: '#dce8ff',
-              500: '#3b6bff',
-              600: '#2a55f0',
-              700: '#1a40d9',
-              900: '#0f2a9c',
+              50:  '#f5f0ff',
+              100: '#ede0ff',
+              500: '#7c4fff',
+              600: '#6c3cff',
+              700: '#5a2de0',
+              900: '#2d1580',
             }
           }
         }
@@ -100,6 +100,47 @@
     html.bar-off .page-hero { padding-top: 8rem !important; }
     /* Sticky mobile CTA bar */
     #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
+    /* Make.com-inspired design elements */
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa 0%, #6c3cff 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(108, 60, 255, 0.4), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow-bottom {
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108,60,255,0.3), transparent);
+      pointer-events: none;
+    }
+    .btn-glow {
+      box-shadow: 0 0 28px rgba(108, 60, 255, 0.45);
+      transition: box-shadow 0.3s ease, background-color 0.2s ease;
+    }
+    .btn-glow:hover { box-shadow: 0 0 42px rgba(108, 60, 255, 0.65); }
+    .card-purple-hover { transition: border-color 0.25s ease, box-shadow 0.25s ease; }
+    .card-purple-hover:hover { border-color: #6c3cff; box-shadow: 0 4px 20px rgba(108,60,255,0.12); }
+    .cyber-card {
+      background: linear-gradient(135deg, #13131f 0%, #1a1040 100%);
+      border: 1px solid rgba(108,60,255,0.25);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .cyber-card:hover { border-color: rgba(108,60,255,0.6); box-shadow: 0 4px 32px rgba(108,60,255,0.2); }
+    .coming-soon-badge {
+      display: inline-flex; align-items: center;
+      background: rgba(108,60,255,0.12); color: #a78bfa;
+      border: 1px solid rgba(108,60,255,0.3);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 2px 10px; border-radius: 9999px; text-transform: uppercase;
+    }
   </style>
   <script>
     /* Run before render to avoid layout shift */
@@ -116,34 +157,34 @@
   </div>
 
   <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
-  <header id="main-header" class="fixed inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+  <header id="main-header" class="fixed inset-x-0 z-50 bg-[#0b0b17]/95 backdrop-blur border-b border-white/5 shadow-lg">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="text-xl font-bold text-brand-600 tracking-tight">AutomateIQ</a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="#services"          class="hover:text-brand-600 transition">Services</a>
-        <a href="pricing.html"       class="hover:text-brand-600 transition">Pricing</a>
-        <a href="testimonials.html"  class="hover:text-brand-600 transition">Case Studies</a>
-        <a href="#contact"           class="hover:text-brand-600 transition">Contact</a>
+      <a href="#" class="text-xl font-bold tracking-tight gradient-text">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+        <a href="#services"          class="hover:text-white transition">Services</a>
+        <a href="pricing.html"       class="hover:text-white transition">Pricing</a>
+        <a href="testimonials.html"  class="hover:text-white transition">Case Studies</a>
+        <a href="#contact"           class="hover:text-white transition">Contact</a>
       </nav>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold
-                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+                px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow btn-glow">
         Book a Free Audit →
       </a>
       <!-- Mobile menu button -->
       <button id="mobile-menu-btn" aria-label="Open menu"
               class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
-        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar1"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar2"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 transition-all duration-200" id="bar3"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar3"></span>
       </button>
     </div>
     <!-- Mobile dropdown menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-700 shadow-md">
-      <a href="#services"         class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Services</a>
-      <a href="pricing.html"      class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Pricing</a>
-      <a href="testimonials.html" class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Case Studies</a>
-      <a href="#contact"          class="hover:text-brand-600 transition" onclick="closeMobileMenu()">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0b0b17] border-t border-white/5 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-300 shadow-md">
+      <a href="#services"         class="hover:text-white transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"      class="hover:text-white transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="testimonials.html" class="hover:text-white transition" onclick="closeMobileMenu()">Case Studies</a>
+      <a href="#contact"          class="hover:text-white transition" onclick="closeMobileMenu()">Contact</a>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
          class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold
                 px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
@@ -154,31 +195,33 @@
   </header>
 
   <!-- ── HERO ───────────────────────────────────────────────────── -->
-  <section class="pt-32 pb-24 px-6 bg-gradient-to-br from-brand-50 via-white to-white page-hero">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="inline-block mb-4 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
+  <section class="relative pt-32 pb-28 px-6 bg-[#0b0b17] overflow-hidden page-hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-bottom"></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      <span class="inline-block mb-4 px-4 py-1 bg-white/8 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-white/10">
         AI Automation Agency
       </span>
-      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
         We automate your business<br class="hidden md:block" />
-        operations with <span class="text-brand-600">AI.</span>
+        operations with <span class="gradient-text">AI.</span>
       </h1>
-      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-4">
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
         From qualifying leads to processing invoices and answering customer questions — 
         we build custom AI agents that save you dozens of hours every week.
       </p>
-      <p class="text-sm text-gray-400 mb-8">⭐⭐⭐⭐⭐ Trusted by 10+ businesses · 2,000+ hours saved · 280% average ROI</p>
+      <p class="text-sm text-gray-500 mb-8">⭐⭐⭐⭐⭐ Trusted by 10+ businesses · 2,000+ hours saved · 280% average ROI</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-           class="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-lg">
+           class="bg-brand-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-lg btn-glow">
           Book a Free Audit →
         </a>
         <a href="#results"
-           class="border border-gray-300 text-gray-700 font-semibold px-8 py-4 rounded-full hover:border-brand-500 hover:text-brand-600 transition">
+           class="border border-white/20 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition backdrop-blur-sm">
           See Client Results →
         </a>
       </div>
-      <p class="mt-5 text-xs text-gray-400">No credit card · No commitment · 30-day money-back guarantee</p>
+      <p class="mt-5 text-xs text-gray-500">No credit card · No commitment · 30-day money-back guarantee</p>
     </div>
   </section>
 
@@ -229,16 +272,17 @@
   <section id="services" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">What We Build</span>
         <h2 class="text-4xl font-bold text-gray-900">Our Services — Try Them Live</h2>
         <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
-          Three high-impact AI solutions you can explore right now with interactive demos.
+          Six high-impact AI solutions you can explore right now — from core portfolio to cutting-edge business tools.
         </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
 
         <!-- Lead Gen -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-brand-300 transition">
+        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
           <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">🎯</div>
           <h3 class="text-xl font-bold mb-3">AI Lead Generation &amp; Qualification</h3>
           <p class="text-gray-500 mb-4 leading-relaxed">
@@ -257,7 +301,7 @@
         </div>
 
         <!-- Invoice Processing -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-brand-300 transition">
+        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
           <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📄</div>
           <h3 class="text-xl font-bold mb-3">Automated Invoice Processing</h3>
           <p class="text-gray-500 mb-4 leading-relaxed">
@@ -276,7 +320,7 @@
         </div>
 
         <!-- Support Chatbot -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-brand-300 transition">
+        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
           <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">💬</div>
           <h3 class="text-xl font-bold mb-3">24/7 AI Support Chatbot</h3>
           <p class="text-gray-500 mb-4 leading-relaxed">
@@ -294,6 +338,118 @@
           </div>
         </div>
 
+        <!-- Email Classifier -->
+        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
+          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📧</div>
+          <h3 class="text-xl font-bold mb-3">AI Email Classifier</h3>
+          <p class="text-gray-500 mb-4 leading-relaxed">
+            Automatically sorts high-volume inboxes into "Urgent," "Inquiry," and "Spam" — 
+            saving business owners hours of manual triage every single day.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 90%+ classification accuracy</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Integrates with Gmail &amp; Outlook</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Auto-routes, labels &amp; notifies in real-time</li>
+          </ul>
+          <div class="flex flex-wrap gap-3">
+            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+          </div>
+        </div>
+
+        <!-- KPI Dashboard -->
+        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
+          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📊</div>
+          <h3 class="text-xl font-bold mb-3">KPI Reporting Dashboard</h3>
+          <p class="text-gray-500 mb-4 leading-relaxed">
+            Real-time reporting that pulls business data from all your apps into a single clear view 
+            in Airtable or Notion — updated automatically, zero manual work.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Connects 10+ data sources in one view</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Custom metrics &amp; daily automated digests</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> No more manual spreadsheet updates</li>
+          </ul>
+          <div class="flex flex-wrap gap-3">
+            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+          </div>
+        </div>
+
+        <!-- Content Repurposing -->
+        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
+          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">🔄</div>
+          <h3 class="text-xl font-bold mb-3">Content Repurposing Pipeline</h3>
+          <p class="text-gray-500 mb-4 leading-relaxed">
+            Automatically transforms one long-form piece of content — like a YouTube video or podcast — 
+            into blog posts, LinkedIn updates, tweets, and email newsletters.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 video → 10+ pieces of content</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Auto-publishes to your chosen platforms</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> AI-tailored tone per channel</li>
+          </ul>
+          <div class="flex flex-wrap gap-3">
+            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CYBERSECURITY AUTOMATIONS ──────────────────────────────── -->
+  <section id="security" class="py-24 px-6 bg-[#0b0b17] relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(108,60,255,0.18),transparent)] pointer-events-none"></div>
+    <div class="relative max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">Phase 4 · Premium Upsell</span>
+        <h2 class="text-4xl font-bold text-white">Cybersecurity Automations</h2>
+        <p class="mt-3 text-gray-400 text-lg max-w-xl mx-auto">
+          Enterprise-grade security workflows for IT teams and MSPs — built to detect threats before they become incidents.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Threat Log Analysis -->
+        <div class="fade-in cyber-card rounded-2xl p-8">
+          <div class="w-12 h-12 bg-brand-600/20 text-purple-300 rounded-xl flex items-center justify-center text-2xl mb-6">🔍</div>
+          <h3 class="text-xl font-bold text-white mb-3">AI Threat Log Analysis</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            Automates the monitoring and analysis of security logs to detect anomalies and suspicious activity — 
+            surfacing real threats without drowning your team in noise.
+          </p>
+          <ul class="text-sm text-gray-400 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Real-time anomaly detection across log sources</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Auto-alerts to Slack or PagerDuty</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Integrates with SIEM &amp; cloud platforms</li>
+          </ul>
+          <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">
+            Inquire About This →
+          </a>
+        </div>
+
+        <!-- Phishing Detection -->
+        <div class="fade-in cyber-card rounded-2xl p-8">
+          <div class="w-12 h-12 bg-brand-600/20 text-purple-300 rounded-xl flex items-center justify-center text-2xl mb-6">🛡️</div>
+          <h3 class="text-xl font-bold text-white mb-3">Phishing Detection Automation</h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            Workflows that automatically analyze suspicious emails for threat indicators — links, spoofed domains, 
+            malicious attachments — and quarantine or escalate them instantly.
+          </p>
+          <ul class="text-sm text-gray-400 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> AI-powered header &amp; content analysis</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Auto-quarantine &amp; team notification</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Connects to Microsoft 365 &amp; Google Workspace</li>
+          </ul>
+          <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">
+            Inquire About This →
+          </a>
+        </div>
+
+      </div>
+
+      <div class="mt-10 text-center">
+        <p class="text-gray-500 text-sm">Cybersecurity automations are available on the <strong class="text-gray-300">Enterprise plan</strong> or as standalone engagements. <a href="#contact" class="text-brand-500 hover:text-brand-400 underline">Contact us to discuss requirements.</a></p>
       </div>
     </div>
   </section>
@@ -328,7 +484,7 @@
       <div class="mt-12 text-center">
         <p class="text-gray-500 mb-5 text-lg">Ready to start Step 1? It's free, and takes just 30 minutes.</p>
         <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-base">
+           class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-base btn-glow">
           Book Your Free Workflow Audit →
         </a>
         <p class="mt-3 text-xs text-gray-400">No credit card · No commitment · Results in 2–4 weeks</p>
@@ -585,18 +741,19 @@
   </section>
 
   <!-- ── POST-FAQ CONVERSION CTA ─────────────────────────────────── -->
-  <section class="py-16 px-6 bg-brand-50">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brand-600 mb-3">Still on the fence?</p>
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">The audit is free. The ROI is real.</h2>
-      <p class="text-gray-500 text-lg mb-8 max-w-xl mx-auto">
+  <section class="py-16 px-6 bg-[#0b0b17] relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_50%,rgba(108,60,255,0.2),transparent)] pointer-events-none"></div>
+    <div class="relative max-w-3xl mx-auto text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple-400 mb-3">Still on the fence?</p>
+      <h2 class="text-3xl font-bold text-white mb-4">The audit is free. The ROI is real.</h2>
+      <p class="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
         In 30 minutes, I'll map exactly which of your workflows can be automated and show you a projected ROI — no sales pitch, no obligation.
       </p>
       <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-9 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-base">
+         class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-9 py-4 rounded-full hover:bg-brand-700 transition shadow-lg text-base btn-glow">
         Book My Free 30-Min Audit →
       </a>
-      <p class="mt-4 text-xs text-gray-400">📅 Spots are limited — only 3 new client spots open in May 2026</p>
+      <p class="mt-4 text-xs text-gray-500">📅 Spots are limited — only 3 new client spots open in May 2026</p>
     </div>
   </section>
 
@@ -794,6 +951,7 @@
       <div class="flex flex-wrap justify-center gap-6">
         <a href="#services"          class="hover:text-white transition">Services</a>
         <a href="#services"          class="hover:text-white transition">Try Demos</a>
+        <a href="#security"          class="hover:text-white transition">Security</a>
         <a href="pricing.html"       class="hover:text-white transition">Pricing</a>
         <a href="testimonials.html"  class="hover:text-white transition">Case Studies</a>
         <a href="#roi"               class="hover:text-white transition">ROI</a>
