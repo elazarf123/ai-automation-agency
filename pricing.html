@@ -53,6 +53,98 @@
     html.bar-off #main-header { top: 0 !important; }
     html.bar-off .page-hero { padding-top: 8rem !important; }
     #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
+
+    /* ── Integration logo hover ── */
+    .integration-logo { filter: grayscale(1) opacity(0.45); transition: filter 0.25s ease, transform 0.2s ease; cursor: default; }
+    .integration-logo:hover { filter: grayscale(0) opacity(1); transform: scale(1.08); }
+
+    /* ── Glassmorphism workflow thumbnail ── */
+    .workflow-thumb {
+      background: rgba(108,60,255,0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(108,60,255,0.22);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* ── ROI Calculator (pricing page) ── */
+    #roi-pricing { background: #1a1a1a; }
+    .roi-glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 1rem;
+      padding: 2rem 2.5rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .roi-glass:hover { border-color: rgba(108,60,255,0.4); box-shadow: 0 8px 40px rgba(108,60,255,0.12); }
+    .roi-output-card {
+      background: rgba(108,60,255,0.12);
+      border: 1px solid rgba(108,60,255,0.3);
+    }
+    input[type="range"].roi-slider {
+      -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 9999px;
+      background: rgba(108,60,255,0.3);
+      outline: none; width: 100%;
+    }
+    input[type="range"].roi-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #6c3cff; cursor: pointer;
+      box-shadow: 0 0 10px rgba(108,60,255,0.6);
+    }
+    input[type="range"].roi-slider::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #6c3cff; cursor: pointer; border: none;
+      box-shadow: 0 0 10px rgba(108,60,255,0.6);
+    }
+
+    /* ── "How It Works" process steps ── */
+    .process-step-num {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, #6c3cff 0%, #c084fc 100%);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1.375rem; color: #fff;
+      margin: 0 auto 1rem;
+      box-shadow: 0 0 20px rgba(108,60,255,0.4);
+    }
+
+    /* ── Ghost button ── */
+    .btn-ghost {
+      display: inline-block;
+      border: 2px solid #6c3cff;
+      color: #6c3cff;
+      font-weight: 600;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      text-align: center;
+      cursor: pointer;
+      background: transparent;
+      font-size: 0.875rem;
+      transition: background 0.2s ease, color 0.2s ease;
+      width: 100%;
+    }
+    .btn-ghost:hover { background: rgba(108,60,255,0.08); }
+
+    /* ── Toast notification ── */
+    #capability-toast {
+      position: fixed; bottom: 5rem; right: 1.5rem;
+      background: #1f1f1f; color: #e4e4e7;
+      border: 1px solid rgba(108,60,255,0.45);
+      border-radius: 14px;
+      padding: 1rem 1.5rem;
+      font-size: 0.875rem; font-weight: 500;
+      z-index: 9999;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      max-width: 300px; pointer-events: none;
+    }
+    #capability-toast.show { transform: translateY(0); opacity: 1; }
   </style>
   <script>
     if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
@@ -193,8 +285,61 @@
             Contact Sales →
           </a>
           <p class="text-center text-xs text-gray-400 mt-3">Typically $4,500+/mo depending on scope.</p>
+          <button onclick="showCapabilityToast()" class="btn-ghost mt-3">View Capability Deck</button>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section id="roi-pricing" class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">ROI Calculator</span>
+        <h2 class="text-3xl font-bold text-white">Calculate Your Savings</h2>
+        <p class="mt-3 text-gray-400">Move the sliders to see your real-time ROI estimate.</p>
+      </div>
+      <div class="roi-glass">
+        <!-- Employees slider -->
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-3">
+            <label class="text-sm font-semibold text-white">Number of Employees</label>
+            <span id="p-emp-display" class="text-2xl font-extrabold text-purple-400">10</span>
+          </div>
+          <input id="p-emp-slider" type="range" min="1" max="50" value="10" class="roi-slider" />
+          <div class="flex justify-between text-xs mt-1 text-gray-500"><span>1</span><span>50</span></div>
+        </div>
+        <!-- Manual hours slider -->
+        <div class="mb-10">
+          <div class="flex justify-between items-center mb-3">
+            <label class="text-sm font-semibold text-white">Manual Hours per Week</label>
+            <span id="p-hrs-display" class="text-2xl font-extrabold text-purple-400">20</span>
+          </div>
+          <input id="p-hrs-slider" type="range" min="1" max="40" value="20" class="roi-slider" />
+          <div class="flex justify-between text-xs mt-1 text-gray-500"><span>1</span><span>40</span></div>
+          <p class="text-xs mt-2 text-gray-500">Based on a $35/hr average rate and a 20% AI efficiency gain.</p>
+        </div>
+        <!-- Results -->
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="roi-output-card rounded-2xl p-6 text-center">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-2 text-purple-400">Monthly Savings</p>
+            <p id="p-monthly-savings" class="text-4xl font-extrabold text-brand-500">$6,062</p>
+            <p class="text-xs mt-2 text-gray-500">Dollars saved per month</p>
+          </div>
+          <div class="roi-output-card rounded-2xl p-6 text-center">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-2 text-purple-400">Yearly Hours Reclaimed</p>
+            <p id="p-annual-hours" class="text-4xl font-extrabold text-brand-500">2,080</p>
+            <p class="text-xs mt-2 text-gray-500">Hours freed every year</p>
+          </div>
+        </div>
+        <div class="mt-8 text-center">
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-brand-700 transition shadow-lg">
+            Claim These Savings — Book a Free Audit →
+          </a>
+          <p class="mt-3 text-xs text-gray-500">No commitment. Results in 2–4 weeks.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -203,7 +348,49 @@
   <section class="py-16 px-6 bg-gray-50">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl font-bold text-gray-900 mb-3 text-center">What's Actually Included</h2>
-      <p class="text-gray-500 text-center mb-12">No surprises. Here's exactly what you get at each tier — and why we price things the way we do.</p>
+      <p class="text-gray-500 text-center mb-8">No surprises. Here's exactly what you get at each tier — and why we price things the way we do.</p>
+
+      <!-- Integration Icons Row -->
+      <div class="flex flex-wrap items-center justify-center gap-8 mb-10">
+        <!-- OpenAI -->
+        <div class="integration-logo flex flex-col items-center gap-1.5" title="OpenAI">
+          <svg viewBox="0 0 48 48" width="38" height="38" fill="none">
+            <path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4zm0 6a14 14 0 110 28A14 14 0 0124 10z" fill="#10a37f"/>
+            <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="11" fill="#10a37f">AI</text>
+          </svg>
+          <span class="text-xs text-gray-500 font-medium">OpenAI</span>
+        </div>
+        <!-- HubSpot -->
+        <div class="integration-logo flex flex-col items-center gap-1.5" title="HubSpot">
+          <svg viewBox="0 0 48 48" width="38" height="38" fill="none">
+            <circle cx="24" cy="15" r="6" fill="#ff7a59"/>
+            <circle cx="24" cy="15" r="3" fill="#fff"/>
+            <line x1="24" y1="21" x2="24" y2="36" stroke="#ff7a59" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="16" y1="30" x2="32" y2="30" stroke="#ff7a59" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="16" cy="30" r="3" fill="#ff7a59"/>
+            <circle cx="32" cy="30" r="3" fill="#ff7a59"/>
+          </svg>
+          <span class="text-xs text-gray-500 font-medium">HubSpot</span>
+        </div>
+        <!-- Slack -->
+        <div class="integration-logo flex flex-col items-center gap-1.5" title="Slack">
+          <svg viewBox="0 0 48 48" width="38" height="38">
+            <rect x="6" y="6" width="14" height="14" rx="4" fill="#e01e5a"/>
+            <rect x="28" y="6" width="14" height="14" rx="4" fill="#36c5f0"/>
+            <rect x="6" y="28" width="14" height="14" rx="4" fill="#2eb67d"/>
+            <rect x="28" y="28" width="14" height="14" rx="4" fill="#ecb22e"/>
+          </svg>
+          <span class="text-xs text-gray-500 font-medium">Slack</span>
+        </div>
+        <!-- QuickBooks -->
+        <div class="integration-logo flex flex-col items-center gap-1.5" title="QuickBooks">
+          <svg viewBox="0 0 48 48" width="38" height="38">
+            <rect x="3" y="3" width="42" height="42" rx="10" fill="#2ca01c"/>
+            <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="14" fill="#fff">QB</text>
+          </svg>
+          <span class="text-xs text-gray-500 font-medium">QuickBooks</span>
+        </div>
+      </div>
 
       <div class="space-y-6">
 
@@ -218,6 +405,10 @@
           <p class="text-xs text-gray-400 bg-gray-50 rounded-xl p-3">
             <strong>Why it costs what it does:</strong> Custom ICP training, CRM integration, email personalisation engine, and ongoing monthly tuning as your market evolves. This replaces 1–2 SDR hours per working day.
           </p>
+          <!-- Make.com workflow map thumbnail -->
+          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='70'%3E%3Crect width='320' height='70' fill='none'/%3E%3Crect x='10' y='20' width='60' height='30' rx='8' fill='%236c3cff' opacity='.25'/%3E%3Ctext x='40' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23a78bfa'%3ELead In%3C/text%3E%3Cline x1='70' y1='35' x2='100' y2='35' stroke='%236c3cff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='100,31 108,35 100,39' fill='%236c3cff' opacity='.5'/%3E%3Crect x='108' y='20' width='60' height='30' rx='8' fill='%236c3cff' opacity='.25'/%3E%3Ctext x='138' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23a78bfa'%3EAI Score%3C/text%3E%3Cline x1='168' y1='35' x2='198' y2='35' stroke='%236c3cff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='198,31 206,35 198,39' fill='%236c3cff' opacity='.5'/%3E%3Crect x='206' y='20' width='60' height='30' rx='8' fill='%236c3cff' opacity='.25'/%3E%3Ctext x='236' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23a78bfa'%3ECRM Route%3C/text%3E%3Cline x1='266' y1='35' x2='296' y2='35' stroke='%236c3cff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='296,31 304,35 296,39' fill='%236c3cff' opacity='.5'/%3E%3C/svg%3E" alt="Make.com workflow map — Lead Qualification" class="w-full max-w-xs opacity-70" loading="lazy" />
+          </div>
         </div>
 
         <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm">
@@ -231,6 +422,10 @@
           <p class="text-xs text-gray-400 bg-gray-50 rounded-xl p-3">
             <strong>Why it costs what it does:</strong> Multi-format document processing, PO matching logic, exception-handling workflows, and direct accounting system integration (QuickBooks, Xero, NetSuite). Replaces 60–120 hours/month of AP data entry.
           </p>
+          <!-- Make.com workflow map thumbnail -->
+          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='70'%3E%3Crect width='320' height='70' fill='none'/%3E%3Crect x='10' y='20' width='60' height='30' rx='8' fill='%237c4fff' opacity='.25'/%3E%3Ctext x='40' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23c084fc'%3EInvoice In%3C/text%3E%3Cline x1='70' y1='35' x2='100' y2='35' stroke='%237c4fff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='100,31 108,35 100,39' fill='%237c4fff' opacity='.5'/%3E%3Crect x='108' y='20' width='60' height='30' rx='8' fill='%237c4fff' opacity='.25'/%3E%3Ctext x='138' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23c084fc'%3EOCR Parse%3C/text%3E%3Cline x1='168' y1='35' x2='198' y2='35' stroke='%237c4fff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='198,31 206,35 198,39' fill='%237c4fff' opacity='.5'/%3E%3Crect x='206' y='20' width='60' height='30' rx='8' fill='%237c4fff' opacity='.25'/%3E%3Ctext x='236' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23c084fc'%3EQB Post%3C/text%3E%3Cline x1='266' y1='35' x2='296' y2='35' stroke='%237c4fff' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='296,31 304,35 296,39' fill='%237c4fff' opacity='.5'/%3E%3C/svg%3E" alt="Make.com workflow map — Invoice Processing" class="w-full max-w-xs opacity-70" loading="lazy" />
+          </div>
         </div>
 
         <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm">
@@ -244,6 +439,10 @@
           <p class="text-xs text-gray-400 bg-gray-50 rounded-xl p-3">
             <strong>Why it costs what it does:</strong> Knowledge base training, helpdesk integration, smart escalation logic, live product data feeds (e.g., order status from Shopify), and monthly knowledge base updates as your product evolves.
           </p>
+          <!-- Make.com workflow map thumbnail -->
+          <div class="workflow-thumb mt-4 p-4 flex items-center justify-center" style="height:90px">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='70'%3E%3Crect width='320' height='70' fill='none'/%3E%3Crect x='10' y='20' width='60' height='30' rx='8' fill='%23db2777' opacity='.2'/%3E%3Ctext x='40' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23f9a8d4'%3ETicket In%3C/text%3E%3Cline x1='70' y1='35' x2='100' y2='35' stroke='%23db2777' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='100,31 108,35 100,39' fill='%23db2777' opacity='.5'/%3E%3Crect x='108' y='20' width='60' height='30' rx='8' fill='%23db2777' opacity='.2'/%3E%3Ctext x='138' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23f9a8d4'%3EAI Resolve%3C/text%3E%3Cline x1='168' y1='35' x2='198' y2='35' stroke='%23db2777' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='198,31 206,35 198,39' fill='%23db2777' opacity='.5'/%3E%3Crect x='206' y='20' width='60' height='30' rx='8' fill='%23db2777' opacity='.2'/%3E%3Ctext x='236' y='40' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23f9a8d4'%3EEscalate%3C/text%3E%3Cline x1='266' y1='35' x2='296' y2='35' stroke='%23db2777' stroke-width='1.5' stroke-dasharray='4,3'/%3E%3Cpolygon points='296,31 304,35 296,39' fill='%23db2777' opacity='.5'/%3E%3C/svg%3E" alt="Make.com workflow map — Support Chatbot" class="w-full max-w-xs opacity-70" loading="lazy" />
+          </div>
         </div>
 
       </div>
@@ -380,6 +579,54 @@
     </div>
   </section>
 
+  <!-- HOW IT WORKS -->
+  <section class="py-16 px-6 bg-[#1a1a1a]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">The Process</span>
+        <h2 class="text-3xl font-bold text-white">Your Path from Chaos to Calm</h2>
+        <p class="mt-3 text-gray-400 max-w-xl mx-auto">Three steps. Two to three weeks. Twenty-plus hours a week back in your calendar.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 relative">
+        <!-- Connector line (desktop) -->
+        <div class="hidden md:block absolute top-6 left-[calc(16.7%+1.5rem)] right-[calc(16.7%+1.5rem)] h-0.5 bg-gradient-to-r from-brand-600/50 via-purple-500/50 to-brand-600/50"></div>
+
+        <!-- Step 1 -->
+        <div class="fade-in text-center px-4">
+          <div class="process-step-num">1</div>
+          <h3 class="text-lg font-bold text-white mb-3">Free Audit</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            A 30-minute discovery call to map your workflows, identify your biggest bottleneck, and uncover your <strong class="text-purple-300">$10k+ automation gap</strong> — at no cost, no obligation.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="fade-in text-center px-4">
+          <div class="process-step-num">2</div>
+          <h3 class="text-lg font-bold text-white mb-3">White-Glove Build</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            We spend <strong class="text-purple-300">2–3 weeks</strong> building, testing, and integrating your custom AI agent — you stay focused on your business while we handle every technical detail.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="fade-in text-center px-4">
+          <div class="process-step-num">3</div>
+          <h3 class="text-lg font-bold text-white mb-3">Go-Live &amp; Scale</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Your automation launches. You <strong class="text-purple-300">reclaim 20+ hours a week</strong>, watch the ROI roll in, and expand to the next workflow whenever you're ready.
+          </p>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-brand-700 transition shadow-lg">
+          Start with a Free Audit →
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="py-16 px-6 bg-gray-50">
     <div class="max-w-3xl mx-auto">
@@ -470,7 +717,47 @@
         document.documentElement.classList.add('bar-off');
       });
     })();
+
+    // ── ROI Calculator ────────────────────────────────────────────
+    (function() {
+      var empSlider  = document.getElementById('p-emp-slider');
+      var hrsSlider  = document.getElementById('p-hrs-slider');
+      var empDisplay = document.getElementById('p-emp-display');
+      var hrsDisplay = document.getElementById('p-hrs-display');
+      var monthlySavings = document.getElementById('p-monthly-savings');
+      var annualHours    = document.getElementById('p-annual-hours');
+      if (!empSlider || !hrsSlider) return;
+      var RATE = 35;
+      var EFFICIENCY = 0.20;
+      var WEEKS_PER_MONTH = 4.33;
+      function calcROI() {
+        var emps = parseInt(empSlider.value, 10) || 1;
+        var hrs  = parseInt(hrsSlider.value, 10) || 1;
+        var monthly = Math.round(emps * hrs * EFFICIENCY * RATE * WEEKS_PER_MONTH);
+        var yearly  = Math.round(emps * hrs * EFFICIENCY * 52);
+        empDisplay.textContent = emps;
+        hrsDisplay.textContent = hrs;
+        monthlySavings.textContent = '$' + monthly.toLocaleString();
+        annualHours.textContent    = yearly.toLocaleString();
+      }
+      empSlider.addEventListener('input', calcROI);
+      hrsSlider.addEventListener('input', calcROI);
+      calcROI();
+    })();
+
+    // ── Capability Deck Toast ─────────────────────────────────────
+    function showCapabilityToast() {
+      var toast = document.getElementById('capability-toast');
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 4000);
+    }
   </script>
+
+  <!-- Toast notification -->
+  <div id="capability-toast" role="status" aria-live="polite">
+    🚀 <strong>Coming Soon</strong> — Our Capability Deck is almost ready. Book a free audit and we'll send it directly to your inbox!
+  </div>
 
   <!-- ── STICKY MOBILE CTA BAR ──────────────────────────────────── -->
   <div id="mobile-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden shadow-2xl">
