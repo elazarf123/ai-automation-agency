@@ -53,6 +53,14 @@
     html.bar-off #main-header { top: 0 !important; }
     html.bar-off .page-hero { padding-top: 8rem !important; }
     #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
+    /* Glassmorphism architecture frame */
+    .glass-arch {
+      background: rgba(108,60,255,0.04);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(108,60,255,0.18);
+      box-shadow: 0 4px 32px rgba(108,60,255,0.08);
+    }
   </style>
   <script>
     if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
@@ -63,7 +71,7 @@
   <!-- ── ANNOUNCEMENT BAR ──────────────────────────────────────── -->
   <div id="announcement-bar" class="bg-amber-400 text-amber-900 text-xs sm:text-sm font-bold text-center py-2.5 px-10 leading-tight">
     📅 <strong>Limited availability</strong> — Only 3 new client spots open in May 2026.
-    <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener" class="underline ml-1 hover:text-amber-800">Claim your free audit before it fills →</a>
+    <a href="https://calendly.com/elazarferrer?ref=case_study_lead" target="_blank" rel="noopener" class="underline ml-1 hover:text-amber-800">Claim your free audit before it fills →</a>
     <button id="dismiss-bar" aria-label="Dismiss announcement" class="absolute right-4 top-1/2 -translate-y-1/2 text-amber-800 hover:text-amber-900 text-base font-bold leading-none" style="transform:translateY(-50%)">✕</button>
   </div>
 
@@ -77,7 +85,7 @@
         <a href="testimonials.html"   class="hover:text-white transition">Case Studies</a>
         <a href="index.html#contact"  class="hover:text-white transition">Contact</a>
       </nav>
-      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+      <a href="https://calendly.com/elazarferrer?ref=case_study_lead" target="_blank" rel="noopener"
          class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
         Book a Free Audit →
       </a>
@@ -93,7 +101,7 @@
       <a href="pricing.html"        class="hover:text-white transition" onclick="closeMobileMenu()">Pricing</a>
       <a href="testimonials.html"   class="hover:text-white transition" onclick="closeMobileMenu()">Case Studies</a>
       <a href="index.html#contact"  class="hover:text-white transition" onclick="closeMobileMenu()">Contact</a>
-      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+      <a href="https://calendly.com/elazarferrer?ref=case_study_lead" target="_blank" rel="noopener"
          class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
          onclick="closeMobileMenu()">
         Book a Free Audit →
@@ -174,7 +182,7 @@
       <div class="bg-gray-50 rounded-2xl p-6 space-y-3 text-sm">
         <div>
           <span class="font-semibold text-gray-700">Client</span>
-          <p class="text-gray-500 mt-0.5">TechFlow Solutions <span class="text-xs text-gray-400">(sample)</span></p>
+          <p class="text-gray-500 mt-0.5">Confidential B2B SaaS Client</p>
         </div>
         <div>
           <span class="font-semibold text-gray-700">Industry</span>
@@ -265,14 +273,66 @@
         </div>
       </div>
       <div class="bg-gray-50 rounded-2xl p-6 text-sm text-gray-600">
-        <p class="font-semibold text-gray-800 mb-3">Tech stack used in this build:</p>
-        <div class="flex flex-wrap gap-3">
-          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Claude AI (Anthropic)</span>
-          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Make.com</span>
-          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">HubSpot CRM</span>
-          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Typeform</span>
-          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Clearbit Enrichment</span>
-          <span class="bg-white border border-gray-200 rounded-full px-4 py-1.5 font-medium">Slack</span>
+        <p class="font-semibold text-gray-800 mb-3">Technical Stack — roles in this build:</p>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-white border border-brand-100 rounded-xl p-4">
+            <p class="font-bold text-gray-900 mb-1">🤖 Claude AI (Anthropic)</p>
+            <p class="text-gray-600">Powers the lead-scoring engine — evaluating 6 ICP dimensions simultaneously and drafting personalised first-touch emails with contextual reasoning.</p>
+          </div>
+          <div class="bg-white border border-brand-100 rounded-xl p-4">
+            <p class="font-bold text-gray-900 mb-1">⚙️ Make.com</p>
+            <p class="text-gray-600">Orchestrates the end-to-end workflow — triggering on form submission, calling enrichment APIs, routing to HubSpot, and firing Slack alerts without code.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-4">
+            <p class="font-bold text-gray-900 mb-1">📋 HubSpot CRM</p>
+            <p class="text-gray-600">Receives enriched, scored lead records and email drafts. SDRs wake up to a prioritised queue — zero data entry required.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-4">
+            <p class="font-bold text-gray-900 mb-1">🔍 Clearbit + Typeform + Slack</p>
+            <p class="text-gray-600">Clearbit enriches company data; Typeform captures structured intake; Slack delivers instant SDR alerts with score summaries.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHY CLAUDE AI? -->
+      <div class="mt-6 bg-white border border-brand-200 rounded-2xl p-6 text-sm shadow-sm">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-xs">AI</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-900 mb-2">Why Claude AI (Anthropic)?</h4>
+            <p class="text-gray-600 leading-relaxed mb-3">
+              Anthropic's Claude was selected for its ability to reason across ambiguous, unstructured data — the kind that fills real-world B2B lead forms. Unlike rule-based systems, Claude evaluates nuanced signals: a VP title buried in a long company description, implied urgency from phrasing, or a tech-stack mismatch hidden in a casual comment.
+            </p>
+            <ul class="space-y-1.5 text-gray-600">
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✦</span> <strong class="text-gray-800">Multi-dimensional scoring</strong> — evaluates 6 ICP dimensions in a single API call</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✦</span> <strong class="text-gray-800">Contextual email drafting</strong> — personalises first-touch messages using lead-specific signals, not generic templates</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✦</span> <strong class="text-gray-800">Explainable output</strong> — returns a structured score with reasoning, so SDRs trust and act on the results</li>
+              <li class="flex items-start gap-2"><span class="text-brand-500 mt-0.5">✦</span> <strong class="text-gray-800">Safety-first API</strong> — Anthropic's Constitutional AI ensures outputs stay professional and on-brand</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ARCHITECTURE -->
+  <section class="py-12 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">The Architecture</h2>
+      <p class="text-gray-500 text-sm mb-6">A snapshot of the Make.com automation scenario that powers the entire lead qualification workflow end-to-end.</p>
+      <div class="glass-arch rounded-2xl overflow-hidden flex flex-col items-center justify-center p-10" style="min-height:280px;">
+        <!-- Replace the placeholder below with an actual Make.com scenario screenshot when available -->
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-brand-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 001.5 2.122l.607 1.214M14.25 3.104c.251.023.501.05.75.082M19.5 9.104v5.1a2.25 2.25 0 01-.659 1.591l-3.75 3.75"/>
+            </svg>
+          </div>
+          <p class="font-semibold text-gray-700 mb-1">Make.com Scenario Map</p>
+          <p class="text-xs text-gray-400">[ AI Lead Qualification — End-to-End Workflow ]</p>
+          <p class="text-xs text-gray-400 mt-1">Typeform → Clearbit Enrichment → Claude AI Scoring → HubSpot CRM → Slack Alert</p>
         </div>
       </div>
     </div>
@@ -357,6 +417,12 @@
           <p class="text-brand-200 text-sm mt-1">Monthly savings: ~$3,800<br/>Annual projection: $45,600</p>
         </div>
       </div>
+      <div class="text-center mt-4">
+        <a href="pricing.html#roi-pricing"
+           class="inline-flex items-center gap-2 bg-green-600 text-white font-bold px-7 py-3 rounded-full hover:bg-green-700 transition shadow-md text-sm">
+          📊 See your numbers — Try the ROI Calculator →
+        </a>
+      </div>
     </div>
   </section>
 
@@ -367,7 +433,7 @@
         <p class="text-white font-bold text-xl mb-1">Want results like TechFlow's?</p>
         <p class="text-brand-100 text-sm">340% ROI · 18 hrs saved/week · Live in 2 weeks</p>
       </div>
-      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+      <a href="https://calendly.com/elazarferrer?ref=case_study_lead" target="_blank" rel="noopener"
          class="shrink-0 inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-7 py-3.5 rounded-full hover:bg-brand-50 transition shadow-lg text-sm whitespace-nowrap">
         Book My Free Audit →
       </a>
@@ -418,10 +484,10 @@
   <section class="py-20 px-6 bg-brand-600">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl font-extrabold text-white mb-4">Ready to 3× Your Qualified Leads?</h2>
-      <p class="text-brand-100 text-lg mb-8">Book a free 30-minute audit. We'll map out exactly how an AI lead qualification agent would work for your business.</p>
-      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+      <p class="text-brand-100 text-lg mb-8">Calculate your exact ROI — then book a free audit to put these numbers to work for your business.</p>
+      <a href="pricing.html#roi-pricing"
          class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-8 py-4 rounded-full hover:bg-brand-50 transition shadow-lg text-lg">
-        Book Your Free Audit →
+        See how much YOU could save →
       </a>
       <p class="mt-4 text-brand-200 text-sm">No credit card · No commitment · Results in 2–4 weeks</p>
     </div>
@@ -482,7 +548,7 @@
 
   <!-- ── STICKY MOBILE CTA BAR ──────────────────────────────────── -->
   <div id="mobile-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden shadow-2xl">
-    <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+    <a href="https://calendly.com/elazarferrer?ref=case_study_lead" target="_blank" rel="noopener"
        class="flex items-center justify-center gap-2 bg-brand-600 text-white font-bold text-sm py-4 px-6 hover:bg-brand-700 transition">
       📅 Book Your Free Audit — No Commitment →
     </a>
