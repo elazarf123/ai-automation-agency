@@ -141,6 +141,99 @@
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
       padding: 2px 10px; border-radius: 9999px; text-transform: uppercase;
     }
+
+    /* ── GLASSMORPHISM SERVICES ───────────────────────────────── */
+    #services { background: #1a1a1a; }
+    #services h2, #services h3 { color: #fff; }
+    #services p { color: #a3a3a3; }
+    #services ul li { color: #d4d4d4; }
+    .glass-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    .glass-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(108,60,255,0.55);
+      box-shadow: 0 8px 40px rgba(108,60,255,0.18);
+    }
+    .glass-icon {
+      background: rgba(108,60,255,0.18);
+      color: #c084fc;
+    }
+
+    /* ── ROI CALCULATOR ───────────────────────────────────────── */
+    #roi-calculator {
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+    }
+    .roi-output-card {
+      background: rgba(108,60,255,0.12);
+      border: 1px solid rgba(108,60,255,0.3);
+    }
+    input[type="range"] {
+      -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 9999px;
+      background: rgba(108,60,255,0.3);
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #6c3cff; cursor: pointer;
+      box-shadow: 0 0 10px rgba(108,60,255,0.6);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #6c3cff; cursor: pointer; border: none;
+      box-shadow: 0 0 10px rgba(108,60,255,0.6);
+    }
+
+    /* ── VIDEO WALKTHROUGH MODAL ─────────────────────────────── */
+    .demo-modal {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
+      padding: 1.5rem;
+    }
+    .demo-modal.open { display: flex; }
+    .demo-modal-box {
+      background: #1a1a2e;
+      border: 1px solid rgba(108,60,255,0.35);
+      border-radius: 1.25rem;
+      max-width: 640px; width: 100%;
+      padding: 2rem; position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      max-height: 90vh; overflow-y: auto;
+    }
+    .demo-step {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.875rem 1rem;
+      background: rgba(255,255,255,0.04);
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .demo-step-num {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: rgba(108,60,255,0.25); color: #c084fc;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-weight: 700; font-size: 0.8rem;
+    }
+
+    /* ── KINETIC HERO TYPOGRAPHY ─────────────────────────────── */
+    @keyframes text-shimmer {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .kinetic-text {
+      background: linear-gradient(90deg, #a78bfa, #6c3cff, #c084fc, #818cf8, #6c3cff);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: text-shimmer 4s linear infinite;
+    }
   </style>
   <script>
     /* Run before render to avoid layout shift */
@@ -204,7 +297,7 @@
       </span>
       <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
         We automate your business<br class="hidden md:block" />
-        operations with <span class="gradient-text">AI.</span>
+        operations with <span class="kinetic-text">AI.</span>
       </h1>
       <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
         From qualifying leads to processing invoices and answering customer questions — 
@@ -272,9 +365,9 @@
   <section id="services" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <span class="inline-block mb-3 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">What We Build</span>
-        <h2 class="text-4xl font-bold text-gray-900">Our Services — Try Them Live</h2>
-        <p class="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">What We Build</span>
+        <h2 class="text-4xl font-bold">Our Services — Try Them Live</h2>
+        <p class="mt-3 text-lg max-w-xl mx-auto" style="color:#a3a3a3">
           Six high-impact AI solutions you can explore right now — from core portfolio to cutting-edge business tools.
         </p>
       </div>
@@ -282,113 +375,116 @@
       <div class="grid md:grid-cols-3 gap-8">
 
         <!-- Lead Gen -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">🎯</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">🎯</div>
           <h3 class="text-xl font-bold mb-3">AI Lead Generation &amp; Qualification</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Our AI qualifier scores every inbound lead in seconds — analysing company size, industry, budget signals, 
             and urgency — so your sales team only calls the hottest prospects.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 80 % reduction in time-to-contact</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Integrates with HubSpot &amp; Salesforce</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Powered by Claude AI</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 80 % reduction in time-to-contact</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Integrates with HubSpot &amp; Salesforce</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Powered by Claude AI</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="lead-qualifier.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
-            <a href="case-study-lead-qualification.html" class="inline-block text-center border border-brand-200 text-brand-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-50 transition">See Results →</a>
+            <a href="lead-qualifier.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Try It Live →</a>
+            <a href="case-study-lead-qualification.html" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">See Results →</a>
           </div>
         </div>
 
         <!-- Invoice Processing -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📄</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">📄</div>
           <h3 class="text-xl font-bold mb-3">Automated Invoice Processing</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Extract, validate, and route invoice data from PDFs automatically. 
             Eliminate manual data entry and cut accounts-payable processing time from days to minutes.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 95 %+ extraction accuracy</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Exports to QuickBooks &amp; Xero</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Handles multi-page, multi-vendor PDFs</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 95 %+ extraction accuracy</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Exports to QuickBooks &amp; Xero</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Handles multi-page, multi-vendor PDFs</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="invoice-processor.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
-            <a href="case-study-invoice-processing.html" class="inline-block text-center border border-brand-200 text-brand-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-50 transition">See Results →</a>
+            <a href="invoice-processor.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Try It Live →</a>
+            <a href="case-study-invoice-processing.html" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">See Results →</a>
           </div>
         </div>
 
         <!-- Support Chatbot -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">💬</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">💬</div>
           <h3 class="text-xl font-bold mb-3">24/7 AI Support Chatbot</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Deploy a knowledge-base-powered chatbot that answers customer questions instantly — 
             reducing support tickets by up to 70 % while improving satisfaction scores.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Trained on your own docs &amp; FAQs</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Embeds in any website in minutes</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Escalates complex issues to humans</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Trained on your own docs &amp; FAQs</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Embeds in any website in minutes</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Escalates complex issues to humans</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="support-agent.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Try It Live →</a>
-            <a href="case-study-support-chatbot.html" class="inline-block text-center border border-brand-200 text-brand-700 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-50 transition">See Results →</a>
+            <a href="support-agent.html" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Try It Live →</a>
+            <a href="case-study-support-chatbot.html" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">See Results →</a>
           </div>
         </div>
 
         <!-- Email Classifier -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📧</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">📧</div>
           <h3 class="text-xl font-bold mb-3">AI Email Classifier</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Automatically sorts high-volume inboxes into "Urgent," "Inquiry," and "Spam" — 
             saving business owners hours of manual triage every single day.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 90%+ classification accuracy</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Integrates with Gmail &amp; Outlook</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Auto-routes, labels &amp; notifies in real-time</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 90%+ classification accuracy</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Integrates with Gmail &amp; Outlook</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Auto-routes, labels &amp; notifies in real-time</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+            <button onclick="openDemoModal('email')" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Watch Demo →</button>
+            <a href="#contact" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">Get This Built →</a>
           </div>
         </div>
 
         <!-- KPI Dashboard -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">📊</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">📊</div>
           <h3 class="text-xl font-bold mb-3">KPI Reporting Dashboard</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Real-time reporting that pulls business data from all your apps into a single clear view 
             in Airtable or Notion — updated automatically, zero manual work.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Connects 10+ data sources in one view</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Custom metrics &amp; daily automated digests</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> No more manual spreadsheet updates</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Connects 10+ data sources in one view</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Custom metrics &amp; daily automated digests</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> No more manual spreadsheet updates</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+            <button onclick="openDemoModal('kpi')" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Watch Demo →</button>
+            <a href="#contact" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">Get This Built →</a>
           </div>
         </div>
 
         <!-- Content Repurposing -->
-        <div class="fade-in group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm card-purple-hover">
-          <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">🔄</div>
+        <div class="fade-in glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 glass-icon rounded-xl flex items-center justify-center text-2xl mb-6">🔄</div>
           <h3 class="text-xl font-bold mb-3">Content Repurposing Pipeline</h3>
-          <p class="text-gray-500 mb-4 leading-relaxed">
+          <p class="mb-4 leading-relaxed" style="color:#a3a3a3">
             Automatically transforms one long-form piece of content — like a YouTube video or podcast — 
             into blog posts, LinkedIn updates, tweets, and email newsletters.
           </p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 video → 10+ pieces of content</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Auto-publishes to your chosen platforms</li>
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> AI-tailored tone per channel</li>
+          <ul class="text-sm space-y-2 mb-6" style="color:#d4d4d4">
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> 1 video → 10+ pieces of content</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Auto-publishes to your chosen platforms</li>
+            <li class="flex items-center gap-2"><span class="text-green-400">✓</span> AI-tailored tone per channel</li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="#contact" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition">Get This Built →</a>
+            <button onclick="openDemoModal('content')" class="inline-block text-center bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition btn-glow">Watch Demo →</button>
+            <a href="#contact" class="inline-block text-center border border-brand-600/40 text-purple-300 text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600/20 transition">Get This Built →</a>
           </div>
         </div>
 
@@ -528,8 +624,9 @@
           <div class="w-10 h-10 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl mb-4">📄</div>
           <h4 class="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">Invoice Automation</h4>
           <p class="text-gray-600 leading-relaxed text-sm">
-            A 3-day accounts-payable backlog that used to need a full-time employee gets processed in under 2 hours —
-            automatically routed to QuickBooks with 95%+ accuracy. Zero manual entry.
+            <strong class="text-gray-800">The chaos:</strong> 500+ invoices per month drowning AP staff in spreadsheets — a 3-day backlog, 8% error rate, and late-payment penalties piling up.
+            <strong class="text-gray-800">The fix:</strong> AutomateIQ automated extraction, validation, and QuickBooks routing.
+            <strong class="text-gray-800">The calm:</strong> Invoices processed in under 2 hours, 95%+ accuracy, zero manual entry. Staff reclaimed 120 hours per month.
           </p>
           <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400 font-medium">Logistics &amp; Finance use case</div>
         </div>
@@ -537,8 +634,9 @@
           <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4">🎯</div>
           <h4 class="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">Lead Qualification</h4>
           <p class="text-gray-600 leading-relaxed text-sm">
-            Instead of manually reviewing 400+ inbound leads per week, your SDR team wakes up to a prioritised list.
-            Only Grade-A and B leads make it to their calendar — saving 15+ hours per week per rep.
+            <strong class="text-gray-800">The chaos:</strong> Reps drowning in 400+ raw leads weekly — most of them noise. Hot prospects went cold while the team sorted junk.
+            <strong class="text-gray-800">The fix:</strong> An AI agent scoring, grading, and routing every lead in seconds.
+            <strong class="text-gray-800">The calm:</strong> SDRs wake up to a prioritised list. Only A and B leads reach their calendar — saving 15+ hours per rep, per week.
           </p>
           <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400 font-medium">SaaS &amp; B2B Sales use case</div>
         </div>
@@ -585,6 +683,70 @@
           <span class="text-base font-bold text-gray-400 tracking-tight">Claude AI</span>
           <span class="text-base font-bold text-gray-400 tracking-tight">Zapier</span>
           <span class="text-base font-bold text-gray-400 tracking-tight">Notion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROI CALCULATOR ────────────────────────────────────────────── -->
+  <section id="roi-calculator" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="inline-block mb-3 px-4 py-1 bg-brand-600/20 text-purple-300 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">ROI Calculator</span>
+        <h2 class="text-4xl font-bold text-white">What Could You Save?</h2>
+        <p class="mt-3 text-lg" style="color:#a3a3a3">
+          See your estimated monthly savings and hours reclaimed — updated in real time.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-8 md:p-10">
+        <!-- Employees slider -->
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-3">
+            <label class="text-sm font-semibold text-white">Number of Employees</label>
+            <span id="emp-display" class="text-2xl font-extrabold text-purple-300">10</span>
+          </div>
+          <input id="emp-slider" type="range" min="1" max="100" value="10" class="w-full" />
+          <div class="flex justify-between text-xs mt-1" style="color:#6b7280">
+            <span>1</span><span>100</span>
+          </div>
+        </div>
+
+        <!-- Hourly rate -->
+        <div class="mb-10">
+          <div class="flex justify-between items-center mb-3">
+            <label class="text-sm font-semibold text-white" for="hourly-rate">Average Hourly Rate (USD)</label>
+            <span class="text-sm font-medium" style="color:#a3a3a3">per employee</span>
+          </div>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white font-bold">$</span>
+            <input id="hourly-rate" type="number" min="10" max="500" value="35" placeholder="35"
+              class="w-full pl-8 pr-4 py-3 rounded-xl text-white font-semibold text-lg focus:outline-none focus:ring-2 focus:ring-brand-500"
+              style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);" />
+          </div>
+          <p class="text-xs mt-2" style="color:#6b7280">Our AI saves each employee an average of 5 hours per week.</p>
+        </div>
+
+        <!-- Results -->
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="roi-output-card rounded-2xl p-6 text-center">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:#a78bfa">Total Monthly Savings</p>
+            <p id="monthly-savings" class="text-4xl font-extrabold text-white">$6,060</p>
+            <p class="text-xs mt-2" style="color:#6b7280">Based on your inputs</p>
+          </div>
+          <div class="roi-output-card rounded-2xl p-6 text-center">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:#a78bfa">Annual Hours Reclaimed</p>
+            <p id="annual-hours" class="text-4xl font-extrabold text-white">2,600</p>
+            <p class="text-xs mt-2" style="color:#6b7280">Hours freed every year</p>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-brand-700 transition shadow-lg btn-glow">
+            Claim These Savings — Book a Free Audit →
+          </a>
+          <p class="mt-3 text-xs" style="color:#6b7280">No commitment. Results in 2–4 weeks.</p>
         </div>
       </div>
     </div>
@@ -775,25 +937,31 @@
           <span class="inline-block mb-3 px-4 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full tracking-widest uppercase">
             Who You're Hiring
           </span>
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Built by Elazar Ferrer</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Elazar Ferrer — AI Architect</h2>
           <p class="text-gray-500 leading-relaxed text-lg mb-3">
-            I'm an AI automation specialist helping small and mid-size businesses reclaim dozens of hours every week.
-            I build custom automations using Make.com and Claude API — from lead qualification pipelines
-            to invoice processors and 24/7 support agents.
+            When you work with AutomateIQ, you get direct access to me — an AI Architect with deep expertise 
+            in Make.com and Claude API. No junior account managers. No offshore handoffs. You talk to the person 
+            who builds and owns your system.
           </p>
-          <p class="text-gray-500 leading-relaxed mb-6">
-            When you work with AutomateIQ, you work directly with me — not an account manager or an offshore team.
-            I map your workflows, build the solution, integrate it into your existing tools, and stay on as your
-            dedicated AI automation partner.
+          <p class="text-gray-500 leading-relaxed mb-4">
+            My technical stack is a deliberate competitive advantage: <strong class="text-gray-700">Make.com</strong> 
+            gives your automations enterprise-grade reliability without bloated infrastructure costs. 
+            <strong class="text-gray-700">Claude API</strong> delivers state-of-the-art AI reasoning 
+            with the data privacy and security that regulated businesses demand. Together, they let me ship 
+            production-ready AI systems in weeks — not months.
           </p>
-          <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-5">
-            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-            Currently accepting new clients for April 2026
+          <p class="text-gray-600 leading-relaxed mb-5 text-sm font-medium">
+            I don't take on volume clients. I take on the right clients. That means every engagement 
+            gets my full attention — from workflow mapping and build to integration, QA, and ongoing optimisation.
+          </p>
+          <div class="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+            <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+            Only 3 spots available for May 2026 — spots fill fast
           </div>
           <div class="flex flex-wrap gap-4">
             <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow">
-              Book a Free Audit →
+               class="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow btn-glow">
+              Claim Your Spot — Book a Free Audit →
             </a>
             <a href="mailto:elazar@automateiq.io"
                class="inline-flex items-center gap-2 border border-gray-300 text-gray-600 font-semibold px-6 py-3 rounded-full hover:border-brand-500 hover:text-brand-600 transition">
@@ -954,7 +1122,7 @@
         <a href="#security"          class="hover:text-white transition">Security</a>
         <a href="pricing.html"       class="hover:text-white transition">Pricing</a>
         <a href="testimonials.html"  class="hover:text-white transition">Case Studies</a>
-        <a href="#roi"               class="hover:text-white transition">ROI</a>
+        <a href="#roi"               class="hover:text-white transition">ROI Calculator</a>
         <a href="#faq"               class="hover:text-white transition">FAQ</a>
         <a href="#contact"           class="hover:text-white transition">Contact</a>
         <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
@@ -1086,7 +1254,111 @@
       });
     })();
 
+    // ── ROI Calculator ────────────────────────────────────────────
+    (function() {
+      var empSlider  = document.getElementById('emp-slider');
+      var hourlyRate = document.getElementById('hourly-rate');
+      var empDisplay = document.getElementById('emp-display');
+      var monthlySavings = document.getElementById('monthly-savings');
+      var annualHours    = document.getElementById('annual-hours');
+      if (!empSlider) return;
+
+      function calcROI() {
+        var emps = parseInt(empSlider.value, 10) || 1;
+        var rate = parseFloat(hourlyRate.value) || 0;
+        var hoursPerWeek = 5;
+        var weeksPerMonth = 4.33;
+        var monthly = emps * hoursPerWeek * weeksPerMonth * rate;
+        var yearly  = emps * hoursPerWeek * 52;
+        empDisplay.textContent = emps;
+        monthlySavings.textContent = '$' + Math.round(monthly).toLocaleString();
+        annualHours.textContent    = Math.round(yearly).toLocaleString();
+      }
+
+      empSlider.addEventListener('input', calcROI);
+      hourlyRate.addEventListener('input', calcROI);
+      calcROI();
+    })();
+
+    // ── Demo Walkthrough Modals ───────────────────────────────────
+    var demoData = {
+      email: {
+        title: '📧 AI Email Classifier — Walkthrough',
+        steps: [
+          { n: '1', title: 'Inbox detected', desc: 'A new email lands in your Gmail or Outlook inbox. Make.com watches the inbox in real time via webhook.' },
+          { n: '2', title: 'Claude AI classifies', desc: 'The email body, subject, and sender are passed to Claude API. It determines whether the message is Urgent, an Inquiry, or Spam — with 90%+ accuracy.' },
+          { n: '3', title: 'Auto-label & route', desc: 'Based on the classification, the email is labeled, moved to the correct folder, and (for Urgent) a Slack notification fires to the right team member instantly.' },
+          { n: '4', title: 'Daily digest sent', desc: 'At 8 AM each day, a summary of overnight emails — sorted by category — is sent to your inbox. Zero noise. Total clarity.' },
+        ]
+      },
+      kpi: {
+        title: '📊 KPI Reporting Dashboard — Walkthrough',
+        steps: [
+          { n: '1', title: 'Data sources connected', desc: 'Make.com connects to Stripe, HubSpot, Google Analytics, Notion, and up to 10 other tools your team already uses.' },
+          { n: '2', title: 'Automated data pull', desc: 'Every night (or on your schedule), the automation pulls updated metrics — MRR, leads, conversion rates, support tickets, and more.' },
+          { n: '3', title: 'Dashboard refreshed', desc: 'Your Airtable or Notion KPI dashboard is updated automatically. No spreadsheets, no manual copy-paste, no errors.' },
+          { n: '4', title: 'Daily digest delivered', desc: 'A clean, formatted daily digest lands in your Slack or email — so you start every morning knowing exactly where the business stands.' },
+        ]
+      },
+      content: {
+        title: '🔄 Content Repurposing Pipeline — Walkthrough',
+        steps: [
+          { n: '1', title: 'Source content uploaded', desc: 'Paste a YouTube link, upload a podcast transcript, or drop in a long-form blog post. The pipeline accepts any long-form content as its input.' },
+          { n: '2', title: 'Claude AI transforms it', desc: 'Claude API reads the full transcript and generates a LinkedIn post, 3 tweets, a newsletter intro, and a blog post summary — all in your brand voice.' },
+          { n: '3', title: 'Human review (optional)', desc: 'Outputs are queued in a Notion or Airtable review board. You approve with one click — or let it auto-publish on a schedule.' },
+          { n: '4', title: 'Auto-published to channels', desc: '1 piece of content becomes 10+, published automatically across LinkedIn, Twitter/X, your email platform, and your blog. All without lifting a finger.' },
+        ]
+      }
+    };
+
+    function openDemoModal(type) {
+      var data = demoData[type];
+      if (!data) return;
+      var modal = document.getElementById('demo-modal');
+      document.getElementById('demo-modal-title').textContent = data.title;
+      var stepsEl = document.getElementById('demo-modal-steps');
+      stepsEl.innerHTML = '';
+      data.steps.forEach(function(s) {
+        var div = document.createElement('div');
+        div.className = 'demo-step';
+        div.innerHTML = '<div class="demo-step-num">' + s.n + '</div>'
+          + '<div><p class="text-sm font-semibold text-white mb-1">' + s.title + '</p>'
+          + '<p class="text-sm" style="color:#a3a3a3">' + s.desc + '</p></div>';
+        stepsEl.appendChild(div);
+      });
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDemoModal() {
+      document.getElementById('demo-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('demo-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeDemoModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDemoModal();
+    });
+
   </script>
+  <!-- ── VIDEO WALKTHROUGH MODAL ──────────────────────────────────── -->
+  <div id="demo-modal" class="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+    <div class="demo-modal-box">
+      <button onclick="closeDemoModal()" aria-label="Close"
+              class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold leading-none">✕</button>
+      <h3 id="demo-modal-title" class="text-xl font-bold text-white mb-6 pr-6"></h3>
+      <div id="demo-modal-steps" class="space-y-3 mb-8"></div>
+      <div class="border-t border-white/10 pt-6 text-center">
+        <p class="text-sm mb-4" style="color:#a3a3a3">Ready to get this built for your business?</p>
+        <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-7 py-3 rounded-full hover:bg-brand-700 transition shadow btn-glow text-sm">
+          Book a Free Audit — Claim Your May 2026 Spot →
+        </a>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
