@@ -1,5 +1,7 @@
 # AutomateIQ — AI Automation Agency Portfolio
 
+🌐 **Live site: [https://automateiq.app/](https://automateiq.app/)**
+
 > **We automate your business operations with AI.**  
 > Custom AI agents and workflow automation that save time, reduce costs, and scale with you.
 
@@ -17,7 +19,7 @@ AutomateIQ builds production-ready AI automations for small and mid-sized busine
 
 ---
 
-## �� Project Structure
+## 🗂️ Project Structure
 
 ```
 ai-automation-agency/
@@ -156,8 +158,8 @@ Or email us directly: **hello@automateiq.io**
 ## 🛡️ Security & Compliance
 
 - All data encrypted in transit (TLS 1.3) and at rest (AES-256)
-- SOC 2 Type II compliant
-- GDPR & CCPA ready
+- Designed with SOC 2-style controls in mind
+- Supports GDPR/CCPA-aligned practices (data minimization, retention, access controls)
 - Data Processing Agreements provided to all clients
 
 ---
