@@ -5,6 +5,10 @@
 
 ---
 
+🌐 **Live site:** [https://automateiq.app](https://automateiq.app)
+
+---
+
 ## 🚀 What We Do
 
 AutomateIQ builds production-ready AI automations for small and mid-sized businesses. Our three flagship services eliminate the manual work that bogs down your team every day.
@@ -17,7 +21,7 @@ AutomateIQ builds production-ready AI automations for small and mid-sized busine
 
 ---
 
-## �� Project Structure
+## 🗂️ Project Structure
 
 ```
 ai-automation-agency/
@@ -156,8 +160,8 @@ Or email us directly: **hello@automateiq.io**
 ## 🛡️ Security & Compliance
 
 - All data encrypted in transit (TLS 1.3) and at rest (AES-256)
-- SOC 2 Type II compliant
-- GDPR & CCPA ready
+- Designed with SOC 2-style controls in mind
+- Supports GDPR/CCPA-aligned data practices
 - Data Processing Agreements provided to all clients
 
 ---
