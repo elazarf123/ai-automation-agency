@@ -1,5 +1,7 @@
 # AutomateIQ — AI Automation Agency Portfolio
 
+🌐 **Live site: [https://automateiq.app/](https://automateiq.app/)**
+
 > **We automate your business operations with AI.**  
 > Custom AI agents and workflow automation that save time, reduce costs, and scale with you.
 
