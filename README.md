@@ -7,6 +7,10 @@
 
 ---
 
+🌐 **Live site:** [https://automateiq.app](https://automateiq.app)
+
+---
+
 ## 🚀 What We Do
 
 AutomateIQ builds production-ready AI automations for small and mid-sized businesses. Our three flagship services eliminate the manual work that bogs down your team every day.
@@ -159,7 +163,7 @@ Or email us directly: **hello@automateiq.io**
 
 - All data encrypted in transit (TLS 1.3) and at rest (AES-256)
 - Designed with SOC 2-style controls in mind
-- Supports GDPR/CCPA-aligned practices (data minimization, retention, access controls)
+- Supports GDPR/CCPA-aligned data practices
 - Data Processing Agreements provided to all clients
 
 ---
