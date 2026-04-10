@@ -59,6 +59,25 @@
     html.bar-off #main-header { top: 0 !important; }
     html.bar-off .page-hero { padding-top: 8rem !important; }
     #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
+    /* AI Success Portal */
+    @keyframes ai-pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    @keyframes ai-fade-up { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    .ai-portal {
+      background: rgba(11, 11, 23, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(108, 60, 255, 0.5);
+      box-shadow: 0 8px 48px rgba(108, 60, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .ai-pulse { animation: ai-pulse 1.6s ease-in-out infinite; }
+    .ai-fade-up { animation: ai-fade-up 0.65s ease forwards; }
+    #ai-loading-text-c { transition: opacity 0.2s ease; }
+    .ai-cta-btn {
+      background: linear-gradient(135deg, #6c3cff 0%, #7c4fff 100%);
+      box-shadow: 0 0 32px rgba(108,60,255,0.55);
+      transition: box-shadow 0.25s ease, transform 0.15s ease;
+    }
+    .ai-cta-btn:hover { box-shadow: 0 0 48px rgba(108,60,255,0.75); transform: translateY(-1px); }
   </style>
   <script>
     if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
@@ -263,6 +282,26 @@
 
           </form>
 
+          <!-- AI Success Portal (revealed on form submit) -->
+          <div id="ai-success-portal-c" class="hidden ai-portal rounded-2xl p-8 flex flex-col items-center justify-center text-center gap-5" style="min-height:260px;">
+            <div id="ai-loading-state-c">
+              <div class="text-3xl mb-3">🤖</div>
+              <div class="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <p id="ai-loading-text-c" class="ai-pulse text-purple-300 text-sm font-semibold max-w-xs mx-auto">AI Analyzer is reviewing your business profile…</p>
+            </div>
+            <div id="ai-complete-state-c" class="hidden flex-col items-center gap-4 ai-fade-up">
+              <div class="text-3xl">✅</div>
+              <p class="text-green-400 text-xs font-extrabold uppercase tracking-widest">Analysis Complete</p>
+              <p class="text-white text-base font-bold leading-snug">You are a strong candidate for<br/>high-impact automation.</p>
+              <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+                 class="ai-cta-btn inline-flex items-center gap-2 text-white font-extrabold text-sm px-8 py-4 rounded-full">
+                Step 2: Book Your Priority Audit →
+              </a>
+              <p class="text-gray-500 text-xs">🔒 Secure scheduling — 60 seconds</p>
+              <p id="ai-portal-send-err-c" class="hidden text-red-400 text-xs">Message delivery failed — please also email <a href="mailto:elazar@automateiq.io" class="underline">elazar@automateiq.io</a></p>
+            </div>
+          </div>
+
           <p class="mt-5 text-xs text-gray-400 text-center">
             Or email directly:
             <a href="mailto:elazar@automateiq.io" class="text-brand-600 hover:underline">elazar@automateiq.io</a>
@@ -373,34 +412,52 @@
       if (!ok) return;
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
+      submitBtn.textContent = 'Analyzing…';
 
+      // Fire-and-forget Formspree submission in the background
+      var fetchFailed = false;
       var data = new FormData(form);
-
       fetch(form.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
       })
-      .then(function(res) {
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('cf-success').classList.remove('hidden');
-          // GA4 form submission event
-          if (typeof gtag === 'function') {
-            gtag('event', 'form_submit', { event_category: 'contact', event_label: 'contact_page' });
-          }
-        } else {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message →';
-          document.getElementById('cf-error').classList.remove('hidden');
+        .then(function(res) { if (!res.ok) fetchFailed = true; })
+        .catch(function() { fetchFailed = true; });
+
+      // Immediately swap form for the AI analysis portal
+      form.style.display = 'none';
+      var portal = document.getElementById('ai-success-portal-c');
+      portal.classList.remove('hidden');
+
+      // Cycle processing messages
+      var messages = [
+        'AI Analyzer is reviewing your business profile…',
+        'Checking CRM compatibility…',
+        'Scoring lead volume and conversion signals…'
+      ];
+      var msgEl = document.getElementById('ai-loading-text-c');
+      var idx = 0;
+      var cycleInterval = setInterval(function() {
+        idx = (idx + 1) % messages.length;
+        msgEl.style.opacity = '0';
+        setTimeout(function() { msgEl.textContent = messages[idx]; msgEl.style.opacity = '1'; }, 200);
+      }, 1000);
+
+      // After 3 s: reveal the "Analysis Complete" state
+      setTimeout(function() {
+        clearInterval(cycleInterval);
+        document.getElementById('ai-loading-state-c').classList.add('hidden');
+        var complete = document.getElementById('ai-complete-state-c');
+        complete.classList.remove('hidden');
+        complete.style.display = 'flex';
+        if (fetchFailed) {
+          document.getElementById('ai-portal-send-err-c').classList.remove('hidden');
         }
-      })
-      .catch(function() {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message →';
-        document.getElementById('cf-error').classList.remove('hidden');
-      });
+        if (typeof gtag === 'function') {
+          gtag('event', 'form_submit', { event_category: 'contact', event_label: 'contact_page' });
+        }
+      }, 3000);
     });
 
     // Announcement bar height sync & dismiss
