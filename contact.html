@@ -298,6 +298,7 @@
                 Step 2: Book Your Priority Audit →
               </a>
               <p class="text-gray-500 text-xs">🔒 Secure scheduling — 60 seconds</p>
+              <p id="ai-portal-send-err-c" class="hidden text-red-400 text-xs">Message delivery failed — please also email <a href="mailto:elazar@automateiq.io" class="underline">elazar@automateiq.io</a></p>
             </div>
           </div>
 
@@ -414,15 +415,15 @@
       submitBtn.textContent = 'Analyzing…';
 
       // Fire-and-forget Formspree submission in the background
+      var fetchFailed = false;
       var data = new FormData(form);
       fetch(form.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
-      }).catch(function() {
-        // silent — portal is already showing; surface error only on network failure
-        document.getElementById('cf-error').classList.remove('hidden');
-      });
+      })
+        .then(function(res) { if (!res.ok) fetchFailed = true; })
+        .catch(function() { fetchFailed = true; });
 
       // Immediately swap form for the AI analysis portal
       form.style.display = 'none';
@@ -450,6 +451,9 @@
         var complete = document.getElementById('ai-complete-state-c');
         complete.classList.remove('hidden');
         complete.style.display = 'flex';
+        if (fetchFailed) {
+          document.getElementById('ai-portal-send-err-c').classList.remove('hidden');
+        }
         if (typeof gtag === 'function') {
           gtag('event', 'form_submit', { event_category: 'contact', event_label: 'contact_page' });
         }
