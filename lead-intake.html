@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Lead Intake — Get Your Free Lead Audit | AutomateIQ</title>
+  <meta name="description" content="Tell us about your lead pipeline. Our AI will analyse your profile instantly and show you exactly how much time and money you could save with AI lead qualification." />
+  <link rel="canonical" href="https://automateiq.io/lead-intake.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236c3cff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://automateiq.io/lead-intake.html" />
+  <meta property="og:title" content="AI Lead Intake — Get Your Free Lead Audit | AutomateIQ" />
+  <meta property="og:description" content="Answer 5 quick questions. Our AI will score your lead pipeline and show you exactly how many hours and dollars you're leaving on the table." />
+  <meta property="og:image" content="https://automateiq.io/og-image.png" />
+  <meta property="og:site_name" content="AutomateIQ" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Lead Intake — AutomateIQ" />
+  <meta name="twitter:description" content="Answer 5 quick questions and let AI analyse your lead pipeline for free." />
+  <meta name="twitter:image" content="https://automateiq.io/og-image.png" />
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VQRY0FLNXZ');
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f5f0ff',
+              100: '#ede0ff',
+              500: '#7c4fff',
+              600: '#6c3cff',
+              700: '#5a2de0',
+              900: '#2d1580',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    /* Announcement bar */
+    #announcement-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 60; min-height: 40px; }
+    #main-header { top: var(--ann-bar-h, 40px); }
+    .page-hero { padding-top: calc(var(--ann-bar-h, 40px) + 8rem) !important; }
+    html.bar-off #announcement-bar { display: none !important; }
+    html.bar-off #main-header { top: 0 !important; }
+    html.bar-off .page-hero { padding-top: 8rem !important; }
+    #mobile-sticky-cta { padding-bottom: env(safe-area-inset-bottom, 0); }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa 0%, #6c3cff 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Form field error state */
+    .field-error { border-color: #ef4444 !important; }
+    .error-msg { display: none; color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; }
+    .error-msg.visible { display: block; }
+
+    /* AI Analysis loading animation */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    @keyframes spin-slow {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes typing-dots {
+      0%, 60%, 100% { opacity: 0.2; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-4px); }
+    }
+    .ai-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #6c3cff; margin: 0 3px; animation: typing-dots 1.4s infinite; }
+    .ai-dot:nth-child(2) { animation-delay: 0.2s; }
+    .ai-dot:nth-child(3) { animation-delay: 0.4s; }
+    .pulse-ring {
+      position: absolute;
+      border: 3px solid rgba(108,60,255,0.4);
+      border-radius: 50%;
+      width: 80px; height: 80px;
+      animation: pulse-ring 1.5s cubic-bezier(0.215,0.61,0.355,1) infinite;
+    }
+    .spin-border {
+      border-top-color: #6c3cff;
+      animation: spin-slow 0.9s linear infinite;
+    }
+
+    /* Grade badge */
+    .grade-a { background: #dcfce7; color: #15803d; border-color: #86efac; }
+    .grade-b { background: #dbeafe; color: #1d4ed8; border-color: #93c5fd; }
+    .grade-c { background: #fef9c3; color: #92400e; border-color: #fde68a; }
+    .grade-d { background: #fee2e2; color: #b91c1c; border-color: #fca5a5; }
+
+    /* Calendly inline embed container */
+    #calendly-container { min-height: 650px; }
+
+    /* Result section slide-in */
+    @keyframes slide-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .slide-up { animation: slide-up 0.6s ease forwards; }
+
+    /* Hero glow */
+    .hero-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(108,60,255,0.35), transparent 70%);
+      pointer-events: none;
+    }
+  </style>
+  <script>
+    if (sessionStorage.getItem('annbar_v1')) document.documentElement.classList.add('bar-off');
+  </script>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+  <!-- ── ANNOUNCEMENT BAR ──────────────────────────────────────── -->
+  <div id="announcement-bar" class="bg-amber-400 text-amber-900 text-xs sm:text-sm font-bold text-center py-2.5 px-10 leading-tight">
+    📅 <strong>Limited availability</strong> — Only 3 new client spots open in May 2026.
+    <a href="https://calendly.com/elazarferrer?ref=lead_intake" target="_blank" rel="noopener" class="underline ml-1 hover:text-amber-800">Claim your free audit before it fills →</a>
+    <button id="dismiss-bar" aria-label="Dismiss announcement" class="absolute right-4 top-1/2 -translate-y-1/2 text-amber-800 hover:text-amber-900 text-base font-bold leading-none" style="transform:translateY(-50%)">✕</button>
+  </div>
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+  <header id="main-header" class="fixed inset-x-0 z-50 bg-[#0b0b17]/95 backdrop-blur border-b border-white/5 shadow-lg">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight gradient-text">AutomateIQ</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+        <a href="index.html#services"  class="hover:text-white transition">Services</a>
+        <a href="pricing.html"         class="hover:text-white transition">Pricing</a>
+        <a href="testimonials.html"    class="hover:text-white transition">Case Studies</a>
+        <a href="contact.html"         class="hover:text-white transition">Contact</a>
+      </nav>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow">
+        Book a Free Audit →
+      </a>
+      <button id="mobile-menu-btn" aria-label="Open menu"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-gray-400 transition-all duration-200" id="bar3"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0b0b17] border-t border-white/5 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-gray-300 shadow-md">
+      <a href="index.html#services" class="hover:text-white transition" onclick="closeMobileMenu()">Services</a>
+      <a href="pricing.html"        class="hover:text-white transition" onclick="closeMobileMenu()">Pricing</a>
+      <a href="testimonials.html"   class="hover:text-white transition" onclick="closeMobileMenu()">Case Studies</a>
+      <a href="contact.html"        class="hover:text-white transition" onclick="closeMobileMenu()">Contact</a>
+      <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+         class="mt-1 inline-flex items-center justify-center gap-2 bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-700 transition shadow"
+         onclick="closeMobileMenu()">
+        Book a Free Audit →
+      </a>
+    </div>
+  </header>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────── -->
+  <section class="relative overflow-hidden bg-[#0b0b17] page-hero pt-32 pb-20 px-6">
+    <div class="hero-glow"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <span class="inline-block mb-4 px-4 py-1 bg-brand-600/20 text-brand-400 text-xs font-semibold rounded-full tracking-widest uppercase border border-brand-600/30">
+        Free AI Lead Audit
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
+        Find Out How Much Your<br class="hidden sm:block" />
+        <span class="gradient-text">Lead Process Is Costing You</span>
+      </h1>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+        Answer 5 quick questions. Our AI will analyse your pipeline profile in seconds and tell you exactly how much time and money you could save — just like we did for TechFlow (<strong class="text-white">86% cost reduction, 18 hrs saved/week</strong>).
+      </p>
+      <!-- Social proof strip -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
+        <span class="flex items-center gap-1.5"><span class="text-green-400 text-base">✓</span> 100% free — no credit card</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-400 text-base">✓</span> Takes under 60 seconds</span>
+        <span class="flex items-center gap-1.5"><span class="text-green-400 text-base">✓</span> Instant AI analysis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FORM + RESULTS ────────────────────────────────────────────── -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-xl mx-auto">
+
+      <!-- ── STEP 1: THE FORM ── -->
+      <div id="form-section">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 fade-in">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-lg font-bold text-gray-900">Tell Us About Your Lead Pipeline</h2>
+              <p class="text-xs text-gray-400 mt-0.5">5 fields · ~60 seconds · Instant AI analysis</p>
+            </div>
+          </div>
+
+          <form id="lead-intake-form" novalidate class="space-y-5">
+
+            <!-- Name -->
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="li-name">
+                Full Name <span class="text-red-400">*</span>
+              </label>
+              <input id="li-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+              <p class="error-msg" id="err-li-name">Please enter your name.</p>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="li-email">
+                Work Email <span class="text-red-400">*</span>
+              </label>
+              <input id="li-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+              <p class="error-msg" id="err-li-email">Please enter a valid work email.</p>
+            </div>
+
+            <!-- Company URL -->
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="li-company-url">
+                Company Website <span class="text-red-400">*</span>
+              </label>
+              <input id="li-company-url" name="company_url" type="url" autocomplete="url" placeholder="https://yourcompany.com"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" />
+              <p class="error-msg" id="err-li-url">Please enter a valid URL (e.g. https://yourcompany.com).</p>
+            </div>
+
+            <!-- Monthly Lead Volume -->
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="li-lead-volume">
+                Monthly Lead Volume <span class="text-red-400">*</span>
+              </label>
+              <select id="li-lead-volume" name="monthly_lead_volume"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white">
+                <option value="">Select your monthly volume…</option>
+                <option value="under_50">Under 50 leads/month</option>
+                <option value="50_200">50 – 200 leads/month</option>
+                <option value="200_500">200 – 500 leads/month</option>
+                <option value="500_plus">500+ leads/month</option>
+              </select>
+              <p class="error-msg" id="err-li-volume">Please select your monthly lead volume.</p>
+            </div>
+
+            <!-- Current CRM -->
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1" for="li-crm">
+                Current CRM <span class="text-red-400">*</span>
+              </label>
+              <select id="li-crm" name="current_crm"
+                class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 bg-white">
+                <option value="">Select your CRM…</option>
+                <option value="HubSpot">HubSpot</option>
+                <option value="Salesforce">Salesforce</option>
+                <option value="Pipedrive">Pipedrive</option>
+                <option value="Zoho CRM">Zoho CRM</option>
+                <option value="Monday.com">Monday.com</option>
+                <option value="Notion">Notion</option>
+                <option value="Google Sheets">Google Sheets / Spreadsheet</option>
+                <option value="None">No CRM yet</option>
+                <option value="Other">Other</option>
+              </select>
+              <p class="error-msg" id="err-li-crm">Please select your CRM.</p>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="li-submit-btn"
+              class="w-full bg-brand-600 text-white font-bold px-6 py-4 rounded-full hover:bg-brand-700 transition shadow text-sm tracking-wide">
+              Analyse My Lead Pipeline →
+            </button>
+
+            <p class="text-xs text-gray-400 text-center">
+              No spam. We'll only contact you about your audit results.
+            </p>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- ── STEP 2: AI LOADING STATE ── -->
+      <div id="loading-section" class="hidden">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-12 text-center">
+          <!-- Animated AI orb -->
+          <div class="relative flex items-center justify-center mb-8" style="height:100px;">
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring" style="animation-delay:0.5s;"></div>
+            <div class="w-16 h-16 rounded-full border-4 border-gray-100 spin-border flex items-center justify-center bg-white shadow-lg">
+              <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center">
+                <span class="text-white font-bold text-xs">AI</span>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="text-xl font-bold text-gray-900 mb-3">
+            AI is analysing your profile
+            <span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>
+          </h2>
+          <p class="text-gray-500 text-sm max-w-xs mx-auto mb-8">
+            Evaluating your lead volume, CRM stack, and qualification opportunity — this takes just a moment.
+          </p>
+
+          <!-- Progress steps -->
+          <div class="space-y-3 text-left max-w-xs mx-auto text-sm text-gray-500" id="ai-steps">
+            <div class="flex items-center gap-3 ai-step-item" id="step-1">
+              <span class="w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center shrink-0 step-icon">
+                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+              </span>
+              <span>Scanning company profile</span>
+            </div>
+            <div class="flex items-center gap-3 ai-step-item" id="step-2">
+              <span class="w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center shrink-0 step-icon">
+                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+              </span>
+              <span>Calculating automation potential</span>
+            </div>
+            <div class="flex items-center gap-3 ai-step-item" id="step-3">
+              <span class="w-5 h-5 rounded-full border-2 border-gray-200 flex items-center justify-center shrink-0 step-icon">
+                <span class="w-2 h-2 rounded-full bg-gray-300"></span>
+              </span>
+              <span>Scoring lead priority</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 3A: HIGH PRIORITY RESULT (Grade A or B) ── -->
+      <div id="result-high" class="hidden slide-up">
+        <div class="bg-white rounded-2xl shadow-sm border border-green-200 p-8">
+
+          <!-- Score badge -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-green-500 flex items-center justify-center shrink-0 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span id="grade-badge" class="inline-block px-3 py-0.5 rounded-full text-xs font-bold border">Grade A</span>
+                <span class="inline-block px-3 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">High Priority</span>
+              </div>
+              <h2 class="text-xl font-bold text-gray-900">Your pipeline is a strong automation match</h2>
+            </div>
+          </div>
+
+          <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+            Based on your lead volume and CRM setup, you have <strong class="text-gray-800">significant automation potential</strong>.
+            Companies at your stage typically save <strong class="text-gray-800">15–20 hours per week</strong> and cut cost-per-lead by up to <strong class="text-gray-800">86%</strong> within 90 days of going live.
+          </p>
+
+          <!-- Mini stat row -->
+          <div class="grid grid-cols-3 gap-3 mb-6 text-center">
+            <div class="bg-green-50 rounded-xl p-3 border border-green-100">
+              <p class="text-lg font-extrabold text-green-600">86%</p>
+              <p class="text-xs text-gray-500 mt-0.5">Cost reduction</p>
+            </div>
+            <div class="bg-green-50 rounded-xl p-3 border border-green-100">
+              <p class="text-lg font-extrabold text-green-600">18 hrs</p>
+              <p class="text-xs text-gray-500 mt-0.5">Saved / week</p>
+            </div>
+            <div class="bg-green-50 rounded-xl p-3 border border-green-100">
+              <p class="text-lg font-extrabold text-green-600">2 wks</p>
+              <p class="text-xs text-gray-500 mt-0.5">To go live</p>
+            </div>
+          </div>
+
+          <div class="bg-brand-50 border border-brand-100 rounded-xl p-4 mb-6 text-sm text-gray-700">
+            <p class="font-semibold text-brand-700 mb-1">🎯 Your next step</p>
+            <p>You qualify for a free 30-minute workflow audit. Book below and I'll map your exact automation blueprint — including projected ROI — at no cost or commitment.</p>
+          </div>
+
+          <!-- Calendly inline embed — shown only for A/B leads -->
+          <div id="calendly-container">
+            <p class="text-center text-sm font-semibold text-gray-700 mb-4">📅 Book Your Free Workflow Audit</p>
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/elazarferrer?ref=lead_intake_high_priority&hide_gdpr_banner=1&primary_color=6c3cff"
+                 style="min-width:320px;height:630px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+
+          <p class="text-xs text-gray-400 text-center mt-4">No commitment. No credit card. Just a conversation about your business.</p>
+
+        </div>
+      </div>
+
+      <!-- ── STEP 3B: STANDARD RESULT (Grade C or D) ── -->
+      <div id="result-standard" class="hidden slide-up">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+
+          <!-- Score badge -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-blue-500 flex items-center justify-center shrink-0 shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span id="grade-badge-std" class="inline-block px-3 py-0.5 rounded-full text-xs font-bold border grade-c">Grade C</span>
+              </div>
+              <h2 class="text-xl font-bold text-gray-900">Thanks — we'll be in touch!</h2>
+            </div>
+          </div>
+
+          <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+            Your submission has been received. While your current lead volume may not yet need a fully automated pipeline, AI lead qualification becomes high-ROI as your volume grows.
+            We'll send you a personalised breakdown of <strong class="text-gray-800">what to set up now</strong> so you're ready to scale.
+          </p>
+
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-6 text-sm">
+            <p class="font-semibold text-gray-800 mb-3">In the meantime, see how TechFlow did it:</p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 mt-0.5 font-bold">→</span>
+                <a href="case-study-lead-qualification.html" class="text-brand-600 hover:underline font-medium">
+                  TechFlow Case Study — 86% cost reduction &amp; 18 hrs saved/week
+                </a>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 mt-0.5 font-bold">→</span>
+                <a href="pricing.html#roi-pricing" class="text-brand-600 hover:underline font-medium">
+                  ROI Calculator — see your projected savings
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <a href="contact.html"
+             class="w-full inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full hover:bg-brand-700 transition shadow text-sm">
+            Send Us a Message →
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ── STEP 3C: ERROR STATE ── -->
+      <div id="result-error" class="hidden slide-up">
+        <div class="bg-white rounded-2xl shadow-sm border border-red-200 p-8 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">⚠️</span>
+          </div>
+          <h2 class="text-lg font-bold text-gray-900 mb-2">Something went wrong</h2>
+          <p class="text-gray-500 text-sm mb-6">
+            We couldn't process your intake automatically. Please email us directly and we'll get back to you within 24 hours.
+          </p>
+          <a href="mailto:elazar@automateiq.io"
+             class="inline-flex items-center gap-2 bg-brand-600 text-white font-bold px-6 py-3 rounded-full hover:bg-brand-700 transition shadow text-sm">
+            Email elazar@automateiq.io →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SOCIAL PROOF / TRUST SECTION ─────────────────────────────── -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-10">What happens after you qualify</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 rounded-2xl p-6 text-center fade-in">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3">
+            <span class="text-brand-600 font-bold text-lg">1</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2 text-sm">Instant AI Score</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Our AI analyses your profile and assigns a priority grade in seconds — no waiting for a sales rep.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 text-center fade-in">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3">
+            <span class="text-brand-600 font-bold text-lg">2</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2 text-sm">Free 30-Min Audit</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">High-priority leads get immediate access to book a workflow audit — we map your automation blueprint live.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 text-center fade-in">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3">
+            <span class="text-brand-600 font-bold text-lg">3</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2 text-sm">Custom ROI Proposal</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Within 48 hours you receive a proposal with projected time savings, cost reduction, and a live-in-2-weeks plan.</p>
+        </div>
+      </div>
+
+      <!-- TechFlow proof callout -->
+      <div class="mt-12 bg-gradient-to-br from-brand-50 to-blue-50 border border-brand-100 rounded-2xl p-7 flex flex-col sm:flex-row items-start sm:items-center gap-6 fade-in">
+        <div class="shrink-0">
+          <div class="w-14 h-14 rounded-2xl bg-brand-600 flex items-center justify-center">
+            <span class="text-white font-extrabold text-xl">TF</span>
+          </div>
+        </div>
+        <div class="flex-1">
+          <p class="font-bold text-gray-900 mb-1">TechFlow Solutions saw <span class="text-brand-600">86% lower cost-per-lead</span> and <span class="text-brand-600">18 hrs saved every week</span></p>
+          <p class="text-sm text-gray-500">They went from 40 to 150+ qualified leads/month in 3 months — 340% ROI, no extra headcount.</p>
+        </div>
+        <a href="case-study-lead-qualification.html"
+           class="shrink-0 inline-flex items-center gap-1.5 text-brand-600 font-semibold text-sm hover:underline whitespace-nowrap">
+          Read the case study →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────────── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6 pb-24 md:pb-10 mt-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white text-lg">AutomateIQ</p>
+      <p>© <span id="footer-year"></span> AutomateIQ. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="index.html#services" class="hover:text-white transition">Services</a>
+        <a href="pricing.html"        class="hover:text-white transition">Pricing</a>
+        <a href="testimonials.html"   class="hover:text-white transition">Case Studies</a>
+        <a href="contact.html"        class="hover:text-white transition">Contact</a>
+        <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html"          class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── STICKY MOBILE CTA BAR ─────────────────────────────────────── -->
+  <div id="mobile-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden shadow-2xl">
+    <a href="https://calendly.com/elazarferrer?ref=lead_intake" target="_blank" rel="noopener"
+       class="flex items-center justify-center gap-2 bg-brand-600 text-white font-bold text-sm py-4 px-6 hover:bg-brand-700 transition">
+      📅 Book Your Free Audit — No Commitment →
+    </a>
+  </div>
+
+  <script>
+    // ── Footer year ──────────────────────────────────────────────────
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── Mobile nav ───────────────────────────────────────────────────
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var bar1 = document.getElementById('bar1');
+    var bar2 = document.getElementById('bar2');
+    var bar3 = document.getElementById('bar3');
+    var menuOpen = false;
+    menuBtn.addEventListener('click', function() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      bar1.style.transform = menuOpen ? 'translateY(8px) rotate(45deg)' : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? 'translateY(-8px) rotate(-45deg)' : '';
+      menuBtn.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Open menu');
+    });
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+      menuBtn.setAttribute('aria-label', 'Open menu');
+    }
+
+    // ── Scroll fade-in ───────────────────────────────────────────────
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(function(el) { fadeObserver.observe(el); });
+
+    // ── Announcement bar ─────────────────────────────────────────────
+    (function() {
+      var annBar = document.getElementById('announcement-bar');
+      function syncBarHeight() {
+        if (!annBar || document.documentElement.classList.contains('bar-off')) return;
+        document.documentElement.style.setProperty('--ann-bar-h', annBar.getBoundingClientRect().height + 'px');
+      }
+      syncBarHeight();
+      var resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(syncBarHeight, 100);
+      });
+      var btn = document.getElementById('dismiss-bar');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          sessionStorage.setItem('annbar_v1', '1');
+          document.documentElement.classList.add('bar-off');
+        });
+      }
+    })();
+
+    // ── Make.com webhook URL ──────────────────────────────────────────
+    // Replace this with your actual Make.com webhook URL.
+    // The webhook should respond with JSON: { "grade": "A" } | "B" | "C" | "D"
+    var WEBHOOK_URL = 'https://hook.eu1.make.com/YOUR_WEBHOOK_ID';
+
+    // ── Client-side lead scoring fallback ────────────────────────────
+    // Used when the webhook does not return a grade (e.g. network error).
+    function scoreLeadLocally(volume) {
+      if (volume === '500_plus') return 'A';
+      if (volume === '200_500') return 'B';
+      if (volume === '50_200')  return 'C';
+      return 'D';
+    }
+
+    // ── AI loading step animation ─────────────────────────────────────
+    var STEP_DELAYS = [600, 1400, 2200];
+    function animateSteps() {
+      STEP_DELAYS.forEach(function(delay, i) {
+        setTimeout(function() {
+          var step = document.getElementById('step-' + (i + 1));
+          if (!step) return;
+          var icon = step.querySelector('.step-icon');
+          icon.innerHTML = '<svg class="w-3.5 h-3.5 text-green-500" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
+          icon.classList.remove('border-gray-200');
+          icon.classList.add('border-green-400', 'bg-green-50');
+          step.querySelector('span:last-child').classList.add('text-gray-800', 'font-medium');
+        }, delay);
+      });
+    }
+
+    // ── Show result sections ──────────────────────────────────────────
+    function showHighPriority(grade) {
+      var badge = document.getElementById('grade-badge');
+      badge.textContent = 'Grade ' + grade;
+      badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-bold border ' +
+        (grade === 'A' ? 'grade-a' : 'grade-b');
+
+      document.getElementById('loading-section').classList.add('hidden');
+      document.getElementById('result-high').classList.remove('hidden');
+      document.getElementById('result-high').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function showStandard(grade) {
+      var badge = document.getElementById('grade-badge-std');
+      badge.textContent = 'Grade ' + grade;
+      badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-bold border ' +
+        (grade === 'C' ? 'grade-c' : 'grade-d');
+
+      document.getElementById('loading-section').classList.add('hidden');
+      document.getElementById('result-standard').classList.remove('hidden');
+      document.getElementById('result-standard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function showError() {
+      document.getElementById('loading-section').classList.add('hidden');
+      document.getElementById('result-error').classList.remove('hidden');
+    }
+
+    // ── Form validation helpers ───────────────────────────────────────
+    function validateField(inputId, errorId, condition) {
+      var input = document.getElementById(inputId);
+      var error = document.getElementById(errorId);
+      var ok = condition(input.value);
+      input.classList.toggle('field-error', !ok);
+      error.classList.toggle('visible', !ok);
+      return ok;
+    }
+
+    // ── Form submit ───────────────────────────────────────────────────
+    var form = document.getElementById('lead-intake-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var ok = true;
+      ok = validateField('li-name',       'err-li-name',   function(v) { return v.trim().length >= 2; })   && ok;
+      ok = validateField('li-email',      'err-li-email',  function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }) && ok;
+      ok = validateField('li-company-url','err-li-url',    function(v) { return /^https?:\/\/.+\..+/.test(v.trim()); }) && ok;
+      ok = validateField('li-lead-volume','err-li-volume', function(v) { return v !== ''; })               && ok;
+      ok = validateField('li-crm',        'err-li-crm',    function(v) { return v !== ''; })               && ok;
+
+      if (!ok) return;
+
+      // Collect payload
+      var payload = {
+        name:               document.getElementById('li-name').value.trim(),
+        email:              document.getElementById('li-email').value.trim(),
+        company_url:        document.getElementById('li-company-url').value.trim(),
+        monthly_lead_volume:document.getElementById('li-lead-volume').value,
+        current_crm:        document.getElementById('li-crm').value,
+        submitted_at:       new Date().toISOString(),
+        source:             'lead_intake_form',
+      };
+
+      // GA4 event
+      if (typeof gtag === 'function') {
+        gtag('event', 'lead_intake_submit', {
+          event_category: 'lead_intake',
+          event_label: payload.monthly_lead_volume,
+        });
+      }
+
+      // Show form → loading
+      document.getElementById('form-section').classList.add('hidden');
+      document.getElementById('loading-section').classList.remove('hidden');
+      document.getElementById('loading-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      animateSteps();
+
+      // Fire webhook
+      var timeoutId = setTimeout(function() {
+        // Fallback: score locally if webhook hasn't responded in 6s
+        var grade = scoreLeadLocally(payload.monthly_lead_volume);
+        if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
+        else { showStandard(grade); }
+      }, 6000);
+
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      .then(function(res) {
+        clearTimeout(timeoutId);
+        if (!res.ok) { throw new Error('Webhook returned ' + res.status); }
+        return res.json().catch(function() { return {}; });
+      })
+      .then(function(data) {
+        // Expect { "grade": "A"|"B"|"C"|"D" } from Make.com
+        var grade = (data && data.grade && /^[A-Da-d]$/.test(data.grade))
+          ? data.grade.toUpperCase()
+          : scoreLeadLocally(payload.monthly_lead_volume);
+
+        // Minimum 3-second "WOW" moment before revealing result
+        var elapsed = Date.now() - submitTime;
+        var remaining = Math.max(0, 3000 - elapsed);
+        setTimeout(function() {
+          if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
+          else { showStandard(grade); }
+        }, remaining);
+      })
+      .catch(function() {
+        clearTimeout(timeoutId);
+        // Network error — fall back to local scoring
+        var grade = scoreLeadLocally(payload.monthly_lead_volume);
+        setTimeout(function() {
+          if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
+          else { showStandard(grade); }
+        }, Math.max(0, 3000 - (Date.now() - submitTime)));
+      });
+    });
+
+    // Capture submit time for minimum loading duration
+    var submitTime;
+    form.addEventListener('submit', function() { submitTime = Date.now(); }, true);
+  </script>
+
+</body>
+</html>
