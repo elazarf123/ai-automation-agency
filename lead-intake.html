@@ -467,6 +467,40 @@
         </div>
       </div>
 
+      <!-- ── STEP 3D: THANK YOU (timeout fallback) ── -->
+      <div id="result-thankyou" class="hidden slide-up">
+        <div class="bg-white rounded-2xl shadow-sm border border-brand-200 p-8 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-brand-100 flex items-center justify-center mx-auto mb-4">
+            <span class="text-3xl">🙏</span>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 mb-2">Thank You — We've Got You!</h2>
+          <p class="text-gray-500 text-sm mb-5 max-w-xs mx-auto leading-relaxed">
+            We've received your details and will personally review your pipeline and reply within <strong class="text-gray-700">24 hours</strong>.
+          </p>
+          <div class="bg-brand-50 border border-brand-100 rounded-xl p-4 mb-6 text-sm text-left">
+            <p class="font-semibold text-brand-700 mb-2">⏳ While you wait, explore what's possible:</p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 font-bold mt-0.5">→</span>
+                <a href="case-study-lead-qualification.html" class="text-brand-600 hover:underline font-medium">
+                  How TechFlow cut cost-per-lead by 86% in 90 days
+                </a>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 font-bold mt-0.5">→</span>
+                <a href="testimonials.html" class="text-brand-600 hover:underline font-medium">
+                  Browse all client case studies
+                </a>
+              </li>
+            </ul>
+          </div>
+          <p class="text-xs text-gray-400">
+            Or reach us directly at
+            <a href="mailto:elazar@automateiq.io" class="text-brand-600 hover:underline">elazar@automateiq.io</a>
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -600,17 +634,22 @@
     })();
 
     // ── Make.com webhook URL ──────────────────────────────────────────
-    // Replace this with your actual Make.com webhook URL.
-    // The webhook should respond with JSON: { "grade": "A" } | "B" | "C" | "D"
+    // Replace with your actual Make.com webhook URL.
+    // The webhook must respond with JSON: { "grade": "A" | "B" | "C" }
     var WEBHOOK_URL = 'https://hook.eu1.make.com/YOUR_WEBHOOK_ID';
 
-    // ── Client-side lead scoring fallback ────────────────────────────
-    // Used when the webhook does not return a grade (e.g. network error).
-    function scoreLeadLocally(volume) {
-      if (volume === '500_plus') return 'A';
-      if (volume === '200_500') return 'B';
-      if (volume === '50_200')  return 'C';
-      return 'D';
+    // ── Local lead log (timeout fallback) ────────────────────────────
+    // Persists the payload to localStorage so no lead data is lost.
+    function logLeadLocally(payload) {
+      try {
+        var key = 'ai_lead_log';
+        var existing = JSON.parse(localStorage.getItem(key) || '[]');
+        existing.push(Object.assign({}, payload, { logged_at: new Date().toISOString() }));
+        localStorage.setItem(key, JSON.stringify(existing));
+      } catch (e) {
+        // localStorage may be unavailable (private browsing, storage full, etc.)
+        console.warn('AutomateIQ: could not log lead locally', e);
+      }
     }
 
     // ── AI loading step animation ─────────────────────────────────────
@@ -629,8 +668,10 @@
       });
     }
 
-    // ── Show result sections ──────────────────────────────────────────
-    function showHighPriority(grade) {
+    // ── UI state functions ────────────────────────────────────────────
+
+    // Grade A or B: show Calendly booking embed
+    function showCalendly(grade) {
       var badge = document.getElementById('grade-badge');
       badge.textContent = 'Grade ' + grade;
       badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-bold border ' +
@@ -641,20 +682,23 @@
       document.getElementById('result-high').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function showStandard(grade) {
+    // Grade C: nurture path — surfaces case studies
+    function showNurtureMessage() {
       var badge = document.getElementById('grade-badge-std');
-      badge.textContent = 'Grade ' + grade;
-      badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-bold border ' +
-        (grade === 'C' ? 'grade-c' : 'grade-d');
+      badge.textContent = 'Grade C';
+      badge.className = 'inline-block px-3 py-0.5 rounded-full text-xs font-bold border grade-c';
 
       document.getElementById('loading-section').classList.add('hidden');
       document.getElementById('result-standard').classList.remove('hidden');
       document.getElementById('result-standard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function showError() {
+    // Timeout fallback: thank the lead and log data locally
+    function showThankYou(payload) {
+      logLeadLocally(payload);
       document.getElementById('loading-section').classList.add('hidden');
-      document.getElementById('result-error').classList.remove('hidden');
+      document.getElementById('result-thankyou').classList.remove('hidden');
+      document.getElementById('result-thankyou').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // ── Form validation helpers ───────────────────────────────────────
@@ -684,22 +728,22 @@
       // Capture submit time for minimum loading duration
       var submitTime = Date.now();
 
-      // Collect payload
+      // Build payload with exact keys expected by the Make.com scenario
       var payload = {
-        name:               document.getElementById('li-name').value.trim(),
-        email:              document.getElementById('li-email').value.trim(),
-        company_url:        document.getElementById('li-company-url').value.trim(),
-        monthly_lead_volume:document.getElementById('li-lead-volume').value,
-        current_crm:        document.getElementById('li-crm').value,
-        submitted_at:       new Date().toISOString(),
-        source:             'lead_intake_form',
+        full_name:   document.getElementById('li-name').value.trim(),
+        email:       document.getElementById('li-email').value.trim(),
+        company_url: document.getElementById('li-company-url').value.trim(),
+        lead_volume: document.getElementById('li-lead-volume').value,
+        crm_system:  document.getElementById('li-crm').value,
+        submitted_at: new Date().toISOString(),
+        source:       'lead_intake_form',
       };
 
       // GA4 event
       if (typeof gtag === 'function') {
         gtag('event', 'lead_intake_submit', {
           event_category: 'lead_intake',
-          event_label: payload.monthly_lead_volume,
+          event_label: payload.lead_volume,
         });
       }
 
@@ -709,21 +753,24 @@
       document.getElementById('loading-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
       animateSteps();
 
-      // Helper: resolve result after ensuring minimum loading duration
+      // Helper: resolve a webhook grade after the minimum 3-second loading experience
       function resolveGrade(grade) {
         var elapsed = Date.now() - submitTime;
         var remaining = Math.max(0, 3000 - elapsed);
         setTimeout(function() {
-          if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
-          else { showStandard(grade); }
+          if (grade === 'A' || grade === 'B') {
+            showCalendly(grade);
+          } else {
+            // Grade C, or any unexpected value from the webhook
+            showNurtureMessage();
+          }
         }, remaining);
       }
 
-      // Fire webhook
+      // 5-second timeout → Thank You path (logs lead locally)
       var timeoutId = setTimeout(function() {
-        // Fallback: score locally if webhook hasn't responded in 6s
-        resolveGrade(scoreLeadLocally(payload.monthly_lead_volume));
-      }, 6000);
+        showThankYou(payload);
+      }, 5000);
 
       fetch(WEBHOOK_URL, {
         method: 'POST',
@@ -736,16 +783,16 @@
         return res.json().catch(function() { return {}; });
       })
       .then(function(data) {
-        // Expect { "grade": "A"|"B"|"C"|"D" } from Make.com
-        var grade = (data && data.grade && /^[A-Da-d]$/.test(data.grade))
+        // Expect { "grade": "A" | "B" | "C" } from Make.com
+        var grade = (data && data.grade && /^[A-Ca-c]$/.test(data.grade))
           ? data.grade.toUpperCase()
-          : scoreLeadLocally(payload.monthly_lead_volume);
+          : 'C'; // treat unexpected / missing grade as nurture
         resolveGrade(grade);
       })
       .catch(function() {
         clearTimeout(timeoutId);
-        // Network error — fall back to local scoring
-        resolveGrade(scoreLeadLocally(payload.monthly_lead_volume));
+        // Network or parse error — show Thank You and log locally
+        showThankYou(payload);
       });
     });
   </script>
