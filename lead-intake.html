@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Lead Intake — Get Your Free Lead Audit | AutomateIQ</title>
-  <meta name="description" content="Tell us about your lead pipeline. Our AI will analyse your profile instantly and show you exactly how much time and money you could save with AI lead qualification." />
+  <meta name="description" content="Tell us about your lead pipeline. Our AI will analyze your profile instantly and show you exactly how much time and money you could save with AI lead qualification." />
   <link rel="canonical" href="https://automateiq.io/lead-intake.html" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236c3cff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='13'>AI</text></svg>" />
   <!-- Open Graph -->
@@ -17,7 +17,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Lead Intake — AutomateIQ" />
-  <meta name="twitter:description" content="Answer 5 quick questions and let AI analyse your lead pipeline for free." />
+  <meta name="twitter:description" content="Answer 5 quick questions and let AI analyze your lead pipeline for free." />
   <meta name="twitter:image" content="https://automateiq.io/og-image.png" />
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQRY0FLNXZ"></script>
@@ -181,7 +181,7 @@
         <span class="gradient-text">Lead Process Is Costing You</span>
       </h1>
       <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-        Answer 5 quick questions. Our AI will analyse your pipeline profile in seconds and tell you exactly how much time and money you could save — just like we did for TechFlow (<strong class="text-white">86% cost reduction, 18 hrs saved/week</strong>).
+        Answer 5 quick questions. Our AI will analyze your pipeline profile in seconds and tell you exactly how much time and money you could save — just like we did for TechFlow (<strong class="text-white">86% cost reduction, 18 hrs saved/week</strong>).
       </p>
       <!-- Social proof strip -->
       <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
@@ -309,7 +309,7 @@
           </div>
 
           <h2 class="text-xl font-bold text-gray-900 mb-3">
-            AI is analysing your profile
+            AI is analyzing your profile
             <span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>
           </h2>
           <p class="text-gray-500 text-sm max-w-xs mx-auto mb-8">
@@ -480,7 +480,7 @@
             <span class="text-brand-600 font-bold text-lg">1</span>
           </div>
           <h3 class="font-bold text-gray-900 mb-2 text-sm">Instant AI Score</h3>
-          <p class="text-gray-500 text-xs leading-relaxed">Our AI analyses your profile and assigns a priority grade in seconds — no waiting for a sales rep.</p>
+          <p class="text-gray-500 text-xs leading-relaxed">Our AI analyzes your profile and assigns a priority grade in seconds — no waiting for a sales rep.</p>
         </div>
         <div class="bg-gray-50 rounded-2xl p-6 text-center fade-in">
           <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-3">
@@ -681,6 +681,9 @@
 
       if (!ok) return;
 
+      // Capture submit time for minimum loading duration
+      var submitTime = Date.now();
+
       // Collect payload
       var payload = {
         name:               document.getElementById('li-name').value.trim(),
@@ -706,12 +709,20 @@
       document.getElementById('loading-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
       animateSteps();
 
+      // Helper: resolve result after ensuring minimum loading duration
+      function resolveGrade(grade) {
+        var elapsed = Date.now() - submitTime;
+        var remaining = Math.max(0, 3000 - elapsed);
+        setTimeout(function() {
+          if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
+          else { showStandard(grade); }
+        }, remaining);
+      }
+
       // Fire webhook
       var timeoutId = setTimeout(function() {
         // Fallback: score locally if webhook hasn't responded in 6s
-        var grade = scoreLeadLocally(payload.monthly_lead_volume);
-        if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
-        else { showStandard(grade); }
+        resolveGrade(scoreLeadLocally(payload.monthly_lead_volume));
       }, 6000);
 
       fetch(WEBHOOK_URL, {
@@ -729,29 +740,14 @@
         var grade = (data && data.grade && /^[A-Da-d]$/.test(data.grade))
           ? data.grade.toUpperCase()
           : scoreLeadLocally(payload.monthly_lead_volume);
-
-        // Minimum 3-second "WOW" moment before revealing result
-        var elapsed = Date.now() - submitTime;
-        var remaining = Math.max(0, 3000 - elapsed);
-        setTimeout(function() {
-          if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
-          else { showStandard(grade); }
-        }, remaining);
+        resolveGrade(grade);
       })
       .catch(function() {
         clearTimeout(timeoutId);
         // Network error — fall back to local scoring
-        var grade = scoreLeadLocally(payload.monthly_lead_volume);
-        setTimeout(function() {
-          if (grade === 'A' || grade === 'B') { showHighPriority(grade); }
-          else { showStandard(grade); }
-        }, Math.max(0, 3000 - (Date.now() - submitTime)));
+        resolveGrade(scoreLeadLocally(payload.monthly_lead_volume));
       });
     });
-
-    // Capture submit time for minimum loading duration
-    var submitTime;
-    form.addEventListener('submit', function() { submitTime = Date.now(); }, true);
   </script>
 
 </body>
