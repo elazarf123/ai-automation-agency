@@ -262,6 +262,26 @@
     }
     .dark-input::placeholder { color: rgba(255,255,255,0.3); }
     .dark-input:focus { outline: none; box-shadow: 0 0 0 2px rgba(108,60,255,0.5); }
+
+    /* ── AI SUCCESS PORTAL ──────────────────────────────────────── */
+    @keyframes ai-pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    @keyframes ai-fade-up { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    .ai-portal {
+      background: rgba(11, 11, 23, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(108, 60, 255, 0.5);
+      box-shadow: 0 8px 48px rgba(108, 60, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .ai-pulse { animation: ai-pulse 1.6s ease-in-out infinite; }
+    .ai-fade-up { animation: ai-fade-up 0.65s ease forwards; }
+    #ai-loading-text, #ai-loading-text-c { transition: opacity 0.2s ease; }
+    .ai-cta-btn {
+      background: linear-gradient(135deg, #6c3cff 0%, #7c4fff 100%);
+      box-shadow: 0 0 32px rgba(108,60,255,0.55);
+      transition: box-shadow 0.25s ease, transform 0.15s ease;
+    }
+    .ai-cta-btn:hover { box-shadow: 0 0 48px rgba(108,60,255,0.75); transform: translateY(-1px); }
   </style>
   <script>
     /* Run before render to avoid layout shift */
@@ -1095,6 +1115,26 @@
             </button>
             <p id="cf-success" class="hidden text-center text-sm text-green-400 font-medium">✓ Message sent! I'll get back to you within 24 hours.</p>
           </form>
+
+          <!-- AI Success Portal (revealed on form submit) -->
+          <div id="ai-success-portal" class="hidden ai-portal rounded-2xl p-8 flex flex-col items-center justify-center text-center gap-5" style="min-height:260px;">
+            <div id="ai-loading-state">
+              <div class="text-3xl mb-3">🤖</div>
+              <div class="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <p id="ai-loading-text" class="ai-pulse text-purple-300 text-sm font-semibold max-w-xs mx-auto">AI Analyzer is reviewing your business profile…</p>
+            </div>
+            <div id="ai-complete-state" class="hidden flex-col items-center gap-4 ai-fade-up">
+              <div class="text-3xl">✅</div>
+              <p class="text-green-400 text-xs font-extrabold uppercase tracking-widest">Analysis Complete</p>
+              <p class="text-white text-base font-bold leading-snug">You are a strong candidate for<br/>high-impact automation.</p>
+              <a href="https://calendly.com/elazarferrer" target="_blank" rel="noopener"
+                 class="ai-cta-btn inline-flex items-center gap-2 text-white font-extrabold text-sm px-8 py-4 rounded-full">
+                Step 2: Book Your Priority Audit →
+              </a>
+              <p class="text-gray-500 text-xs">🔒 Secure scheduling — 60 seconds</p>
+            </div>
+          </div>
+
           <p class="mt-4 text-xs text-gray-500 text-center">
             Or email directly:
             <a href="mailto:elazar@automateiq.io" class="text-brand-400 hover:underline">elazar@automateiq.io</a>
@@ -1211,19 +1251,48 @@
     }, { threshold: 0.5 });
     counterEls.forEach(function(el) { counterObserver.observe(el); });
 
-    // ── Contact form success handling ─────────────────────────────
+    // ── Contact form — AI Success Portal ─────────────────────────
     var contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Fire-and-forget Formspree submission in the background
         var action = contactForm.getAttribute('action') || '';
-        // If Formspree is not yet configured (action doesn't end with a real lowercase ID),
-        // intercept the submit and show the success message as a preview.
-        if (!/\/f\/[a-z0-9]+$/.test(action)) {
-          e.preventDefault();
-          contactForm.style.display = 'none';
-          document.getElementById('cf-success').classList.remove('hidden');
+        if (/\/f\/[a-z0-9]+$/.test(action)) {
+          fetch(action, { method: 'POST', body: new FormData(contactForm), headers: { Accept: 'application/json' } });
         }
-        // When Formspree is configured with a real form ID, the form submits normally.
+
+        // Immediately swap form for the AI analysis portal
+        contactForm.style.display = 'none';
+        var portal = document.getElementById('ai-success-portal');
+        portal.classList.remove('hidden');
+
+        // Cycle processing messages
+        var messages = [
+          'AI Analyzer is reviewing your business profile…',
+          'Checking CRM compatibility…',
+          'Scoring lead volume and conversion signals…'
+        ];
+        var msgEl = document.getElementById('ai-loading-text');
+        var idx = 0;
+        var cycleInterval = setInterval(function() {
+          idx = (idx + 1) % messages.length;
+          msgEl.style.opacity = '0';
+          setTimeout(function() { msgEl.textContent = messages[idx]; msgEl.style.opacity = '1'; }, 200);
+        }, 1000);
+
+        // After 3 s: reveal the "Analysis Complete" state
+        setTimeout(function() {
+          clearInterval(cycleInterval);
+          document.getElementById('ai-loading-state').classList.add('hidden');
+          var complete = document.getElementById('ai-complete-state');
+          complete.classList.remove('hidden');
+          complete.style.display = 'flex';
+          if (typeof gtag === 'function') {
+            gtag('event', 'form_submit', { event_category: 'contact', event_label: 'index_page' });
+          }
+        }, 3000);
       });
     }
 
