@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founding Agent Program — AutomateIQ</title>
+<meta name="description" content="Join AutomateIQ's Founding Agent Program. 3 spots. 50% off for 12 months. Custom-built AI lead response for real estate agents.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F1419;
+    --ink-soft: #2B3440;
+    --paper: #FAF7F2;
+    --paper-warm: #F3EEE5;
+    --accent: #C85A3B;
+    --accent-dark: #A8462A;
+    --gold: #B89968;
+    --border: #E8E2D6;
+    --muted: #6B7280;
+    --green: #3B7A57;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 247, 242, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 16px 0;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .back-link {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: 'FOUNDING';
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Fraunces', serif;
+    font-size: 340px;
+    font-weight: 700;
+    color: rgba(200, 90, 59, 0.04);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    z-index: -1;
+    white-space: nowrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--paper);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 700px;
+    margin: 0 auto 16px;
+  }
+
+  .hero-spots {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 22px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 24px;
+  }
+
+  .hero-spots-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(200, 90, 59, 0.3);
+  }
+
+  /* VALUE COMPARISON */
+  .value-section {
+    padding: 80px 0;
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: stretch;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 800px) {
+    .value-grid { grid-template-columns: 1fr; }
+    .value-vs { display: none; }
+  }
+
+  .value-card {
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--paper);
+  }
+
+  .value-card.founding {
+    border: 2px solid var(--ink);
+    background: var(--paper-warm);
+    position: relative;
+  }
+
+  .value-card.founding::after {
+    content: 'YOU SAVE $12,000';
+    position: absolute;
+    top: -14px;
+    right: 20px;
+    background: var(--accent);
+    color: var(--paper);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .value-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .value-price {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  .value-price .strike {
+    text-decoration: line-through;
+    color: var(--muted);
+    font-size: 32px;
+    margin-right: 8px;
+    font-weight: 400;
+  }
+
+  .value-period {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .value-features {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .value-features li {
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    color: var(--ink-soft);
+  }
+
+  .value-features li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .value-card.founding .value-features li::before {
+    color: var(--accent);
+  }
+
+  .value-vs {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-style: italic;
+    color: var(--accent);
+    align-self: center;
+  }
+
+  /* FIT CHECK */
+  .fit-check {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 0;
+  }
+
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 900px;
+    margin: 40px auto 0;
+  }
+
+  @media (max-width: 700px) {
+    .fit-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .fit-col h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .fit-col.good h3 { color: var(--gold); }
+  .fit-col.bad h3 { color: #9a9a9a; }
+
+  .fit-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .fit-col li {
+    padding: 14px 0;
+    border-top: 1px solid rgba(250, 247, 242, 0.1);
+    font-size: 15px;
+    line-height: 1.5;
+    display: flex;
+    gap: 12px;
+    color: rgba(250, 247, 242, 0.85);
+  }
+
+  .fit-col.good li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .fit-col.bad li::before {
+    content: '✗';
+    color: #666;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    padding: 80px 0;
+    background: var(--paper-warm);
+  }
+
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    display: block;
+    text-align: center;
+  }
+
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  h2.section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto 60px;
+  }
+
+  .timeline-list {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline-list::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: var(--accent);
+    opacity: 0.3;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .timeline-dot {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    position: relative;
+    z-index: 2;
+  }
+
+  .timeline-content h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .timeline-content p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .timeline-when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  /* APPLICATION FORM */
+  .application {
+    padding: 100px 0;
+  }
+
+  .form-container {
+    max-width: 680px;
+    margin: 48px auto 0;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 24px;
+    padding: 48px;
+  }
+
+  @media (max-width: 600px) {
+    .form-container { padding: 32px 24px; }
+  }
+
+  .form-row {
+    margin-bottom: 24px;
+  }
+
+  .form-row label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .form-row input,
+  .form-row textarea,
+  .form-row select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    background: var(--paper-warm);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .form-row input:focus,
+  .form-row textarea:focus,
+  .form-row select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+
+  .form-row textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 500px) {
+    .form-row-split { grid-template-columns: 1fr; }
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 18px 36px;
+    background: var(--accent);
+    color: var(--paper);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 999px;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn:hover {
+    background: var(--accent-dark);
+  }
+
+  .form-footer {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  /* SUCCESS MESSAGE */
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .success-message.show {
+    display: block;
+  }
+
+  .success-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--green);
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .success-title {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .success-text {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(250, 247, 242, 0.5);
+    padding: 40px 0 32px;
+    font-size: 13px;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-inner a {
+    color: rgba(250, 247, 242, 0.7);
+    text-decoration: none;
+    margin-left: 24px;
+  }
+
+  .footer-inner a:hover { color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-inner a { margin: 0 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">Automate<span>IQ</span></a>
+    <a href="index.html" class="back-link">← Back to home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="badge">Limited to 3 Real Estate Agents</div>
+    <h1>Be one of the <em>first 3 agents</em> to run your business on AI.</h1>
+    <p class="hero-sub">A custom-built lead response system, deeply discounted, built in partnership with the founder. In exchange — your honest feedback and a case study after 60 days.</p>
+    <div class="hero-spots">
+      <div class="hero-spots-dot"></div>
+      3 SPOTS · 3 REMAINING
+    </div>
+  </div>
+</section>
+
+<!-- VALUE COMPARISON -->
+<section class="value-section">
+  <div class="container">
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-label">Standard Rate</div>
+        <div class="value-price">$1,997<span style="font-size:18px;color:var(--muted);">/mo</span></div>
+        <div class="value-period">Available after founding cohort closes</div>
+        <ul class="value-features">
+          <li>Custom-built AI system</li>
+          <li>CRM integration</li>
+          <li>Ongoing monitoring</li>
+          <li>Email support</li>
+        </ul>
+      </div>
+
+      <div class="value-vs">vs</div>
+
+      <div class="value-card founding">
+        <div class="value-label" style="color: var(--accent);">Founding Agent Rate</div>
+        <div class="value-price"><span class="strike">$1,997</span>$997<span style="font-size:18px;color:var(--muted);">/mo</span></div>
+        <div class="value-period">Locked in for life — never increases</div>
+        <ul class="value-features">
+          <li>Everything in standard</li>
+          <li>Direct founder access (not a rep)</li>
+          <li>30-day performance guarantee</li>
+          <li>Priority build — live in 14 days</li>
+          <li>Lifetime 50% discount lock-in</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT CHECK -->
+<section class="fit-check">
+  <div class="container">
+    <span class="section-eyebrow" style="color: var(--gold);">Honest Fit Check</span>
+    <h2 class="section-title" style="color: var(--paper);">Is this <em>right for you?</em></h2>
+    <p class="section-subtitle" style="color: rgba(250, 247, 242, 0.6);">This isn't for everyone. Be honest with yourself before applying.</p>
+
+    <div class="fit-grid">
+      <div class="fit-col good">
+        <h3>✓ This is for you if…</h3>
+        <ul>
+          <li>You get 20+ inbound leads/month and can't respond fast enough</li>
+          <li>You've paid for leads that went cold because you were busy</li>
+          <li>You use a CRM like Follow Up Boss, kvCORE, or Chime</li>
+          <li>You're open to being a partner, not just a customer</li>
+          <li>You'll give honest feedback as the system is refined</li>
+          <li>You want to be early to AI before every agent has it</li>
+        </ul>
+      </div>
+      <div class="fit-col bad">
+        <h3>✗ Skip this if…</h3>
+        <ul>
+          <li>You get less than 10 leads/month — not enough volume yet</li>
+          <li>You want full autonomy with zero human oversight</li>
+          <li>You're not willing to integrate with your CRM</li>
+          <li>You expect a fully polished, "done" product on day one</li>
+          <li>You won't give feedback during the 60-day partnership</li>
+          <li>You just want the cheapest option with no involvement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="container">
+    <span class="section-eyebrow">What Happens Next</span>
+    <h2 class="section-title">From application to <em>first showing booked.</em></h2>
+    <p class="section-subtitle">14 days. Here's exactly how it goes.</p>
+
+    <div class="timeline-list">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <span class="timeline-when">Day 0 · Today</span>
+          <h4>Apply Below</h4>
+          <p>Fill out the form. Takes 3 minutes. I personally review every application — not a bot, not an assistant.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <span class="timeline-when">Day 1–2 · Discovery Call</span>
+          <h4>30-Minute Audit Call</h4>
+          <p>We talk through your current lead flow, CRM, biggest pain points, and what "success" looks like for you. If it's a mutual fit, we move forward.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <span class="timeline-when">Day 3 · Kickoff</span>
+          <h4>Sign + Share Access</h4>
+          <p>Simple month-to-month agreement. You share CRM access, some sample listings, and how you like to talk to clients. We start building.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-content">
+          <span class="timeline-when">Day 4–10 · Build</span>
+          <h4>We Build Your System</h4>
+          <p>Custom AI tuned to your market, your voice, your price range. Full CRM integration. Testing with real (but anonymized) scenarios.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-content">
+          <span class="timeline-when">Day 11–13 · QA</span>
+          <h4>Live Testing Together</h4>
+          <p>We run the AI on real incoming leads with you on a call, watching. You approve every behavior before it handles anything alone.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">6</div>
+        <div class="timeline-content">
+          <span class="timeline-when">Day 14 · Launch</span>
+          <h4>Live. Full Auto.</h4>
+          <p>Every inbound lead from that moment gets a 60-second response. First showing usually booked within the first week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="application" id="apply">
+  <div class="container">
+    <span class="section-eyebrow">Apply Now</span>
+    <h2 class="section-title">Takes <em>3 minutes.</em></h2>
+    <p class="section-subtitle">I personally read every application. No bots, no gatekeepers.</p>
+
+    <div class="form-container" id="form-wrap">
+      <form id="application-form" onsubmit="handleSubmit(event)">
+        <div class="form-row-split">
+          <div class="form-row">
+            <label>Your Name</label>
+            <input type="text" name="name" required placeholder="Sarah Johnson">
+          </div>
+          <div class="form-row">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="sarah@realty.com">
+          </div>
+        </div>
+
+        <div class="form-row-split">
+          <div class="form-row">
+            <label>Phone</label>
+            <input type="tel" name="phone" required placeholder="(555) 555-5555">
+          </div>
+          <div class="form-row">
+            <label>Brokerage / Team</label>
+            <input type="text" name="brokerage" placeholder="Keller Williams, Compass, solo, etc.">
+          </div>
+        </div>
+
+        <div class="form-row-split">
+          <div class="form-row">
+            <label>City / Market</label>
+            <input type="text" name="market" required placeholder="Austin, TX">
+          </div>
+          <div class="form-row">
+            <label>Leads Per Month (approx.)</label>
+            <select name="leads" required>
+              <option value="">Select...</option>
+              <option>Under 10</option>
+              <option>10–25</option>
+              <option>25–50</option>
+              <option>50–100</option>
+              <option>100+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>What CRM do you use?</label>
+          <input type="text" name="crm" placeholder="Follow Up Boss, kvCORE, Chime, HubSpot, etc.">
+        </div>
+
+        <div class="form-row">
+          <label>Where do most of your leads come from?</label>
+          <input type="text" name="source" placeholder="Zillow, Realtor.com, Facebook ads, website, referrals...">
+        </div>
+
+        <div class="form-row">
+          <label>What's the #1 thing eating your time right now?</label>
+          <textarea name="pain" placeholder="Be specific. Is it following up with cold leads? Responding fast enough? Qualifying buyer intent? The more honest you are, the better I can help."></textarea>
+        </div>
+
+        <div class="form-row">
+          <label>Why do you want to be a founding agent?</label>
+          <textarea name="why" placeholder="One or two sentences. Be real."></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Application →</button>
+
+        <div class="form-footer">
+          I'll personally review your application within 24 hours. If it's a fit, I'll reply with a link to book our 30-minute audit call.
+        </div>
+      </form>
+
+      <div class="success-message" id="success">
+        <div class="success-icon">✓</div>
+        <div class="success-title">Application received.</div>
+        <div class="success-text">I'll personally review it in the next 24 hours and get back to you with next steps. If we're a mutual fit, I'll send you a link to book our 30-minute audit call.<br><br>In the meantime — keep an eye on your inbox. And thanks for trusting me with this.</div>
+        <div style="font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink-soft);">— Elazar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 AutomateIQ · Built by Elazar Ferrer</div>
+    <div>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:elazar@automateiq.io">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('application-form');
+    const success = document.getElementById('success');
+
+    // Build email body
+    const formData = new FormData(form);
+    let body = 'New Founding Agent Application:\n\n';
+    for (let [key, value] of formData.entries()) {
+      body += `${key.toUpperCase()}: ${value}\n\n`;
+    }
+
+    // Open mailto as fallback — in production, this would hit your backend
+    const mailto = `mailto:elazar@automateiq.io?subject=Founding Agent Application - ${formData.get('name')}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+
+    // Show success message
+    form.style.display = 'none';
+    success.classList.add('show');
+  }
+</script>
+</body>
+</html>
